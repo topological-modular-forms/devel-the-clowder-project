@@ -1,0 +1,587 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Introduction}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some general information about the Clowder Project.
+
+\ChapterTableOfContents
+
+\section{Introduction}\label{section-introduction}
+\subsection{Project Description and Goals}\label{subsection-project-description-and-goals}
+In short, the Clowder Project is an online reference work and wiki for category theory and mathematics that aims to essentially become a Stacks Project for category theory.
+
+The project arose from a desire to improve upon a number of issues with the existing category theory literature, as well as fill several gaps in it.
+
+In this section, we list and discuss the goals of the Clowder Project.
+\subsubsection{Provide a Unified and Complete Reference for Category Theory}\label{subsubsection-provide-a-unified-and-complete-reference-for-category-theory}
+The category theory literature is at times rather fragmented, and often it takes a long while for book-long treatments on a given subject to appear.
+
+For example, although the theory of bicategories dates back to the late 1960s, it was not until 2020 that the subject would receive its first textbook in the topic, namely \cite{2-categories-book}.
+
+The Clowder Project aims to bridge this gap, providing a complete overview of the foundational material on category theory (see also \cref{subsection-content-and-scope}).
+\subsubsection{Gather Hard to Find Results}\label{subsubsection-gather-hard-to-find-results}
+As an extension of the previous goal, the Clowder Project also aims to gather in a single place results that are hard to find in the literature. These tend to be recorded only on original sources, which often means papers, notes or theses from the 1970s.
+
+Since the Clowder Project is organized as a wiki, it becomes rather easy to search and find such results, as one merely needs to go to the page for a given concept and then look at the properties listed there.
+\subsubsection{Elaborate on Details That Are Often Left Out}\label{subsubsection-elaborate-on-details-that-are-often-left-out}
+Another goal of the Clowder Project is to include all kinds of details and intuitions that often don't make their way into textbooks, papers, monographs, etc.
+
+For instance, one sometimes finds claims that a given diagram commutes and that it is \say{easy} to fill in the details. This also tends to happen particularly when the details are rather unwieldy.
+
+One of the goals of the Clowder Project is to provide such proofs in great detail, including discussions of technical results, even when these are indeed \say{obvious}.
+\subsubsection{Homogenize Conventions, Notation, and Terminology}\label{subsubsection-homogenize-conventions-notation-and-terminology}
+Another issue with practice in the field is that there are often a number of conflicting conventions, notations, and terminology.
+
+Being organized as a comprehensive and encyclopedic wiki, the Clowder Project tries to homogenize these conventions, notations, and terminology.
+\subsubsection{Fill Gaps in the Category Theory Literature}\label{subsubsection-fill-gaps-in-the-category-theory-literature}
+There are quite a few significant gaps in the category theory literature, some of which we hope to fill with the Clowder Project. For a list of (some of) these gaps, see \cref{subsection-list-of-gaps-in-the-category-theory-literature}.
+\subsubsection{Provide a Citable Reference for All Kinds of Results}\label{subsubsection-provide-a-citable-reference-for-all-kinds-of-results}
+It is a common situation to require a well-known result for a paper. Although proving it might be straightforward, it is often more convenient to cite a reference instead. Finding such a reference, however, may be hard and/or time-consuming.
+
+With its encyclopedic nature, the Clowder Project hopes to serve as that convenient reference.
+\subsection{Navigating the Clowder Project}\label{subsection-navigating-the-clowder-project}
+Hopefully, it should be intuitive to navigate through the web version of project. Nevertheless, here we mention a couple things that might be useful to know.
+\subsubsection{Preferences}\label{subsubsection-preferences}
+You can change the font of the site, the style of the PDFs, as well as turn on dark mode by clicking the gear button located at the top right corner of the page.
+\subsubsection{Large Diagrams and the Zoom in Feature}\label{subsubsection-large-diagrams-and-the-zoom-in-feature}
+This work features many diagrams that are unfortunately a bit too large to be comfortably legible in their native size.
+
+To compensate for this, it's possible to click on them to expand their size by 200\%.
+
+In addition, you may also right-click on diagrams and then select \say{Open image in new tab} to allow for even higher amounts of zoom.
+\subsubsection{PDF Styles}\label{subsubsection-pdf-styles}
+The PDFs for each chapter as well as for the whole book are generated using twelve different styles, as summarised in the following table:
+\begingroup%
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+    \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+        \textcolor{white}{\textbf{Typeface}} & \textcolor{white}{\textbf{Theorem Environments}}\\\hline\rowcolor{backgroundColor}
+        Alegreya Sans                        & \code{tcbthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Alegreya                             & \code{tcbthm}                                   \\\rowcolor{backgroundColor}
+        EB Garamond                          & \code{tcbthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Crimson Pro                          & \code{tcbthm}                                   \\\rowcolor{backgroundColor}
+        XCharter                             & \code{tcbthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Computer Modern                      & \code{tcbthm}                                   \\\rowcolor{backgroundColor}
+        Alegreya Sans                        & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Alegreya                             & \code{amsthm}                                   \\\rowcolor{backgroundColor}
+        EB Garamond                          & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Crimson Pro                          & \code{amsthm}                                   \\\rowcolor{backgroundColor}
+        XCharter                             & \code{amsthm}                                   \\\rowcolor{black!05!backgroundColor}
+        Computer Modern                      & \code{amsthm}                                   \\\hline
+    \end{tabular}
+\end{center}
+\endgroup
+The default style uses Alegreya Sans and \code{tcbthm}.
+\subsection{Prerequisites/Assumed Background}\label{subsection-prerequisites-assumed-background}
+The Clowder Project assumes at least a background on basic category theory corresponding to e.g.\ \cite{category-theory-in-context}, as well as some comfort in working with category-theoretic notions.
+
+In particular, it should be viewed as a reference work/wiki, and \emph{not} as a textbook. This, however, doesn't mean it shouldn't be pedagogical. Indeed, a number of stylistic choices are made aiming to make the material as easily digestible as possible.
+
+For an outline of several introductory references for different topics in category theory, see \ChapterAGuideToTheLiterature.
+\subsection{Community Engagement, Contributions and Collaboration}\label{subsection-community-engagement-contributions-and-collaboration}
+All kinds of feedback and contributions to the Clowder Project are extremely welcome: pointing out typos, errors, historical remarks, references, layout of webpages, spelling errors, improvements to the overall structure, missing lemmas, etc.
+
+The Clowder Project has an \href{https://discord.gg/b98uG2MWgc}{official Discord server} in which people can ask questions, carry out discussions and give feedback. Please join it if you'd like to contribute to the Clowder Project. Alternatively, you may also reach out to the project maintainer at \href{mailto:emily.de.oliveira.santos.tmf@gmail.com}{\code{emily.de.oliveira.santos.tmf@gmail.com}}.
+\subsubsection{How to Contribute}\label{subsubsection-how-to-contribute}
+There's a number of ways to contribute to the Clowder Project, some of which will be detailed a bit below. However, please keep in mind that they are not just examples, and are most definitely not meant to be exhaustive.
+
+If there's another way in which you'd like to contribute, by all means feel free to drop by the project's Discord (or, alternatively, reach out to the project maintainer).
+\subsubsection{Ways to Contribute: Missing Proofs}\label{subsubsection-ways-to-contribute-missing-proofs}
+There is a large number of missing proofs in the project, ranging from trivial proofs to simple lemmas to more involved results.
+
+Missing proofs are listed in \cref{subsection-list-of-omitted-proofs}.
+
+\textbf{Note: }The following chapters are undergoing revision. If you're interested in contributing, please disregard them for now:
+\begin{itemize}
+    \item \ChapterRelations
+    \item \ChapterConstructionsWithRelations
+    \item \ChapterConditionsOnRelations
+    \item \ChapterCategories
+    \item \ChapterConstructionsWithMonoidalCategories
+    \item \ChapterTypesOfMorphismsInBicategories
+\end{itemize}
+\subsubsection{Ways to Contribute: Missing Examples}\label{subsubsection-ways-to-contribute-missing-examples}
+New examples to the Clowder Project are always welcome. These could be examples illustrating a new concept, examples showing why certain conditions are necessary in a given proof, counterexamples to be aware of, etc.
+
+Some examples which would be particularly nice to have in Clowder are listed in \cref{subsection-list-of-missing-examples}. Please do keep in mind however that \demph{all examples are welcome}, even if they fall outside the examples listed in \cref{subsection-list-of-missing-examples}.
+\subsubsection{Ways to Contribute: Questions}\label{subsubsection-ways-to-contribute-questions}
+A number of questions appear throughout the Clowder Project; tackling these would be an amazing way to contribute to the project.
+
+The questions appearing throughout the Clowder Project are listed in \cref{subsection-list-of-questions}.
+\subsection{Frequently Asked Questions}\label{subsection-frequently-asked-questions}
+\subsubsection{How does Clowder differ from the nLab?}\label{subsubsection-how-does-clowder-differ-from-the-nlab}
+Clowder is meant to be much more comprehensive than the nLab, which includes even filling a number of gaps in the category theory literature. Additionally, it also has a different set of goals and stylistic choices. For a more in-depth explanation, see \cref{subsection-project-description-and-goals}.
+\subsubsection{Why not just use the nLab instead?}\label{subsubsection-why-not-just-use-the-nlab-instead}
+There are a number of reasons why Clowder was built as a separate project, instead of e.g.\ just editing the nLab:
+\begin{enumerate}
+    \item\label{why-not-just-use-the-nlab-instead-curation}\SloganFont{Curation. }All content on Clowder is personally curated by the project maintainer. This ensures an even quality to everything in the project.
+    \item\label{why-not-just-use-the-nlab-instead-cohesion}\SloganFont{Cohesion. }As a consequence of \cref{why-not-just-use-the-nlab-instead-curation}, the Clowder Project ends up being much more cohesive than the nLab, having a clear and coherent organization, consistent notation and conventions, as well as a consistent style.
+    \item\label{why-not-just-use-the-nlab-instead-referenceability}\SloganFont{Referenceability. }Clowder employs Gerby's Tag system, meaning that every citable statement in Clowder (e.g.\ definitions, examples, constructions, propositions, remarks, even individual items in lists, etc.) carries a corresponding tag.
+
+        \indent This makes the project easy to cite and reference, since although the numbering of e.g.\ a given definition may change, its associated tag will forever be the same. See also \href{https://clowderproject.com/tags.html}{Clowder --- The Tag System}.
+    \item\label{why-not-just-use-the-nlab-instead-crowdsourcing-and-crowdfunding}\SloganFont{Crowdsourcing and Crowdfunding. }Clowder is meant to be a crowdfunded project in which the community can help directly finance its development. As a result, the project has a dedicated project maintainer whose role is to continuously take care of the project, coordinating contributions, developing infrastructure, and expanding the content of the project.
+    \item\label{why-not-just-use-the-nlab-instead-infraststructure}\SloganFont{Infrastructure. }The Clowder Project makes use of several very specific features which simply wouldn't be possible to implement in the nLab. This includes:
+        \begin{enumerate}
+            \item\label{why-not-just-use-the-nlab-instead-infraststructure-gerby-website}An elaborate \href{https://github.com/The-Clowder-Project/gerby-website}{fork} of \href{https://github.com/gerby-project/gerby-website}{\code{gerby-website}}, implementing a variety of new features and quality-of-life additions.
+            \item\label{why-not-just-use-the-nlab-instead-infraststructure-gerby}Another elaborate \href{https://github.com/The-Clowder-Project/plastex}{fork}, this time of \href{https://github.com/gerby-project/plastex}{Gerby} (which is itself a fork of \href{https://github.com/plastex/plastex}{plasTeX}), implement a number of similarly needed features for the website to work as intended.
+        \end{enumerate}
+        See \cref{subsubsection-gerby-and-the-tags-system} for a (slightly) more in-depth description of the features and additions that have been created specifically for Clowder.
+\end{enumerate}
+\subsection{Goodies}\label{subsection-goodies}
+In this section we list a few sample nice results and things from the Clowder Project.
+\subsubsection{General Utility}\label{subsubsection-goodies-general-utility}
+\begin{itemize}
+    \item \ChapterRef{\ChapterNotes, \cref{notes:section-tikz-code-for-commutative-diagrams}}{\cref{section-tikz-code-for-commutative-diagrams}} contains several \code{tikz-cd} snippets producing somewhat-hard-to-draw diagrams. Examples include cube, pentagon, and hexagon diagrams, as well as e.g.\ co/product diagrams with perfectly circular arrows.
+\end{itemize}
+\subsubsection{Set Theory Through a Categorical Lens}\label{subsubsection-goodies-set-theory-through-a-categorical-lens}
+Sets:
+\begin{itemize}
+    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-the-internal-hom-of-a-powerset}}{\cref{subsection-the-internal-hom-of-a-powerset}} contains a discussion of internal Homs in powersets viewed as categories.
+    \item More generally, \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-powersets}}{\cref{section-powersets}} discusses several properties of powersets that are analogous to those of presheaf categories.
+    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-the-adjoint-triple-f-star-f-minus-one-f-shriek}}{\cref{subsection-the-adjoint-triple-f-star-f-minus-one-f-shriek}} discusses the adjoint triple $f_{*}\dashv f^{-1}\dashv f_{!}$ between $\mathcal{P}(X)$ and $\mathcal{P}(Y)$ induced by a function $f\colon X\to Y$.
+    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:subsection-a-six-functor-formalism-for-sets}}{\cref{subsection-a-six-functor-formalism-for-sets}} constructs a kind of \say{six functor formalism for (power)sets}.
+    \item \ChapterMonoidalStructuresOnTheCategoryOfSets contains explicit proofs that product/coproduct of sets form a monoidal structure.
+    \item \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:subsection-the-universal-property-of-sets-times-pt}}{\cref{subsection-the-universal-property-of-sets-times-pt}} gives a completely 1-categorical proof of the universal property of $(\Sets,\times,\pt)$.
+\end{itemize}
+Pointed Sets:
+\begin{itemize}
+    \item \ChapterTensorProductsOfPointedSets constructs several tensor products of pointed sets, including a few unusual ones giving rise to skew monoidal structures on $\Sets_{*}$.
+    \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:subsection-the-universal-property-of-the-smash-product-of-pointed-sets}}{\cref{subsection-the-universal-property-of-the-smash-product-of-pointed-sets}} gives a completely 1-categorical proof of the universal property of $(\Sets_{*},\wedge,S^{0})$.
+    \item \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:comonoids-with-respect-to-the-smash-product-of-pointed-sets}}{\cref{comonoids-with-respect-to-the-smash-product-of-pointed-sets}} contains a description of comonoids in $\Sets_{*}$ with respect to $\wedge$.
+\end{itemize}
+Relations:
+\begin{itemize}
+    \item \ChapterRef{\ChapterRelations, \cref{relations:section-properties-of-the-2-category-of-relations}}{\cref{section-properties-of-the-2-category-of-relations}} contains a discussion of several properties of the 2-category of relations like descriptions of internal adjunctions and internal monads.
+    \item \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}} contains a discussion of two skew monoidal structures on the category $\eRel(A,B)$ of relations from a set $A$ to a set $B$.
+    \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}}{\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}} contains a description of left/right Kan extensions and lifts internal to the 2-category of relations.
+\end{itemize}
+\subsubsection{Category Theory}\label{subsubsection-goodies-category-theory}
+\begin{itemize}
+    \item \ChapterCategories contains a description of several properties of functors, including somewhat lesser known ones such as dominant functors or pseudoepic functors.
+\end{itemize}
+\section{Project Overview}\label{section-project-overview}
+\subsection{Content and Scope}\label{subsection-content-and-scope}
+In this section, we outline what content is expected to be covered in the Clowder Project.
+\subsubsection{Elementary Category Theory}\label{subsubsection-elementary-category-theory}
+First and foremost, the Clowder Project aims to cover the foundations of category theory. This comprises all the usual topics treated in basic textbooks in category theory, such as \cite{categories-for-the-working-mathematician} or \cite{category-theory-in-context}, like adjunctions, co/limits, Kan extensions, co/ends, monoidal categories, etc.
+\subsubsection{Variants of Category Theory}\label{subsubsection-variants-of-category-theory}
+Second, the Clowder Project aims to cover variants of category theory such as internal, fibred, or enriched category theory. The literature on these topics is often quite scattered and scarce, and so having a comprehensive discussion of them in Clowder aims to fill a large gap in the literature. See also \cref{gap-a-comprehensive-treatment-of-variants-of-category-theory}.
+\subsubsection{Higher Category Theory}\label{subsubsection-higher-category-theory}
+Third, a detailed presentation of the theories of bicategories and double categories is planned, along with \emph{some} material on tricategories.
+
+Bicategories are another topic for which the literature is rather scattered, and, for some topics, scarce. As mentioned in the introduction, only recently has a proper textbook on bicategories appeared, \cite{2-categories-book}. Moreover, one finds several gaps in the literature, with a number of important results missing. As one particular example, one could look at the theory of 2-dimensional co/ends, in which case a comprehensive treatment based upon lax/oplax/pseudo dinatural transformations seems to be missing.
+
+All of the elementary and not-so-elementary topics in the theory of bicategories are planned to appear in Clowder, and the same holds true for the theory of double categories.
+\subsubsection{$\infty$-Categories}\label{susbsection-infty-categories}
+Lastly, some material on $\infty$-categories is planned, although the precise scope of this remains to be defined. Ideally, this would include both model categories as well as synthetic and concrete models for $\infty$-categories (e.g.\ quasicategories, complete Segal spaces, cubical quasicategories, etc.).
+
+In this way, we view Clowder as a good \emph{complement} to \cite{kerodon}.
+\subsubsection{Other Topics}\label{subsubsection-other-topics}
+Occasionally, material on topics not a-priori related to category theory will be included. This may be done for a variety of reasons, including:
+\begin{itemize}
+    \item Illustrating general theory.
+    \item Comparison with classical concepts, such as e.g.\ ionads \vs topological spaces.
+    \item Providing a more consistent and unified treatment of a particular topic, with hyperlinks to relevant concepts or examples.
+\end{itemize}
+\subsection{Style}\label{subsection-style}
+The Clowder Project makes several unusual stylistic choices, aligned with its goals.
+\subsubsection{Presentation of Topics}\label{subsubsection-presentation-of-topics}
+The presentation of topics is encyclopedic, non-linear, and sometimes idiosyncratic.
+
+In particular, there's some amount of repetition throughout the project. This is a result of simultaneously wanting to cover as much material as possible while still allowing Clowder to be used as an online reference work/wiki.
+\subsubsection{Provable Items Come With Proofs}\label{subsubsection-provable-items-come-with-proofs}
+Every proposition, theorem, lemma, etc.\ needs to come with a proof. In case a proof has not been written yet, it shall read as \say{Omitted}. This is to ensure results without proof are clearly labelled as such.
+\subsubsection{Proper Justification of Proofs}\label{subsubsection-proper-justification-of-proofs}
+Every proof must read either \say{Omitted} or be properly justified, no matter how trivial the details are.
+
+Expressions like \say{it is clear that}, \say{it is straightforward to show that}, \say{it is obvious}, etc.\ inside proofs should not be used.
+\subsection{Infrastructure and Technical Implementation}\label{subsection-infrastructure-and-technical-implementation}
+\subsubsection{Removed Features (in Comparison With the Stacks Project)}\label{subsubsection-removed-features-in-comparison-with-the-stacks-project}
+A few features present in the general infrastructure of the Stacks Project were removed in Clowder, including:
+\begin{enumerate}
+    \item \label{subsubsection-removed-features-in-comparison-with-the-stacks-project-1}The python back-end, in favour of static pages.
+    \item \label{subsubsection-removed-features-in-comparison-with-the-stacks-project-2}The comment system, as a result of the static nature of the website.
+\end{enumerate}
+\subsubsection{Gerby and the Tags System}\label{subsubsection-gerby-and-the-tags-system}
+Clowder is built using \href{https://gerby-project.github.io/}{Gerby}, similarly to the \href{https://stacks.math.columbia.edu/}{Stacks Project}. However, a number of additional features and quality-of-life additions not implemented in plasTeX or Gerby were required by Clowder, including:
+\begin{enumerate}
+    \item\label{subsubsection-gerby-and-the-tags-system-1}Clowder uses \code{tcbtheorem}-like environments, which affects the placement of footnotes (which are often used).
+    \item\label{subsubsection-gerby-and-the-tags-system-2}Clowder implements a \href{https://en.wikipedia.org/wiki/Bourbaki_dangerous_bend_symbol}{dangerous bend} symbol to help visually highlight warnings (\href{https://www.clowderproject.com/tag/0225.html}{example}).
+    \item\label{subsubsection-gerby-and-the-tags-system-3}There are a few aesthetic changes in Clowder’s HTML/CSS structure, including font selection as well as a dark mode.
+    \item\label{subsubsection-gerby-and-the-tags-system-4}\code{tikz-cd} diagrams are very frequently used, and they need to be separately compiled and converted to \code{svg} files.
+    \item\label{subsubsection-gerby-and-the-tags-system-5}Code in Clowder can be copied easily using a \say{Copy} button, with code for bibliography entries also having proper syntax highlighting (\href{https://www.clowderproject.com/bibliography/borceux1994handbook1.html}{example}).
+    \item\label{subsubsection-gerby-and-the-tags-system-6}Clowder is automatically built using \href{https://github.com/The-Clowder-Project/the-clowder-project/actions}{GitHub actions}.
+    \item\label{subsubsection-gerby-and-the-tags-system-7}Non-sectioning tags are rendered differently and shown in context (\href{https://clowderproject.com/tag/012A.html}{example}).
+\end{enumerate}
+These have been implemented using a \href{https://github.com/The-Clowder-Project/plastex}{fork} of Gerby along with a few build scripts.
+\subsubsection{Placeholder Symbols and Future Style}\label{subsubsection-placeholder-symbols-and-future-style}
+Currently, a number of macros have been defined using placeholder symbols, and look very ugly as a result.
+
+They will eventually be replaced with proper symbols coming from the math fonts of \href{https://hundartypeface.com/}{Hundar}, a free and open-source typeface project currently being worked on.
+\begin{center}
+    \includegraphics[width=\linewidth]{ABSOLUTEPATH/pictures/hundar.pdf}
+\end{center}
+You can find more details about Hundar at its \href{https://github.com/The-EPL-Type-Foundry/Hundar}{GitHub repository} or \href{https://hundartypeface.com/}{website}.
+\section{Lists}\label{section-lists}
+\subsection{List of Omitted Proofs}\label{subsection-list-of-omitted-proofs}
+\doubleepigraph{\Russian{Не так благотворна истина, как зловредна ее видимость.}}{\Russian{\textit{Даниил Данковский}}}{Truth does not do as much good in the world as the appearance of truth does evil.}{\textit{Daniil Dankovsky}}
+
+There's a very large number of omitted proofs throughout these notes. In this section we list them in order of decreasing importance.
+\begin{itemize}
+    \item If a proof relies on material that has yet to be developed on Clowder, we mark it by a \warningsign\ sign. If you're interested in contributing, please disregard those for now.
+    \item The following chapters are undergoing revision. If you're interested in contributing, please disregard them for now:
+        \begin{itemize}
+            \item \ChapterRelations
+            \item \ChapterConstructionsWithRelations
+            \item \ChapterConditionsOnRelations
+            \item \ChapterCategories
+            \item \ChapterConstructionsWithMonoidalCategories
+            \item \ChapterTypesOfMorphismsInBicategories
+        \end{itemize}
+    \item This list is under construction.
+\end{itemize}
+\begin{remark}{Omitted Proofs To Add}{omitted-proofs-to-add}%
+    Proofs that \emph{need} to be added at some point:
+    \begin{itemize}
+        \item Extra proof of \ChapterRef{\ChapterTensorProductsOfPointedSets, \cref{tensor-products-of-pointed-sets:the-universal-property-of-sets-star-smash-s-zero}}{\cref{the-universal-property-of-sets-star-smash-s-zero}} using the machinery of presentable categories, following Maxime Ranzi's answer to \href{https://mathoverflow.net/questions/466593}{MO 466593} \warningsign.
+        \item Horizontal composition of natural transformations is associative: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{categories:properties-of-horizontal-composition-of-natural-transformations}}{\cref{properties-of-horizontal-composition-of-natural-transformations-associativity} of \cref{properties-of-horizontal-composition-of-natural-transformations}}.
+        \item Fully faithful functors are essentially injective: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-essential-injectivity} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-essential-injectivity} of \cref{properties-of-fully-faithful-functors}}.
+    \end{itemize}
+    Proofs that \emph{would be very nice} to be added at some point:
+    \begin{itemize}
+        \item Properties of pseudomonic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudomonic-functors}}{\cref{properties-of-pseudomonic-functors}} \warningsign.
+        \item Characterisation of fully faithful functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-fully-faithful-functors-characterisations} of \cref{categories:properties-of-fully-faithful-functors}}{\cref{properties-of-fully-faithful-functors-characterisations} of \cref{properties-of-fully-faithful-functors}}.
+        \item The quadruple adjunction between categories and sets: \ChapterRef{\ChapterCategories, \cref{categories:the-quadruple-adjunction-between-sets-and-cats}}{\cref{the-quadruple-adjunction-between-sets-and-cats}}.
+        \item $F_{*}$ faithful iff $F$ faithful: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-faithful-functors-interaction-with-postcomposition} of \cref{categories:properties-of-faithful-functors}}{\cref{properties-of-faithful-functors-interaction-with-postcomposition} of \cref{properties-of-faithful-functors}}.
+        \item Properties of groupoid completions: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-groupoid-completion}}{\cref{properties-of-groupoid-completion}}.
+        \item Properties of cores: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-the-core-of-a-category}}{\cref{properties-of-the-core-of-a-category}}.
+        \item $\Rel$ is isomorphic to the category of free algebras of the powerset monad: \ChapterRef{\ChapterRelations, \cref{relations:rel-as-a-category-of-free-algebras}}{\cref{rel-as-a-category-of-free-algebras}} \warningsign.
+        \item Non/existence of left Kan extensions in $\sfbfRel$:
+            \begin{itemize}
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel} of \cref{constructions-with-relations:left-kan-extensions-in-rel}}{\cref{left-kan-extensions-in-rel-non-existence-of-all-left-kan-extensions-in-rel} of \cref{left-kan-extensions-in-rel}}.
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{constructions-with-relations:left-kan-extensions-in-rel}}{\cref{left-kan-extensions-in-rel-characterisation-of-relations-admitting-left-kan-extensions-along-them} of \cref{left-kan-extensions-in-rel}}.
+            \end{itemize}
+        \item Non/existence of left Kan lifts in $\sfbfRel$:
+            \begin{itemize}
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel} of \cref{constructions-with-relations:left-kan-lifts-in-rel}}{\cref{left-kan-lifts-in-rel-non-existence-of-all-left-kan-lifts-in-rel} of \cref{left-kan-lifts-in-rel}}.
+                \item \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{constructions-with-relations:left-kan-lifts-in-rel}}{\cref{left-kan-lifts-in-rel-characterisation-of-relations-admitting-left-kan-lifts-along-them} of \cref{left-kan-lifts-in-rel}}.
+            \end{itemize}
+    \end{itemize}
+    Proofs that \emph{would be nice} to be added at some point:
+    \begin{itemize}
+        %\item Quotient by an equivalence relation is a coequaliser: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:examples-of-coequalisers-of-sets}}{\cref{examples-of-coequalisers-of-sets}}.
+        %\item Quotient by an equivalence relation is a coequaliser, repetition: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-quotient-sets-2}}{\cref{construction-of-quotient-sets-2}}.
+        \item Properties of posetal categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories}}{\cref{properties-of-posetal-categories}}.
+        \item Injective on objects functors are precisely the isocofibrations in $\TwoCategoryOfCategories$: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-injective-on-objects-functors-characterisations} of \cref{categories:properties-of-injective-on-objects-functors}}{\cref{properties-of-injective-on-objects-functors-characterisations} of \cref{properties-of-injective-on-objects-functors}} \warningsign.
+        \item Characterisations of monomorphisms of categories: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-monomorphisms-of-categories-characterisations} of \cref{categories:properties-of-monomorphisms-of-categories}}{\cref{properties-of-monomorphisms-of-categories-characterisations} of \cref{properties-of-monomorphisms-of-categories}}.
+        \item Epimorphisms of categories are surjective on objects: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{categories:properties-of-epimorphisms-of-categories}}{\cref{properties-of-epimorphisms-of-categories-surjectivity-on-objects} of \cref{properties-of-epimorphisms-of-categories}}.
+        \item Properties of pseudoepic functors: \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pseudoepic-functors}}{\cref{properties-of-pseudoepic-functors}} \warningsign.
+    \end{itemize}
+    Proofs that \emph{would be nice but not essential} to be added at some point:
+    \begin{itemize}
+        \item Proof that $(\Sets,\icoprod,\emptyset,\times,\pt)$ is a symmetric bimonoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-symmetric-bimonoidality} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-symmetric-bimonoidality} of \cref{properties-of-products-of-sets}} \warningsign.
+        \item Proof that $(\Sets,\icoprod,\emptyset,\times,\pt)$ is a symmetric bimonoidal category: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}}{\cref{the-bimonoidal-structure-on-sets-associated-to-the-product-and-the-coproduct}} \warningsign.
+        \item Proof that $(\Sets,\times_{X},X)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pullbacks-of-sets}}{\cref{properties-of-pullbacks-of-sets-symmetric-monoidality} of \cref{properties-of-pullbacks-of-sets}} \warningsign.
+        \item Proof that $(\Sets,\icoprod,\emptyset)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coproducts-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-coproducts-of-sets}}{\cref{properties-of-coproducts-of-sets-symmetric-monoidality} of \cref{properties-of-coproducts-of-sets}} \warningsign.
+        \item Proof that $(\Sets,\ipushout{X},X)$ is a symmetric monoidal category: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-symmetric-monoidality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-symmetric-monoidality} of \cref{properties-of-pushouts-of-sets}} \warningsign.
+    \end{itemize}
+    Proofs that have been (temporarily) omitted because they are \say{clear}, \say{straightforward}, or \say{tedious}:
+    \begin{itemize}
+        \item Properties of pushouts of sets:
+            \begin{itemize}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-associativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-associativity} of \cref{properties-of-pushouts-of-sets}}.
+                \item Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-unitality} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-unitality} of \cref{properties-of-pushouts-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-commutativity} of \cref{properties-of-pushouts-of-sets}}.
+                \item Pushout of sets over the empty set recovers the coproduct of sets: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-pushouts-of-sets-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-pushouts-of-sets}}{\cref{properties-of-pushouts-of-sets-interaction-with-coproducts} of \cref{properties-of-pushouts-of-sets}}.
+            \end{itemize}
+        \item Properties of coequalisers of sets:
+            \begin{itemize}
+                \item Associativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-associativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-associativity} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Unitality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-unitality} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-unitality} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-commutativity} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-commutativity} of \cref{properties-of-coequalisers-of-sets}}.
+                \item Interaction with composition: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-coequalisers-of-sets-interaction-with-composition} of \cref{constructions-with-sets:properties-of-coequalisers-of-sets}}{\cref{properties-of-coequalisers-of-sets-interaction-with-composition} of \cref{properties-of-coequalisers-of-sets}}.
+            \end{itemize}
+        \item Properties of set differences:
+            \begin{itemize}
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-interaction-with-unions-2} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-interaction-with-unions-2} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-left-annihilation} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-left-annihilation} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-right-annihilation} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-right-annihilation} of \cref{properties-of-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-interaction-with-containment} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-interaction-with-containment} of \cref{properties-of-differences}}.
+            \end{itemize}
+        \item Complements and characteristic functions: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-complements-interaction-with-characteristic-functions} of \cref{constructions-with-sets:properties-of-complements}}{\cref{properties-of-complements-interaction-with-characteristic-functions} of \cref{properties-of-complements}}.
+        \item Properties of symmetric differences:
+            \begin{itemize}
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-lack-of-functoriality} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-lack-of-functoriality} of \cref{properties-of-symmetric-differences}}.
+                \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-bijectivity} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-bijectivity} of \cref{properties-of-symmetric-differences}}.
+            \end{itemize}
+        \item Properties of direct images:
+            \begin{itemize}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-functoriality} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-functoriality} of \cref{properties-of-direct-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-interaction-with-coproducts} of \cref{properties-of-direct-images-i}}.
+                \item Interaction with products: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-i-interaction-with-products} of \cref{properties-of-direct-images-i}}.
+            \end{itemize}
+        \item Properties of inverse images:
+            \begin{itemize}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-functoriality} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-functoriality} of \cref{properties-of-inverse-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-interaction-with-coproducts} of \cref{properties-of-inverse-images-i}}.
+                \item Interaction with products; \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-inverse-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-inverse-images-i}}{\cref{properties-of-inverse-images-i-interaction-with-products} of \cref{properties-of-inverse-images-i}}.
+            \end{itemize}
+        \item Properties of codirect images:
+            \begin{itemize}
+                \item Functoriality: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-functoriality} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-functoriality} of \cref{properties-of-codirect-images-i}}.
+                \item Lax preservation of colimits: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-lax-preservation-of-colimits} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-lax-preservation-of-colimits} of \cref{properties-of-codirect-images-i}}.
+                \item Interaction with coproducts: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-interaction-with-coproducts} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-interaction-with-coproducts} of \cref{properties-of-codirect-images-i}}.
+                \item Interaction with products: \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-interaction-with-products} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-interaction-with-products} of \cref{properties-of-codirect-images-i}}.
+            \end{itemize}
+        \item Left distributor of $\times$ over $\icoprod$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}{\cref{the-left-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}.
+        \item Right distributor of $\times$ over $\icoprod$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}{\cref{the-right-distributor-of-the-product-of-sets-over-the-coproduct-of-sets}}.
+        \item Left annihilator of $\times$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-left-annihilator-of-the-product-of-sets}}{\cref{the-left-annihilator-of-the-product-of-sets}}.
+        \item Right annihilator of $\times$ is a natural isomorphism: \ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-right-annihilator-of-the-product-of-sets}}{\cref{the-right-annihilator-of-the-product-of-sets}}.
+        \item Properties of wedge products of pointed sets:
+            \begin{itemize}
+                \item Associativity: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-associativity} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-associativity} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Unitality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-unitality} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-unitality} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Commutativity: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-commutativity} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-commutativity} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+                \item Symmetric monoidality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality} of \cref{pointed-sets:properties-of-wedge-sums-of-pointed-sets}}{\cref{properties-of-wedge-sums-of-pointed-sets-symmetric-monoidality} of \cref{properties-of-wedge-sums-of-pointed-sets}}.
+            \end{itemize}
+        \item Properties of pushouts of pointed sets:
+            \begin{itemize}
+                \item Interaction with coproducts: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-pushouts-of-pointed-sets-interaction-with-coproducts} of \cref{pointed-sets:properties-of-pushouts-of-pointed-sets}}{\cref{properties-of-pushouts-of-pointed-sets-interaction-with-coproducts} of \cref{properties-of-pushouts-of-pointed-sets}}.
+                \item Symmetric monoidality: \ChapterRef{\ChapterPointedSets, \cref{pointed-sets:properties-of-pushouts-of-pointed-sets-symmetric-monoidality} of \cref{pointed-sets:properties-of-pushouts-of-pointed-sets}}{\cref{properties-of-pushouts-of-pointed-sets-symmetric-monoidality} of \cref{properties-of-pushouts-of-pointed-sets}}.
+            \end{itemize}
+        %\item $\Rel$ with $\times$ is closed symmetric monoidal: \ChapterRef{\ChapterRelations, \cref{relations:the-closed-symmetric-monoidal-category-of-relations}}{\cref{the-closed-symmetric-monoidal-category-of-relations}}.
+        %\item Properties of graphs:
+        %    \begin{itemize}
+        %        \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-functoriality} of \cref{properties-of-graphs-of-functions}}.
+        %        \item Interaction With Inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-graphs-of-functions-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-graphs-of-functions}}{\cref{properties-of-graphs-of-functions-interaction-with-inverses} of \cref{properties-of-graphs-of-functions}}.
+        %    \end{itemize}
+        %\item Properties of inverses of functions (as relations):
+        %    \begin{itemize}
+        %        \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-functions-functoriality} of \cref{constructions-with-relations:properties-of-inverses-of-functions}}{\cref{properties-of-inverses-of-functions-functoriality} of \cref{properties-of-inverses-of-functions}}.
+        %        \item Interaction With Inverses of Relations: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-functions-interaction-with-inverses-of-relations} of \cref{constructions-with-relations:properties-of-inverses-of-functions}}{\cref{properties-of-inverses-of-functions-interaction-with-inverses-of-relations} of \cref{properties-of-inverses-of-functions}}.
+        %    \end{itemize}
+        %\item Binary unions of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-binary-unions-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-binary-unions-of-relations}}{\cref{properties-of-binary-unions-of-relations-interaction-with-inverses} of \cref{properties-of-binary-unions-of-relations}}.
+        %\item Unions of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-unions-of-families-of-relations}}{\cref{properties-of-unions-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-unions-of-families-of-relations}}.
+        %\item Binary Intersections of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-binary-intersections-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-binary-intersections-of-relations}}{\cref{properties-of-binary-intersections-of-relations-interaction-with-inverses} of \cref{properties-of-binary-intersections-of-relations}}.
+        %\item Intersections of relations and inverses: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-intersections-of-families-of-relations-interaction-with-inverses} of \cref{constructions-with-relations:properties-of-intersections-of-families-of-relations}}{\cref{properties-of-intersections-of-families-of-relations-interaction-with-inverses} of \cref{properties-of-intersections-of-families-of-relations}}.
+        %\item Properties of inverses of relations: all items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-inverses-of-relations}}{\cref{properties-of-inverses-of-relations}}.
+        %\item Properties of composition of relations: some items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-composition-of-relations}}{\cref{properties-of-composition-of-relations}}.
+        %\item Properties of collages of relations: all items of \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-collages-of-relations}}{\cref{properties-of-collages-of-relations}}.
+        %\item Properties of direct images of relations:
+        %    \begin{itemize}
+        %        \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-functoriality} of \cref{properties-of-direct-image-functions-associated-to-relations}}.
+        %        \item Oplax Preservation of Limits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{constructions-with-relations:properties-of-direct-image-functions-associated-to-relations}}{\cref{properties-of-direct-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{properties-of-direct-image-functions-associated-to-relations}}.
+        %    \end{itemize}
+        %\item Properties of strong inverse images of relations:
+        %    \begin{itemize}
+        %        \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-functoriality} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}.
+        %        \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-strong-inverse-image-functions-associated-to-relations}}{\cref{properties-of-strong-inverse-image-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-strong-inverse-image-functions-associated-to-relations}}.
+        %    \end{itemize}
+        %\item Properties of weak inverse images of relations:
+        %    \begin{itemize}
+        %        \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-functoriality} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}.
+        %        \item Oplax Preservation of Limits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{constructions-with-relations:properties-of-weak-inverse-image-functions-associated-to-relations}}{\cref{properties-of-weak-inverse-image-functions-associated-to-relations-oplax-preservation-of-limits} of \cref{properties-of-weak-inverse-image-functions-associated-to-relations}}.
+        %    \end{itemize}
+        %\item Properties of direct images with compact support of relations:
+        %    \begin{itemize}
+        %        \item Functoriality: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-functoriality} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
+        %        \item Lax Preservation of Colimits: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{constructions-with-relations:properties-of-direct-image-with-compact-support-functions-associated-to-relations}}{\cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations-lax-preservation-of-colimits} of \cref{properties-of-direct-image-with-compact-support-functions-associated-to-relations}}.
+        %    \end{itemize}
+        %\item Functoriality of Powersets \rmII: \ChapterRef{\ChapterConstructionsWithRelations, \cref{constructions-with-relations:functoriality-of-powersets-2}}{\cref{functoriality-of-powersets-2}}.
+        %\item Proof that the reflexive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-reflexive-closure-of-a-relation}}{\cref{construction-of-the-reflexive-closure-of-a-relation}}.
+        %\item Properties of Symmetric Relations, \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-symmetric-relations}}{\cref{properties-of-symmetric-relations}}.
+        %\item Proof that the symmetric closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-symmetric-closure-of-a-relation}}{\cref{construction-of-the-symmetric-closure-of-a-relation}}.
+        %\item Properties of the symmetric closure of a relation:
+        %    \begin{itemize}
+        %        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-the-symmetric-closure-of-a-symmetric-relation} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+        %        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{conditions-on-relations:properties-of-the-symmetric-closure-of-a-relation}}{\cref{properties-of-the-symmetric-closure-of-a-relation-interaction-with-inverses} of \cref{properties-of-the-symmetric-closure-of-a-relation}}.
+        %    \end{itemize}
+        %\item Properties of transitive relations, \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-transitive-relations}}{\cref{properties-of-transitive-relations}}.
+        %\item Proof that the transitive closure of a relation satisfies the appropriate universal property: \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:construction-of-the-transitive-closure-of-a-relation}}{\cref{construction-of-the-transitive-closure-of-a-relation}}.
+        %\item Properties of the transitive closure of a relation:
+        %    \begin{itemize}
+        %        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{conditions-on-relations:properties-of-the-transitive-closure-of-a-relation}}{\cref{properties-of-the-transitive-closure-of-a-relation-the-transitive-closure-of-a-transitive-relation} of \cref{properties-of-the-transitive-closure-of-a-relation}}.
+        %    \end{itemize}
+        %\item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{conditions-on-relations:properties-of-the-equivalence-closure-of-a-relation}}{\cref{properties-of-the-equivalence-closure-of-a-relation-the-equivalence-closure-of-a-equivalence-relation} of \cref{properties-of-the-equivalence-closure-of-a-relation}}.
+        %\item Properties of Quotient Sets, \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets}}:
+        %    \begin{itemize}
+        %        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-as-a-coequaliser} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-coequaliser} of \cref{properties-of-quotient-sets}}.
+        %        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-as-a-pushout} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-as-a-pushout} of \cref{properties-of-quotient-sets}}.
+        %        \item \ChapterRef{\ChapterConditionsOnRelations, \cref{conditions-on-relations:properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{conditions-on-relations:properties-of-quotient-sets}}{\cref{properties-of-quotient-sets-the-first-isomorphism-theorem-for-sets} of \cref{properties-of-quotient-sets}}.
+        %    \end{itemize}
+    \end{itemize}
+\end{remark}
+\subsection{List of Missing Examples}\label{subsection-list-of-missing-examples}
+Adding new examples is always welcome! In this section, we list some subjects and sections which could do with more examples:
+\begin{remark}{Missing Examples to Add}{missing-examples-to-add}%
+    Potentially interesting examples to add include, but are definitely not limited to:
+    \begin{itemize}
+        \item Examples of 2-categorical monomorphisms in $\sfbfRel$, following \ChapterRef{\ChapterRelations, \cref{relations:subsection-2-categorical-monomorphisms-in-rel}}{\cref{subsection-2-categorical-monomorphisms-in-rel}}.
+        \item Examples of 2-categorical epimorphisms in $\sfbfRel$, following \ChapterRef{\ChapterRelations, \cref{relations:subsection-2-categorical-epimorphisms-in-rel}}{\cref{subsection-2-categorical-epimorphisms-in-rel}}.
+        \item Examples of left Kan extensions and left Kan lifts in $\sfbfRel$.
+        \item Examples of functors satisfying the conditions described in \ChapterCategories.
+    \end{itemize}
+\end{remark}
+\subsection{List of Questions}\label{subsection-list-of-questions}
+There's a number of questions listed throughout this project. Here we collect them in a single place.
+\begin{remark}{Questions to Answer}{questions-to-answer}%
+    On relations:
+    \begin{itemize}
+        \item \ChapterRef{\ChapterRelations, \cref{relations:better-characterisations-of-corepresentably-full-morphisms-in-rel}}{\cref{better-characterisations-of-corepresentably-full-morphisms-in-rel}}, on better characterisations of corepresentably full morphisms in $\sfbfRel$. This question also appears as \cite{MO467527}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:existence-of-specific-left-kan-extensions-of-relations}}{\cref{existence-of-specific-left-kan-extensions-of-relations}}, seeking a characterisation of which left Kan extensions exist in $\sfbfRel$. This question also appears as \cite{MO461592}.
+        \item \ChapterRef{\ChapterRelations, \cref{constructions-with-relations:existence-of-specific-left-kan-lifts-of-relations}}{\cref{existence-of-specific-left-kan-lifts-of-relations}}, seeking a characterisation of which left Kan lifts exist in $\sfbfRel$. This question also appears as \cite{MO461592}.
+    \end{itemize}
+    On categories:
+    \begin{itemize}
+        \item \ChapterRef{\ChapterCategories, \cref{categories:better-characterisations-of-functors-with-full-precomposition}}{\cref{better-characterisations-of-functors-with-full-precomposition}}, seeking a better characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ to always be full. This question also appears as \cite{MO468121}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-conservative-pre-postcomposition}}{\cref{characterisations-of-functors-with-conservative-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be conservative. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-essentially-injective-pre-postcomposition}}{\cref{characterisations-of-functors-with-essentially-injective-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be essentially injective. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-essentially-surjective-pre-postcomposition}}{\cref{characterisations-of-functors-with-essentially-surjective-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be essentially surjective. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-dominant-pre-postcomposition}}{\cref{characterisations-of-functors-with-dominant-pre-postcomposition}}, , seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be dominant. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-monic-pre-postcomposition}}{\cref{characterisations-of-functors-with-monic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be monic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-epic-pre-postcomposition}}{\cref{characterisations-of-functors-with-epic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be epic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-functors-with-pseudoepic-pre-postcomposition}}{\cref{characterisations-of-functors-with-pseudoepic-pre-postcomposition}}, seeking a characterisation of necessary and sufficient conditions on $F$ for $F^{*}$ or $F_{*}$ to be pseudoepic. This question also appears as \cite{MO468125}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisations-of-pseudoepic-functors}}{\cref{characterisations-of-pseudoepic-functors}}, seeking a characterisation of pseudoepic functors. This question also appears as \cite{MO321971}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:must-a-pseudomonic-and-pseudoepic-functor-be-an-equivalence-of-categories}}{\cref{must-a-pseudomonic-and-pseudoepic-functor-be-an-equivalence-of-categories}}, which asks whether a pseudomonic and pseudoepic functor must necessarily be an equivalence of categories. This question also appears as \cite{MO468334}.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-faithful-on-cores}}{\cref{characterisation-of-functors-representably-faithful-on-cores}}, seeking a characterisation of functors representably faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-full-on-cores}}{\cref{characterisation-of-functors-representably-full-on-cores}}, seeking a characterisation of functors representably full on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-representably-fully-faithful-on-cores}}{\cref{characterisation-of-functors-representably-fully-faithful-on-cores}}, seeking a characterisation of functors representably fully faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-faithful-on-cores}}{\cref{characterisation-of-functors-corepresentably-faithful-on-cores}}, seeking a characterisation of functors corepresentably faithful on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-full-on-cores}}{\cref{characterisation-of-functors-corepresentably-full-on-cores}}, seeking a characterisation of functors corepresentably full on cores.
+        \item \ChapterRef{\ChapterCategories, \cref{categories:characterisation-of-functors-corepresentably-fully-faithful-on-cores}}{\cref{characterisation-of-functors-corepresentably-fully-faithful-on-cores}}, seeking a characterisation of functors corepresentably fully faithful on cores.
+    \end{itemize}
+\end{remark}
+\subsection{List of Gaps in the Category Theory Literature}\label{subsection-list-of-gaps-in-the-category-theory-literature}
+The Clowder Project aims to address several significant gaps in the existing literature on category theory, as detailed below. See also \cite{MO494959}.
+\begin{gap}{The Tensor Product of Presentable Categories}{gap-the-tensor-product-of-presentable-categories}%
+    Even though its analogue for $\infty$-categories has for years been a widely used tool%
+    %--- Begin Footnote ---%
+    \footnote{%
+        See \cite{MO490557}.
+        \par\vspace*{\TCBBoxCorrection}
+    }, %
+    %---  End Footnote  ---%
+    a comprehensive treatment of the tensor product of presentable categories seems to be currently missing.
+\end{gap}
+\begin{gap}{Explicit Descriptions of Co/Limits of Categories}{gap-explicit-descriptions-of-co-limits-of-categories}%
+    An exhaustive concrete description of the various limits and colimits of categories, including 2-dimensional ones, is missing.
+\end{gap}
+\begin{gap}{Dinatural Transformation Co/Classifiers}{gap-dinatural-transformation-co-classifiers}%
+    There seems to be no unified presentation of dinatural transformation co/classifiers in the literature. These are characterised by isomorphisms of the form
+    \[
+        \Nat(F,G)%
+        \cong%
+        \DiNat(\Gamma(F),G),%
+    \]%
+    and were originally studied in Dubuc--Street's paper introducing dinatural transformations, \cite{dubuc-street-dinatural-transformations}.
+
+    \indent Even though these arguably form a fundamental piece of the framework of co/end calculus, it seems that all foundational treatments that followed after ended up not covering this concept.
+\end{gap}
+\begin{gap}{The Tensor Product of Symmetric Monoidal Categories}{gap-the-tensor-product-of-symmetric-monoidal-categories}%
+    The tensor product of symmetric monoidal categories had been a missing concept from the literature for years. Recently, \cite{the-symmetric-monoidal-2-category-of-permutative-categories} covered the case of permutative categories. It would be nice, however, to also have a treatment of the non-strict case available.
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of the Theory of Promonoidal Categories}{gap-a-comprehensive-treatment-of-the-theory-of-promonoidal-categories}%
+    A comprehensive and exhaustive treatment of the theory of promonoidal categories is currently missing. There are several important notions undefined, like:
+    \begin{itemize}
+        \item Promonoidal profunctors.
+        \item Dualisability internal to a promonoidal category.
+        \item Invertibility internal to a promonoidal category.
+    \end{itemize}
+    Moreover, it would be nice to record how promonoidal categories may be viewed as categorifications of \say{hypermonoids} (i.e.\ monoids in $\Rel$).
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of the Theory of Multicategories}{gap-a-comprehensive-treatment-of-the-theory-of-multicategories}%
+    A comprehensive and exhaustive treatment of the theory of multicategories is currently missing. There are several important notions undefined, like:
+    \begin{itemize}
+        \item Co/limits internal to multicategories.
+    \end{itemize}
+    See \cite{MO484647}.
+\end{gap}
+\begin{gap}{A Compendium of Examples of 2-Categorical Notions}{gap-a-compendium-of-examples-of-2-categorical-notions}%
+    It would be nice to have an extensive collection of examples of what a given 2-categorical notion looks like in a 2-category. For instance, it would be nice to explicitly list what internal adjunctions look like in $\sfbfRel$, $\Span$, $\Prof$, etc.
+
+    \indent See \ChapterRef{\ChapterRelations, \cref{relations:section-properties-of-the-2-category-of-relations}}{\cref{section-properties-of-the-2-category-of-relations}} for a concrete example of what is meant by this gap.
+\end{gap}
+\begin{gap}{Centres and Traces of Categories}{gap-centres-and-traces-of-categories}%
+    The literature on centres and traces of categories is really small. There are lots of results missing%
+    %--- Begin Footnote ---%
+    \footnote{%
+        E.g.\ There's a certain interaction between traces of categories and Leinster's eventual image.
+    } %
+    %---  End Footnote  ---%
+    and very few worked examples%
+    %--- Begin Footnote ---%
+    \footnote{%
+        E.g.\ what is the trace of Connes's cycle category? Such a computation doesn't seem to be available.
+        \par\vspace*{\TCBBoxCorrection}
+    }.%
+    %---  End Footnote  ---%
+\end{gap}
+\begin{gap}{Natural Cotransformations}{gap-natural-cotransformations}%
+    Natural transformations satisfy an isomorphism of the form
+    \[
+        \Nat(F,G)%
+        \cong%
+        \int_{A\in\CatFont{C}}\Hom_{\CatFont{D}}(F_{A},G_{A}).%
+    \]%
+    It is then exceedingly natural to define \textit{natural cotransformations} via an isomorphism of the form
+    \[
+        \CoNat(F,G)%
+        \cong%
+        \int^{A\in\CatFont{C}}\Hom_{\CatFont{D}}(F_{A},G_{A})%
+    \]%
+    and study their properties. This generalises traces of categories, since we have
+    \[
+        \Tr(\CatFont{C})%
+        =%
+        \CoNat(\id_{\CatFont{C}},\id_{\CatFont{C}}),
+    \]%
+    much like $\rmZ(\CatFont{C})=\Nat(\id_{\CatFont{C}},\id_{\CatFont{C}})$.
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of Isbell Duality}{gap-a-comprehensive-treatment-of-isbell-duality}%
+    There are several results, notions, and examples in the theory of Isbell duality missing from the literature, and a truly comprehensive treatment is still lacking.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For instance, there appears to be no mention of the duality pairings
+        \begin{align*}
+            \mathsf{Spec}(F)\boxtimes F                     &\to \Tr(\CatFont{C}),\\
+            \SheafFont{F}\boxtimes\mathsf{O}(\SheafFont{F}) &\to \Tr(\CatFont{C})
+        \end{align*}
+        in the currently available literature.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+\end{gap}
+\begin{gap}{A Comprehensive Theory of 2-Dimensional Co/Ends}{gap-a-comprehensive-theory-of-2-dimensional-co-ends}%
+    The currently available treatments of 2-dimensional co/ends are unsatisfactory.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For instance, none of them define 2-dimensional co/ends via 2-dimensional dinatural transformations and then go on to develop a general theory from there.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+\end{gap}
+\begin{gap}{A Comprehensive treatment of Factorisation Systems}{gap-a-comprehensive-treatment-of-factorisation-systems}%
+    A comprehensive treatment of factorisation systems is currently missing; see \cite{MO495003}.
+\end{gap}
+\begin{gap}{Proofs of Coherence Theorems for String Diagrams}{proofs-of-coherence-theorems-for-string-diagrams}%
+    Several proofs of coherence theorems for string diagrams currently have gaps; see \cite{MO497309}.
+\end{gap}
+\begin{gap}{A Comprehensive Treatment of Variants of Category Theory}{gap-a-comprehensive-treatment-of-variants-of-category-theory}%
+    The currently available treatments of variants of category theory such as fibred category theory, enriched category theory, or internal category theory are unsatisfactory for a number of reasons.
+
+    \indent Ideally, there should be a comprehensive and (simultaneously) approachable treatment for these topics. See also \cite{MO497419}.
+\end{gap}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

@@ -1,0 +1,9 @@
+\usepackage{fontspec}
+\usepackage{lmodern}
+\usepackage{inconsolata}
+\setmonofont{inconsolata}%
+\SetTracking{encoding=*, shape=sc}{-5}
+\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
+\newfontfamily\russianfont[Script=Cyrillic]{CMU Serif}
+\newcommand{\Russian}[1]{{\russianfont #1}}
+\usepackage[margin=4.0cm]{geometry}

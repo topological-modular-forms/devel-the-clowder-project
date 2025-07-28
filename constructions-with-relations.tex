@@ -1,0 +1,732 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Constructions With Relations}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material about constructions with relations. Notably, we discuss and explore:
+\begin{enumerate}
+    \item\label{constructions-with-relations-introduction-item-1}The existence or non-existence of Kan extensions and Kan lifts in the $2$-category $\sfbfRel$ (\cref{section-kan-extensions-and-kan-lifts-in-the-2-category-of-relations}).
+    \item\label{constructions-with-relations-introduction-item-2}The various kinds of constructions involving relations, such as graphs, domains, ranges, unions, intersections, products, converse relations, composition of relations, and collages (\cref{section-more-constructions-with-relations}).
+\end{enumerate}
+This chapter is under revision. TODO:
+\begin{enumerate}
+    \item Rename range to image
+    \item Co/limits in $\sfbfRel$.
+\end{enumerate}
+
+\ChapterTableOfContents
+
+\section{Co/Limits in the Category of Relations}\label{section-co-limits-in-the-category-of-relations}
+This section is currently just a stub, and will be properly developed later on.
+\section{More Constructions With Relations}\label{section-more-constructions-with-relations}
+\subsection{The Domain and Range of a Relation}\label{subsection-the-domain-and-range-of-a-relation}
+Let $A$ and $B$ be sets.
+\begin{definition}{The Domain and Range of a Relation}{the-domain-and-range-of-a-relation}%
+    Let $R\colon A\rightproarrow B$ be a relation.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Following \ChapterRef{\ChapterProfunctors, \cref{profunctors:the-domain-and-range-of-a-profunctor}}{\cref{the-domain-and-range-of-a-profunctor}}, we may compute the (characteristic functions associated to the) domain and range of a relation using the following colimit formulas:
+        \begin{align*}
+            \chi_{\dom(R)}(a)   &\cong \colim_{b\in B}(R^{b}_{a})\qquad(a\in A)\\
+                                &\cong \bigvee_{b\in B}R^{b}_{a},\\
+            \chi_{\range(R)}(b) &\cong \colim_{a\in A}(R^{b}_{a})\qquad(b\in B)\\
+                                &\cong \bigvee_{a\in A}R^{b}_{a},
+        \end{align*}
+        where the join $\bigvee$ is taken in the poset $(\TV,\preceq)$ of \ChapterRef{\ChapterConstructionsWithSets, \cref{sets:the-poset-of-truth-values}}{\cref{the-poset-of-truth-values}}.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Viewing $R$ as a function $R\colon A\to\mathcal{P}(B)$, we have
+        \begin{align*}
+            \dom(R)   &\cong \colim_{y\in Y}(R(y))\\
+                      &\cong \bigcup_{y\in Y}R(y),\\
+            \range(R) &\cong \colim_{x\in X}(R(x))\\
+                      &\cong \bigcup_{x\in X}R(x),
+        \end{align*}
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{the-domain-of-a-relation}The \index[set-theory]{relation!domain of}\textbf{domain of $R$} is the subset \index[notation]{domR@$\dom(R)$}$\dom(R)$ of $A$ defined by
+            \[
+                \dom(R)%
+                \defeq%
+                \{%
+                    a\in A%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{there exists some $b\in B$}\\%
+                        &\text{such that $a\sim_{R}b$}\\%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item\label{the-range-of-a-relation}The \index[set-theory]{relation!range of}\textbf{range of $R$} is the subset \index[notation]{rangeR@$\range(R)$}$\range(R)$ of $B$ defined by
+            \[
+                \range(R)%
+                \defeq%
+                \{%
+                    b\in B%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{there exists some $a\in A$}\\%
+                        &\text{such that $a\sim_{R}b$}\\%
+                    \end{aligned}
+                \}.%
+            \]%
+    \end{enumerate}
+\end{definition}
+\subsection{Binary Unions of Relations}\label{subsection-binary-unions-of-relations}
+Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
+\begin{definition}{Binary Unions of Relations}{binary-unions-of-relations}%
+    The \index[set-theory]{relation!union of}\textbf{union of $R$ and $S$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \textbf{binary union of $R$ and $S$}, for emphasis.
+    } %
+    %---  End Footnote  ---%
+    is the relation \index[notation]{RunionS@$R\cup S$}$R\cup S$ from $A$ to $B$ defined as follows:%
+    \begin{itemize}
+        \item Viewing relations from $A$ to $B$ as subsets of $A\times B$, we define%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This is the same as the union of $R$ and $S$ as subsets of $A\times B$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[
+                R\cup S%
+                \defeq%
+                \{%
+                    (a,b)\in B\times A%
+                    \ \middle|\ %
+                    \text{%
+                        we have $a\sim_{R}b$ or $a\sim_{S}b$%
+                    }%
+                \}.%
+            \]%
+        \item Viewing relations from $A$ to $B$ as functions $A\to\mathcal{P}(B)$, we define
+            \[%
+                [R\cup S](a)%
+                \defeq%
+                R(a)\cup S(a)%
+            \]%
+            for each $a\in A$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Binary Unions of Relations}{properties-of-binary-unions-of-relations}%
+    Let $R$, $S$, $R_{1}$, and $R_{2}$ be relations from $A$ to $B$, and let $S_{1}$ and $S_{2}$ be relations from $B$ to $C$.
+    \begin{enumerate}
+        \item\label{properties-of-binary-unions-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (R\cup S)^{\dagger}
+                =
+                R^{\dagger}\cup S^{\dagger}.
+            \]%
+        \item\label{properties-of-binary-unions-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+            \[
+                (S_{1}\procirc R_{1})
+                \cup
+                (S_{2}\procirc R_{2})
+                \nneq
+                (S_{1}\cup S_{2})
+                \procirc
+                (R_{1}\cup R_{2}).
+            \]%
+        %\item\label{properties-of-binary-unions-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-binary-unions-of-relations}}%
+    \FirstProofBox{\cref{properties-of-binary-unions-of-relations-interaction-with-converses}: Interaction With Converses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-binary-unions-of-relations-interaction-with-composition}: Interaction With Composition}%
+    Unwinding the definitions, we see that:
+    \begin{itemize}
+        \item The condition for $(S_{1}\procirc R_{1})\cup(S_{2}\procirc R_{2})$ is:
+            \begin{itemize}
+                \item There exists some $b\in B$ such that:
+                    \begin{itemize}
+                        \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ and $\color{OIblue}{b\sim_{S_{1}}c}$;
+                    \end{itemize}
+                    or
+                    \begin{itemize}\setcounter{enumi}{2}
+                        \item $\color{OIvermillion}{a\sim_{R_{2}}b}$ and $\color{OIblue}{b\sim_{S_{2}}c}$;
+                    \end{itemize}
+            \end{itemize}
+        \item The condition for $(S_{1}\cup S_{2})\procirc(R_{1}\cup R_{2})$ is:
+            \begin{itemize}
+                \item There exists some $b\in B$ such that:
+                    \begin{itemize}
+                        \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ or $\color{OIvermillion}{a\sim_{R_{2}}b}$;
+                    \end{itemize}
+                    and
+                    \begin{itemize}\setcounter{enumi}{2}
+                        \item $\color{OIblue}{b\sim_{S_{1}}c}$ or $\color{OIblue}{b\sim_{S_{2}}c}$.
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+    These two conditions may fail to agree (counterexample omitted), and thus the two resulting relations on $A\times C$ may differ.
+\end{Proof}
+\subsection{Unions of Families of Relations}\label{subsection-unions-of-families-of-relations}
+Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations from $A$ to $B$.
+\begin{definition}{The Union of a Family of Relations}{the-union-of-a-family-of-relations}%
+    The \index[set-theory]{relation!union of a family of}\textbf{union of the family $\{R_{i}\}_{i\in I}$} is the relation \index[notation]{unioniiniRi@$\bigcup_{i\in I}R_{i}$}$\bigcup_{i\in I}R_{i}$ from $A$ to $B$ defined as follows:%
+    \begin{itemize}
+        \item Viewing relations from $A$ to $B$ as subsets of $A\times B$, we define%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This is the same as the union of $\{R_{i}\}_{i\in I}$ as a collection of subsets of $A\times B$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[%
+                \bigcup_{i\in I}R_{i}
+                \defeq%
+                \{%
+                    (a,b)\in(A\times B)^{\times I}%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{there exists some $i\in I$}\\
+                        &\text{such that $a\sim_{R_{i}}b$}
+                    \end{aligned}
+                \}.%
+            \]%
+        \item Viewing relations from $A$ to $B$ as functions $A\to\mathcal{P}(B)$, we define
+            \[%
+                \left[\bigcup_{i\in I}R_{i}\right](a)%
+                \defeq%
+                \bigcup_{i\in I}R_{i}(a)%
+            \]%
+            for each $a\in A$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Unions of Families of Relations}{properties-of-unions-of-families-of-relations}%
+    Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations from $A$ to $B$.
+    \begin{enumerate}
+        \item\label{properties-of-unions-of-families-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (\bigcup_{i\in I}R_{i})^{\dagger}
+                =
+                \bigcup_{i\in I}R^{\dagger}_{i}.
+            \]%
+        %\item\label{properties-of-unions-of-families-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+        %    \[
+        %        \bigcup_{i\in I}(S_{i}\procirc R_{i})
+        %        =
+        %        (\bigcup_{i\in I}(S_{i})\procirc(\bigcup_{i\in I}(R_{i}).
+        %    \]%
+        %\item\label{properties-of-unions-of-families-of-relations-interaction-with-intersections}\SloganFont{Interaction With Intersections. }We have
+        %    \[
+        %        \bigcup_{i\in I}(S_{i}\procirc R_{i})
+        %    \]%
+        %\item\label{properties-of-unions-of-families-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-unions-of-families-of-relations}}%
+    \FirstProofBox{\cref{properties-of-unions-of-families-of-relations-interaction-with-converses}: Interaction With Converses}%
+    Clear.
+\end{Proof}
+\subsection{Binary Intersections of Relations}\label{subsection-binary-intersections-of-relations}
+Let $A$ and $B$ be sets and let $R$ and $S$ be relations from $A$ to $B$.
+\begin{definition}{Binary Intersections of Relations}{binary-intersections-of-relations}%
+    The \index[set-theory]{relation!intersection of}\textbf{intersection of $R$ and $S$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \textbf{binary intersection of $R$ and $S$}, for emphasis.
+    } %
+    %---  End Footnote  ---%
+    is the relation \index[notation]{RintersectionS@$R\cap S$}$R\cap S$ from $A$ to $B$ defined as follows:
+    \begin{itemize}
+        \item Viewing relations from $A$ to $B$ as subsets of $A\times B$, we define%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This is the same as the intersection of $R$ and $S$ as subsets of $A\times B$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[
+                R\cap S%
+                \defeq%
+                \{%
+                    (a,b)\in B\times A%
+                    \ \middle|\ %
+                    \text{%
+                        we have $a\sim_{R}b$ and $a\sim_{S}b$%
+                    }%
+                \}.%
+            \]%
+        \item Viewing relations from $A$ to $B$ as functions $A\to\mathcal{P}(B)$, we define%
+            \[%
+                [R\cap S](a)%
+                \defeq%
+                R(a)\cap S(a)%
+            \]%
+            for each $a\in A$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Binary Intersections of Relations}{properties-of-binary-intersections-of-relations}%
+    Let $R$, $S$, $R_{1}$, and $R_{2}$ be relations from $A$ to $B$, and let $S_{1}$ and $S_{2}$ be relations from $B$ to $C$.
+    \begin{enumerate}
+        \item\label{properties-of-binary-intersections-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (R\cap S)^{\dagger}
+                =
+                R^{\dagger}\cap S^{\dagger}.
+            \]%
+        \item\label{properties-of-binary-intersections-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }We have
+            \[
+                (S_{1}\procirc R_{1})
+                \cap
+                (S_{2}\procirc R_{2})
+                =
+                (S_{1}\cap S_{2})
+                \procirc
+                (R_{1}\cap R_{2}).
+            \]%
+        %\item\label{properties-of-binary-intersections-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-binary-intersections-of-relations}}%
+    \FirstProofBox{\cref{properties-of-binary-intersections-of-relations-interaction-with-converses}: Interaction With Converses}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-binary-intersections-of-relations-interaction-with-composition}: Interaction With Composition}%
+    Unwinding the definitions, we see that:
+    \begin{itemize}
+        \item The condition for $(S_{1}\procirc R_{1})\cap(S_{2}\procirc R_{2})$ is:
+            \begin{itemize}
+                \item There exists some $b\in B$ such that:
+                    \begin{itemize}
+                        \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ and $\color{OIblue}{b\sim_{S_{1}}c}$;
+                    \end{itemize}
+                    and
+                    \begin{itemize}\setcounter{enumi}{2}
+                        \item $\color{OIvermillion}{a\sim_{R_{2}}b}$ and $\color{OIblue}{b\sim_{S_{2}}c}$;
+                    \end{itemize}
+            \end{itemize}
+        \item The condition for $(S_{1}\cap S_{2})\procirc(R_{1}\cap R_{2})$ is:
+            \begin{itemize}
+                \item There exists some $b\in B$ such that:
+                    \begin{itemize}
+                        \item $\color{OIvermillion}{a\sim_{R_{1}}b}$ and $\color{OIvermillion}{a\sim_{R_{2}}b}$;
+                    \end{itemize}
+                    and
+                    \begin{itemize}\setcounter{enumi}{2}
+                        \item $\color{OIblue}{b\sim_{S_{1}}c}$ and $\color{OIblue}{b\sim_{S_{2}}c}$.
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+    These two conditions agree, and thus so do the two resulting relations on $A\times C$.
+\end{Proof}
+\subsection{Intersections of Families of Relations}\label{subsection-intersections-of-families-of-relations}
+Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations from $A$ to $B$.
+\begin{definition}{The Intersection of a Family of Relations}{the-intersection-of-a-family-of-relations}%
+    The \index[set-theory]{relation!intersection of a family of}\textbf{intersection of the family $\{R_{i}\}_{i\in I}$} is the relation \index[notation]{intersectioniiniRi@$\bigcup_{i\in I}R_{i}$}$\smash{\bigcup_{i\in I}R_{i}}$ defined as follows:
+    \begin{itemize}
+        \item Viewing relations from $A$ to $B$ as subsets of $A\times B$, we define%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This is the same as the intersection of $\{R_{i}\}_{i\in I}$ as a collection of subsets of $A\times B$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[%
+                \bigcup_{i\in I}R_{i}%
+                \defeq%
+                \{%
+                    (a,b)\in(A\times B)^{\times I}%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $i\in I$,}\\%
+                        &\text{we have $a\sim_{R_{i}}b$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item Viewing relations from $A$ to $B$ as functions $A\to\mathcal{P}(B)$, we define%
+            \[%
+                \left[\bigcap_{i\in I}R_{i}\right](a)%
+                \defeq%
+                \bigcap_{i\in I}R_{i}(a)%
+            \]%
+            for each $a\in A$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Intersections of Families of Relations}{properties-of-intersections-of-families-of-relations}%
+    Let $A$ and $B$ be sets and let $\{R_{i}\}_{i\in I}$ be a family of relations from $A$ to $B$.
+    \begin{enumerate}
+        \item\label{properties-of-intersections-of-families-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }We have
+            \[
+                (\bigcap_{i\in I}R_{i})^{\dagger}
+                =
+                \bigcap_{i\in I}R^{\dagger}_{i}.
+            \]%
+        %\item\label{properties-of-intersections-of-families-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-intersections-of-families-of-relations}}%
+    \FirstProofBox{\cref{properties-of-intersections-of-families-of-relations-interaction-with-converses}: Interaction With Converses}%
+    Clear.
+\end{Proof}
+\subsection{Binary Products of Relations}\label{subsection-binary-products-of-relations}
+Let $A$, $B$, $X$, and $Y$ be sets, let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$, and let $S\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
+\begin{definition}{Binary Products of Relations}{binary-products-of-relations}%
+    The \index[set-theory]{relation!product of}\textbf{product of $R$ and $S$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \textbf{binary product of $R$ and $S$}, for emphasis.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    is the relation \index[notation]{RtimesS@$R\times S$}$R\times S$ from $A\times X$ to $B\times Y$ defined as follows:
+    \begin{itemize}
+        \item Viewing relations from $A\times X$ to $B\times Y$ as subsets of $(A\times X)\times(B\times Y)$, we define $R\times S$ as the Cartesian product of $R$ and $S$ as subsets of $A\times X$ and $B\times Y$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                That is, $R\times S$ is the relation given by declaring $(a,x)\sim_{R\times S}(b,y)$ \textiff $a\sim_{R}b$ and $x\sim_{S}y$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+        \item Viewing relations from $A\times X$ to $B\times Y$ as functions $A\times X\to\mathcal{P}(B\times Y)$, we define $R\times S$ as the composition
+            \[
+                A\times X
+                \xlongrightarrow{R\times S}
+                \mathcal{P}(B)\times\mathcal{P}(Y)
+                \xlonghookrightarrow{\mathcal{P}^{\otimes}_{B,Y}}
+                \mathcal{P}(B\times Y)
+            \]%
+            in $\Sets$, i.e.\ by
+            \[
+                [R\times S](a,x)
+                \defeq
+                R(a)\times S(x)
+            \]%
+            for each $(a,x)\in A\times X$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Binary Products of Relations}{properties-of-binary-products-of-relations}%
+    Let $A$, $B$, $X$, and $Y$ be sets.
+    \begin{enumerate}
+        \item\label{properties-of-binary-products-of-relations-interaction-with-converses}\SloganFont{Interaction With Converses. }Let
+            \begin{align*}
+                R &\colon A\rightproarrow A,\\
+                S &\colon X\rightproarrow X
+            \end{align*}
+            We have
+            \[
+                (R\times S)^{\dagger}
+                =
+                R^{\dagger}\times S^{\dagger}.
+            \]%
+        \item\label{properties-of-binary-products-of-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }Let
+            \begin{align*}
+                R_{1} &\colon A\rightproarrow B,\\
+                S_{1} &\colon B\rightproarrow C,\\
+                R_{2} &\colon X\rightproarrow Y,\\
+                S_{2} &\colon Y\rightproarrow Z
+            \end{align*}
+            be relations. We have
+            \[
+                (S_{1}\procirc R_{1})\times(S_{2}\procirc R_{2})%
+                =%
+                (S_{1}\times S_{2})\procirc(R_{1}\times R_{2}).%
+            \]%
+        %\item\label{properties-of-binary-products-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-binary-products-of-relations}}%
+    \FirstProofBox{\cref{properties-of-binary-products-of-relations-interaction-with-converses}: Interaction With Converses}%
+    Unwinding the definitions, we see that:
+    \begin{itemize}
+        \item We have $(a,x)\sim_{(R\times S)^{\dagger}}(b,y)$ \textiff:
+            \begin{itemize}
+                \item We have $(b,y)\sim_{R\times S}(a,x)$, i.e.\ \textiff:
+                    \begin{itemize}
+                        \item We have $b\sim_{R}a$;
+                        \item We have $y\sim_{S}x$;
+                    \end{itemize}
+            \end{itemize}
+        \item We have $(a,x)\sim_{R^{\dagger}\times S^{\dagger}}(b,y)$ \textiff:
+            \begin{itemize}
+                \item We have $a\sim_{R^{\dagger}}b$ and $x\sim_{S^{\dagger}}y$, i.e.\ \textiff:
+                    \begin{itemize}
+                        \item We have $b\sim_{R}a$;
+                        \item We have $y\sim_{S}x$.
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+    These two conditions agree, and thus the two resulting relations on $A\times X$ are equal.
+
+    \ProofBox{\cref{properties-of-binary-products-of-relations-interaction-with-composition}: Interaction With Composition}%
+    Unwinding the definitions, we see that:
+    \begin{itemize}
+        \item We have $(a,x)\sim_{(S_{1}\procirc R_{1})\times(S_{2}\procirc R_{2})}(c,z)$ \textiff:
+            \begin{itemize}
+                \item We have $a\sim_{S_{1}\procirc R_{1}}c$ and $x\sim_{S_{2}\procirc R_{2}}z$, i.e.\ \textiff:
+                    \begin{itemize}
+                        \item There exists some $b\in B$ such that $a\sim_{R_{1}}b$ and $b\sim_{S_{1}}c$;
+                        \item There exists some $y\in Y$ such that $x\sim_{R_{2}}y$ and $y\sim_{S_{2}}z$;
+                    \end{itemize}
+            \end{itemize}
+        \item We have $(a,x)\sim_{(S_{1}\times S_{2})\procirc(R_{1}\times R_{2})}(c,z)$ \textiff:
+            \begin{itemize}
+                \item There exists some $(b,y)\in B\times Y$ such that $(a,x)\sim_{R_{1}\times R_{2}}(b,y)$ and $(b,y)\sim_{S_{1}\times S_{2}}(c,z)$, i.e.\ such that:
+                    \begin{itemize}
+                        \item We have $a\sim_{R_{1}}b$ and $x\sim_{R_{2}}y$;
+                        \item We have $b\sim_{S_{1}}c$ and $y\sim_{S_{2}}z$.
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+    These two conditions agree, and thus the two resulting relations from $A\times X$ to $C\times Z$ are equal.
+\end{Proof}
+\subsection{Products of Families of Relations}\label{subsection-products-of-families-of-relations}
+Let $\{A_{i}\}_{i\in I}$ and $\{B_{i}\}_{i\in I}$ be families of sets, and let $\{R_{i}\colon A_{i}\rightproarrow B_{i}\}_{i\in I}$ be a family of relations.
+\begin{definition}{The Product of a Family of Relations}{the-product-of-a-family-of-relations}%
+    The \index[set-theory]{relation!product of a family of}\textbf{product of the family $\{R_{i}\}_{i\in I}$} is the relation \index[notation]{timesiiniRi@$\prod_{i\in I}R_{i}$}$\smash{\prod_{i\in I}R_{i}}$ from $\smash{\prod_{i\in I}A_{i}}$ to $\smash{\prod_{i\in I}B_{i}}$ defined as follows:
+    \begin{itemize}
+        \item Viewing relations as subsets, we define $\smash{\prod_{i\in I}R_{i}}$ as its product as a family of sets, i.e.\ we have
+            \[%
+                \prod_{i\in I}R_{i}
+                \defeq%
+                \{%
+                    (a_{i},b_{i})_{i\in I}\in\prod_{i\in I}(A_{i}\times B_{i})%
+                    \ \middle|\ %
+                    \begin{aligned}
+                        &\text{for each $i\in I$,}\\%
+                        &\text{we have $a_{i}\sim_{R_{i}}b_{i}$}%
+                    \end{aligned}
+                \}.%
+            \]%
+        \item Viewing relations as functions to powersets, we define
+            \[%
+                \left[\prod_{i\in I}R_{i}\right]((a_{i})_{i\in I})
+                \defeq%
+                \prod_{i\in I}R_{i}(a_{i})
+            \]%
+            for each $(a_{i})_{i\in I}\in\prod_{i\in I}R_{i}$.
+    \end{itemize}
+\end{definition}
+\subsection{The Collage of a Relation}\label{subsection-the-collage-of-a-relation}
+Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+\begin{definition}{The Collage of a Relation}{the-collage-of-a-relation}%
+    The \index[set-theory]{relation!collage of}\textbf{collage of $R$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \textbf{cograph of $R$}.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    is the poset \index[notation]{CollR@$\eColl(R)$}$\smash{\eColl(R)\defeq(\rmColl(R),\preceq_{\eColl(R)})}$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set \index[notation]{CollR@$\rmColl(R)$}$\rmColl(R)$ defined by%
+            \[%
+                \rmColl(R)%
+                \defeq%
+                A\icoprod B.%
+            \]%
+        \item\SloganFont{The Partial Order. }The partial order
+            \[
+                \preceq_{\eColl(R)}%
+                \colon
+                \rmColl(R)\times\rmColl(R)%
+                \to%
+                \TV%
+            \]%
+            on $\rmColl(R)$ defined by
+            \[
+                \mathord{\preceq}(a,b)%
+                \defeq%
+                \begin{cases}
+                    \true  &\text{if $a=b$ or $a\sim_{R}b$,}\\%
+                    \false &\text{otherwise.}%
+                \end{cases}
+            \]%
+    \end{itemize}
+\end{definition}
+\begin{notation}{Notation: $\Pos_{/\Delta^{1}}(A,B)$}{notation-pos-over-delta-1-a-b}%
+    We write $\Pos_{/\Delta^{1}}(A,B)$ for the category defined as the pullback
+    \[
+        \Pos_{/\Delta^{1}}(A,B)%
+        \defeq%
+        \PunctualCategory\ttimes_{[A],\Pos,\ev_{0}}\Pos_{/\Delta^{1}}\ttimes_{\ev_{1},\Pos,[B]}\PunctualCategory,%
+    \]%
+    as in the diagram
+    \begingroup\footnotesize% PDF ONLY, so we use \begingroup\footnotesize instead of \begin{envfootnotesize}
+    \[
+        \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            \&
+            \ePos_{/\Delta^{1}}(A,B)
+            \&
+            \&
+            \\
+            \&
+            \displaystyle\ePos_{/\Delta^{1}}\ttimes_{\ePos}\PunctualCategory
+            \&
+            \&
+            \displaystyle\PunctualCategory\ttimes_{\ePos}\ePos_{/\Delta^{1}}
+            \&
+            \\
+            \PunctualCategory
+            \&
+            \&
+            \ePos_{/\Delta^{1}}
+            \&
+            \&
+            \PunctualCategory\mrp{.}
+            \\
+            \&
+            \ePos
+            \&
+            \&
+            \ePos
+            \&
+            % 1-Arrows
+            % Row 1 to Row 2
+            \arrow[from=1-3,to=2-2]%
+            \arrow[from=1-3,to=2-4]%
+            % Row 2 to Row 3
+            \arrow[from=2-2,to=3-1]%
+            \arrow[from=2-2,to=3-3]%
+            \arrow[from=2-4,to=3-3]%
+            \arrow[from=2-4,to=3-5]%
+            % Row 3 to Row 4
+            \arrow[from=3-1,to=4-2,"{[A]}"']%
+            \arrow[from=3-3,to=4-2,"\ev_{[0]}"]%
+            \arrow[from=3-3,to=4-4,"\ev_{[1]}"']%
+            \arrow[from=3-5,to=4-4,"{[B]}"]%
+            % Pullback Symbols
+            \arrow[from=2-2,to=4-2,very near start,phantom,"\lrcorner"{rotate=-45}]
+            \arrow[from=1-3,to=3-3,very near start,phantom,"\lrcorner"{rotate=-45}]
+            \arrow[from=2-4,to=4-4,very near start,phantom,"\lrcorner"{rotate=-45}]
+        \end{tikzcd}
+    \]%
+    \endgroup
+\end{notation}
+\begin{remark}{Unwinding \cref{notation-pos-over-delta-1-a-b}}{unwinding-notation-pos-over-delta-1-a-b}%
+    In detail, $\Pos_{/\Delta^{1}}(A,B)$ is the category where:
+    \begin{itemize}
+        \item\SloganFont{Objects. }An object of $\Pos_{/\Delta^{1}}(A,B)$ is a pair $(X,\phi_{X})$ consisting of
+            \begin{itemize}
+                \item A poset $X$;
+                \item A morphism $\phi_{X}\colon X\to\Delta^{1}$;
+            \end{itemize}
+            such that we have
+            \begin{align*}
+                \phi^{-1}_{X}(0) &= A,\\
+                \phi^{-1}_{X}(1) &= B.
+            \end{align*}
+        \item\SloganFont{Morphisms. }A morphism of $\Pos_{/\Delta^{1}}(A,B)$ from $(X,\phi_{X})$ to $(Y,\phi_{Y})$ is a morphism of posets $f\colon X\to Y$ making the diagram
+            \[
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={3.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    X
+                    \arrow[rr,"f"]
+                    \arrow[rd,"\phi_{X}"']
+                    \&
+                    \&
+                    Y
+                    \arrow[ld,"\phi_{Y}"]
+                    \\
+                    \&
+                    \Delta^{1}
+                    \&
+                \end{tikzcd}
+            \]%
+            commute.
+    \end{itemize}
+\end{remark}
+\begin{proposition}{Properties of Collages of Relations}{properties-of-collages-of-relations}%
+    Let $A$ and $B$ be sets and let $R\colon A\rightproarrow B$ be a relation from $A$ to $B$.
+    \begin{enumerate}
+        \item\label{properties-of-collages-of-relations-functoriality}\SloganFont{Functoriality. }The assignment $R\mapsto\eColl(R)$ defines a functor%
+            \[
+                \eColl%
+                \colon%
+                \eRel(A,B)%
+                \to%
+                \Pos_{/\Delta^{1}}(A,B),%
+            \]%
+            where
+            \begin{itemize}
+                \item\SloganFont{Action on Objects. }For each $R\in\Obj(\eRel(A,B))$, we have
+                    \[
+                        [\eColl](R)
+                        \defeq
+                        (\eColl(R),\phi_{R})%
+                    \]%
+                    for each $R\in\eRel(A,B)$, where
+                    \begin{itemize}
+                        \item The poset $\eColl(R)$ is the collage of $R$ of \cref{the-collage-of-a-relation}.
+                        \item The morphism $\phi_{R}\colon\eColl(R)\to\Delta^{1}$ is given by
+                            \[
+                                \phi_{R}(x)%
+                                \defeq
+                                \begin{cases}
+                                    0 &\text{if $x\in A$,}\\
+                                    1 &\text{if $x\in B$}
+                                \end{cases}
+                            \]%
+                            for each $x\in\eColl(R)$.
+                    \end{itemize}
+                \item\SloganFont{Action on Morphisms. }For each $R,S\in\Obj(\eRel(A,B))$, the action on $\Hom$-sets
+                    \[
+                        \eColl_{R,S}%
+                        \colon%
+                        \Hom_{\eRel(A,B)}(R,S)
+                        \to
+                        \Pos(\eColl(R),\eColl(S))
+                    \]%
+                    of $\eColl$ at $(R,S)$ is given by sending an inclusion
+                    \[
+                        \iota%
+                        \colon%
+                        R%
+                        \subset%
+                        S%
+                    \]%
+                    to the morphism
+                    \[
+                        \eColl(\iota)%
+                        \colon%
+                        \eColl(R)%
+                        \to%
+                        \eColl(S)%
+                    \]%
+                    of posets over $\Delta^{1}$ defined by
+                    \[
+                        [\eColl(\iota)](x)%
+                        \defeq%
+                        x%
+                    \]%
+                    for each $x\in\eColl(R)$.%
+                    %--- Begin Footnote ---%
+                    \footnote{%
+                        Note that this is indeed a morphism of posets: if $x\preceq_{\eColl(R)}y$, then $x=y$ or $x\sim_{R}y$, so we have either $x=y$ or $x\sim_{S}y$ (as $R\subset S$), and thus $x\preceq_{\eColl(S)}y$.
+                        \par\vspace*{\TCBBoxCorrection}
+                    }%
+                    %---  End Footnote  ---%
+            \end{itemize}
+        \item\label{properties-of-collages-of-relations-equivalence}\SloganFont{Equivalence. }The functor of \cref{properties-of-collages-of-relations-functoriality} is an equivalence of categories.
+        %\item\label{properties-of-collages-of-relations-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-collages-of-relations}}%
+    \FirstProofBox{\cref{properties-of-collages-of-relations-functoriality}: Functoriality}%
+    Clear.
+
+    \ProofBox{\cref{properties-of-collages-of-relations-equivalence}: Equivalence}%
+    Omitted.
+\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

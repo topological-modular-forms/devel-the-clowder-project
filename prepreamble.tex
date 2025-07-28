@@ -1,0 +1,106 @@
+\IfFileExists{stacks-project.cls}{\documentclass{stacks-project}}{\documentclass{amsart}}
+% https://plastex.github.io/plastex/plastex/sect0006.html
+\newif\ifplastex
+\plastexfalse
+%
+\ifplastex
+\else
+    \let\secS\S
+    \let\S\relax
+    \let\parP\P
+    \let\P\relax
+\fi
+%
+\usepackage{verbatim}
+\newenvironment{reference}{\comment}{\endcomment}
+\newenvironment{slogan}{\comment}{\endcomment}
+\newenvironment{history}{\comment}{\endcomment}
+\usepackage{multicol}
+
+\input{preamble/xcolor.tex}
+% This is generally recommended for better output
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion,tracking=true,babel]{microtype}
+
+% For cross-file-references
+\input{preamble/zref.tex}
+\input{preamble/lengths.tex}
+\input{preamble/webpreamble-refs.tex}
+
+% Package for hypertext links:
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks,%
+    citecolor=TitlingRed,%
+    filecolor=TitlingRed,%
+    linkcolor=TitlingRed,%
+     urlcolor=TitlingRed%
+}%
+%%%% COMMANDS %%%%
+\usepackage{amssymb}
+\usepackage{minitoc}
+\setcounter{minitocdepth}{2}
+\newcommand{\Minitoc}{{\hypersetup{hidelinks}\minitoc}}
+%%%% MATH DEFINITIONS %%%%
+\usepackage{centernot}
+\newcommand{\nin}{\centernot{\in}}
+%
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+%%%%%%
+\input{preamble/nontikzcd.tex}
+\usepackage{mathtools}
+\newcommand{\mcp}[1]{\mathclap{#1}}
+\newcommand{\mrp}[1]{\mathrlap{#1}}
+\newcommand{\mlp}[1]{\mathllap{#1}}
+\input{preamble/todo.tex}
+\usepackage{amsthm}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\usepackage{xspace}
+\input{preamble/amsthm.tex}
+\input{preamble/tikzcd.tex}
+\input{preamble/fonts.tex}
+\ifplastex
+\else
+    \input{preamble/cm.tex}
+\fi
+\ifplastex
+\else
+    \input{preamble/widebar.tex}
+\fi
+\input{preamble/commands.tex}
+\input{preamble/biber.tex}
+\input{preamble/splitindex.tex}
+\ifplastex
+\else
+    \input{preamble/footnotes.tex}
+    \input{preamble/fancyheader.tex}
+    \input{preamble/nonweb.tex}
+\fi
+\raggedbottom
+\usepackage{bigfoot}
+\DeclareNewFootnote{default}
+\newcommand{\ChapterRef}[2]{#2}
+\newcommand{\say}[1]{``#1''}
+\definecolor{darkGreen}{rgb}{0.2,0.5,0.2}
+\definecolor{darkRed}{rgb}{0.65,0.05,0.05}%
+\setlength\premulticols{10\baselineskip}
+\newcommand{\UP}{({\footnotesize\textsc{\textbf{UP}}})}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\makeatletter
+\renewcommand\thesubsubsection{\thesubsection.\ifnum\value{subsubsection}=0 \relax 1\else \arabic{subsubsection}\fi}
+\makeatother
+\newcommand{\ptag}[1]{\tag{#1}}
+\newcommand{\norg}{}
+\author{The Clowder Project Authors}
+\allowdisplaybreaks
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}

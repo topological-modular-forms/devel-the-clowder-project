@@ -1,0 +1,24 @@
+\usepackage[cal=cm]{mathalfa}
+\usepackage{fontspec}
+\SetTracking{encoding=*, shape=sc}{-5}
+\defaultfontfeatures{RawFeature={+axis={wght=400}}}
+\newfontfamily\JapaneseFont[Path=ABSOLUTEPATH/fonts/,Features={RawFeature={+axis={wght=400}}},Extension = {.otf}]{NotoSansJP-VF.otf}
+\newcommand{\Japanese}[1]{{\text{\JapaneseFont{#1}}}}
+\newfontfamily\SimplifiedChineseFont[Path=ABSOLUTEPATH/fonts/,Features={RawFeature={+axis={wght=400}}},Extension = {.otf}]{NotoSansSC-VF.otf}
+\newcommand{\SimplifiedChinese}[1]{{\text{\SimplifiedChineseFont{#1}}}}
+\newfontfamily\TraditionalChineseFont[Path=ABSOLUTEPATH/fonts/,Features={RawFeature={+axis={wght=400}}}]{NotoSansTC-VF.otf}
+\newcommand{\TraditionalChinese}[1]{{\text{\SimplifiedChineseFont{#1}}}}
+\newcommand{\FontForCategories}[1]{\mathsf{#1}}
+\newcommand{\FontForEnrichedCategories}[1]{\textup{\textsf{\textbf{#1}}}}
+\DeclareMathAlphabet{\dutchcal}{U}{dutchcal}{m}{n}
+\SetMathAlphabet{\dutchcal}{bold}{U}{dutchcal}{b}{n}
+\DeclareMathAlphabet{\CatFont}{U}{tx-cal}{m}{n}
+\SetMathAlphabet{\CatFont}{bold}{U}{tx-cal}{b}{n}
+\newcommand{\SheafFont}[1]{\dutchcal{#1}}
+\newcommand{\mathsfup}[1]{\textsf{#1}}
+\newcommand{\demph}[1]{\textbf{\emph{#1}}}
+\usepackage{manfnt}
+\newcommand{\textdbendEnd}{}
+\newcommand{\negphantom}[1]{\settowidth{\dimen0}{#1}\hspace*{-\dimen0}}
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}

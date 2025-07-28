@@ -1,0 +1,566 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Sets}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter (will eventually) contain material on axiomatic set theory, as well as a couple other things.
+
+\ChapterTableOfContents
+
+\section{Sets and Functions}\label{section-sets-and-functions}
+\subsection{Functions}\label{subsection-sets-and-functions-functions}
+\begin{definition}{Functions}{functions}%
+    A \index[set-theory]{function}\textbf{function} is a functional and total relation.
+\end{definition}
+\begin{notation}{Additional Notation for Functions}{additional-notation-for-functions}%
+    Throughout this work, we will sometimes denote a function $f\colon X\to Y$ by
+    \[
+        f%
+        \defeq%
+        \llbracket x\mapsto f(x)\rrbracket.%
+    \]%
+    \begin{enumerate}
+        \item\label{additional-notation-for-functions-1}For example, given a function%
+            \[
+                \Phi%
+                \colon%
+                \Hom_{\Sets}(X,Y)%
+                \to%
+                K%
+            \]%
+            taking values on a set of functions such as $\Hom_{\Sets}(X,Y)$, we will sometimes also write
+            \[
+                \Phi(f)%
+                \defeq%
+                \Phi(\llbracket x\mapsto f(x)\rrbracket).%
+            \]%
+        \item\label{additional-notation-for-functions-2}This notational choice is based on the lambda notation
+            \[
+                f%
+                \defeq%
+                (\lambda x.\ f(x)),%
+            \]%
+            but uses a \say{$\mathord{\mapsto}$} symbol for better spacing and double brackets instead of either:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-2-a}Square brackets $[x\mapsto f(x)]$;
+                \item\label{additional-notation-for-functions-2-b}Parentheses $(x\mapsto f(x))$;
+            \end{enumerate}
+            hoping to improve readability when dealing with e.g.:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-2-c}Equivalence classes, cf.:
+                    \begin{enumerate}
+                        \item\label{additional-notation-for-functions-2-c-i}$\llbracket[x]\mapsto f([x])\rrbracket$%
+                        \item\label{additional-notation-for-functions-2-c-ii}$[[x]\mapsto f([x])]$%
+                        \item\label{additional-notation-for-functions-2-c-iii}$(\lambda[x].\ f([x]))$%
+                    \end{enumerate}
+                \item\label{additional-notation-for-functions-2-d}Function evaluations, cf.:
+                    \begin{enumerate}
+                        \item\label{additional-notation-for-functions-2-d-i}$\Phi(\llbracket x\mapsto f(x)\rrbracket)$%
+                        \item\label{additional-notation-for-functions-2-d-ii}$\Phi((x\mapsto f(x)))$%
+                        \item\label{additional-notation-for-functions-2-d-iii}$\Phi((\lambda x.\ f(x)))$%
+                    \end{enumerate}
+            \end{enumerate}
+        \item\label{additional-notation-for-functions-3}We will also sometimes write $-$, $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-3-a}Writing $f(-_{1})$ for a function $f\colon A\to B$.
+                \item\label{additional-notation-for-functions-3-b}Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
+                \item\label{additional-notation-for-functions-3-c}Given a function $f\colon A\times B\to C$, writing
+                    \[
+                        f(a,-)%
+                        \colon%
+                        B%
+                        \to%
+                        C%
+                    \]%
+                    for the function $\llbracket b\mapsto f(a,b)\rrbracket$.
+                \item\label{additional-notation-for-functions-3-d}Denoting a composition of the form%
+                    \[
+                        A\times B%
+                        \xlongrightarrow{\phi\times\id_{B}}%
+                        A'\times B%
+                        \xlongrightarrow{f}%
+                        C%
+                    \]%
+                    by $f(\phi(-_{1}),-_{2})$.
+            \end{enumerate}
+        \item\label{additional-notation-for-functions-4}Finally, given a function $f\colon A\to B$, we will sometimes write
+            \[
+                \ev_{a}(f)%
+                \defeq%
+                f(a)%
+            \]%
+            for the value of $f$ at some $a\in A$.
+    \end{enumerate}
+    For an example of the above notations being used in practice, see the proof of the adjunction
+    \begin{webcompile}
+        \AdjunctionShort#A\times -#{\Hom_{\Sets}(A,-)}#\Sets#\Sets,#
+    \end{webcompile}
+    stated in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}}.
+\end{notation}
+\section{The Enrichment of Sets in Classical Truth Values}\label{section-the-enrichment-of-sets-in-classical-truth-values}
+\subsection{$(-2)$-Categories}\label{subsection-minus-two-categories}
+\begin{definition}{$(-2)$-Categories}{minus-two-categories}%
+    A \index[set-theory]{minus two category@$(-2)$-category}\textbf{$(-2)$-category} is the \say{necessarily true} truth value.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Thus, there is only one $(-2)$-category.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        A $(-n)$-category for $n=3,4,\ldots$ is also the \say{necessarily true} truth value, coinciding with a $(-2)$-category.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For motivation, see \cite[p.~13]{lectures-on-n-categories-and-cohomology}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\subsection{$(-1)$-Categories}\label{subsection-minus-one-categories}
+\begin{definition}{$(-1)$-Categories}{minus-one-categories}%
+    A \index[set-theory]{minus one category@$(-1)$-category}\textbf{$(-1)$-category} is a classical truth value.%
+\end{definition}
+\begin{remark}{Motivation for $(-1)$-Categories}{motivation-for-minus-one-categories}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        For more motivation, see \cite[p.~13]{lectures-on-n-categories-and-cohomology}.
+    }%
+    %---  End Footnote  ---%
+    $(-1)$-categories should be thought of as being \say{categories enriched in $(-2)$-categories}, having a collection of objects and, for each pair of objects, a $\Hom$-object $\Hom(x,y)$ that is a $(-2)$-category (i.e.\ trivial).%
+
+    \indent As a result, a $(-1)$-category $\CatFont{C}$ is either:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        See \cite[pp.~33--34]{lectures-on-n-categories-and-cohomology}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{motivation-for-minus-one-categories-empty}\emph{Empty}, having no objects.
+        \item\label{motivation-for-minus-one-categories-contractible}\emph{Contractible}, having a collection of objects $\{a,b,c,\ldots\}$, but with $\Hom_{\CatFont{C}}(a,b)$ being a $(-2)$-category (i.e.\ trivial) for all $a,b\in\Obj(\CatFont{C})$, forcing all objects of $\CatFont{C}$ to be uniquely isomorphic to each other.
+    \end{enumerate}
+    Thus there are only two $(-1)$-categories up to equivalence:
+    \begin{enumerate}
+        \item\label{motivation-for-minus-one-categories-false}The $(-1)$-category $\false$ (the empty one);
+        \item\label{motivation-for-minus-one-categories-true}The $(-1)$-category $\true$  (the contractible one).%
+    \end{enumerate}
+\end{remark}
+\begin{definition}{The Poset of Truth Values}{the-poset-of-truth-values}%
+    The \index[set-theory]{poset!of truth values}\textbf{poset of truth values}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[set-theory]{poset!of minus one categories@of $(-1)$-categories}\textbf{poset of $(-1)$-categories}.%
+    } %
+    %---  End Footnote  ---%
+    is the poset \index[notation]{truefalse@$\TV$}$\smash{(\TV,\preceq)}$ consisting of:%
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set $\TV$ whose elements are the truth values $\true$ and $\false$.
+        \item\SloganFont{The Partial Order. }The partial order
+            \[
+                \preceq%
+                \colon%
+                \TV\times\TV%
+                \to
+                \TV%
+            \]%
+            on $\TV$ defined by%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This partial order coincides with logical implication.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \begin{align*}
+                \false\preceq\false &\defeq \true,\\
+                \true\preceq\false  &\defeq \false,\\
+                \false\preceq\true  &\defeq \true,\\
+                \true\preceq\true   &\defeq \true.
+            \end{align*}
+    \end{itemize}
+\end{definition}
+\begin{notation}{Further Notation for The Poset of Truth Values}{further-notation-for-the-poset-of-truth-values}%
+    We also write \index[notation]{tf@$\TTV$}$\TTV$ for the poset $\TV$.
+\end{notation}
+\begin{proposition}{Cartesian Closedness of the Poset of Truth Values}{cartesian-closedness-of-the-poset-of-truth-values}%
+    The poset of truth values $\TTV$ is Cartesian closed with product given by%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Note that $\times$ coincides with the \say{and} operator, while $\eHom_{\TTV}$ coincides with the logical implication operator.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{webcompile}
+        \begin{aligned}
+            \ttrue  \times \ttrue  &= \ttrue,\\
+            \ttrue  \times \tfalse &= \tfalse,
+        \end{aligned}
+        \quad
+        \begin{aligned}
+            \tfalse \times \ttrue  &= \tfalse,\\
+            \tfalse \times \tfalse &= \tfalse,
+        \end{aligned}
+        \qquad
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{$\times$}                       & \textcolor{white}{$\ttrue$}  & \textcolor{white}{$\tfalse$} \\\hline\rowcolor{backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\ttrue$}}  &                   $\ttrue$   &                   $\tfalse$  \\\rowcolor{black!05!backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\tfalse$}} &                   $\tfalse$  &                   $\tfalse$  \\\hline
+        \end{tabular}
+    \end{webcompile}
+    and internal Hom $\eHom_{\TTV}$ given by the partial order of $\TTV$, i.e.\ by
+    \begin{webcompile}
+        \begin{aligned}
+            \eHom_{\TTV}(\ttrue,\ttrue)   &= \ttrue,\\
+            \eHom_{\TTV}(\ttrue,\tfalse)  &= \tfalse,
+        \end{aligned}
+        \quad
+        \begin{aligned}
+            \eHom_{\TTV}(\tfalse,\ttrue)  &= \ttrue,\\
+            \eHom_{\TTV}(\tfalse,\tfalse) &= \ttrue,
+        \end{aligned}
+        \qquad
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{$\eHom_{\TTV}$}                 & \textcolor{white}{$\ttrue$} & \textcolor{white}{$\tfalse$} \\\hline\rowcolor{backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\ttrue$}}  &                   $\ttrue$  &                   $\ttrue$   \\\rowcolor{black!05!backgroundColor}
+            \cellcolor{darkRed}{\textcolor{white}{$\tfalse$}} &                   $\ttrue$  &                   $\tfalse$  \\\hline
+        \end{tabular}
+        \mkern3mu.
+    \end{webcompile}
+\end{proposition}
+\begin{Proof}{Proof of \cref{cartesian-closedness-of-the-poset-of-truth-values}}%
+    \ProofBox{Existence of Products}%
+    We claim that the products $\ttrue\times\ttrue$, $\ttrue\times\tfalse$, $\tfalse\times\ttrue$, and $\tfalse\times\tfalse$ satisfy the universal property of the product in $\TTV$. Indeed, suppose we have diagrams of the form
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{1}_{1}}{p^{1}_{2}}]
+            {}%
+            \&
+            P_{1}
+            \&
+            {}%
+            \\
+            \ttrue
+            \&
+            \ttrue\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \ttrue
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{2}_{1}}{p^{2}_{2}}]
+            {}%
+            \&
+            P_{2}
+            \&
+            {}%
+            \\
+            \ttrue
+            \&
+            \ttrue\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \tfalse
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{3}_{1}}{p^{3}_{2}}]
+            {}%
+            \&
+            P_{3}
+            \&
+            {}%
+            \\
+            \tfalse
+            \&
+            \tfalse\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \ttrue
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{4}_{1}}{p^{4}_{2}}]
+            {}%
+            \&
+            P_{4}
+            \&
+            {}%
+            \\
+            \tfalse
+            \&
+            \tfalse\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \tfalse
+        \end{tikzcd}
+    \end{scalemath}
+    where the $\pr_{1}$ and $\pr_{2}$ morphisms are the only possible ones (since $\TTV$ is posetal). We claim that there are unique morphisms making the diagrams
+    \begin{scalemath}
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{1}_{1}}{p^{1}_{2}}]
+            {}%
+            \&
+            P_{1}
+            \arrow[d,densely dashed,"\exists!"description]
+            \&
+            {}%
+            \\
+            \ttrue
+            \&
+            \ttrue\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \ttrue
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{2}_{1}}{p^{2}_{2}}]
+            {}%
+            \&
+            P_{2}
+            \arrow[d,densely dashed,"\exists!"description]
+            \&
+            {}%
+            \\
+            \ttrue
+            \&
+            \ttrue\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \tfalse
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{3}_{1}}{p^{3}_{2}}]
+            {}%
+            \&
+            P_{3}
+            \arrow[d,densely dashed,"\exists!"description]
+            \&
+            {}%
+            \\
+            \tfalse
+            \&
+            \tfalse\times\ttrue
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \ttrue
+        \end{tikzcd}
+        \quad
+        \begin{tikzcd}[row sep={4.5*\the\DL,between origins}, column sep={4.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,productArrows={4.5*\the\DL}{p^{4}_{1}}{p^{4}_{2}}]
+            {}%
+            \&
+            P_{4}
+            \arrow[d,densely dashed,"\exists!"description]
+            \&
+            {}%
+            \\
+            \tfalse
+            \&
+            \tfalse\times\tfalse
+            \arrow[l,"\pr_{1}"{pos=0.4},two heads]
+            \arrow[r,"\pr_{2}"'{pos=0.4},two heads]
+            \&
+            \tfalse
+        \end{tikzcd}
+    \end{scalemath}
+    commute. Indeed:
+    \begin{enumerate}
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-1}If $P_{1}=\ttrue$, then $p^{1}_{1}=p^{1}_{2}=\id_{\ttrue}$, so there's a unique morphism from $P_{1}$ to $\ttrue$ making the diagram commute, namely $\id_{\ttrue}$.
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-2}If $P_{1}=\tfalse$, then $p^{1}_{1}=p^{1}_{2}$ are given by the unique morphism from $\tfalse$ to $\ttrue$, so there's a unique morphism from $P_{1}$ to $\ttrue$ making the diagram commute, namely the unique morphism from $\tfalse$ to $\ttrue$.
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-3}If $P_{2}=\ttrue$, then there is no morphism $p^{2}_{2}$.
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-4}If $P_{2}=\tfalse$, then $p^{2}_{1}$ is the unique morphism from $\tfalse$ to $\ttrue$ while $p^{2}_{2}=\id_{\tfalse}$, so there's a unique morphism from $P_{2}$ to $\tfalse$ making the diagram commute, namely $\id_{\tfalse}$.
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-5}The proof for $P_{3}$ is similar to the one for $P_{2}$.
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-6}If $P_{4}=\ttrue$, then there is no morphism $p^{4}_{1}$ or $p^{4}_{2}$.
+        \item\label{proof-of-cartesian-closedness-of-the-poset-of-truth-values-7}If $P_{4}=\tfalse$, then $p^{4}_{1}=p^{4}_{2}=\id_{\tfalse}$, so there's a unique morphism from $P_{4}$ to $\tfalse$ making the diagram commute, namely $\id_{\tfalse}$.
+    \end{enumerate}
+    This finishes the existence of products part of the proof.
+
+    \ProofBox{Cartesian Closedness}%
+    We claim there's a bijection
+    \[
+        \Hom_{\TTV}(A\times B,C)%
+        \cong%
+        \Hom_{\TTV}(A,\eHom_{\TTV}(B,C)),%
+    \]%
+    natural in $A,B,C\in\TTV$. Indeed:
+    \begin{itemize}
+        \item For $(A,B,C)=(\ttrue,\ttrue,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\ttrue,\ttrue)    &\cong \Hom_{\TTV}(\ttrue,\ttrue)\\
+                                                          &=     \{\id_{\true}\}\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\eHom_{\TTV}(\ttrue,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\ttrue,\ttrue,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\ttrue,\tfalse)   &\cong \Hom_{\TTV}(\ttrue,\tfalse)\\
+                                                          &=     \emptyset\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\eHom_{\TTV}(\ttrue,\tfalse)).
+            \end{align*}
+        \item For $(A,B,C)=(\ttrue,\tfalse,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\tfalse,\ttrue)   &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \pt\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\tfalse,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\ttrue,\tfalse,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\ttrue\times\tfalse,\tfalse)  &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \{\id_{\false}\}\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\ttrue,\eHom_{\TTV}(\tfalse,\tfalse)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\ttrue,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\ttrue,\ttrue)   &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \pt\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\ttrue,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\ttrue,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\ttrue,\tfalse)  &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \{\id_{\false}\}\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\ttrue,\tfalse)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\tfalse,\ttrue)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\tfalse,\ttrue)  &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \pt\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\ttrue)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\tfalse,\ttrue)).
+            \end{align*}
+        \item For $(A,B,C)=(\tfalse,\tfalse,\tfalse)$, we have
+            \begin{align*}
+                \Hom_{\TTV}(\tfalse\times\tfalse,\tfalse) &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &=     \{\id_{\false}\}\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\tfalse)\\
+                                                          &\cong \Hom_{\TTV}(\tfalse,\eHom_{\TTV}(\tfalse,\tfalse)).
+            \end{align*}
+    \end{itemize}
+    Since $\TTV$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}).
+\end{Proof}
+\subsection{$0$-Categories}\label{subsection-zero-categories}
+\begin{definition}{$0$-Categories}{zero-categories}%
+    A \index[set-theory]{zero category@$0$-category}\textbf{$0$-category} is a poset.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Motivation: }A $0$-category is precisely a category enriched in the poset of $(-1)$-categories.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\begin{definition}{$0$-Groupoids}{zero-groupoids}%
+    A \index[set-theory]{zero groupoid@$0$-groupoid}\textbf{$0$-groupoid} is a $0$-category in which every morphism is invertible.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        That is, a \emph{set}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+\end{definition}
+\subsection{Tables of Analogies Between Set Theory and Category Theory}\label{subsection-table-of-analogies-between-set-theory-and-category-theory}
+Here we record some analogies between notions in set theory and category theory. The analogies relating to presheaves relate equally well to copresheaves, as the opposite $X^{\mathrm{op}}$ of a set $X$ is just $X$ again.
+\begin{remark}{Basic Analogies Between Set Theory and Category Theory}{basic-analogies-between-set-theory-and-category-theory}%
+    The basic analogies between set theory and category theory are summarised in the following table:
+    \begingroup%
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{Set Theory}} & \textcolor{white}{\textbf{Category Theory}} \\\hline\rowcolor{backgroundColor}
+            Enrichment in $\TV$                    & Enrichment in $\Sets$                       \\\rowcolor{black!05!backgroundColor}
+            Set $X$                                & Category $\CatFont{C}$                      \\\rowcolor{backgroundColor}
+            Element $x\in X$                       & Object $X\in\Obj(\CatFont{C})$              \\\rowcolor{black!05!backgroundColor}
+            Function $f\colon X\to Y$              & Functor $F\colon\CatFont{C}\to\CatFont{D}$  \\\rowcolor{backgroundColor}
+            Function $X\to\TV$                     & Copresheaf $\CatFont{C}\to\Sets$            \\\rowcolor{black!05!backgroundColor}
+            Function $X\to\TV$                     & Presheaf $\CatFont{C}^{\op}\to\Sets$        \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{remark}
+\begin{remark}{Analogies Between Set Theory and Category Theory: Powersets and Categories of Presheaves}{analogies-between-set-theory-and-category-theory-powersets-and-categories-of-presheaves}%
+    The category of presheaves $\PSh(\CatFont{C})$ and the category of copresheaves $\CoPSh(\CatFont{C})$ on a category $\CatFont{C}$ are the 1-categorical counterparts to the powerset $\mathcal{P}(X)$ of subsets of a set $X$. The further analogies built upon this are summarised in the following table:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{Set Theory}}                                                                                                                                    & \textcolor{white}{\textbf{Category Theory}}                                                                                                   \\\hline\rowcolor{backgroundColor}
+            Powerset $\mathcal{P}(X)$                                                                                                                                                          & Presheaf category $\PSh(\CatFont{C})$                                                                                                         \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Characteristic function\\$\chi_{\{x\}}\colon X\to\TTV$}}                                                                                                                                             & \Gape[0pt][2pt]{\makecell{Representable presheaf\\$h_{X}\colon\CatFont{C}^{\op}\hookrightarrow\Sets$}}                                                                                                                \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Characteristic embedding\\$\chi_{(-)}\colon X\hookrightarrow\mathcal{P}(X)$}}                                                                            & \Gape[0pt][2pt]{\makecell{Yoneda embedding\\$\yo\colon\CatFont{C}^{\op}\hookrightarrow\PSh(\CatFont{C})$}}                                                    \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Characteristic relation\\$\chi_{X}(-_{1},-_{2})\colon X\times X\to\TTV$}}                                                                            & \Gape[0pt][2pt]{\makecell{Hom profunctor\\$\Hom_{\CatFont{C}}(-_{1},-_{2})\colon\CatFont{C}^{\op}\times\CatFont{C}\to\Sets$}}                                                    \\
+            \Gape[0pt][2pt]{\makecell{The Yoneda lemma for sets\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{U})=\chi_{U}(x)$}}                                                               & \Gape[0pt][2pt]{\makecell{The Yoneda lemma for categories\\$\Nat(h_{X},\SheafFont{F})\cong\SheafFont{F}(X)$}}                                                  \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{The characteristic\\embedding is fully faithful,\\$\Hom_{\mathcal{P}(X)}(\chi_{x},\chi_{y})=\chi_{X}(x,y)$}}                                     & \Gape[0pt][2pt]{\makecell{The Yoneda\\embedding is fully faithful,\\$\Nat(h_{X},h_{Y})\cong\Hom_{\CatFont{C}}(X,Y)$}}                                        \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Subsets are unions\\of their elements\\ $\displaystyle U=\bigcup_{x\in U}\{x\}$\\or\\$\displaystyle\chi_{U}=\colim_{\chi_{x}\in\mathcal{P}(U)}(\chi_{x})$}} & \Gape[0pt][2pt]{\makecell{Presheaves are colimits\\of representables,\\$\displaystyle\SheafFont{F}\cong\colim_{h_{X}\in\int_{\mathcal{C}}\SheafFont{F}}(h_{X})$}} \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{remark}
+\begin{remark}{Analogies Between Set Theory and Category Theory: Categories of Elements}{analogies-between-set-theory-and-category-theory-categories-of-elements}%
+    We summarise the analogies between un/straightening in set theory and category theory in the following table:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                      & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                                                        \\\hline\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Assignment\\$U\mapsto\chi_{U}$}}                                                                                        & \Gape[0pt][2pt]{\makecell{Assignment\\$\SheafFont{F}\mapsto\catEl{\CatFont{C}}{\SheafFont{F}}$}}                                          \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Un/straightening isomorphism\\$\mathcal{P}(X)\cong\Sets(X,\TTV)$}} & \Gape[0pt][2pt]{\makecell{Un/straightening equivalence\\$\DFib(\CatFont{C})\eqcong\PSh(\CatFont{C})$}} \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{remark}
+\begin{remark}{Analogies Between Set Theory and Category Theory: Functions Between Powersets and Functors Between Presheaf Categories}{analogies-between-set-theory-and-category-theory-functions-between-powersets-and-functors-between-presheaf-categories}%
+    We summarise the analogies between functions $\mathcal{P}(X)\to\mathcal{P}(Y)$ and functors $\PSh(\CatFont{C})\to\PSh(\CatFont{D})$ in the following table:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                   & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                \\\hline\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Direct image function\\$f_{!}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}}   & \Gape[0pt][2pt]{\makecell{Left Kan extension functor\\$F_{!}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}}                     \\\rowcolor{black!05!backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Inverse image function\\$f^{-1}\colon\mathcal{P}(Y)\to\mathcal{P}(X)$}} & \Gape[0pt][2pt]{\makecell{Precomposition functor\\$F^{*}\colon\PSh(\CatFont{D})\to\PSh(\CatFont{C})$}}                       \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Codirect image function\\$f_{*}\colon\mathcal{P}(X)\to\mathcal{P}(Y)$}} & \Gape[0pt][2pt]{\makecell{Right Kan extension functor\\$F_{*}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}} \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{remark}
+\begin{remark}{Analogies Between Set Theory and Category Theory: Relations and Profunctors}{analogies-between-set-theory-and-category-theory-relations-and-profunctors}%
+    We summarise the analogies between functions, relations and profunctors in the following table:
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{\textsc{Set Theory}}}                                                                                                                                       & \textcolor{white}{\textbf{\textsc{Category Theory}}}                                                                                                               \\\hline\rowcolor{backgroundColor}
+            Relation $R\colon X\times Y\to\TTV$                                                                                                                                                   & Profunctor $\mathfrak{p}\colon\CatFont{D}^{\op}\times\CatFont{C}\to\Sets$                                                                                 \\\rowcolor{black!05!backgroundColor}
+            Relation $R\colon X\to\mathcal{P}(Y)$                                                                                                                                      & Profunctor $\mathfrak{p}\colon\CatFont{C}\to\PSh(\CatFont{D})$                                                                                 \\\rowcolor{backgroundColor}
+            \Gape[0pt][2pt]{\makecell{Relation as a cocontinuous\\morphism of posets\\$R\colon(\mathcal{P}(X),\subset)\to(\mathcal{P}(Y),\subset)$}} & \Gape[0pt][2pt]{\makecell{Profunctor as a \\colimit-preserving functor\\$\mathfrak{p}\colon\PSh(\CatFont{C})\to\PSh(\CatFont{D})$}} \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{remark}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

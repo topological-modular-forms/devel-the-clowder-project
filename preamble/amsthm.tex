@@ -1,0 +1,25 @@
+% Theorem environments.
+%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[subsubsection]
+\newtheorem{example}[definition]{Example}
+%\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{question}[definition]{Question}
+\newtheorem{proposition-definition}[definition]{Proposition-Definition}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+%\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{warning}[definition]{Warning}
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{construction}[definition]{Construction}
+\newtheorem{oldtag}[definition]{Old Tag}
+\newtheorem{gap}[definition]{Gap}
+\newtheorem{motivation}[definition]{Motivation}
+\newtheorem{explanation}[definition]{Explanation}
+
+\renewcommand{\thedefinition}{\thesubsubsection.\arabic{definition}}
+\numberwithin{equation}{subsubsection}
+\renewcommand{\theequation}{\thesubsubsection.\arabic{definition}}

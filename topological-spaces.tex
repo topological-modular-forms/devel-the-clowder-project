@@ -1,0 +1,293 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Topological Spaces}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material about topological spaces.
+
+\ChapterTableOfContents
+
+\section{Topologies}\label{section-topologies}
+\subsection{Foundations}\label{subsection-topologies-foundations}
+Let $X$ be a set.
+\begin{definition}{Topologies}{topologies}%
+    A \index[topology]{topology on a set}\textbf{topology on $X$} is equivalently:%
+    \begin{enumerate}
+        \item\label{topologies-1}An exact coreflective subcategory $\rmOpen(X)$ of $\mathcal{P}(X)$.
+
+            i:     Open(X) -> P(X)
+            Int_X: P(X) -> Open(X)
+
+            U < S
+            U < Int_X(S)
+
+
+            A subset $\rmOpen(X)$ of $\mathcal{P}(X)$, called the \textbf{set of open sets of $X$}, satisfying the following conditions:
+            \begin{enumerate}
+                \item\label{topologies-1-a}\SloganFont{Containment of the Empty and Total Sets. }We have $\emptyset,X\in\rmOpen(X)$.%
+                \item\label{topologies-1-b}\SloganFont{Closure Under Unions. }Unions of open sets are open.
+                \item\label{topologies-1-c}\SloganFont{Closure Under Finite Intersections. }Finite intersections of open sets are open.
+            \end{enumerate}
+        \item\label{topologies-2}A subset $\rmCld(X)$ of $\mathcal{P}(X)$, called the \textbf{set of closed sets of $X$}, satisfying the following conditions:
+            \begin{enumerate}
+                \item\label{topologies-2-a}\SloganFont{Containment of the Empty and Total Sets. }We have $\emptyset,X\in\mathcal{T}$.%
+                \item\label{topologies-2-b}\SloganFont{Closure Under Intersections. }Intersections of closed sets are closed.
+                \item\label{topologies-2-c}\SloganFont{Closure Under Finite Unions. }Finite unions of closed sets are closed.
+            \end{enumerate}
+        \item\label{topologies-3}A collection of fundamental neighbourhoods of $X$ as in  \cref{systems-of-neighbourhoods}.
+        \item\label{topologies-4}A Kuratowski closure operator  on $X$ as in \cref{kuratowski-closure-operators}.
+        \item\label{topologies-5}A Kuratowski interior operator on $X$ as in \cref{kuratowski-interior-operators}.
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Proof of the Equivalences in \cref{topologies}}%
+    We claim that the notions defined by \cref{topologies-1,topologies-2,topologies-3,topologies-4,topologies-5} are indeed equivalent.
+
+    \ProofBox{\cref{topologies-1}$\iff$\cref{topologies-2}}%
+    Omitted.
+
+    \ProofBox{\cref{topologies-1}$\iff$\cref{topologies-3}}%
+    Omitted.
+
+    \ProofBox{\cref{topologies-1}$\iff$\cref{topologies-4}}%
+    Omitted.
+
+    \ProofBox{\cref{topologies-1}$\iff$\cref{topologies-5}}%
+    Omitted.
+\end{Proof}
+\begin{definition}{Comparing Topologies}{comparing-topologies}%
+    Let $\mathcal{T},\mathcal{T}'$ be two topologies on a set $X$.\index[topology]{topology on a set!finer/coarser than another topology}%
+    \begin{itemize}
+        \item\label{comparing-topologies-1}The topology $\mathcal{T}'$ is \textbf{finer}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }We also say that $\mathcal{T}$ is \textbf{coarser} than $\mathcal{T}'$.
+            } %
+            %---  End Footnote  ---%
+            than $\mathcal{T}$ if $\mathcal{T}\subset\mathcal{T}'$.
+        \item\label{comparing-topologies-2}The topology $\mathcal{T}'$ is \textbf{strictly finer}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }We also say that $\mathcal{T}$ is \textbf{strictly coarser} than $\mathcal{T}'$.
+                \par\vspace*{-1.75\baselineskip}
+            } %
+            %---  End Footnote  ---%
+            than $\mathcal{T}$ if $\mathcal{T}\subsetneq\mathcal{T}'$.
+        \item\label{comparing-topologies-3}The topology $\mathcal{T}$ and $\mathcal{T}'$ are \textbf{comparable} if either $\mathcal{T}'\subset\mathcal{T}$ or $\mathcal{T}\subset\mathcal{T}'$.
+    \end{itemize}
+\end{definition}
+\begin{proposition}{Properties of Topologies}{properties-of-topologies}%
+    Let $X$ be a set.
+    \begin{enumerate}
+        \item\label{properties-of-topologies-lattice-structure}\SloganFont{Lattice Structure. }The set of all topologies on $X$ together with set inclusion forms a complete lattice:
+            \begin{enumerate}
+                \item\label{properties-of-topologies-lattice-structure-infima}\SloganFont{Infima. }Given a family of topologies $\{\mathcal{T}_{\alpha}\}_{\alpha\in I}$ on $X$, we have
+                    \[
+                        \inf_{\alpha\in I}(\mathcal{T}_{\alpha})%
+                        =%
+                        \bigcap_{\alpha\in I}\mathcal{T}_{\alpha}.%
+                    \]%
+                \item\label{properties-of-topologies-lattice-structure-suprema}\SloganFont{Suprema. }Given a family of topologies $\{\mathcal{T}_{\alpha}\}_{\alpha\in I}$ on $X$ generated by subbases $\{\mathcal{B}_{\alpha}\}_{\alpha\in I}$, we have
+                    \[
+                        \sup_{\alpha\in I}(\mathcal{T}_{\alpha})%
+                        =%
+                        \langle\bigcup_{\alpha\in I}\mathcal{B}_{\alpha}\rangle,%
+                    \]%
+                    i.e.\ $\sup_{\alpha\in I}(\mathcal{T}_{\alpha})$ is generated by the subbasis $\bigcup_{\alpha\in I}\mathcal{B}_{\alpha}$.
+            \end{enumerate}
+        %\item\label{properties-of-topologies-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-topologies}}%
+    \FirstProofBox{\cref{properties-of-topologies-lattice-structure}: Lattice Structure}%
+    Omitted.
+\end{Proof}
+\subsection{Systems of Neighbourhoods}\label{subsection-fundamental-neighbourhoods}
+Let $X$ be a set.
+\begin{definition}{Systems of Neighbourhoods}{systems-of-neighbourhoods}%
+    A \index[topology]{system of neighbourhoods}\textbf{system of neighbourhoods of $X$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called a \textbf{complete system of neighbourhoods of $X$} or a \textbf{neighbourhood filter of $X$}.
+            \par\vspace*{-1.75\baselineskip}
+    } %
+    %---  End Footnote  ---%
+    is a set $\mathcal{N}=(\mathcal{N}_{p})_{p\in X}$ satisfying the following conditions for each $p\in X$:
+    \begin{enumerate}
+        \item\label{systems-of-neighbourhoods-1}For each $S\in\mathcal{P}(X)$, if there exists some $N\in\mathcal{N}_{p}$ such that $N\subset S$, then $S\in\mathcal{N}_{p}$.
+        \item\label{systems-of-neighbourhoods-2}For each $x\in X$, finite intersections of sets in $\mathcal{N}_{p}$ are in $\mathcal{N}_{p}$.
+        \item\label{systems-of-neighbourhoods-3}For each $N\in\mathcal{N}_{p}$, we have $p\in N$.
+        \item\label{systems-of-neighbourhoods-4}For each $N\in\mathcal{N}_{p}$, there exists a set $N'\in\mathcal{N}_{p}$ such that, for each $q\in N'$, we have $N\in\mathcal{N}_{q}$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Slogan }(from \cite[p.~19]{bourbaki-general-topology-1-4})\SloganFont{: }A neighbourhood of $p$ is also a neighbourhood of all points sufficiently near $p$.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Systems of Neighbourhoods}{properties-of-systems-of-neighbourhoods}%
+    Let $X$ be a set.
+    \begin{enumerate}
+        \item\label{properties-of-systems-of-neighbourhoods-equivalence-with-topologies}\SloganFont{Equivalence With Topologies. }We have a bijection
+            \[
+                \{%
+                    \begin{gathered}
+                        \text{systems of neigh-}\\%
+                        \text{bourhoods of $X$}%
+                    \end{gathered}
+                \}%
+                \cong
+                \{\text{topologies on $X$}\}%
+            \]%
+            given by:
+            \begin{enumerate}
+                \item\label{properties-of-systems-of-neighbourhoods-equivalence-with-topological-spaces-1}Sending a system of neighbourhoods $\mathcal{N}$ of $X$ to the topology $\mathcal{T}^{\mathcal{N}}_{X}$ on $X$ defined by
+                    \[
+                        \mathcal{T}^{\mathcal{N}}_{X}%
+                        \defeq%
+                        \{%
+                            U\in\mathcal{P}(X)%
+                            \ \middle|\ %
+                            \text{for each $p\in U$, we have $U\in\mathcal{N}(p)$}%
+                        \},%
+                    \]%
+                    following \cref{properties-of-neighbourhoods-characterisations-of-open-neighbourhoods} of \cref{properties-of-neighbourhoods}.
+                \item\label{properties-of-systems-of-neighbourhoods-equivalence-with-topological-spaces-2}Sending a topology $\mathcal{T}$ on $X$ to the system of neighbourhoods $\mathcal{N}_{\mathcal{T}}=(\mathcal{N}_{\mathcal{T}}(p))_{p\in X}$ defined by
+                    \[
+                        \mathcal{N}_{\mathcal{T}}(p)%
+                        \defeq%
+                        \{%
+                            N\in\mathcal{P}(X)%
+                            \ \middle|\ %
+                            \text{$N$ is a neighbourhood of $p$ in $X$}%
+                        \},%
+                    \]%
+                    where a neighbourhood of $p$ in $X$ is defined as in \cref{neighbourhoods}.
+            \end{enumerate}
+        %\item\label{properties-of-systems-of-neighbourhoods-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-systems-of-neighbourhoods}}%
+    \FirstProofBox{\cref{properties-of-systems-of-neighbourhoods-equivalence-with-topologies}: Equivalence With Topologies}%
+    See \cite[Proposition 2 in p.~19]{bourbaki-general-topology-1-4}.
+\end{Proof}
+\subsection{Kuratowski Closure Operators}\label{subsection-kuratowski-closure-operators}
+Let $X$ be a set.
+\begin{definition}{Kuratowski Closure Operators}{kuratowski-closure-operators}%
+    A \index[topology]{Kuratowski closure operator}\textbf{Kuratowski closure operator on $X$} is a right exact idempotent monad on $\mathcal{P}(X)$.
+\end{definition}
+\begin{remark}{Unwinding \cref{kuratowski-closure-operators}}{unwinding-kuratowski-closure-operators}%
+    In detail, a \textbf{Kuratowski closure operator on $X$} is a functor
+    \[
+        \rmCl_{X}%
+        \colon%
+        \mathcal{P}(X)%
+        \to%
+        \mathcal{P}(X),%
+    \]%
+    satisfying the following conditions:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        We can also express some separation conditions on $X$ in terms of closure operators:
+        \begin{itemize}
+            \item The topological space $X$ is $\rmT_{0}$ \textiff $x\neq y$ implies $\rmCl_{X}(\{x\})\neq\rmCl_{X}(\{y\})$.
+            \item The topological space $X$ is $\rmT_{1}$ \textiff for each $p\in X$, we have $\rmCl_{X}(\{p\})=\{p\}$.
+            \item The topological space $X$ is $\rmT_{2}$ \textiff $x\neq y$ implies there exists $U\in\mathcal{P}(X)$ such that $x\nin\rmCl_{X}(U)$ and $y\nin\rmCl_{Y}(X\setminus U)$.
+        \end{itemize}
+        \par\vspace*{-2.0\baselineskip}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{unwinding-kuratowski-closure-operators-functoriality}\SloganFont{Functoriality. }For each $U,V\in\mathcal{P}(X)$, if $U\subset V$, then $\rmCl_{X}(U)\subset\rmCl_{X}(V)$.
+        \item\label{unwinding-kuratowski-closure-operators-idempotency}\SloganFont{Idempotency. }For each $U\in\mathcal{P}(A)$, we have $\rmCl_{X}(\rmCl_{X}(A))=\rmCl_{X}(A)$.
+        \item\label{unwinding-kuratowski-closure-operators-unitality}\SloganFont{Unitality. }We have a natural transformation
+            \[
+                \eta%
+                \colon%
+                \id_{\mathcal{P}(X)}%
+                \Rightarrow%
+                \rmCl_{X}%
+            \]%
+            in $\Fun(\mathcal{P}(X),\mathcal{P}(X))$, having components%
+            \[
+                \eta_{U}%
+                \colon%
+                U%
+                \subset%
+                \rmCl_{X}(U)%
+            \]%
+            with $U\in\mathcal{P}(X)$.
+        \item\label{unwinding-kuratowski-closure-operators-right-exactness}\SloganFont{Right Exactness. }The functor $\rmCl_{X}$ is right exact:
+            \begin{enumerate}
+                \item\label{unwinding-kuratowski-closure-operators-right-exactness-preservation-of-the-empty-set}\SloganFont{Preservation of the Empty Set. }We have $\rmCl_{X}(\emptyset)=\emptyset$.
+                \item\label{unwinding-kuratowski-closure-operators-right-exactness-preservation-of-finite-unions}\SloganFont{Preservation of Finite Unions. }We have
+                    \[
+                        \rmCl_{X}(U\cup V)%
+                        =%
+                        \rmCl_{X}(U)\cup\rmCl_{X}(V)%
+                    \]%
+                    for each $U,V\in\mathcal{P}(X)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{remark}
+\subsection{Kuratowski Interior Operators}\label{subsection-kuratowski-interior-operators}
+Let $X$ be a set.
+\begin{definition}{Kuratowski Interior Operators}{kuratowski-interior-operators}%
+    A \index[topology]{Kuratowski interior operator}\textbf{Kuratowski interior operator on $X$} is a left exact idempotent comonad on $\mathcal{P}(X)$.
+\end{definition}
+\begin{remark}{Unwinding \cref{kuratowski-interior-operators}}{unwinding-kuratowski-interior-operators}%
+    In detail, a \textbf{Kuratowski interior operator on $X$} is a functor
+    \[
+        \rmint_{X}%
+        \colon%
+        \mathcal{P}(X)%
+        \to%
+        \mathcal{P}(X),%
+    \]%
+    satisfying the following conditions:
+    \begin{enumerate}
+        \item\label{unwinding-kuratowski-interior-operators-functoriality}\SloganFont{Functoriality. }For each $U,V\in\mathcal{P}(X)$, if $U\subset V$, then $\rmint_{X}(U)\subset\rmint_{X}(V)$.
+        \item\label{unwinding-kuratowski-interior-operators-idempotency}\SloganFont{Idempotency. }For each $U\in\mathcal{P}(A)$, we have $\rmint_{X}(A)=\rmint_{X}(\rmint_{X}(A))$.
+        \item\label{unwinding-kuratowski-interior-operators-counitality}\SloganFont{Counitality. }We have a natural transformation
+            \[
+                \epsilon%
+                \colon%
+                \rmint_{X}%
+                \Rightarrow%
+                \id_{\mathcal{P}(X)}%
+            \]%
+            in $\Fun(\mathcal{P}(X),\mathcal{P}(X))$, having components
+            \[
+                \epsilon_{U}%
+                \colon%
+                \rmint_{X}(U)%
+                \subset%
+                U%
+            \]%
+            with $U\in\mathcal{P}(X)$.
+        \item\label{unwinding-kuratowski-interior-operators-left-exactness}\SloganFont{Left Exactness. }The functor $\rmint_{X}$ is left exact:
+            \begin{enumerate}
+                \item\label{unwinding-kuratowski-interior-operators-left-exactness-preservation-of-the-total-set}\SloganFont{Preservation of the Total Set. }We have $\rmint_{X}(X)=X$.
+                \item\label{unwinding-kuratowski-interior-operators-left-exactness-preservation-of-finite-intersections}\SloganFont{Preservation of Finite Intersections. }We have
+                    \[
+                        \rmint_{X}(U\cap V)%
+                        =%
+                        \rmint_{X}(U)\cap\rmint_{X}(V)%
+                    \]%
+                    for each $U,V\in\mathcal{P}(X)$.
+            \end{enumerate}
+    \end{enumerate}
+\end{remark}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

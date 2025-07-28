@@ -1,0 +1,186 @@
+\usepackage{etoolbox}
+\makeatletter
+\displaywidth=\textwidth
+\displayindent=-\leftskip
+\patchcmd\start@gather{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\start@gather}}
+\patchcmd\start@align{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\start@align}}
+\patchcmd\start@multline{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\start@multline}}
+\patchcmd\mathdisplay{$$}{%
+  $$%
+  \displaywidth=\textwidth
+  \displayindent=-\leftskip
+}{}{\errmessage{Cannot patch \string\mathdisplay}}
+\makeatother
+\makeatletter
+\newcommand{\displaybump}{\hbox to \@totalleftmargin{\hfil}}
+\makeatother
+\usepackage{pdfpages}
+\usepackage[page]{appendix}
+\AtBeginEnvironment{subappendices}{%%
+    \section*{\huge Appendices}\vspace{-0.75\baselineskip}%
+}%
+\usepackage{makecell}
+\usepackage{cellspace}
+\newcommand{\GrC}[2]{
+    \mathchoice%
+    {\scalebox{1.0}{$\textstyle\int^{#1}#2$}}%
+    {\scalebox{1.0}{$\textstyle\int^{#1}#2$}}%
+    {\scalebox{0.75}{$\textstyle\int^{#1}#2$}}%
+    {\scalebox{0.6}{$\textstyle\int^{#1}#2$}}%
+}
+\newcommand{\vGrC}[2]{
+    \mathchoice%
+    {\scalebox{1.0}{$\textstyle\int_{#1}#2$}}%
+    {\scalebox{1.0}{$\textstyle\int_{#1}#2$}}%
+    {\scalebox{0.75}{$\textstyle\int_{#1}#2$}}%
+    {\scalebox{0.6}{$\textstyle\int_{#1}#2$}}%
+}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\newcommand\pig[1]{\scalerel*[5pt]{\big#1}{\ensurestackMath{\addstackgap[1.5pt]{\big#1}}}}
+\newcommand\pigl[1]{\mathopen{\pig{#1}}}
+\newcommand\pigr[1]{\mathclose{\pig{#1}}}
+\usepackage{epigraph,xpatch}
+
+\epigraphnoindent
+
+\makeatletter
+\newcommand{\doubleepigraph}[4]{%
+  \vspace{\beforeepigraphskip}
+  \vbox{%
+    \xpatchcmd{\@epitext}{{minipage}}{{minipage}[t]}{}{}%
+    \epigraphsize
+    \begin{\epigraphflush}
+    \begin{minipage}[b]{\epigraphwidth}
+      \@epitext{#1}\\
+      \@episource{\begin{flushleft}#2\strut\end{flushleft}}%
+    \end{minipage}\hfill
+    \begin{minipage}[b]{\epigraphwidth}
+      \@epitext{#3}\\
+      \@episource{#4\strut}%
+    \end{minipage}%
+    \end{\epigraphflush}%
+  }%
+  %\nointerlineskip
+  %\vspace*{\afterepigraphskip}%
+  %\ifepigraphnoindent\@afterheading\fi
+}
+\makeatother
+
+\setlength{\epigraphwidth}{0.45\textwidth}
+\tikzcdset{%
+    prompter/.code={%
+        \tikzset{%
+            nodes in empty cells=false,cells={nodes={draw,execute at end node={\makebox[0pt][l]{$~{}_{%
+                \smash{%
+                    \raisebox{-0.75em}{
+                        \colorbox{OIblue}{%
+                            \textcolor{white}{%
+                                \textbf{\textsf{\the\pgfmatrixcurrentrow-\the\pgfmatrixcurrentcolumn}}%
+                            }%
+                        }%
+                    }%
+                }%
+            }$}}}}%
+        }%
+    }%
+}%
+\tikzcdset{%
+    prompter all/.code={%
+        \tikzset{%
+            nodes in empty cells=true,cells={nodes={draw,execute at end node={\makebox[0pt][l]{$~{}_{%
+                \smash{%
+                    \raisebox{-0.75em}{
+                        \colorbox{OIblue}{%
+                            \textcolor{white}{%
+                                \textbf{\textsf{\the\pgfmatrixcurrentrow-\the\pgfmatrixcurrentcolumn}}%
+                            }%
+                        }%
+                    }%
+                }%
+            }$}}}}%
+        }%
+    }%
+}%
+\usepackage{fp}
+\newcommand{\fsize}[2]{{\fontsize{#1pt}{#1pt * \real{1.2}}\selectfont #2}}
+\newcommand{\ffsize}[1]{\fontsize{#1pt}{#1pt * \real{1.2}}\selectfont}
+\usepackage{stmaryrd}
+\newcommand{\bfLUnitor}{\boldsymbol{\lambda}}
+\newcommand{\bfRUnitor}{\boldsymbol{\rho}}
+\newcommand{\bfalpha}{\boldsymbol{\alpha}}
+\newcommand{\bfbeta}{\boldsymbol{\beta}}
+\newcommand{\bfsigma}{\boldsymbol{\sigma}}
+\newcommand{\bfepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\bfmu}{\boldsymbol{\mu}}
+\newcommand{\textiff}{iff\xspace}
+\newcommand{\OrdinalCategory}{\mathbbold{n}}
+\newcommand{\OrdinalCategoryNPlus}[2]{\mathbbold{#1}+\mathbbold{#2}}
+\newcommand{\OrdinalCategoryN}[1]{\mathbbold{#1}}
+\newcommand{\Unit}{\mathbbold{1}}
+\newcommand{\Zero}{\mathbbold{0}}
+\newfontfamily\IPAFont[Path=ABSOLUTEPATH/fonts/brill/,Scale=1.0]{Brill-Roman.ttf}
+\newcommand{\IPA}[1]{{\text{\IPAFont{#1}}}}
+\newcommand{\coyo}{\mathchoice{\mathbin{\scalebox{1.0}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{1.0}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{0.75}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}{\mathbin{\scalebox{0.6}{\rotatebox[origin=c]{180}{\Japanese{よ}}\!}}}}
+\newcommand{\AugmentedSimplexCategory}{\mathbbold{\Delta}_{+}}
+\newcommand{\SimplexCategory}{\mathbbold{\Delta}}
+\usepackage[mathscr]{eucal}
+%\let\EuScript\relax
+%\newcommand{\EuScript}[1]{\mathscr{#1}}
+\newcommand{\CoContFun}{\FontForCategories{Fun}^{\rotatebox[origin=c]{180}{$\mathcal{C}$}}}
+\newcommand{\CoContPos}{\FontForCategories{Pos}^{\rotatebox[origin=c]{180}{$\mathcal{C}$}}}
+\let\emptyset\relax
+\newcommand{\emptyset}{\text{Ø}}
+\let\mod\relax
+\newcommand{\mod}[1]{\ \ (\mathrm{mod}\ #1)}
+\newcommand{\mmod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\less}{<}
+\newcommand{\greater}{>}
+\let\leftllbracket\relax
+\let\rightrrbracket\relax
+\newcommand{\leftllbracket}{\llbracket}
+\newcommand{\rightrrbracket}{\rrbracket}
+%\setlength{\parindent}{0pt}
+\newcommand{\pindent}{\hspace{1em}}
+\newenvironment{envsmallsize}{\begingroup\small}{\endgroup}
+\newenvironment{envfootnotesize}{\begingroup\footnotesize}{\endgroup}
+\newenvironment{envscriptsize}{\begingroup\scriptsize}{\endgroup}
+\newenvironment{envtinysize}{\begingroup\tiny}{\endgroup}
+\newcommand{\itemstar}{\item[$\left(\star\right)$]}
+\newenvironment{palign}{\begin{center}\begin{tabular}{ccll}}{\end{tabular}\end{center}}
+\newenvironment{envwebgif}{}{}
+\newcommand{\webgif}[1]{\href{https://www.clowderproject.com/static/gifs/#1}{[Link]}.}
+\newcommand{\audio}[1]{See \href{https://www.clowderproject.com/static/audios/#1}{here}.}
+\newcommand{\warningsign}{\includegraphics[width=0.03\textwidth]{ABSOLUTEPATH/pictures/warning.pdf}\xspace}
+% FIX "! Package multicol Error: Error saving partial page."
+% Fix: Before starting a multicols environment, check if there are at least 3 lines of space.
+\usepackage{needspace}
+\AtBeginEnvironment{appendices}{\needspace{3\baselineskip}}
+% FIX END
+\let\oldthesection\thesection
+\renewcommand{\thesection}{\oldthesection}
+\newcommand{\pastingdiagramequality}{\quad\scalebox{2.5}{$=$}\quad}
+%
+\begingroup
+\catcode`(\active\xdef({\left\string(}
+\catcode`)\active \xdef){\right\string)}
+\catcode`[\active \xdef[{\left\string[}
+\catcode`]\active \xdef]{\right\string]}
+\endgroup
+\mathcode`(="8000\mathcode`)="8000
+\mathcode`[="8000\mathcode`]="8000
+%\let\nsubset\relax
+%\newcommand{\nsubset}{\not{\subset}}
+\providecommand{\nsubset}{\nsubseteq}
