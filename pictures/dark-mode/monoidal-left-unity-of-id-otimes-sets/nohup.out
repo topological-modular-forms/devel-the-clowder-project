@@ -1,0 +1,17 @@
+error: plugin: filetype already registered: application/pdf
+warning: Unknown option: page-padding-1
+warning: Unknown option: smooth-scroll
+info: Opening plain database via sqlite backend.
+info: No plain database available. Continuing with sqlite database.
+error: could not open document
+
+error: plugin: filetype already registered: application/pdf
+warning: Unknown option: page-padding-1
+warning: Unknown option: smooth-scroll
+info: Opening plain database via sqlite backend.
+info: No plain database available. Continuing with sqlite database.
+error: plugin: filetype already registered: application/pdf
+warning: Unknown option: page-padding-1
+warning: Unknown option: smooth-scroll
+info: Opening plain database via sqlite backend.
+info: No plain database available. Continuing with sqlite database.
