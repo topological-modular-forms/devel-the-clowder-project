@@ -22,15 +22,16 @@ Let $X$ be a set.
 \begin{definition}{Topologies}{topologies}%
     A \index[topology]{topology on a set}\textbf{topology on $X$} is equivalently:%
     \begin{enumerate}
-        \item\label{topologies-1}An exact coreflective subcategory $\rmOpen(X)$ of $\mathcal{P}(X)$.
-%
-%            i:     Open(X) -> P(X)
-%            Int_X: P(X) -> Open(X)
-%
-%            U < S
-%            U < Int_X(S)
-%
-%
+        \item\label{topologies-1}A coreflective subcategory $\rmOpen(X)$ of $\mathcal{P}(X)$ for which the embedding
+            \[
+                \iota%
+                \colon%
+                \rmOpen(X)%
+                \hookrightarrow%
+                \mathcal{P}(X)%
+            \]%
+            is right-exact.
+
             A subset $\rmOpen(X)$ of $\mathcal{P}(X)$, called the \textbf{set of open sets of $X$}, satisfying the following conditions:
             \begin{enumerate}
                 \item\label{topologies-1-a}\SloganFont{Containment of the Empty and Total Sets. }We have $\emptyset,X\in\rmOpen(X)$.%

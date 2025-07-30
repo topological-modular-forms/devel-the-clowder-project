@@ -3936,18 +3936,22 @@ Let $X$ be a set.
         \begin{tikzcd}[row sep={3.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,%
                 execute at end picture={%
                     % A
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=3:34:{2.0*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=40.5:43.5:{2.0*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=59:318:{2.0*\the\DL} and {5.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=327:357:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=4:13.5:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=23:31:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=42.5:45.5:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=57:317:{2.0*\the\DL} and {5.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-4-1) [partial ellipse=328:356:{2.0*\the\DL} and {5.0*\the\DL}];
                     % B
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=0:162:{2.5*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=166:177.75:{2.5*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=182.5:199.25:{2.5*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=205:226:{2.5*\the\DL} and {8.0*\the\DL}];
-                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=232:360:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=0:161:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=166.5:169:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=174.5:177.75:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=183:199.25:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=205:225:{2.5*\the\DL} and {8.0*\the\DL}];
+                    \draw (\tikzcdmatrixname-3-2) [partial ellipse=233:360:{2.5*\the\DL} and {8.0*\the\DL}];
+                    % (4)
+                    \node at (\tikzcdmatrixname-1-2.east) {$\mkern75mu\scriptstyle(4)$};%
                     % (3)
-                    \node at (\tikzcdmatrixname-1-2.east) {$\mkern75mu\scriptstyle(3)$};%
+                    \node at (\tikzcdmatrixname-2-2.east) {$\mkern75mu\scriptstyle(3)$};%
                 }%
             ]%
             \&
@@ -3972,11 +3976,13 @@ Let $X$ be a set.
             \&
             B%
             % 1-Arrows
-            \arrow[from=3-1,to=3-2,mapsto]%
-            \arrow[from=4-1,to=4-2,mapsto]%
-            \arrow[from=5-1,to=5-2,mapsto,"(1)"'sloped]%
             %
-            \arrow[from=3-1,to=2-2,start anchor={[xshift=-0.05*\the\DL,yshift=0.5*\the\DL]},mapsto,"(2)"sloped]%
+            \arrow[from=3-1,to=2-2,start anchor={[xshift=-0.1*\the\DL,yshift=0.35*\the\DL]},mapsto,"(2)"sloped]%
+            \arrow[from=4-1,to=2-2,start anchor={[xshift=-0.15*\the\DL,yshift=0.05*\the\DL]},mapsto]%
+            %
+            \arrow[from=3-1,to=3-2,mapsto,crossing over]%
+            \arrow[from=4-1,to=4-2,mapsto,crossing over]%
+            \arrow[from=5-1,to=5-2,mapsto,"(1)"'description,crossing over]%
             %
             \arrow[from=6-1,to=6-2,"R"']%
         \end{tikzcd}
@@ -3985,7 +3991,8 @@ Let $X$ be a set.
     \begin{enumerate}
         \item\label{explanation-monomorphisms-in-rel-1}$R$ should contain an injection $f\colon A\hookrightarrow B$ embedding a copy of $A$ into $B$.
         \item\label{explanation-monomorphisms-in-rel-2}$R$ can be non-functional, mapping elements of $A$ to multiple elements of $B$ (but not to more than one in $\Im(f)$).
-        \item\label{explanation-monomorphisms-in-rel-3}$R$ doesn't need to be surjective, so $B$ can have elements that aren't in the image of $R$.
+        \item\label{explanation-monomorphisms-in-rel-3}$R$ needs to be weakly injective, but it can fail to be injective.
+        \item\label{explanation-monomorphisms-in-rel-4}$R$ doesn't need to be surjective, so $B$ can have elements that aren't in the image of $R$.
     \end{enumerate}
 \end{explanation}
 \begin{proposition}{Characterisations of Monomorphisms in $\sfRel$ \rmI}{characterisations-of-monomorphisms-in-rel-1}%
