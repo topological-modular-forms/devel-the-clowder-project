@@ -2650,8 +2650,8 @@
 02GV,relations:subsection-2-categorical-epimorphisms-in-rel-apartness
 02GW,relations:subsection-co-limits-in-rel-apartness
 02H0,relations:notation-for-direct-images-is-confusing-relations
-02H1,relations:properties-of-direct-image-functions-associated-to-relations-adjointness-1
-02H2,relations:properties-of-direct-image-functions-associated-to-relations-adjointness-2
+02H1,relations:properties-of-direct-image-functions-associated-to-relations-adjointness-a
+02H2,relations:properties-of-direct-image-functions-associated-to-relations-adjointness-b
 02H3,presheaves-and-the-yoneda-lemma:section-phantom
 02H4,presheaves-and-the-yoneda-lemma:section-presheaves
 02H5,presheaves-and-the-yoneda-lemma:subsection-presheaves-foundations
@@ -2860,7 +2860,7 @@
 02RD,relations:characterisations-of-2-categorical-epimorphisms-in-rel-2-4
 02RE,relations:characterisations-of-2-categorical-epimorphisms-in-rel-2-5
 02RF,relations:characterisations-of-2-categorical-epimorphisms-in-rel-2-6
-02RG,constructions-with-sets:section-constructions-with-sets-miscellany
+02RG,constructions-with-sets:section-constructions-with-sets-injective-and-surjective-functions
 02RH,constructions-with-sets:subsection-injective-functions
 02RJ,constructions-with-sets:injective-functions
 02RK,constructions-with-sets:properties-of-injective-functions
