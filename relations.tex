@@ -5079,7 +5079,7 @@ Let $X$ be a set.
     \end{itemize}
 
     \ProofBox{Step 1: \cref{characterisations-of-epimorphisms-in-rel-1-2}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-3} and \cref{characterisations-of-epimorphisms-in-rel-1-3}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-5}}%
-    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}.
+    This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}.
 
     \ProofBox{Step 2: First Proof of \cref{characterisations-of-epimorphisms-in-rel-1-1}$\iff$\cref{characterisations-of-epimorphisms-in-rel-1-2}}%
     We claim that \cref{characterisations-of-epimorphisms-in-rel-1-1,characterisations-of-epimorphisms-in-rel-1-2} are equivalent:
@@ -5818,7 +5818,7 @@ Let $X$ be a set.
         \item Otherwise, $C$ admits $\pt$ as a retract, and we reduce to the case $C=\pt$ via \cref{TODO}.
         \item For the case $C=\pt$, a relation $T\colon B\rightproarrow\pt$ is the same as a subset of $B$, and $-\procirc R$ becomes the inverse image functor $R^{-1}$ of \cref{subsection-inverse-images}.
         \item Now, again by the adjoint functor theorem, $R^{-1}$ preserves limits exactly when it has a left adjoint.
-        \item Finally $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-2} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}).
+        \item Finally $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}).
     \end{itemize}
     This finishes the proof.
 \end{Proof}
@@ -6979,7 +6979,6 @@ This will be expanded later on.
 \section{The Adjoint Pairs $R_{!}\dashv R_{-1}$ and $R^{-1}\dashv R_{*}$}\label{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
 \subsection{Direct Images}\label{subsection-direct-images-relations}
 Let $R\colon X\rightproarrow Y$ be a relation.
-% modify the definition below so that the formula R_!(U) = B in B | R^{-1}(B)\cap U\neq\emptyset appears.
 \begin{definition}{Direct Images}{the-direct-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated direct image function}\textbf{direct image function associated to $R$} is the function\index[notation]{Rshriek@$R^{"!}$}%
     %--- Begin Footnote ---%
@@ -7461,9 +7460,9 @@ Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{align*}
         R_{!}(U)\sdiff R_{!}(V) &=       (R_{!}(U)\cup R_{!}(V))\setminus(R_{!}(U)\cap R_{!}(V))\\
                                 &\subset (R_{!}(U)\cup R_{!}(V))\setminus(R_{!}(U\cap V))\\
-                                &=       (f_{!}(U\cup V))\setminus(f_{!}(U\cap V))\\
-                                &\subset f_{!}((U\cup V)\setminus(U\cap V))\\
-                                &=       f_{!}(U\sdiff V),
+                                &=       (R_{!}(U\cup V))\setminus(R_{!}(U\cap V))\\
+                                &\subset R_{!}((U\cup V)\setminus(U\cap V))\\
+                                &=       R_{!}(U\sdiff V),
     \end{align*}
     where we have used:
     \begin{itemize}
@@ -7471,7 +7470,7 @@ Let $R\colon X\rightproarrow Y$ be a relation.
         \item \cref{properties-of-direct-image-functions-associated-to-relations-1-interaction-with-binary-intersections} of this proposition together with \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} for the first inclusion.
         \item \cref{properties-of-direct-image-functions-associated-to-relations-1-interaction-with-binary-unions} for the second equality.
         \item \cref{properties-of-direct-image-functions-associated-to-relations-1-interaction-with-differences} for the second inclusion.
-        \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-via-unions-and-intersections} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences}} for the third equality.
+        \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-via-unions-and-intersections} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences}} for the last equality.
     \end{itemize}
     Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
@@ -7509,7 +7508,7 @@ Let $R\colon X\rightproarrow Y$ be a relation.
     Omitted.
 
     \ProofBox{\cref{properties-of-direct-image-functions-associated-to-relations-1-relation-to-codirect-images}: Relation to Codirect Images}%
-    The proof proceeds in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-relation-to-codirect-images} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}}): applying \cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations} to $A\setminus U$, we have
+    The proof proceeds in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-direct-images-i-relation-to-codirect-images} of \cref{constructions-with-sets:properties-of-direct-images-i}}{\cref{properties-of-direct-images-properties-of-direct-images-i-relation-to-codirect-images} of \cref{properties-of-direct-images-i}}): applying \cref{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations-1} to $A\setminus U$, we have
     \begin{align*}
         R_{*}(X\setminus U) &= Y\setminus R_{!}(X\setminus(X\setminus U))\\
                             &= Y\setminus R_{!}(U).
@@ -7596,7 +7595,7 @@ Let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     for each $U\in\mathcal{P}(X)$, where we used \cref{properties-of-direct-image-functions-associated-to-relations-1-preservation-of-colimits} of \cref{properties-of-direct-image-functions-associated-to-relations-1}. Thus $(S\procirc R)_{!}=S_{!}\circ R_{!}$.
 \end{Proof}
-\subsection{Coinverse Images}\label{subsection-coinverse-images}
+\subsection{Coinverse Images}\label{subsection-coinverse-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{Coinverse Images}{the-coinverse-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated coinverse image function}\textbf{coinverse image function associated to $R$} is the function\index[notation]{Rminusone@$R_{-1}$}%
@@ -7863,7 +7862,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \mathcal{P}(Y)_{\op}\times\mathcal{P}(Y)
-                    \arrow[r,"R_{\op,-1}\times R_{-1}"]
+                    \arrow[r,"R^{\op}_{-1}\times R_{-1}"]
                     \arrow[d,"\setminus"']
                     \&
                     \mathcal{P}(X)_{\op}\times\mathcal{P}(X)
@@ -7936,7 +7935,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
-                    \arrow[r,"R^{\op}_{-1}\times R_{-1}"]
+                    \arrow[r,"R^{\op,-1}\times R_{-1}"]
                     \arrow[d,"{[-_{1},-_{2}]_{Y}}"']
                     \&
                     {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
@@ -8021,66 +8020,66 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X')\times\mathcal{P}(Y')}
-                    \arrow[r,"{R^{-1}\times S^{-1}}"]
+                    \arrow[r,"{R_{-1}\times S_{-1}}"]
                     \arrow[d,"{\icoprod}"']
                     \&
                     {\mathcal{P}(X)\times\mathcal{P}(Y)}
                     \arrow[d,"{\icoprod}"]
                     \\
                     {\mathcal{P}(X'\icoprod Y')}
-                    \arrow[r,"{(R\icoprod S)^{-1}}"']
+                    \arrow[r,"{(R\icoprod S)_{-1}}"']
                     \&
                     {\mathcal{P}(X\icoprod Y)}
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                (R\icoprod S)^{-1}(U'\icoprod V')%
+                (R\icoprod S)_{-1}(U'\icoprod V')%
                 =%
-                R^{-1}(U')\icoprod S^{-1}(V')
+                R_{-1}(U')\icoprod S_{-1}(V')
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
         \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\rightproarrow X'$ and $g\colon Y\rightproarrow Y'$ be relations. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     {\mathcal{P}(X')\times\mathcal{P}(Y')}
-                    \arrow[r,"{R^{-1}\times S^{-1}}"]
+                    \arrow[r,"{R_{-1}\times S_{-1}}"]
                     \arrow[d,"{\boxtimes_{X'\times Y'}}"']
                     \&
                     {\mathcal{P}(X)\times\mathcal{P}(Y)}
                     \arrow[d,"{\boxtimes_{X\times Y}}"]
                     \\
                     {\mathcal{P}(X'\times Y')}
-                    \arrow[r,"{(R\boxtimes_{X\times Y}S)^{-1}}"']
+                    \arrow[r,"{(R\boxtimes_{X\times Y}S)_{-1}}"']
                     \&
                     {\mathcal{P}(X\times Y)}
                 \end{tikzcd}
             \]%
             commutes, i.e.\ we have
             \[
-                (R\boxtimes_{X'\times Y'}S)^{-1}(U'\boxtimes_{X'\times Y'}V')%
+                (R\boxtimes_{X'\times Y'}S)_{-1}(U'\boxtimes_{X'\times Y'}V')%
                 =%
-                R^{-1}(U')\boxtimes_{X\times Y}S^{-1}(V')%
+                R_{-1}(U')\boxtimes_{X\times Y}S_{-1}(V')%
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
-        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-1}\SloganFont{Interaction With Inverse Images \rmI. }We have
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1}\SloganFont{Relation to Inverse Images \rmI. }We have
             \[
                 R_{-1}(V)%
                 =%
                 X\setminus R^{-1}(Y\setminus V)
             \]%
             for each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2}\SloganFont{Interaction With Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
+        \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2}\SloganFont{Relation to Inverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
             \begin{enumerate}
-                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
+                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
                     \[
                         R_{-1}(V)
                         \subset
                         R^{-1}(V)
                     \]%
                     natural in $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
-                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
+                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
+                \item\label{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
             \end{enumerate}
         %\item\label{properties-of-coinverse-image-functions-associated-to-relations-1-}\SloganFont{. }
     \end{enumerate}
@@ -8139,7 +8138,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
     \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-complements}: Interaction With Complements}%
-    Applying \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-1} to $X\setminus U$, we have
+    Applying \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1} to $X\setminus U$, we have
     \begin{align*}
         R_{-1}(U^{\sfc}) &= R_{-1}(X\setminus U)\\
                          &= Y\setminus R^{-1}(X\setminus(X\setminus U))\\
@@ -8179,7 +8178,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-products}: Interaction With Products}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-1}: Interaction With Inverse Images \rmI}%
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1}: Relation to Inverse Images \rmI}%
     We claim we have an equality
     \[
         R_{-1}(Y\setminus V)%
@@ -8193,8 +8192,8 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     Taking $V=Y\setminus V$ then implies the original statement.
 
-    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2}: Interaction With Inverse Images \rmII}%
-    \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2-a} is clear, while \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2-b,properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2-c} follow from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
+    \ProofBox{\cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2}: Relation to Inverse Images \rmII}%
+    \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-a} is clear, while \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-b,properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2-c} follow from \cref{properties-of-graphs-of-functions-characterisations} of \cref{properties-of-graphs-of-functions}.
 \end{Proof}
 \begin{proposition}{Properties of Coinverse Images \rmII}{properties-of-coinverse-image-functions-associated-to-relations-2}%
     Let $R\colon X\rightproarrow Y$ be a relation.
@@ -8275,7 +8274,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{itemize}
     are equivalent. Thus $(S\procirc R)_{-1}=R_{-1}\circ S_{-1}$.
 \end{Proof}
-\subsection{Inverse Images}\label{subsection-inverse-images}
+\subsection{Inverse Images}\label{subsection-inverse-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 \begin{definition}{Inverse Images}{the-inverse-image-function-associated-to-a-relation}%
     The \index[set-theory]{relation!associated inverse image function}\textbf{inverse image function associated to $R$} is the function\index[notation]{Rminusone@$R^{-1}$}%
@@ -8312,7 +8311,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     for each $V\in\mathcal{P}(Y)$.
 \end{definition}
 \begin{remark}{Unwinding \cref{the-inverse-image-function-associated-to-a-relation}}{unwinding-the-inverse-image-function-associated-to-a-relation}%
-    Identifying $\mathcal{P}(Y)$ with $\Rel(\pt,Y)$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the inverse image function associated to $R$ is equivalently the function
+    Identifying $\mathcal{P}(Y)$ with $\Rel(Y,\pt)$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the inverse image function associated to $R$ is equivalently the function
     \[
         R^{-1}%
         \colon%
@@ -8407,7 +8406,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
             \begin{webcompile}
                 \Adjunction#R^{-1}#R_{*}#\mathcal{P}(Y)#\mathcal{P}(X),#
             \end{webcompile}
-            witnessed:
+            witnessed by:
             \begin{enumerate}
                 \item\label{properties-of-inverse-image-functions-associated-to-relations-1-adjointness-a}Units and counits of the form
                     \begin{align*}
@@ -8434,6 +8433,196 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                             \end{itemize}
                     \end{itemize}
             \end{enumerate}
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-unions-of-families-of-subsets}\SloganFont{Interaction With Unions of Families of Subsets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(\mathcal{P}(X))
+                    \arrow[r,"{(R^{-1})_{!}}"]
+                    \arrow[d,"\bigcup"']
+                    \&
+                    \mathcal{P}(\mathcal{P}(Y))
+                    \arrow[d,"\bigcup"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                \bigcup_{U\in\mathcal{U}}R^{-1}(U)%
+                =%
+                \bigcup_{V\in R^{-1}(\mathcal{U})}V%
+            \]%
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $R^{-1}(\mathcal{U})\defeq(R^{-1})_{!}(\mathcal{U})$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(\mathcal{P}(X))
+                    \arrow[r,"{(R^{-1})_{!}}"]
+                    \arrow[d,"\bigcap"']
+                    \&
+                    \mathcal{P}(\mathcal{P}(Y))
+                    \arrow[d,"\bigcap"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                \bigcap_{U\in\mathcal{U}}R^{-1}(U)%
+                =%
+                \bigcap_{V\in R^{-1}(\mathcal{U})}V%
+            \]%
+            for each $\mathcal{U}\in\mathcal{P}(X)$, where $R^{-1}(\mathcal{U})\defeq(R^{-1})_{!}(\mathcal{U})$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(X)\times\mathcal{P}(X)
+                    \arrow[r,"R^{-1}\times R^{-1}"]
+                    \arrow[d,"\cup"']
+                    \&
+                    \mathcal{P}(Y)\times\mathcal{P}(Y)
+                    \arrow[d,"\cup"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                R^{-1}(U\cup V)%
+                =%
+                R^{-1}(U)\cup R^{-1}(V)%
+            \]%
+            for each $U,V\in\mathcal{P}(X)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(X)\times\mathcal{P}(X)
+                    \arrow[r,"R^{-1}\times R^{-1}"]
+                    \arrow[d,"\cap"']
+                    \&
+                    \mathcal{P}(Y)\times\mathcal{P}(Y)
+                    \arrow[d,"\cap"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\subset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                R^{-1}(U\cap V)%
+                \subset%
+                R^{-1}(U)\cap R^{-1}(V)%
+            \]%
+            indexed by $U,V\in\mathcal{P}(X)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-differences}\SloganFont{Interaction With Differences. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
+                    \arrow[r,"R^{-1,\op}\times R^{-1}"]
+                    \arrow[d,"\setminus"']
+                    \&
+                    \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
+                    \arrow[d,"\setminus"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\supset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                R^{-1}(U)\setminus R^{-1}(V)%
+                \subset%
+                R^{-1}(U\setminus V)%
+            \]%
+            indexed by $U,V\in\mathcal{P}(X)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-complements}\SloganFont{Interaction With Complements. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(X)^{\op}
+                    \arrow[r,"R^{\op}_{*}"]
+                    \arrow[d,"{(-)^{\sfc}}"']
+                    \&
+                    \mathcal{P}(Y)^{\op}
+                    \arrow[d,"{(-)^{\sfc}}"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                R^{-1}(U^{\sfc})%
+                =%
+                R_{*}(U)^{\sfc}%
+            \]%
+            for each $U\in\mathcal{P}(X)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-symmetric-differences}\SloganFont{Interaction With Symmetric Differences. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
+                    \arrow[r,"R^{-1,\op}\times R^{-1}"]
+                    \arrow[d,"\sdiff"']
+                    \&
+                    \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
+                    \arrow[d,"\sdiff"]
+                    \\
+                    \mathcal{P}(X)
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\supset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                R^{-1}(U)\sdiff R^{-1}(V)%
+                \subset%
+                R^{-1}(U\sdiff V)%
+            \]%
+            indexed by $U,V\in\mathcal{P}(X)$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-internal-homs-of-powersets}\SloganFont{Interaction With Internal Homs of Powersets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
+                    \arrow[r,"R^{\op}_{-1}\times R^{-1}"]
+                    \arrow[d,"{[-_{1},-_{2}]_{X}}"']
+                    \&
+                    {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
+                    \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
+                    \\
+                    {\mathcal{P}(X)}
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have an equality of sets
+            \[
+                R^{-1}([U,V]_{X})%
+                =%
+                [R_{-1}(U),R^{-1}(V)]_{Y},%
+            \]%
+            natural in $U,V\in\mathcal{P}(X)$.
         \item\label{properties-of-inverse-image-functions-associated-to-relations-1-preservation-of-colimits}\SloganFont{Preservation of Colimits. }We have an equality of sets
             \[
                 R^{-1}\left(\bigcup_{i\in I}U_{i}\right)%
@@ -8494,24 +8683,70 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-1}\SloganFont{Interaction With Coinverse Images \rmI. }We have
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[r,"{R^{-1}\times S^{-1}}"]
+                    \arrow[d,"{\icoprod}"']
+                    \&
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[d,"{\icoprod}"]
+                    \\
+                    {\mathcal{P}(X'\icoprod Y')}
+                    \arrow[r,"{(R\icoprod S)^{-1}}"']
+                    \&
+                    {\mathcal{P}(X\icoprod Y)}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                (R\icoprod S)^{-1}(U'\icoprod V')%
+                =%
+                R^{-1}(U')\icoprod S^{-1}(V')
+            \]%
+            for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-products}\SloganFont{Interaction With Products. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[r,"{R^{-1}\times S^{-1}}"]
+                    \arrow[d,"{\boxtimes_{X'\times Y'}}"']
+                    \&
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[d,"{\boxtimes_{X\times Y}}"]
+                    \\
+                    {\mathcal{P}(X'\times Y')}
+                    \arrow[r,"{(R\boxtimes_{X\times Y}S)^{-1}}"']
+                    \&
+                    {\mathcal{P}(X\times Y)}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                (R\boxtimes_{X'\times Y'}S)^{-1}(U'\boxtimes_{X'\times Y'} V')%
+                =%
+                R^{-1}(U')\boxtimes_{X\times Y}S^{-1}(V')%
+            \]%
+            for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1}\SloganFont{Relation to Coinverse Images \rmI. }We have
             \[
                 R^{-1}(V)%
                 =%
                 X\setminus R_{-1}(Y\setminus V)
             \]%
             for each $V\in\mathcal{P}(Y)$.
-        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-2}\SloganFont{Interaction With Coinverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
+        \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2}\SloganFont{Relation to Coinverse Images \rmII. }Let $R\colon X\rightproarrow Y$ be a relation from $X$ to $Y$.
             \begin{enumerate}
-                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
+                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2-a}If $R$ is a total relation, then we have an inclusion of sets
                     \[
                         R_{-1}(V)
                         \subset
                         R^{-1}(V)
                     \]%
                     natural in $V\in\mathcal{P}(Y)$.
-                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
-                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
+                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2-b}If $R$ is total and functional, then the above inclusion is in fact an equality.
+                \item\label{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2-c}Conversely, if we have $R_{-1}=R^{-1}$, then $R$ is total and functional.
             \end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -8521,6 +8756,98 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-adjointness}: Adjointness}%
     This follows from \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
+    We have
+    \begin{align*}
+        \bigcup_{U\in R^{-1}(\mathcal{V})}U &= \bigcup_{U\in\{R^{-1}(V)\in\mathcal{P}(X)\ \middle|\ V\in\mathcal{V}\}}U\\
+                                            &= \bigcup_{V\in\mathcal{V}}R^{-1}(V).%
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
+    We have
+    \begin{align*}
+        \bigcap_{U\in R^{-1}(\mathcal{V})}U &= \bigcap_{U\in\{R^{-1}(V)\in\mathcal{P}(X)\ \middle|\ V\in\mathcal{V}\}}U\\
+                                            &= \bigcap_{V\in\mathcal{V}}R^{-1}(V).%
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-unions}: Interaction With Binary Unions}%
+    We have
+    \begin{align*}
+        R^{-1}(U)\cup R^{-1}(V) &\defeq \{a\in X\ \middle|\ R(a)\cap U\neq\emptyset\}\cup\{a\in X\ \middle|\ R(a)\cap V\neq\emptyset\}\\
+                                &=      \{a\in X\ \middle|\ \text{$R(a)\cap U\neq\emptyset$ or $R(a)\cap V\neq\emptyset$}\}\\
+                                &=      \{a\in X\ \middle|\ (R(a)\cap U)\cup(R(a)\cap V)\neq\emptyset\}\\
+                                &=      \{a\in X\ \middle|\ R(a)\cap(U\cup V)\neq\emptyset\}\\
+                                &\defeq R^{-1}(U\cup V),
+    \end{align*}
+    where we have used \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-binary-intersections-distributivity-of-intersections-over-unions} of \cref{constructions-with-sets:properties-of-binary-intersections}}{\cref{properties-of-binary-intersections-distributivity-of-intersections-over-unions} of \cref{properties-of-binary-intersections}} for the fourth equality.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-intersections}: Interaction With Binary Intersections}%
+    We have
+    \begin{align*}
+        R^{-1}(U\cap V) &\defeq  \{a\in X\ \middle|\ R(a)\cap(U\cap V)\neq\emptyset\}\\
+                        &\subset \{a\in X\ \middle|\ \text{$R(a)\cap U\neq\emptyset$ and $R(a)\cap V\neq\emptyset$}\}\\
+                        &=       \{a\in X\ \middle|\ R(a)\cap U\neq\emptyset\}\cap\{a\in X\ \middle|\ R(a)\cap V\neq\emptyset\}\\
+                        &\defeq  R^{-1}(U)\cap R^{-1}(V).
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-differences}: Interaction With Differences}%
+    We have
+    \begin{align*}
+        R^{-1}(U)\setminus R^{-1}(V) &\defeq  \{a\in X\ \middle|\ R(a)\cap U\neq\emptyset\}\setminus\{a\in X\ \middle|\ R(a)\cap V\neq\emptyset\}\\
+                                     &=       \{a\in X\ \middle|\ \text{$R(a)\cap U\neq\emptyset$ and not $R(a)\cap V\neq\emptyset$}\}\\
+                                     &=       \{a\in X\ \middle|\ \text{$R(a)\cap U\neq\emptyset$ and $R(a)\cap V=\emptyset$}\}\\
+                                     &\subset \{a\in X\ \middle|\ R(a)\cap(U\setminus V)\neq\emptyset\}\\
+                                     &\defeq  R^{-1}(U\setminus V)
+    \end{align*}
+    Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-complements}: Interaction With Complements}%
+    Applying \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} to $X\setminus U$, we have
+    \begin{align*}
+        R^{-1}(U^{\sfc}) &= R^{-1}(X\setminus U)\\
+                         &= Y\setminus R_{-1}(X\setminus(X\setminus U))\\
+                         &= Y\setminus R_{-1}(U)\\
+                         &= R_{-1}(U)^{\sfc}.
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
+    We have
+    \begin{align*}
+        R^{-1}(U)\sdiff R^{-1}(V) &=       (R^{-1}(U)\cup R^{-1}(V))\setminus(R^{-1}(U)\cap R^{-1}(V))\\
+                                  &\subset (R^{-1}(U)\cup R^{-1}(V))\setminus R^{-1}(U\cap V)\\
+                                  &=       R^{-1}(U\cup V)\setminus R^{-1}(U\cap V)\\
+                                  &\subset R^{-1}((U\cup V)\setminus(U\cap V))\\
+                                  &=       R^{-1}(U\sdiff V),
+    \end{align*}
+    where we have used:
+    \begin{itemize}
+        \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-via-unions-and-intersections} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences}} for the first equality.
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-intersections} of this proposition together with \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-differences-functoriality} of \cref{constructions-with-sets:properties-of-differences}}{\cref{properties-of-differences-functoriality} of \cref{properties-of-differences}} for the first inclusion.
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-unions} for the second equality.
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-differences} for the second inclusion.
+        \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-symmetric-differences-via-unions-and-intersections} of \cref{constructions-with-sets:properties-of-symmetric-differences}}{\cref{properties-of-symmetric-differences-via-unions-and-intersections} of \cref{properties-of-symmetric-differences}} for the last equality.
+    \end{itemize}
+    Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
+    We have
+    \begin{align*}
+        R^{-1}([U,V]_{Y}) &= R^{-1}(U^{\sfc}\cup V)\\
+                          &= R^{-1}(U^{\sfc})\cup R^{-1}(V)\\
+                          &= R_{-1}(U)^{\sfc}\cup R^{-1}(V)\\
+                          &= [R_{-1}(U),R^{-1}(V)]_{X},%
+    \end{align*}
+    where we have used:
+    \begin{itemize}
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-binary-unions} for the second equality.
+        \item \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} for the third equality.
+    \end{itemize}
+    Since $\mathcal{P}(Y)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-preservation-of-colimits}: Preservation of Colimits}%
     This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-1-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
@@ -8534,11 +8861,17 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-symmetric-oplax-monoidality-with-respect-to-intersections}: Symmetric Oplax Monoidality With Respect to Intersections}%
     This follows from \cref{properties-of-inverse-image-functions-associated-to-relations-1-oplax-preservation-of-limits}.
 
-    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-1}: Interaction With Coinverse Images \rmI}%
-    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coproducts}: Interaction With Coproducts}%
+    Omitted.
 
-    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-coinverse-images-2}: Interaction With Coinverse Images \rmII}%
-    This was proved in \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-products}: Interaction With Products}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1}: Relation to Coinverse Images \rmI}%
+    This follows from \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
+
+    \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2}: Relation to Coinverse Images \rmII}%
+    This was proved in \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}.
 \end{Proof}
 \begin{proposition}{Properties of Inverse Images \rmII}{properties-of-inverse-image-functions-associated-to-relations-2}%
     Let $R\colon X\rightproarrow Y$ be a relation.
@@ -8560,48 +8893,12 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \Pos((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
         \item\label{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have%
-            %--- Begin Footnote ---%
-            \footnote{%
-                That is, the postcomposition
-                \[
-                    (\chi_{X})^{-1}%
-                    \colon%
-                    \Rel(\pt,X)%
-                    \to%
-                    \Rel(\pt,X)%
-                \]%
-                is equal to $\id_{\Rel(\pt,X)}$.
-            }%
-            %---  End Footnote  ---%
             \[
-                (\chi_{X})^{-1}%
+                (\Delta_{X})^{-1}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
         \item\label{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
-            %--- Begin Footnote ---%
-            \footnote{%
-                That is, we have
-                \begin{webcompile}
-                    (S\procirc R)^{-1}%
-                    =%
-                    R^{-1}\circ S^{-1},%
-                    \quad
-                    \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                        {\Rel(\pt,C)}
-                        \arrow[r,"R^{-1}"]
-                        \arrow[rd,"{(S\procirc R)^{-1}}"']
-                        \&
-                        {\Rel(\pt,Y)}
-                        \arrow[d,"S^{-1}"]
-                        \\
-                        \&
-                        {\Rel(\pt,X)}\mrp{.}
-                    \end{tikzcd}
-                \end{webcompile}
-                \par\vspace*{\TCBBoxCorrection}
-            }%
-            %---  End Footnote  ---%
             \begin{webcompile}
                 (S\procirc R)^{-1}%
                 =%
@@ -8631,26 +8928,9 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
 
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-identities}: Interaction With Identities}%
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-identities} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-identities} of \cref{properties-of-pre-postcomposition}}.
-    %Indeed, we have
-    %\begin{align*}
-    %    (\chi_{X})^{-1}(U) &\defeq \{a\in X\ \middle|\ \{a\}\cap U\neq\emptyset\}\\
-    %                       &=      U\\
-    %                       &\defeq \id_{\mathcal{P}(X)}(U)
-    %\end{align*}
-    %for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})^{-1}=\id_{\mathcal{P}(X)}$.
 
     \ProofBox{\cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-composition}: Interaction With Composition}%
     This follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{categories:properties-of-pre-postcomposition}}{\cref{properties-of-pre-postcomposition-interaction-with-composition-1} of \cref{properties-of-pre-postcomposition}}.
-    %Indeed, we have
-    %\begin{align*}
-    %    (S\procirc R)^{-1}(U) &\defeq \{a\in X\ \middle|\ S(R(a))\cap U\neq\emptyset\}\\
-    %                          &=      ?\\
-    %                          &=      \{a\in X\ \middle|\ R(a)\cap\{b\in Y\ \middle|\ S(b)\cap U\neq\emptyset\}\neq\emptyset\}\\
-    %                          &=      R^{-1}(\{b\in Y\ \middle|\ S(b)\cap U\neq\emptyset\})\\
-    %                          &\defeq R^{-1}(S^{-1}(U))\\
-    %                          &\defeq [R^{-1}\circ S^{-1}](U)
-    %\end{align*}
-    %for each $U\in\mathcal{P}(X)$. Thus $(S\procirc R)^{-1}=S^{-1}\circ R^{-1}$.
 \end{Proof}
 \subsection{Codirect Images}\label{subsection-codirect-images-relations}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
@@ -8677,7 +8957,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
             =%
             Y\setminus R_{!}(X\setminus U);
         \]%
-        see \cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations}.
+        see \cref{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations-1}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -8699,7 +8979,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     for each $U\in\mathcal{P}(X)$.
 \end{definition}
 \begin{remark}{Unwinding \cref{the-codirect-image-function-associated-to-a-relation}}{unwinding-the-codirect-image-function-associated-to-a-relation}%
-    Identifying subsets of $Y$ with relations from $\pt$ to $Y$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the codirect image function associated to $R$ is equivalently the function
+    Identifying $\mathcal{P}(X)$ with $\Rel(X,\pt)$ via \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations} of \cref{elementary-properties-of-powersets}}, we see that the codirect image function associated to $R$ is equivalently the function
     \[
         R_{*}%
         \colon%
@@ -8753,12 +9033,13 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 b\in Y%
                 \ \middle|\ %
                 \begin{aligned}
-                    &\text{for each $a\in X$, at least one of the}\\[-2.5pt]
-                    &\text{following conditions hold:}\\[7.5pt]
-                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$}\\%
-                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
-                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $R^{b}_{a}=\true$}\\
-                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $U^{\point}_{a}=\true$}\\[10pt]
+                    &\text{For each $a\in X$, at least one of the}\\
+                    &\text{following conditions hold:}\\[2.5pt]
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $R^{b}_{a}=\false$.}\\%
+                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\%
+                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $R^{b}_{a}=\true$.}\\
+                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $U^{\point}_{a}=\true$.}\\
+                    &%
                 \end{aligned}
             \}\\%
             &=
@@ -8766,12 +9047,13 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 b\in Y%
                 \ \middle|\ %
                 \begin{aligned}
-                    &\text{for each $a\in X$, at least one of the}\\[-2.5pt]
-                    &\text{following conditions hold:}\\[7.5pt]
-                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(X)$}\\%
-                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\[7.5pt]%
-                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$}\\
-                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $a\in U$}\\[10pt]
+                    &\text{For each $a\in X$, at least one of the}\\
+                    &\text{following conditions hold:}\\[2.5pt]
+                    &\mspace{25mu}\rlap{\text{1.}}\mspace{22.5mu}\text{We have $b\nin R(X)$.}\\%
+                    &\mspace{25mu}\rlap{\text{2.}}\mspace{22.5mu}\text{The following conditions hold:}\\%
+                    &\mspace{50mu}\rlap{\text{\norg(a\norg)}}\mspace{30mu}\text{We have $b\in R(a)$.}\\
+                    &\mspace{50mu}\rlap{\text{\norg(b\norg)}}\mspace{30mu}\text{We have $a\in U$.}\\
+                    &%
                 \end{aligned}
             \}\\%
             &=
@@ -8795,53 +9077,249 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{envsmallsize}
     This finishes the proof.
 \end{Proof}
-\begin{proposition}{Properties of Codirect Images}{properties-of-codirect-image-functions-associated-to-relations}%
+\begin{proposition}{Properties of Codirect Images \rmI}{properties-of-codirect-image-functions-associated-to-relations-1}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-functoriality}\SloganFont{Functoriality. }The assignment $U\mapsto R_{*}(U)$ defines a functor
             \[
                 R_{*}%
                 \colon%
                 (\mathcal{P}(X),\subset)%
                 \to%
-                (\mathcal{P}(Y),\subset)%
+                (\mathcal{P}(Y),\subset).%
             \]%
-            where
+            In particular, for each $U,V\in\mathcal{P}(X)$, the following condition is satisfied:
             \begin{itemize}
-                \item\SloganFont{Action on Objects. }For each $U\in\mathcal{P}(X)$, we have
-                    \[
-                        [R_{*}](U)%
-                        \defeq%
-                        R_{*}(U).
-                    \]%
-                \item\SloganFont{Action on Morphisms. }For each $U,V\in\mathcal{P}(X)$:
-                    \begin{itemize}
-                        \item If $U\subset V$, then $R_{*}(U)\subset R_{*}(V)$.
-                    \end{itemize}
+                \item If $U\subset V$, then $R_{*}(U)\subset R_{*}(V)$.
             \end{itemize}
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-adjointness}\SloganFont{Adjointness. }We have an adjunction
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-adjointness}\SloganFont{Adjointness. }We have an adjunction
             \begin{webcompile}
                 \Adjunction#R^{-1}#R_{*}#\mathcal{P}(Y)#\mathcal{P}(X),#
             \end{webcompile}
-            witnessed by a bijections of sets
-            \[%
-                \Hom_{\mathcal{P}(X)}(R^{-1}(U),V)%
-                \cong%
-                \Hom_{\mathcal{P}(X)}(U,R_{*}(V)),%
-            \]%
-            natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$, i.e.\ such that:
-            \begin{itemize}
-                \itemstar The following conditions are equivalent:
+            witnessed by:
+            \begin{enumerate}
+                \item\label{properties-of-codirect-image-functions-associated-to-relations-1-adjointness-a}Units and counits of the form
+                    \begin{align*}
+                        \id_{\mathcal{P}(Y)} \hookrightarrow R_{*}\circ R^{-1},\\
+                        R^{-1}\circ R_{*}    \hookrightarrow \id_{\mathcal{P}(X)}.
+                    \end{align*}
+                    In particular:
                     \begin{itemize}
-                        \item We have $R^{-1}(U)\subset V$.
-                        \item We have $U\subset R_{*}(V)$.
+                        \item For each $V\in\mathcal{P}(Y)$, we have $V\subset R_{*}(R^{-1}(V))$.
+                        \item For each $U\in\mathcal{P}(X)$, we have $R^{-1}(R_{*}(U))\subset U$.
                     \end{itemize}
-            \end{itemize}
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
+                \item\label{properties-of-codirect-image-functions-associated-to-relations-1-adjointness-b}A bijections of sets
+                    \[%
+                        \Hom_{\mathcal{P}(X)}(R^{-1}(U),V)%
+                        \cong%
+                        \Hom_{\mathcal{P}(X)}(U,R_{*}(V)),%
+                    \]%
+                    natural in $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$. In particular:
+                    \begin{itemize}
+                        \itemstar The following conditions are equivalent:
+                            \begin{itemize}
+                                \item We have $R^{-1}(U)\subset V$.
+                                \item We have $U\subset R_{*}(V)$.
+                            \end{itemize}
+                    \end{itemize}
+            \end{enumerate}
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-unions-of-families-of-subsets}\SloganFont{Interaction With Unions of Families of Subsets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(\mathcal{P}(Y))
+                    \arrow[r,"{(R_{*})_{!}}"]
+                    \arrow[d,"\bigcup"']
+                    \&
+                    \mathcal{P}(\mathcal{P}(X))
+                    \arrow[d,"\bigcup"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                \bigcup_{V\in\mathcal{V}}R_{*}(V)%
+                =%
+                \bigcup_{U\in R_{*}(\mathcal{U})}U%
+            \]%
+            for each $\mathcal{V}\in\mathcal{P}(Y)$, where $R_{*}(\mathcal{V})\defeq(R_{*})_{!}(\mathcal{V})$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-intersections-of-families-of-subsets}\SloganFont{Interaction With Intersections of Families of Subsets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(\mathcal{P}(Y))
+                    \arrow[r,"{(R_{*})_{!}}"]
+                    \arrow[d,"\bigcap"']
+                    \&
+                    \mathcal{P}(\mathcal{P}(X))
+                    \arrow[d,"\bigcap"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                \bigcap_{V\in\mathcal{V}}R_{*}(V)%
+                =%
+                \bigcap_{U\in R_{*}(\mathcal{U})}U%
+            \]%
+            for each $\mathcal{V}\in\mathcal{P}(Y)$, where $R_{*}(\mathcal{V})\defeq(R_{*})_{!}(\mathcal{V})$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-binary-unions}\SloganFont{Interaction With Binary Unions. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(Y)\times\mathcal{P}(Y)
+                    \arrow[r,"R_{*}\times R_{*}"]
+                    \arrow[d,"\cup"']
+                    \&
+                    \mathcal{P}(X)\times\mathcal{P}(X)
+                    \arrow[d,"\cup"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\supset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                R_{*}(U)\cup R_{*}(V)%
+                \subset%
+                R_{*}(U\cup V)%
+            \]%
+            indexed by $U,V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-binary-intersections}\SloganFont{Interaction With Binary Intersections. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(Y)\times\mathcal{P}(Y)
+                    \arrow[r,"R_{*}\times R_{*}"]
+                    \arrow[d,"\cap"']
+                    \&
+                    \mathcal{P}(X)\times\mathcal{P}(X)
+                    \arrow[d,"\cap"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                R_{*}(U\cap V)%
+                =%
+                R_{*}(U)\cap R_{*}(V)%
+            \]%
+            for each $U,V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-differences}\SloganFont{Interaction With Differences. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(Y)_{\op}\times\mathcal{P}(Y)
+                    \arrow[r,"R^{\op}_{-1}\times R_{*}"]
+                    \arrow[d,"\setminus"']
+                    \&
+                    \mathcal{P}(X)_{\op}\times\mathcal{P}(X)
+                    \arrow[d,"\setminus"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\subset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                R_{*}(U\setminus V)%
+                \subset%
+                R_{*}(U)\setminus R_{*}(V)%
+            \]%
+            indexed by $U,V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-complements}\SloganFont{Interaction With Complements. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(Y)^{\op}
+                    \arrow[r,"R^{\op,-1}"]
+                    \arrow[d,"{(-)^{\sfc}}"']
+                    \&
+                    \mathcal{P}(X)^{\op}
+                    \arrow[d,"{(-)^{\sfc}}"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                R_{*}(U^{\sfc})%
+                =%
+                R^{-1}(U)^{\sfc}%
+            \]%
+            for each $U\in\mathcal{P}(X)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-symmetric-differences}\SloganFont{Interaction With Symmetric Differences. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)
+                    \arrow[r,"R^{\op}_{*}\times R_{*}"]
+                    \arrow[d,"\sdiff"']
+                    \&
+                    \mathcal{P}(X)^{\op}\times\mathcal{P}(X)
+                    \arrow[d,"\sdiff"]
+                    \\
+                    \mathcal{P}(Y)
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                    % 2-Arrows
+                    \arrow[from=2-1,to=1-2,"\scalebox{2.0}{$\times$}",phantom,OIvermillion]
+                \end{tikzcd}
+            \]%
+            \emph{does not commute} in general, i.e.\ we may have
+            \[
+                R_{*}(U)\sdiff R_{*}(V)%
+                \neq%
+                R_{*}(U\sdiff V)%
+            \]%
+            in general, where $U,V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-internal-homs-of-powersets}\SloganFont{Interaction With Internal Homs of Powersets. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={12.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
+                    \arrow[r,"R^{\op}_{!}\times R_{*}"]
+                    \arrow[d,"{[-_{1},-_{2}]_{Y}}"']
+                    \&
+                    {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
+                    \arrow[d,"{[-_{1},-_{2}]_{X}}"]
+                    \\
+                    {\mathcal{P}(Y)}
+                    \arrow[r,"R_{*}"']
+                    \&
+                    \mathcal{P}(X)
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\supset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                [R_{!}(U),R_{*}(V)]_{X}%
+                \subset%
+                R_{*}([U,V]_{Y}),%
+            \]%
+            indexed by $U,V\in\mathcal{P}(Y)$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-lax-preservation-of-colimits}\SloganFont{Lax Preservation of Colimits. }We have an inclusion of sets
             \[
                 \bigcup_{i\in I}R_{*}(U_{i})%
                 \subset%
-                R_{*}(\bigcup_{i\in I}U_{i}),%
+                R_{*}\left(\bigcup_{i\in I}U_{i}\right),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have inclusions%
             \[
@@ -8851,11 +9329,11 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-preservation-of-limits}\SloganFont{Preservation of Limits. }We have an equality of sets
             \[
-                    R_{*}(\bigcap_{i\in I}U_{i})%
-                    =%
-                    \bigcap_{i\in I}R_{*}(U_{i}),%
+                R_{*}\left(\bigcap_{i\in I}U_{i}\right)%
+                =%
+                \bigcap_{i\in I}R_{*}(U_{i}),%
             \]%
             natural in $\{U_{i}\}_{i\in I}\in\mathcal{P}(X)^{\times I}$. In particular, we have equalities%
             \[
@@ -8865,7 +9343,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-codirect-image-functions-associated-to-relations-functoriality} has a symmetric lax monoidal structure
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-symmetric-lax-monoidality-with-respect-to-unions}\SloganFont{Symmetric Lax Monoidality With Respect to Unions. }The codirect image function of \cref{properties-of-codirect-image-functions-associated-to-relations-1-functoriality} has a symmetric lax monoidal structure
             \[
                 (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
@@ -8881,7 +9359,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-codirect-image-functions-associated-to-relations-functoriality} has a symmetric strict monoidal structure
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-symmetric-strict-monoidality-with-respect-to-intersections}\SloganFont{Symmetric Strict Monoidality With Respect to Intersections. }The direct image function of \cref{properties-of-codirect-image-functions-associated-to-relations-1-functoriality} has a symmetric strict monoidal structure
             \[
                 (R_{*},R^{\otimes}_{*},R^{\otimes}_{!|\Unit})
                 \colon
@@ -8897,69 +9375,180 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(X)$.
-        \item\label{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[r,"{R_{*}\times S_{*}}"]
+                    \arrow[d,"{\icoprod}"']
+                    \&
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[d,"{\icoprod}"]
+                    \\
+                    {\mathcal{P}(X'\icoprod Y')}
+                    \arrow[r,"{(R\icoprod S)_{*}}"']
+                    \&
+                    {\mathcal{P}(X\icoprod Y)}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                (R\icoprod S)_{*}(U'\icoprod V')%
+                =%
+                R_{*}(U')\icoprod S_{*}(V')
+            \]%
+            for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-products}\SloganFont{Interaction With Products. }Let $f\colon X\rightproarrow X'$ and $g\colon Y\rightproarrow Y'$ be relations. The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X')\times\mathcal{P}(Y')}
+                    \arrow[r,"{R_{*}\times S_{*}}"]
+                    \arrow[d,"{\boxtimes_{X'\times Y'}}"']
+                    \&
+                    {\mathcal{P}(X)\times\mathcal{P}(Y)}
+                    \arrow[d,"{\boxtimes_{X\times Y}}"]
+                    \\
+                    {\mathcal{P}(X'\times Y')}
+                    \arrow[r,"{(R\boxtimes_{X\times Y}S)_{*}}"']
+                    \&
+                    {\mathcal{P}(X\times Y)}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                (R\boxtimes_{X'\times Y'}S)_{*}(U'\boxtimes_{X'\times Y'}V')%
+                =%
+                R_{*}(U')\boxtimes_{X\times Y}S_{*}(V')%
+            \]%
+            for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images}\SloganFont{Relation to Direct Images. }We have
             \[
                 R_{*}(U)%
                 =%
                 Y\setminus R_{!}(X\setminus U)
             \]%
             for each $U\in\mathcal{P}(X)$.
-        %\item\label{properties-of-codirect-image-functions-associated-to-relations-}\SloganFont{. }
+        %\item\label{properties-of-codirect-image-functions-associated-to-relations-1-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-codirect-image-functions-associated-to-relations}}%
-    \FirstProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-functoriality}: Functoriality}%
+\begin{Proof}{Proof of \cref{properties-of-codirect-image-functions-associated-to-relations-1}}%
+    \FirstProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-functoriality}: Functoriality}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-adjointness}: Adjointness}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-adjointness}: Adjointness}%
     This follows from \ChapterRef{\ChapterKanExtensions, \cref{kan-extensions:properties-of-kan-extensions-triple-adjointness} of \cref{kan-extensions:properties-of-kan-extensions}}{\cref{properties-of-kan-extensions-triple-adjointness} of \cref{properties-of-kan-extensions}}.
 
-    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-unions-of-families-of-subsets}: Interaction With Unions of Families of Subsets}%
+    We have
+    \begin{align*}
+        \bigcup_{U\in R_{*}(\mathcal{V})}U &= \bigcup_{U\in\{R_{*}(V)\in\mathcal{P}(X)\ \middle|\ V\in\mathcal{V}\}}U\\
+                                           &= \bigcup_{V\in\mathcal{V}}R_{*}(V).%
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-intersections-of-families-of-subsets}: Interaction With Intersections of Families of Subsets}%
+    We have
+    \begin{align*}
+        \bigcap_{U\in R_{*}(\mathcal{V})}U &= \bigcap_{U\in\{R_{*}(V)\in\mathcal{P}(X)\ \middle|\ V\in\mathcal{V}\}}U\\
+                                           &= \bigcap_{V\in\mathcal{V}}R_{*}(V).%
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-binary-unions}: Interaction With Binary Unions}%
+    We have
+    \begin{align*}
+        R_{*}(U)\cup R_{*}(V) &\defeq  \{b\in Y\ \middle|\ R^{-1}(b)\subset U\}\cup\{b\in Y\ \middle|\ R^{-1}(b)\subset V\}\\
+                              &=       \{b\in Y\ \middle|\ \text{$R^{-1}(b)\subset U$ or $R^{-1}(b)\subset V$}\}\\
+                              &\subset \{b\in Y\ \middle|\ R^{-1}(b)\subset U\cup V\}\\
+                              &\defeq  R_{-1}(U\cup V).
+    \end{align*}
+    Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-binary-intersections}: Interaction With Binary Intersections}%
+    We have
+    \begin{align*}
+        R_{*}(U)\cap R_{*}(V) &\defeq \{b\in X\ \middle|\ R^{-1}(b)\subset U\}\cap\{b\in Y\ \middle|\ R^{-1}(b)\subset V\}\\
+                              &=      \{b\in Y\ \middle|\ \text{$R^{-1}(b)\subset U$ and $R^{-1}(b)\subset V$}\}\\
+                              &=      \{b\in Y\ \middle|\ R^{-1}(b)\subset U\cap V\}\\
+                              &\defeq R_{*}(U\cap V).
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-differences}: Interaction With Differences}%
+    We have
+    \begin{align*}
+        R_{*}(U\setminus V) &\defeq  \{b\in Y\ \middle|\ R^{-1}(b)\subset U\setminus V\}\\
+                            &\subset \{b\in Y\ \middle|\ \text{$R^{-1}(b)\subset U$ and $R^{-1}(b)\nsubset V$}\}\\
+                            &=       \{b\in Y\ \middle|\ R^{-1}(b)\subset U\}\setminus\{b\in Y\ \middle|\ R^{-1}(b)\subset V\}\\
+                            &\defeq  R_{*}(U)\setminus R_{*}(V)\\
+    \end{align*}
+    Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-complements}: Interaction With Complements}%
+    Applying \cref{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images} to $X\setminus U$, we have
+    \begin{align*}
+        R_{*}(U^{\sfc}) &= R_{*}(X\setminus U)\\
+                        &= Y\setminus R_{!}(X\setminus(X\setminus U))\\
+                        &= Y\setminus R_{!}(U)\\
+                        &= R_{!}(U)^{\sfc}.
+    \end{align*}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
     Omitted.
 
-    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}: Preservation of Limits}%
-    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-internal-homs-of-powersets}: Interaction With Internal Homs of Powersets}%
+    We have
+    \begin{align*}
+        [R_{!}(U),R_{*}(V)]_{Y} &=       R_{!}(U)^{\sfc}\cup R_{*}(V)\\
+                                &=       R_{*}(U^{\sfc})\cup R_{*}(V)\\
+                                &\subset R_{*}(U^{\sfc}\cup V)\\%
+                                &=       R_{*}([U,V]_{X}).%
+    \end{align*}
+    Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
-    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
-    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-lax-preservation-of-colimits}.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-lax-preservation-of-colimits}: Lax Preservation of Colimits}%
+    Omitted.
 
-    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
-    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-preservation-of-limits}.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-preservation-of-limits}: Preservation of Limits}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-1-adjointness} and \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-of-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-of-co-limits} of \cref{properties-of-adjunctions}}.
 
-    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-relation-to-direct-images}: Relation to Direct Images}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-symmetric-lax-monoidality-with-respect-to-unions}: Symmetric Lax Monoidality With Respect to Unions}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-1-lax-preservation-of-colimits}.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-symmetric-strict-monoidality-with-respect-to-intersections}: Symmetric Strict Monoidality With Respect to Intersections}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-1-preservation-of-limits}.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-coproducts}: Interaction With Coproducts}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-products}: Interaction With Products}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images}: Relation to Direct Images}%
     This follows from \cref{properties-of-direct-image-functions-associated-to-relations-1-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations-1}. Alternatively, we may prove it directly as follows, with the proof proceeding in the same way as in the case of functions (\ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-codirect-images-i-relation-to-direct-images} of \cref{constructions-with-sets:properties-of-codirect-images-i}}{\cref{properties-of-codirect-images-i-relation-to-direct-images} of \cref{properties-of-codirect-images-i}}).
 
     We claim that $R_{*}(U)=Y\setminus R_{!}(X\setminus U)$:
     \begin{itemize}
-        \item\SloganFont{The First Implication. }We claim that
-            \[
-                R_{*}(U)%
-                \subset%
-                Y\setminus R_{!}(X\setminus U).%
-            \]%
-            Let $b\in R_{*}(U)$. We need to show that $b\nin R_{!}(X\setminus U)$, i.e.\ that there is no $a\in X\setminus U$ such that $b\in R(a)$.
-
-            This is indeed the case, as otherwise we would have $a\in R^{-1}(b)$ and $a\nin U$, contradicting $R^{-1}(b)\subset U$ (which holds since $b\in R_{*}(U)$).
-
-            Thus $b\in Y\setminus R_{!}(X\setminus U)$.
-        \item\SloganFont{The Second Implication. }We claim that
-            \[
-                Y\setminus R_{!}(X\setminus U)%
-                \subset%
-                R_{*}(U).%
-            \]%
-            Let $b\in Y\setminus R_{!}(X\setminus U)$. We need to show that $b\in R_{*}(U)$, i.e.\ that $R^{-1}(b)\subset U$.
-
-            Since $b\nin R_{!}(X\setminus U)$, there exists no $a\in X\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
-
-            Thus $b\in R_{*}(U)$.
+        \item\SloganFont{Proof of $R_{*}(U)\subset Y\setminus R_{!}(X\setminus U)$: }We proceed in a few steps:
+            \begin{itemize}
+                \item Let $b\in R_{*}(U)$. We need to show that $b\nin R_{!}(X\setminus U)$, i.e.\ that there is no $a\in X\setminus U$ such that $b\in R(a)$.
+                \item This is indeed the case, as otherwise we would have $a\in R^{-1}(b)$ and $a\nin U$, contradicting $R^{-1}(b)\subset U$ (which holds since $b\in R_{*}(U)$).
+                \item Thus $b\in Y\setminus R_{!}(X\setminus U)$.
+            \end{itemize}
+        \item\SloganFont{Proof of $Y\setminus R_{!}(X\setminus U)\subset R_{*}(U)$: }We proceed in a few steps:
+            \begin{itemize}
+                \item Let $b\in Y\setminus R_{!}(X\setminus U)$. We need to show that $b\in R_{*}(U)$, i.e.\ that $R^{-1}(b)\subset U$.
+                \item Since $b\nin R_{!}(X\setminus U)$, there exists no $a\in X\setminus U$ such that $b\in R(a)$, and hence $R^{-1}(b)\subset U$.
+                \item Thus $b\in R_{*}(U)$.
+            \end{itemize}
     \end{itemize}
     This finishes the proof.
 \end{Proof}
-\begin{proposition}{Properties of the Codirect Image Function Operation}{properties-of-the-codirect-image-function-operation-for-relations}%
+\begin{proposition}{Properties of Codirect Images \rmII}{properties-of-codirect-image-functions-associated-to-relations-2}%
     Let $R\colon X\rightproarrow Y$ be a relation.
     \begin{enumerate}
-        \item\label{properties-of-the-codirect-image-function-operation-for-relations-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-2-functionality-1}\SloganFont{Functionality \rmI. }The assignment $R\mapsto R_{*}$ defines a function
             \[
                 (-)_{*}%
                 \colon%
@@ -8967,7 +9556,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \to%
                 \Sets(\mathcal{P}(X),\mathcal{P}(Y)).
             \]%
-        \item\label{properties-of-the-codirect-image-function-operation-for-relations-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-2-functionality-2}\SloganFont{Functionality \rmII. }The assignment $R\mapsto R_{*}$ defines a function
             \[
                 (-)_{*}%
                 \colon%
@@ -8975,13 +9564,13 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                 \to%
                 \Hom_{\Pos}((\mathcal{P}(X),\subset),(\mathcal{P}(Y),\subset)).
             \]%
-        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-identities}\SloganFont{Interaction With Identities. }For each $X\in\Obj(\Sets)$, we have
             \[
                 (\id_{X})_{*}%
                 =%
                 \id_{\mathcal{P}(X)}.%
             \]%
-        \item\label{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
+        \item\label{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-composition}\SloganFont{Interaction With Composition. }For each pair of composable relations $R\colon X\rightproarrow Y$ and $S\colon Y\rightproarrow C$, we have%
             \begin{webcompile}
                 (S\procirc R)_{*}%
                 =%
@@ -8999,17 +9588,17 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                     \mathcal{P}(C)\mrp{.}
                 \end{tikzcd}
             \end{webcompile}
-        %\item\label{properties-of-the-codirect-image-function-operation-for-relations-}\SloganFont{. }
+        %\item\label{properties-of-codirect-image-functions-associated-to-relations-2-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-the-codirect-image-function-operation-for-relations}}%
-    \FirstProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-functionality-1}: Functionality \rmI}%
-    Omitted.
+\begin{Proof}{Proof of \cref{properties-of-codirect-image-functions-associated-to-relations-2}}%
+    \FirstProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-2-functionality-1}: Functionality \rmI}%
+    There is nothing to prove.
 
-    \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-functionality-2}: Functionality \rmII}%
-    Omitted.
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-2-functionality-2}: Functionality \rmII}%
+    This follows from \cref{properties-of-codirect-image-functions-associated-to-relations-1-functoriality} of \cref{properties-of-codirect-image-functions-associated-to-relations-1}.
 
-    \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities}: Interaction With Identities}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-identities}: Interaction With Identities}%
     Indeed, we have
     \begin{align*}
         (\chi_{X})_{*}(U) &\defeq \{a\in X\ \middle|\ \chi^{-1}_{X}(a)\subset U\}\\
@@ -9018,7 +9607,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{align*}
     for each $U\in\mathcal{P}(X)$. Thus $(\chi_{X})_{*}=\id_{\mathcal{P}(X)}$.
 
-    \ProofBox{\cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition}: Interaction With Composition}%
+    \ProofBox{\cref{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-composition}: Interaction With Composition}%
     Indeed, we have
     \begin{align*}
         (S\procirc R)_{*}(U) &\defeq \{c\in C\ \middle|\ [S\procirc R]^{-1}(c)\subset U\}\\
@@ -9027,19 +9616,503 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
                              &\defeq R_{*}(S_{*}(U))\\
                              &\defeq [R_{*}\circ S_{*}](U)
     \end{align*}
-    for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-codirect-image-functions-associated-to-relations-adjointness} of \cref{properties-of-codirect-image-functions-associated-to-relations}, which implies that the conditions
+    for each $U\in\mathcal{P}(C)$, where we used \cref{properties-of-codirect-image-functions-associated-to-relations-1-adjointness} of \cref{properties-of-codirect-image-functions-associated-to-relations-1}, which implies that the conditions
     \begin{itemize}
         \item We have $S^{-1}(R^{-1}(c))\subset U$.
         \item We have $R^{-1}(c)\subset S_{*}(U)$.
     \end{itemize}
     are equivalent. Thus $(S\procirc R)_{*}=S_{*}\circ R_{*}$.
 \end{Proof}
+\subsection{A Six-Functor Formalism for Sets, Part \rmII}\label{subsection-a-six-functor-formalism-for-sets-2}
+\begin{explanation}{A Six-Functor Formalism for Sets \rmII}{explanation-a-six-functor-formalism-for-sets-2}%
+    The assignment $X\mapsto\mathcal{P}(X)$ together with the functors $R_{!}$, $R_{-1}$, $R^{-1}$, and $R_{*}$ of \cref{subsection-direct-images-relations,subsection-coinverse-images-relations,subsection-inverse-images-relations,subsection-codirect-images-relations} and the functors
+    \begin{align*}
+        -_{1}\cap-_{2}    &\colon \mathcal{P}(X)\times\mathcal{P}(X) \to \mathcal{P}(X),\\
+        [-_{1},-_{2}]_{X} &\colon \mathcal{P}(X)^{\op}\times\mathcal{P}(X) \to \mathcal{P}(X)
+    \end{align*}
+    of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-binary-intersections-functoriality} of \cref{constructions-with-sets:properties-of-binary-intersections}}{\cref{properties-of-binary-intersections-functoriality} of \cref{properties-of-binary-intersections}} and \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-internal-homs-of-powersets-functoriality} of \cref{constructions-with-sets:properties-of-internal-homs-of-powersets}}{\cref{properties-of-internal-homs-of-powersets-functoriality} of \cref{properties-of-internal-homs-of-powersets}} satisfy several properties reminiscent of a six functor formalism in the sense of \cref{TODO}.
+
+    \indent We collect these properties in \cref{a-six-functor-formalism-for-sets-2} below.%
+\end{explanation}
+\begin{proposition}{A Six-Functor Formalism for Sets \rmII}{a-six-functor-formalism-for-sets-2}%
+    Let $X$ be a set.
+    \begin{enumerate}
+        \item\label{a-six-functor-formalism-for-sets-2-the-projection-formula-1}\SloganFont{The Projection Formula \rmI. }The diagram
+            \[
+                \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \mathcal{P}(X)\times\mathcal{P}(X)
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \\[0.58778525229\TwoCmPlusHalf]
+                    \mathcal{P}(X)\times\mathcal{P}(Y)
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \mathcal{P}(X)
+                    \\[0.95105651629\TwoCmPlusHalf]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \mathcal{P}(Y)\times\mathcal{P}(Y)
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \mathcal{P}(Y)\mrp{,}
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    % 1-Arrows
+                    % Left Boundary
+                    \arrow[from=2-1,to=1-3,"\id_{\mathcal{P}(X)}\times R_{-1}"{pos=0.45}]%
+                    \arrow[from=1-3,to=2-5,"\cap"{pos=0.55},""{name=2}]%
+                    \arrow[from=2-5,to=3-4,"R_{!}"{pos=0.375}]%
+                    % Right Boundary
+                    \arrow[from=2-1,to=3-2,"R_{!}\times\id_{\mathcal{P}(Y)}"'{pos=0.4}]%
+                    \arrow[from=3-2,to=3-4,"\cap"']%
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have
+            \[
+                R_{!}(U\cap R_{-1}(V))%
+                =%
+                R_{!}(U)\cap V%
+            \]%
+            for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
+        \item\label{a-six-functor-formalism-for-sets-2-the-projection-formula-2}\SloganFont{The Projection Formula \rmII. }We have a natural transformation
+            \[
+                \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \mathcal{P}(X)\times\mathcal{P}(X)
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \\[0.58778525229\TwoCmPlusHalf]
+                    \mathcal{P}(X)\times\mathcal{P}(Y)
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \mathcal{P}(X)
+                    \\[0.95105651629\TwoCmPlusHalf]
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    \mathcal{P}(Y)\times\mathcal{P}(Y)
+                    \&[0.5\TwoCmPlusHalf]
+                    \&[0.5\TwoCmPlusHalf]
+                    \mathcal{P}(Y)\mrp{,}
+                    \&[0.30901699437\TwoCmPlusHalf]
+                    % 1-Arrows
+                    % Left Boundary
+                    \arrow[from=2-1,to=1-3,"\id_{\mathcal{P}(X)}\times R^{-1}"{pos=0.45}]%
+                    \arrow[from=1-3,to=2-5,"\cap"{pos=0.55},""{name=2}]%
+                    \arrow[from=2-5,to=3-4,"R_{*}"{pos=0.425}]%
+                    % Right Boundary
+                    \arrow[from=2-1,to=3-2,"R_{*}\times\id_{\mathcal{P}(Y)}"'{pos=0.4}]%
+                    \arrow[from=3-2,to=3-4,"\cap"']%
+                    % 2-Arrows
+                    \arrow[from=3-2,to=2,"\scalebox{2.0}{$\subset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 1*\the\DL]%
+                \end{tikzcd}
+            \]%
+            with components
+            \[
+                R_{*}(U)\cap V%
+                \subset%
+                R_{*}(U\cap R^{-1}(V))%
+            \]%
+            indexed by $U\in\mathcal{P}(X)$ and $V\in\mathcal{P}(Y)$.
+        \item\label{a-six-functor-formalism-for-sets-2-interaction-between-co-direct-images-and-internal-homs}\SloganFont{Interaction Between Co/Direct Images and Internal Homs of Powersets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
+                    \arrow[r,"R^{\op}_{*}\times R_{!}"]
+                    \arrow[d,"{[-_{1},-_{2}]_{X}}"']
+                    \&
+                    {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
+                    \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
+                    \\
+                    {\mathcal{P}(X)}
+                    \arrow[r,"R_{!}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have an equality of sets
+            \[
+                R_{!}([U,V]_{X})%
+                =%
+                [R_{*}(U),R_{!}(V)]_{Y},%
+            \]%
+            natural in $U,V\in\mathcal{P}(X)$.
+        \item\label{a-six-functor-formalism-for-sets-2-interaction-between-co-inverse-images-and-internal-homs}\SloganFont{Interaction Between Co/Inverse Images and Internal Homs of Powersets. }The diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
+                    \arrow[r,"R^{\op}_{-1}\times R^{-1}"]
+                    \arrow[d,"{[-_{1},-_{2}]_{X}}"']
+                    \&
+                    {\mathcal{P}(Y)^{\op}\times\mathcal{P}(Y)}
+                    \arrow[d,"{[-_{1},-_{2}]_{Y}}"]
+                    \\
+                    {\mathcal{P}(X)}
+                    \arrow[r,"R^{-1}"']
+                    \&
+                    \mathcal{P}(Y)
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ we have an equality of sets
+            \[
+                R^{-1}([U,V]_{X})%
+                =%
+                [R_{-1}(U),R^{-1}(V)]_{Y},%
+            \]%
+            natural in $U,V\in\mathcal{P}(X)$.
+        \item\label{a-six-functor-formalism-for-sets-2-the-external-tensor-product}\SloganFont{The External Tensor Product. }We have an external tensor product
+            \[
+                -_{1}\boxtimes_{X\times Y}-_{2}%
+                \colon%
+                \mathcal{P}(X)\times\mathcal{P}(Y)%
+                \to%
+                \mathcal{P}(X\times Y)%
+            \]%
+            given by
+            \begin{align*}
+                U\boxtimes_{X\times Y}V &\defeq \pr^{-1}_{1}(U)\cap\pr^{-1}_{2}(V)\\
+                                        &=      \{(u,v)\in X\times Y\ \middle|\ \text{$u\in U$ and $v\in V$}\}.
+            \end{align*}
+            This is the same map as the one in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-powersets-as-categories-interaction-with-products-2} of \cref{constructions-with-sets:elementary-properties-of-powersets}}{\cref{properties-of-powersets-as-categories-interaction-with-products-2} of \cref{elementary-properties-of-powersets}}. Moreover, the following conditions are satisfied:
+            \begin{enumerate}
+                \item\label{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-direct-images}\SloganFont{Interaction With Direct Images. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X)\times\mathcal{P}(Y)
+                            \arrow[r,"R_{!}\times S_{!}"]
+                            \arrow[d,"\boxtimes_{X\times Y}"']
+                            \&
+                            \mathcal{P}(X')\times\mathcal{P}(Y')
+                            \arrow[d,"\boxtimes_{X'\times Y'}"]
+                            \\
+                            \mathcal{P}(X\times Y)
+                            \arrow[r,"R_{!}\times S_{!}"']
+                            \&
+                            \mathcal{P}(X'\times Y')
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        [R_{!}\times S_{!}](U\boxtimes_{X\times Y}V)%
+                        =%
+                        R_{!}(U)\boxtimes_{X'\times Y'}S_{!}(V)%
+                    \]%
+                    for each $(U,V)\in\mathcal{P}(X)\times\mathcal{P}(Y)$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-coinverse-images}\SloganFont{Interaction With Coinverse Images. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X')\times\mathcal{P}(Y')
+                            \arrow[r,"R_{-1}\times S_{-1}"]
+                            \arrow[d,"\boxtimes_{X'\times Y'}"']
+                            \&
+                            \mathcal{P}(X)\times\mathcal{P}(Y)
+                            \arrow[d,"\boxtimes_{X\times Y}"]
+                            \\
+                            \mathcal{P}(X'\times Y')
+                            \arrow[r,"R_{-1}\times S_{-1}"']
+                            \&
+                            \mathcal{P}(X\times Y)
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        [R_{-1}\times S_{-1}](U\boxtimes_{X'\times Y'}V)%
+                        =%
+                        R_{-1}(U)\boxtimes_{X\times Y}S_{-1}(V)%
+                    \]%
+                    for each $(U,V)\in\mathcal{P}(X')\times\mathcal{P}(Y')$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X')\times\mathcal{P}(Y')
+                            \arrow[r,"R^{-1}\times S^{-1}"]
+                            \arrow[d,"\boxtimes_{X'\times Y'}"']
+                            \&
+                            \mathcal{P}(X)\times\mathcal{P}(Y)
+                            \arrow[d,"\boxtimes_{X\times Y}"]
+                            \\
+                            \mathcal{P}(X'\times Y')
+                            \arrow[r,"R^{-1}\times S^{-1}"']
+                            \&
+                            \mathcal{P}(X\times Y)
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        [R^{-1}\times S^{-1}](U\boxtimes_{X'\times Y'}V)%
+                        =%
+                        R^{-1}(U)\boxtimes_{X\times Y}S^{-1}(V)%
+                    \]%
+                    for each $(U,V)\in\mathcal{P}(X')\times\mathcal{P}(Y')$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }Let $R\colon X\rightproarrow X'$ and $S\colon Y\rightproarrow Y'$ be relations. The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X)\times\mathcal{P}(Y)
+                            \arrow[r,"R_{*}\times S_{*}"]
+                            \arrow[d,"\boxtimes_{X\times Y}"']
+                            \&
+                            \mathcal{P}(X')\times\mathcal{P}(Y')
+                            \arrow[d,"\boxtimes_{X'\times Y'}"]
+                            \\
+                            \mathcal{P}(X\times Y)
+                            \arrow[r,"R_{*}\times S_{*}"']
+                            \&
+                            \mathcal{P}(X'\times Y')
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        [R_{*}\times S_{*}](U\boxtimes_{X\times Y}V)%
+                        =%
+                        R_{*}(U)\boxtimes_{X'\times Y'}S_{*}(V)%
+                    \]%
+                    for each $(U,V)\in\mathcal{P}(X)\times\mathcal{P}(Y)$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-diagonals}\SloganFont{Interaction With Diagonals. }The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={9.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X)\times\mathcal{P}(X)
+                            \arrow[r,"\boxtimes_{X\times X}"]
+                            \arrow[rd,"\cap"']
+                            \&
+                            \mathcal{P}(X\times X)
+                            \arrow[d,"\Delta^{-1}_{X}"]
+                            \\
+                            \&
+                            \mathcal{P}(X)\mrp{,}
+                        \end{tikzcd}
+                    \]%
+                    i.e.\ we have
+                    \[
+                        U\cap V%
+                        =%
+                        \Delta^{-1}_{X}(U\boxtimes_{X\times X}V)%
+                    \]%
+                    for each $U,V\in\mathcal{P}(X)$.
+            \end{enumerate}
+        \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor}\SloganFont{The Dualisation Functor. }We have a functor
+            \[
+                D_{X}%
+                \colon%
+                \mathcal{P}(X)^{\op}%
+                \to%
+                \mathcal{P}(X)%
+            \]%
+            given by
+            \begin{align*}
+                D_{X}(U) &\defeq [U,\emptyset]_{X}\\
+                         &\defeq U^{\sfc}
+            \end{align*}
+            for each $U\in\mathcal{P}(X)$, as in
+            \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2} of \cref{constructions-with-sets:properties-of-internal-homs-of-powersets}}{\cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2} of \cref{properties-of-internal-homs-of-powersets}}, satisfying the following conditions:
+            \begin{enumerate}
+                \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor-duality}\SloganFont{Duality. }We have
+                    \begin{webcompile}
+                        D_{X}(D_{X}(U))%
+                        =%
+                        U,%
+                        \quad
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X)
+                            \arrow[r,"D_{X}"]
+                            \arrow[rd,"\id_{\mathcal{P}(X)}"']
+                            \&
+                            \mathcal{P}(X)
+                            \arrow[d,"D_{X}"]
+                            \\
+                            \&
+                            \mathcal{P}(X)\mrp{.}
+                        \end{tikzcd}
+                    \end{webcompile}
+                \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-internal-homs}\SloganFont{Interaction With Internal Homs. }The diagram
+                    \[
+                        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \&[0.5\ThreeCmPlusAQuarter]
+                            {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)^{\op}}
+                            \&[0.9\ThreeCmPlusAQuarter]
+                            \mathcal{P}(X)^{\op}
+                            \&[0.5\ThreeCmPlusAQuarter]
+                            \\[0.5\ThreeCmPlusAQuarter]
+                            {\mathcal{P}(X)^{\op}\times\mathcal{P}(X)}
+                            \&[0.5\ThreeCmPlusAQuarter]
+                            \&[0.9\ThreeCmPlusAQuarter]
+                            \&[0.5\ThreeCmPlusAQuarter]
+                            {\mathcal{P}(X)}
+                            % 1-Arrows
+                            \arrow[from=2-1,to=1-2,"\id_{\mathcal{P}(X)^{\op}}\times D_{X}",pos=0.325]%
+                            \arrow[from=1-2,to=1-3,"\cap^{\op}"]%
+                            \arrow[from=1-3,to=2-4,"D_{X}",pos=0.525]%
+                            %
+                            \arrow[from=2-1,to=2-4,"{[-_{1},-_{2}]_{X}}"']%
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        \underbrace{D_{X}(U\cap D_{X}(V))}_{\defeq[U\cap[V,\emptyset]_{X},\emptyset]_{X}}%
+                        =%
+                        [U,V]_{X}%
+                    \]%
+                    for each $U,V\in\mathcal{P}(X)$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-direct-images}\SloganFont{Interaction With Direct Images. }The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X)^{\op}
+                            \arrow[r,"R^{\op}_{*}"]
+                            \arrow[d,"D_{X}"']
+                            \&
+                            \mathcal{P}(Y)^{\op}
+                            \arrow[d,"D_{Y}"]
+                            \\
+                            \mathcal{P}(X)
+                            \arrow[r,"R_{!}"']
+                            \&
+                            \mathcal{P}(Y)
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        R_{!}(D_{X}(U))%
+                        =%
+                        D_{Y}(R_{*}(U))%
+                    \]%
+                    for each $U\in\mathcal{P}(X)$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-coinverse-images}\SloganFont{Interaction With Coinverse Images. }The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.25*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(Y)^{\op}
+                            \arrow[r,"R^{-1,\op}"]
+                            \arrow[d,"D_{Y}"']
+                            \&
+                            \mathcal{P}(X)^{\op}
+                            \arrow[d,"D_{X}"]
+                            \\
+                            \mathcal{P}(Y)
+                            \arrow[r,"R_{-1}"']
+                            \&
+                            \mathcal{P}(X)
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        R_{-1}(D_{Y}(U))%
+                        =%
+                        D_{X}(R^{-1}(U))%
+                    \]%
+                    for each $U\in\mathcal{P}(X)$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-inverse-images}\SloganFont{Interaction With Inverse Images. }The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(Y)^{\op}
+                            \arrow[r,"R^{\op}_{-1}"]
+                            \arrow[d,"D_{Y}"']
+                            \&
+                            \mathcal{P}(X)^{\op}
+                            \arrow[d,"D_{X}"]
+                            \\
+                            \mathcal{P}(Y)
+                            \arrow[r,"R^{-1}"']
+                            \&
+                            \mathcal{P}(X)
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        R^{-1}(D_{Y}(U))%
+                        =%
+                        D_{X}(R_{-1}(U))%
+                    \]%
+                    for each $U\in\mathcal{P}(X)$.
+                \item\label{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-codirect-images}\SloganFont{Interaction With Codirect Images. }The diagram
+                    \[
+                        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \mathcal{P}(X)^{\op}
+                            \arrow[r,"R^{\op}_{!}"]
+                            \arrow[d,"D_{X}"']
+                            \&
+                            \mathcal{P}(Y)^{\op}
+                            \arrow[d,"D_{Y}"]
+                            \\
+                            \mathcal{P}(X)
+                            \arrow[r,"R_{*}"']
+                            \&
+                            \mathcal{P}(Y)
+                        \end{tikzcd}
+                    \]%
+                    commutes, i.e.\ we have
+                    \[
+                        R_{*}(D_{X}(U))%
+                        =%
+                        D_{Y}(R_{!}(U))%
+                    \]%
+                    for each $U\in\mathcal{P}(X)$.
+            \end{enumerate}
+        %\item\label{a-six-functor-formalism-for-sets-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{a-six-functor-formalism-for-sets-2}}%
+    \FirstProofBox{\cref{a-six-functor-formalism-for-sets-2-the-projection-formula-1}: The Projection Formula \rmI}%
+    We have
+    \begin{align*}
+        R_{!}(U\cap R_{-1}(V)) &\defeq \{b\in Y\ \middle|\ R_{-1}(b)\cap(U\cap R_{-1}(V))\neq\emptyset\}\\
+                               &=      \{b\in Y\ \middle|\ U\cap(R_{-1}(b)\cap R_{-1}(V))\neq\emptyset\}\\
+                               &=      \{b\in Y\ \middle|\ U\cap R_{-1}(\{b\}\cap V)\neq\emptyset\}\\
+                               &=      \{b\in Y\ \middle|\ \text{$b\in V$ and $U\cap R_{-1}(b)\neq\emptyset$}\}\\
+                               &=      \{b\in Y\ \middle|\ U\cap R_{-1}(b)\neq\emptyset\}\cap V\\
+                               &\defeq R_{!}(U)\cap V.
+    \end{align*}
+    where we have used \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-binary-intersections} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} for the third equality.
+
+    \ProofBox{\cref{a-six-functor-formalism-for-sets-2-the-projection-formula-2}: The Projection Formula \rmII}%
+    We have
+    \begin{align*}
+        R_{*}(U)\cap V &\subset R_{*}(U)\cap R_{*}(R^{-1}(V))\\
+                       &=       R_{*}(U\cap R^{-1}(V)),
+    \end{align*}
+    where we have used:
+    \begin{itemize}
+        \item \cref{properties-of-codirect-image-functions-associated-to-relations-1-adjointness} of \cref{properties-of-codirect-image-functions-associated-to-relations-1} for the inclusion.
+        \item \cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-binary-intersections} of \cref{properties-of-codirect-image-functions-associated-to-relations-1} for the equality.
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{a-six-functor-formalism-for-sets-2-interaction-between-co-direct-images-and-internal-homs}: Interaction Between Co/Direct Images and Internal Homs of Powersets}%
+    This is a repetition of \cref{properties-of-direct-image-functions-associated-to-relations-1-interaction-with-binary-internal-homs-of-powersets} of \cref{properties-of-direct-image-functions-associated-to-relations-1} and is proved there.
+
+    \ProofBox{\cref{a-six-functor-formalism-for-sets-2-interaction-between-co-inverse-images-and-internal-homs}: Interaction Between Co/Inverse Images and Internal Homs of Powersets}%
+    This is a repetition of \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-internal-homs-of-powersets} of \cref{properties-of-inverse-image-functions-associated-to-relations-1} and is proved there.
+
+
+    \ProofBox{\cref{a-six-functor-formalism-for-sets-2-the-external-tensor-product}: The External Tensor Product}%
+    Indeed:
+    \begin{itemize}
+        \item \cref{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-direct-images} is a repetition of \cref{properties-of-direct-image-functions-associated-to-relations-1-interaction-with-products} of \cref{properties-of-direct-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-coinverse-images} is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-products} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-inverse-images} is a repetition of \cref{properties-of-inverse-image-functions-associated-to-relations-1-interaction-with-products} of \cref{properties-of-inverse-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-codirect-images} is a repetition of \cref{properties-of-codirect-image-functions-associated-to-relations-1-interaction-with-products} of \cref{properties-of-codirect-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-external-tensor-product-interaction-with-diagonals} is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-external-tensor-product} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets}}{\cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals} of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product} of \cref{a-six-functor-formalism-for-sets}}.
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor}: The Dualisation Functor}%
+    Indeed:
+    \begin{itemize}
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-duality} is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-dualisation-functor-duality} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-dualisation-functor} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets}}{\cref{a-six-functor-formalism-for-sets-the-dualisation-functor-duality} of \cref{a-six-functor-formalism-for-sets-the-dualisation-functor} of \cref{a-six-functor-formalism-for-sets}} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-internal-homs} is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-internal-homs} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets-the-dualisation-functor} of \cref{constructions-with-sets:a-six-functor-formalism-for-sets}}{\cref{a-six-functor-formalism-for-sets-the-dualisation-functor-interaction-with-internal-homs} of \cref{a-six-functor-formalism-for-sets-the-dualisation-functor} of \cref{a-six-functor-formalism-for-sets}} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-direct-images} is a repetition of \cref{properties-of-direct-image-functions-associated-to-relations-1-relation-to-codirect-images} of \cref{properties-of-direct-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-coinverse-images} is a repetition of \cref{properties-of-coinverse-image-functions-associated-to-relations-1-relation-to-inverse-images-1} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-inverse-images} is a repetition of \cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-1} of \cref{properties-of-inverse-image-functions-associated-to-relations-1} and is proved there.
+        \item \cref{a-six-functor-formalism-for-sets-2-the-dualisation-functor-interaction-with-codirect-images} is a repetition of \cref{properties-of-codirect-image-functions-associated-to-relations-1-relation-to-direct-images} of \cref{properties-of-codirect-image-functions-associated-to-relations-1} and is proved there.
+    \end{itemize}
+    This finishes the proof.
+\end{Proof}
 \subsection{Functoriality of Powersets}\label{subsection-functoriality-of-powersets}
 \begin{proposition}{Functoriality of Powersets \rmI}{functoriality-of-powersets-1}%
     The assignment $X\mapsto\mathcal{P}(X)$ defines functors\index[notation]{Pshriek@$\mathcal{P}_{"!}$}\index[notation]{Pminusone@$\mathcal{P}^{-1}$}\index[notation]{Pstar@$\mathcal{P}_{*}$}%
     %--- Begin Footnote ---%
     \footnote{%
-        The functor $\mathcal{P}_{!}\colon\Rel\to\Sets$ admits a left adjoint; see \cref{properties-of-graphs-of-functions-adjointness} of \cref{properties-of-graphs-of-functions}.
+        The functor $\mathcal{P}_{!}\colon\Rel\to\Sets$ in particular admits a left adjoint; see \cref{properties-of-graphs-of-functions-adjointness} of \cref{properties-of-graphs-of-functions}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -9076,7 +10149,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
     \end{itemize}
 \end{proposition}
 \begin{Proof}{Proof of \cref{functoriality-of-powersets-1}}%
-    This follows from \cref{properties-of-direct-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-direct-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-direct-image-functions-associated-to-relations-2}, \cref{properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-coinverse-image-functions-associated-to-relations-2}, \cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-inverse-image-functions-associated-to-relations-2}, and \cref{properties-of-the-codirect-image-function-operation-for-relations-interaction-with-identities,properties-of-the-codirect-image-function-operation-for-relations-interaction-with-composition} of \cref{properties-of-the-codirect-image-function-operation-for-relations}.
+    This follows from \cref{properties-of-direct-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-direct-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-direct-image-functions-associated-to-relations-2}, \cref{properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-coinverse-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-coinverse-image-functions-associated-to-relations-2}, \cref{properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-inverse-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-inverse-image-functions-associated-to-relations-2}, and \cref{properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-identities,properties-of-codirect-image-functions-associated-to-relations-2-interaction-with-composition} of \cref{properties-of-codirect-image-functions-associated-to-relations-2}.
 \end{Proof}
 \subsection{Functoriality of Powersets: Relations on Powersets}\label{functoriality-of-powersets-relations-on-powersets}
 Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
@@ -9089,14 +10162,14 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
         \rightproarrow
         \mathcal{P}(Y)%
     \]%
-    defined by%
+    defined as follows:%
     %--- Begin Footnote ---%
     \footnote{%
         Illustration:%
         \[
             \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                 \pt%
-                \arrow[rrr,mid vert,bend left=15,"\chi_{\pt}"]
+                \arrow[rrr,to path={|- ([yshift=1.0*\the\DL]\tikztotarget.north) node[near end,yshift=1.0*\the\DL]{$\scriptstyle\Delta_{\pt}$} -| (\tikztotarget)},mid vert]
                 \arrow[r,mid vert,"U"']
                 \&
                 X
@@ -9111,17 +10184,31 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
-    \[
-        \mathcal{P}(R)^{V}_{U}%
-        \defeq%
-        \eRel(\chi_{\pt},V\procirc R\procirc U)%
-    \]%
-    for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
+    \begin{itemize}
+        \item Viewing relations as functions to powersets, we have
+            \[
+                [\mathcal{P}(R)](U)%
+                \defeq%
+                \{%
+                    V\in\mathcal{P}(Y)%
+                    \ \middle|\ %
+                    R(U)\cap V\neq\emptyset%
+                \}%
+            \]%
+            for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
+        \item Viewing relations as functions to $\TTV$, we have
+            \[
+                \mathcal{P}(R)^{V}_{U}%
+                \defeq%
+                \eRel(\Delta_{\pt},V\procirc R\procirc U)%
+            \]%
+            for each $U\in\mathcal{P}(X)$ and each $V\in\mathcal{P}(Y)$.
+    \end{itemize}
 \end{definition}
 \begin{remark}{Unwinding \cref{the-relation-on-powersets-associated-to-a-relation}}{unwinding-the-relation-on-powersets-associated-to-a-relation}%
     In detail, we have $U\sim_{\mathcal{P}(R)}V$ \textiff the following equivalent conditions hold:
     \begin{itemize}
-        \item We have $\chi_{\pt}\subset V\procirc R\procirc U$.
+        \item We have $\Delta_{\pt}\subset V\procirc R\procirc U$.
         \item We have $(V\procirc R\procirc U)^{\point}_{\point}=\true$, i.e.\ we have
             \[
                 \int^{a\in X}\int^{b\in Y}V^{\point}_{b}\times R^{b}_{a}\times U^{a}_{\point}%
