@@ -67,14 +67,11 @@ This chapter contains some material about relations. Notably, we discuss and exp
 This chapter is under revision. TODO:
 \begin{enumerate}
     \item Replicate \cref{section-properties-of-the-2-category-of-relations} for apartness composition
-    \item Revise \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
-    \item Add subsection \say{A Six Functor Formalism for Sets, Part 2}, now with relations, building upon \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}.
     \item Replicate \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star} for apartness composition
     \item Revise sections on skew monoidal structures on $\eRel(A,B)$
     \item Replicate the sections on skew monoidal structures on $\eRel(A,B)$ for apartness composition.
     \item Explore relative co/monads in $\sfbfRel$, defined to be co/monoids in $\eRel(A,B)$ with its left/right skew monoidal structures of \ChapterRef{\ChapterRelations, \cref{relations:section-the-left-skew-monoidal-structure-on-rel-a-b,relations:section-the-right-skew-monoidal-structure-on-rel-a-b}}{\cref{section-the-left-skew-monoidal-structure-on-rel-a-b,section-the-right-skew-monoidal-structure-on-rel-a-b}}
     \item functional total relations defined with \say{satisfying the following equivalent conditions:}
-    \item update the section on powersets in constructions with sets to include how they behave with respect to $R_{!}$, $R_{-1}$, $R^{-1}$, and $R_{*}$.
 \end{enumerate}
 
 \ChapterTableOfContents
@@ -908,12 +905,12 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
     \ProofBox{\cref{properties-of-apartness-composition-of-relations-associativity}: Associativity}%
     Indeed, we have
     \begin{align*}
-        (T\aptcirc S)\aptcirc R &\defeq (\int_{c\in C}T^{-_{1}}_{c}\icoprod S^{c}_{-_{2}})\aptcirc R\\
-                                &\defeq \int_{b\in B}(\int_{c\in C}T^{-_{1}}_{c}\icoprod S^{c}_{b})\icoprod R^{b}_{-_{2}}\\
+        (T\aptcirc S)\aptcirc R &\defeq \left(\int_{c\in C}T^{-_{2}}_{c}\icoprod S^{c}_{-_{2}}\right)\aptcirc R\\
+                                &\defeq \int_{b\in B}\left(\int_{c\in C}T^{-_{1}}_{c}\icoprod S^{c}_{b}\right)\icoprod R^{b}_{-_{2}}\\
                                 &=      \int_{b\in B}\int_{c\in C}(T^{-_{1}}_{c}\icoprod S^{c}_{b})\icoprod R^{b}_{-_{2}}\\
                                 &=      \int_{c\in C}\int_{b\in B}(T^{-_{1}}_{c}\icoprod S^{c}_{b})\icoprod R^{b}_{-_{2}}\\
                                 &=      \int_{c\in C}\int_{b\in B}T^{-_{1}}_{c}\icoprod(S^{c}_{b}\icoprod R^{b}_{-_{2}})\\
-                                &=      \int_{c\in C}T^{-_{1}}_{c}\icoprod(\int_{b\in B}S^{c}_{b}\icoprod R^{b}_{-_{2}})\\
+                                &=      \int_{c\in C}T^{-_{1}}_{c}\icoprod\left(\int_{b\in B}S^{c}_{b}\icoprod R^{b}_{-_{2}}\right)\\
                                 &\defeq \int_{c\in C}T^{-_{1}}_{c}\icoprod(S\aptcirc R)^{c}_{-_{2}}\\
                                 &\defeq T\aptcirc(S\aptcirc R).
     \end{align*}
@@ -7645,7 +7642,7 @@ Let $X$ and $Y$ be sets and let $R\colon X\rightproarrow Y$ be a relation.
             \arrow[d,mid vert, "R"]
             \\
             \pt%
-            \arrow[ru,"\Rift_{R}(V)",dashed for mid vert, mid vert]
+            \arrow[ru,"\Rift_{R}(V)",densely dashed for mid vert, mid vert]
             \arrow[r,mid vert, "V"'{name=F}]
             \&
             Y\mrp{,}
