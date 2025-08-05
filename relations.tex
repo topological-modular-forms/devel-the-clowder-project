@@ -50,7 +50,7 @@ This chapter contains some material about relations. Notably, we discuss and exp
         Of particular note are the following points:
         \begin{enumerate}
             \item\label{relations-introduction-item-5a}These two pairs of adjoint functors are the counterpart for relations of the adjoint triple $f_{!}\dashv f^{-1}\dashv f_{*}$ induced by a function $f\colon A\to B$ studied in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}{\cref{section-the-adjoint-triple-f-shriek-f-minus-one-f-star}}.
-            \item\label{relations-introduction-item-5b}We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-coinverse-image-functions-associated-to-relations-1-interaction-with-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations-1}).
+            \item\label{relations-introduction-item-5b}We have $R_{-1}=R^{-1}$ \textiff $R$ is total and functional (\cref{properties-of-coinverse-image-functions-associated-to-relations-interaction-with-inverse-images-2} of \cref{properties-of-coinverse-image-functions-associated-to-relations}).
             \item\label{relations-introduction-item-5c}As a consequence of the previous item, when $R$ comes from a function $f$, the pair of adjunctions
                 \[
                     R_{!}\dashv R_{-1}=R^{-1}\dashv R_{*}%
@@ -67,6 +67,8 @@ This chapter contains some material about relations. Notably, we discuss and exp
 This chapter is under revision. TODO:
 \begin{enumerate}
     \item Replicate \cref{section-properties-of-the-2-category-of-relations} for apartness composition
+    \item Revise \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}
+    \item Add subsection \say{A Six Functor Formalism for Sets, Part 2}, now with relations, building upon \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star}.
     \item Replicate \cref{section-the-adjoint-pairs-r-shriek-r-minus-one-and-r-minus-one-r-star} for apartness composition
     \item Revise sections on skew monoidal structures on $\eRel(A,B)$
     \item Replicate the sections on skew monoidal structures on $\eRel(A,B)$ for apartness composition.
@@ -336,7 +338,7 @@ Let $A$ and $B$ be sets.
 \subsection{Composition of Relations}\label{subsection-composition-of-relations}
 Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B\rightproarrow C$ be relations.
 \begin{definition}{Composition of Relations}{composition-of-relations}%
-    The \index[set-theory]{relation!composition of}\textbf{composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\procirc R$}$S\procirc R$ defined as follows:%
+    The \index[set-theory]{relation!composition of}\textbf{composition of $R$ and $S$} is the relation \index[notation]{SafterR@$S\procirc R$}$S\procirc R$ defined in one of three equivalent ways:%
     \begin{enumerate}
         \item\label{composition-of-relations-1}Viewing relations from $A$ to $C$ as subsets of $A\times C$, we define
             \[
@@ -402,6 +404,9 @@ Let $A$, $B$, and $C$ be sets and let $R\colon A\rightproarrow B$ and $S\colon B
             for each $a\in A$.
     \end{enumerate}
 \end{definition}
+\begin{Proof}{Proof of the Equivalences in \cref{composition-of-relations}}%
+  Omitted.
+\end{Proof}
 \begin{remark}{Composing Relations With Right Kan Extensions}{composing-relations-with-right-kan-extensions}%
     You might wonder what happens if we instead define an alternative composition of relations $\mathord{\procirc'}$ via right Kan extensions. In this case, we would take the right Kan extension of $S$ along the dual characteristic embedding $B\hookrightarrow\mathcal{P}(B)^{\op}$:
     \begin{webcompile}
@@ -1592,7 +1597,7 @@ Let $f\colon A\to B$ be a function.
                     \[
                         \Gr(\id_{A})%
                         =%
-                        \chi_{A}%
+                        \Delta_{A}%
                     \]%
                     for each $A\in\Obj(\Sets)$.
                 \item\SloganFont{Preservation of Composition. }We have
@@ -1637,7 +1642,21 @@ Let $f\colon A\to B$ be a function.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-graphs-of-functions}}%
     \FirstProofBox{\cref{properties-of-graphs-of-functions-functoriality}: Functoriality}%
-    Omitted.
+    The well-definedness follows from \cref{the-graph-of-a-function}. Next, we need to show that $\Gr$ preserves identities and compositions.
+    \begin{itemize}
+        \item\SloganFont{Preservation of Identities. }Let $A$ be a set. Given $a,b\in A$, we have
+            \[ a \sim_{\Gr(\id_{A})} b \iff \id_{A}(a) = b \iff a = b \iff a \sim_{\Delta_{A}} b, \]
+            so $\Gr(\id_{A}) = \Delta_{A}.$
+        \item\SloganFont{Preservation of Composition. }Let $A$, $B$, and $C$ be sets and let $f \colon A \to B$ and $g \colon B \to C$ be functions. For each $a\in A$ and each $c \in C$, we have
+            \begin{align*}
+                a \sim_{\Gr (g \circ f)} c &\iff [g \circ f](a) = c\\
+                                           &\iff g(f(a)) = c\\
+                                           &\iff \text{there exists $b \in B$ such that $f(a) = b$ and $(b) = c$}\\
+                                           &\iff \text{there exists $b \in B$ such that $a \sim_{\Gr(f)} b$ and $b \sim_{\Gr(g)} c$} \\
+                                           &\iff a \sim_{\Gr(g) \procirc \Gr(f)} c
+            \end{align*}
+            so $\Gr(g \circ f) = \Gr(g) \procirc \Gr(f)$.
+    \end{itemize}
 
     \ProofBox{\cref{properties-of-graphs-of-functions-adjointness}: Adjointness}%
     This is a repetition of \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:adjointness-of-powersets-2}}{\cref{adjointness-of-powersets-2}}, and is proved there.
@@ -5189,7 +5208,7 @@ Let $X$ be a set.
                         R^{-1}(U\cup V) &= R^{-1}(U)\cup R^{-1}(V)\\
                                         &= R^{-1}(V),
                     \end{align*}
-                    where we have used \cref{properties-of-inverse-image-functions-associated-to-relations-1-symmetric-strict-monoidality-with-respect-to-unions} of \cref{properties-of-inverse-image-functions-associated-to-relations-1} for the first equality.
+                    where we have used \cref{properties-of-inverse-image-functions-associated-to-relations-symmetric-strict-monoidality-with-respect-to-unions} of \cref{properties-of-inverse-image-functions-associated-to-relations} for the first equality.
                 \item Since $R^{-1}$ is injective, this implies $U\cup V=V$.
                 \item Thus $U\subset V$, as we wished to show.
             \end{itemize}
@@ -5815,7 +5834,7 @@ Let $X$ be a set.
         \item Otherwise, $C$ admits $\pt$ as a retract, and we reduce to the case $C=\pt$ via \cref{TODO}.
         \item For the case $C=\pt$, a relation $T\colon B\rightproarrow\pt$ is the same as a subset of $B$, and $-\procirc R$ becomes the inverse image functor $R^{-1}$ of \cref{subsection-inverse-images}.
         \item Now, again by the adjoint functor theorem, $R^{-1}$ preserves limits exactly when it has a left adjoint.
-        \item Finally $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}).
+        \item Finally, $R^{-1}$ has a left adjoint precisely when $R=\Gr(f)$ for $f$ a function (\cref{properties-of-inverse-image-functions-associated-to-relations-1-relation-to-coinverse-images-2} of \cref{properties-of-inverse-image-functions-associated-to-relations-1}).
     \end{itemize}
     This finishes the proof.
 \end{Proof}

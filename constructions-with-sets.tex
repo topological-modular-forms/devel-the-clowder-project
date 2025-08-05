@@ -11723,6 +11723,7 @@ Let $f\colon X\to Y$ be a function.
                          &\defeq Y\setminus f_{*}(X\setminus U)%
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
+        %\item\label{properties-of-direct-images-i-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-direct-images-i}}%
@@ -12259,7 +12260,6 @@ Let $f\colon X\to Y$ be a function.
                 \end{gathered}
             \]%
             natural in $U,V\in\mathcal{P}(Y)$.
-        %\item\label{properties-of-inverse-images-i-}\SloganFont{. }
         \item\label{properties-of-inverse-images-i-interaction-with-coproducts}\SloganFont{Interaction With Coproducts. }Let $f\colon X\to X'$ and $g\colon Y\to Y'$ be maps of sets. The diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -12306,6 +12306,7 @@ Let $f\colon X\to Y$ be a function.
                 f^{-1}(U')\boxtimes_{X\times Y}g^{-1}(V')%
             \]%
             for each $U'\in\mathcal{P}(X')$ and each $V'\in\mathcal{P}(Y')$.
+        %\item\label{properties-of-inverse-images-i-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-inverse-images-i}}%
@@ -13776,7 +13777,7 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{a-six-functor-formalism-for-sets-the-dualisation-functor}: The Dualisation Functor}%
     This is a repetition of \cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2,properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-3} of \cref{properties-of-internal-homs-of-powersets} and is proved there.
 \end{Proof}
-\section{Injective and Surjective Functions}\label{section-constructions-with-sets-injective-and-surjective-functions}
+\section{Injective, Surjective, and Bijective Functions}\label{section-constructions-with-sets-injective-surjective-and-bijective-functions}
 \subsection{Injective Functions}\label{subsection-injective-functions}
 Let $A$ and $B$ be sets.
 \begin{definition}{Injective Functions}{injective-functions}%
@@ -13918,6 +13919,14 @@ Let $A$ and $B$ be sets.
                     \]%
                     for each $U\in\mathcal{P}(A)$.
             \end{enumerate}
+        \item\label{properties-of-injective-functions-interaction-with-composition}\SloganFont{Interaction With Composition. }Let $f\colon A\to B$ and $g\colon B\to C$ be functions.
+            \begin{enumerate}
+                \item\label{properties-of-injective-functions-interaction-with-composition-a}If $f$ and $g$ are injective, then so is $g\circ f$.
+                \item\label{properties-of-injective-functions-interaction-with-composition-b}If $g\circ f$ is injective, then so is $f$.
+                \item\label{properties-of-injective-functions-interaction-with-composition-c}If $f$ and $g\circ f$ are injective, then $f$ may fail to be injective.
+                \item\label{properties-of-injective-functions-interaction-with-composition-d}The class of injective functions does not satisfy the two-out-of-three property of \cref{TODO}.
+            \end{enumerate}
+        \item\label{properties-of-injective-functions-interaction-with-identities}\SloganFont{Interaction With Identities. }For any set $A$, the identity function $\id_{A}$ is injective.
         %\item\label{properties-of-injective-functions-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -14093,6 +14102,39 @@ Let $A$ and $B$ be sets.
             it follows that $f$ is injective.
     \end{itemize}
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-injective-functions-interaction-with-composition}: Interaction With Composition}%
+    We claim that \cref{properties-of-injective-functions-interaction-with-composition-a,properties-of-injective-functions-interaction-with-composition-b} are indeed true:
+    \begin{itemize}
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-a}: }Suppose $f$ and $g$ injective and let $a,a'\in A$ such that $[g\circ f](a)=[g\circ f](a')$. Then $g(f(a)) = g(f(a'))$, so by injectivity of $g$, we have $f(a) = f(a')$, and by injectivity of $f$, we have $a = a'$. Thus $g \circ f$ is injective.
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-b}: }Suppose $g\circ f$ is injective and let $a,a'\in A$ such that $f(a) = f(a')$. We have
+            \begin{align*}
+                [g\circ f](a) &\defeq g(f(a))\\
+                              &=      g(f(a'))\\
+                              &\defeq [g\circ f](a'),
+            \end{align*}
+            so by the injectivity of $g\circ f$, we have $a = a'$. Thus $f$ must be injective.
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-c}: }Let:
+            \begin{itemize}
+                \item $A=\{1\}$;
+                \item $B=\{p,q\}$;
+                \item $C=\{z\}$;
+                \item $f(1)=p$;
+                \item $g(p)=z$ and $g(q)=z$.
+            \end{itemize}
+            Since $A$ is a singleton set, the functions $f$ and $g\circ f$ are trivially injective. However, $g(p)=g(q)$ while $p\neq q$, so $g$ fails to be injective.
+        \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-d}: }This follows from \cref{properties-of-injective-functions-interaction-with-composition-c}.
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-injective-functions-interaction-with-identities}: Interaction With Identities}%
+    Let $a,a'\in A$ such that $\id_{A}(a)=\id_{A'}(a')$. We have
+    \begin{align*}
+        a &\defeq \id_{A}(a)\\
+          &=      \id_{A'}(a')\\
+          &\defeq a'
+    \end{align*}
+    so $\id_{A}$ is injective.
 \end{Proof}
 \subsection{Surjective Functions}\label{subsection-surjective-functions}
 Let $A$ and $B$ be sets.
@@ -14387,6 +14429,25 @@ Let $A$ and $B$ be sets.
             so the condition $f_{*}(f^{-1}(\emptyset))=\emptyset$ implies $B\setminus\Im(f)=\emptyset$. Thus $\Im(f)=B$ and $f$ is surjective.
     \end{itemize}
     This finishes the proof.
+\end{Proof}
+\subsection{Bijective Functions}\label{subsection-bijective-functions}
+Let $A$ and $B$ be sets.
+\begin{definition}{Bijective Functions}{bijective-functions}%
+    A function $f\colon A\to B$ is \index[set-theory]{bijective}\textbf{bijective} if it is injective and surjective.
+\end{definition}
+\begin{proposition}{Properties of Bijective Functions}{properties-of-bijective-functions}%
+    Let $f\colon A\to B$ be a function.
+    \begin{enumerate}
+        \item\label{properties-of-bijective-functions-characterisations}\SloganFont{Characterisations. }The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-bijective-functions-characterisations-1}The function $f$ is bijective.
+                \item\label{properties-of-bijective-functions-characterisations-2}The function $f$ is an isomorphism in $\Sets$.
+                \item\label{properties-of-bijective-functions-characterisations-3}The function $f$ is a monomorphism and an epimorphism in $\Sets$.
+            \end{enumerate}
+        %\item\label{properties-of-bijective-functions-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-bijective-functions}}%
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
