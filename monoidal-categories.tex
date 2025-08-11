@@ -409,7 +409,7 @@ TODO:
             \end{scalemath}
             of pasting diagrams in $\TwoCategoryOfCategories$, i.e.\ for each $A,B\in\Obj(\CatFont{C})$, the diagram
             \begin{webcompile}
-                \begin{tikzcd}[row sep={8.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     (A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}B
                     \arrow[rr, "\alpha^{\CatFont{C}}_{A,\Unit_{\CatFont{C}},B}"]
                     \arrow[rd, "\RUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B}"']
@@ -443,7 +443,15 @@ TODO:
                 \item For each $m,n\in\Z$, we have $m\otimes n\defeq mn$.
             \end{itemize}
         \item\label{examples-of-monoidal-categories-monoids}\SloganFont{Monoids. }More generally, every monoid $A$ gives rise to a monoidal category $A_{\disc}$; see \cref{TODO}.
-        \item\label{examples-of-monoidal-categories-cartesian-monoidal-categories}\SloganFont{Cartesian Monoidal Categories. }Every category $\CatFont{C}$ with binary products and a terminal object $\Unit_{\CatFont{C}}$ can be endowed with a monoidal structure $(\times,\Unit_{\CatFont{C}})$; see \cref{sec:cartesian-monoidal-categories}. Particular cases of this include $\Sets$, $\Top$, $\sSets$, $\Cats$, $\Grpd$, $\Sch_{/S}$, \etc;
+        \item\label{examples-of-monoidal-categories-cartesian-monoidal-categories}\SloganFont{Cartesian Monoidal Categories. }Every category $\CatFont{C}$ with binary products and a terminal object $\Unit_{\CatFont{C}}$ can be endowed with a monoidal structure $(\times,\Unit_{\CatFont{C}})$; see \cref{sec:cartesian-monoidal-categories}. Particular cases of this include:
+            \begin{itemize}
+                \item $\Sets$     (\ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-monoidal-structure-on-sets-associated-to-the-product}}{\cref{the-monoidal-structure-on-sets-associated-to-the-product}}).
+                \item $\Top$      (\cref{TODO}).
+                \item $\sSets$    (\cref{TODO}).
+                \item $\Cats$     (\cref{TODO}).
+                \item $\Grpd$     (\cref{TODO}).
+                \item $\Sch_{/S}$ (\cref{TODO}).
+            \end{itemize}
         \item\label{examples-of-monoidal-categories-categories-and-joins}\SloganFont{Categories and Joins. }The triple $(\Cats,\star,\emptyset_{\Cats})$, where:
             \begin{itemize}
                 \item $\star$ is the join of categories of \cref{TODO};
@@ -456,7 +464,9 @@ TODO:
                 \item $\emptyset_{\bullet}$ is the empty simplicial set;
             \end{itemize}
             is a monoidal category.
-        \item\label{examples-of-monoidal-categories-r-modules}\SloganFont{$R$-Modules. }The triple $(\Mod_{R},\otimes_{R},R)$ is a monoidal category. In particular, so are $(\Ab,\otimes_{\Z},\Z)$ and $(\Vect_{k},\otimes_{k},k)$.
+        \item\label{examples-of-monoidal-categories-r-modules}\SloganFont{$R$-Modules. }The triple $(\Mod_{R},\otimes_{R},R)$ is a monoidal category.
+        \item\label{examples-of-monoidal-categories-abelian-groups}\SloganFont{Abelian Groups. }As a particular example of \cref{examples-of-monoidal-categories-r-modules}, the triple $(\Ab,\otimes_{\Z},\Z)$ is a monoidal category.
+        \item\label{examples-of-monoidal-categories-vector-spaces}\SloganFont{Vector Spaces. }As another particular example of \cref{examples-of-monoidal-categories-r-modules}, the triple $(\Vect_{k},\otimes_{k},k)$ is a monoidal category.
         \item\label{examples-of-monoidal-categories-quasicoherent-sheaves}\SloganFont{Quasicoherent Sheaves. }The triple $(\QCoh(X),\otimes_{\SheafFont{O}_{X}},\SheafFont{O}_{X})$ is a monoidal category.
         \item\label{examples-of-monoidal-categories-chain-complexes}\SloganFont{Chain Complexes. }The triple $(\Ch(\Mod_{R}),\otimes^{\Z}_{R},\underline{R}_{0})$ is a monoidal category.
     \end{enumerate}
@@ -466,37 +476,36 @@ TODO:
     \begin{enumerate}
         \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}\SloganFont{Cancellation of Identities in Monoidal Categories. }Let $f,g\colon A\rightrightarrows B$ be morphisms of $\CatFont{C}$. The following conditions are equivalent:
             \begin{enumerate}
-                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1}We have $f=g$.
-                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2}We have $\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f=\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g$.
-                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-3}We have $f\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}=g\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}$.
+                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}We have $f=g$.
+                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b}We have $\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f=\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g$.
+                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}We have $f\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}=g\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}$.
             \end{enumerate}
-        \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-left-unitors-with-identities}\SloganFont{Tensoring Left Unitors With Identities. }We have
+        \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-left-unitors-with-identities}\SloganFont{Tensoring Left Unitors With Identities. }We have an equality
             \[
                 \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{A}%
                 =%
                 \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A},%
             \]%
-            where we note that these morphisms go from $\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)$ to $\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A$.
-        \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-right-unitors-with-identities}\SloganFont{Tensoring Right Unitors With Identities. }We have
+            in $\Hom_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A),\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)$.
+        \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-right-unitors-with-identities}\SloganFont{Tensoring Right Unitors With Identities. }We have an equality
             \[
                 \id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}%
                 =%
                 \RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}},%
             \]%
-            where we note that these morphisms go from $(A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}$ to $A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}$.
+            in $\Hom_{\CatFont{C}}((A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}},A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})$.
         \item\label{properties-of-monoidal-categories-tensoring-invertible-morphisms}\SloganFont{Tensoring Invertible Morphisms. }Let $f\colon A\rightarrow B$ and $h\colon X\rightarrow Y$ be morphisms of $\CatFont{C}$.
             \begin{itemize}
                 \itemstar If $f$ and $h$ are invertible, then so is $f\otimes_{\CatFont{C}}g$ and we have
                     \[
                         (f\otimes_{\CatFont{C}}h)^{-1}
                         =
-                        f^{-1}\otimes_{\CatFont{C}}h^{-1},
+                        f^{-1}\otimes_{\CatFont{C}}h^{-1}.
                     \]
-                    where we note that these morphisms go from $B\otimes_{\CatFont{C}}Y$ to $A\otimes_{\CatFont{C}}X$.
             \end{itemize}
         \item\label{properties-of-monoidal-categories-more-triangle-identities-1}\SloganFont{More Triangle Identities \rmI: Left Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
             \[
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)\otimes_{\CatFont{C}}B
                     \arrow[rr, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B}"]
                     \arrow[rd, "\LUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B}"']
@@ -511,7 +520,7 @@ TODO:
             \]%
         \item\label{properties-of-monoidal-categories-more-triangle-identities-2}\SloganFont{More Triangle Identities \rmII: Right Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
             \[
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
                     \arrow[rr, "\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}}"]
                     \arrow[rd, "\RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}"']
@@ -523,26 +532,13 @@ TODO:
                     \&
                 \end{tikzcd}
             \]%
-        \item\label{properties-of-monoidal-categories-coherence-for-left-and-right-unitors-of-the-monoidal-unit}\SloganFont{Coherence for Left and Right Unitors of the Monoidal Unit. }We have
+        \item\label{properties-of-monoidal-categories-coherence-for-left-and-right-unitors-of-the-monoidal-unit}\SloganFont{Coherence for Left and Right Unitors of the Monoidal Unit. }We have an equality
             \[
                 \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}
                 =
                 \RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}},
             \]
-            where we note that these morphisms go from $\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}$.
-            \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[r,Equals]
-                    \arrow[rd,"\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}"']
-                    \&
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[d,"\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}"]
-                    \\
-                    \&
-                    \Unit_{\CatFont{C}}
-                \end{tikzcd}
-            \]%
+            in $\Hom_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}},\Unit_{\CatFont{C}})$.
         \item\label{properties-of-monoidal-categories-the-yoneda-lemma-for-co-ends-for-monoidal-categories}\SloganFont{The Yoneda Lemma for Co/Ends for Monoidal Categories. }We have a natural isomorphism
             \begin{align*}
                 \int^{X\in\CatFont{C}}h^{A\otimes_{\CatFont{C}}X}_{B}\times h^{\Unit_{\CatFont{C}}}_{X} &\cong h^{A}_{B},\\
@@ -553,64 +549,118 @@ TODO:
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-monoidal-categories}}%
     \FirstProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}: Cancellation of Identities in Monoidal Categories}%
-    We claim that \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-3} are equivalent:
-    \begin{enumerate}
-        \item\SloganFont{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-3}: }Clear.
-        \item\SloganFont{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1} and \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-3}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1}: }Consider the diagrams
-            \begin{scalemath}
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-                    \arrow[r, "\LUnitor^{\CatFont{C}}_{A}"]
-                    \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f"']
-                    \&
-                    A
-                    \arrow[d, "f"description]
-                    \&
-                    A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[l, "\RUnitor^{\CatFont{C}}_{A}"']
-                    \arrow[d, "f\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"]
-                    \\
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
-                    \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"']
-                    \&
-                    B
-                    \&
-                    \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"]
-                    B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    % Subdiagrams
-                    \arrow[from=1-1,to=2-2,"\scriptstyle(1)", phantom]
-                    \arrow[from=1-1,to=2-2,"\scriptstyle(2)", phantom,xshift=6.0*\the\DL]
-                \end{tikzcd}
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-                    \arrow[r, "\LUnitor^{\CatFont{C}}_{A}"]
-                    \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g"']
-                    \&
-                    B
-                    \arrow[d, "g"description]
-                    \&
-                    B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"']
-                    \arrow[d, "g\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"]
-                    \\
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
-                    \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"']
-                    \&
-                    B
-                    \&
-                    \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"]
-                    B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}\mrp{.}
-                    % Subdiagrams
-                    \arrow[from=1-1,to=2-2,"\scriptstyle(3)", phantom]
-                    \arrow[from=1-1,to=2-2,"\scriptstyle(4)", phantom,xshift=6.0*\the\DL]
-                \end{tikzcd}
-            \end{scalemath}
-            These diagrams are commutative, as subdiagrams $(1)$ and $(3)$ commute by the naturality of the left unitor and subdiagrams $(2)$ and $(4)$ commute by the naturality of the right unitor. Then:
-            \begin{enumerate}
-                \item\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2}, subdiagrams $(1)$ and $(3)$, and the invertibility of $\LUnitor^{\CatFont{C}}_{A}$ imply \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1};
-                \item\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-3}, subdiagrams $(2)$ and $(4)$, and the invertibility of $\RUnitor^{\CatFont{C}}_{A}$ imply \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1}.%
-            \end{enumerate}
-    \end{enumerate}
+    We claim that \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c} are equivalent.
+
+    \SubProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}}%
+    This follows from the well-definedness of $\otimes_{\CatFont{C}}$.
+
+    \SubProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}}%
+    Consider the diagrams
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
+            \arrow[r, "\LUnitor^{\CatFont{C}}_{A}"]
+            \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f"']
+            \&
+            A
+            \arrow[d, "f"description]
+            \\
+            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
+            \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"']
+            \&
+            B
+        \end{tikzcd}
+        \qquad
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
+            \arrow[r, "\LUnitor^{\CatFont{C}}_{A}"]
+            \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g"']
+            \&
+            B
+            \arrow[d, "g"description]
+            \\
+            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
+            \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"']
+            \&
+            B\mrp{.}
+        \end{tikzcd}
+    \end{webcompile}
+    These commute by the naturality of the left unitor of $\CatFont{C}$. Since $\LUnitor^{\CatFont{C}}_{A}$ and $\LUnitor^{\CatFont{C}}_{B}$ are invertible and $\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f=\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g$, it follows that $f=g$.
+
+    \[
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
+            \arrow[r, "\LUnitor^{\CatFont{C}}_{A}"]
+            \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f"']
+            \&
+            A
+            \arrow[d, "f"description]
+            \&
+            A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
+            \arrow[l, "\RUnitor^{\CatFont{C}}_{A}"']
+            \arrow[d, "f\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"]
+            \\
+            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
+            \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"']
+            \&
+            B
+            \&
+            \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"]
+            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}\mrp{.}
+            % Subdiagrams
+            \arrow[from=1-1,to=2-2,"\scriptstyle(1)", phantom]
+            \arrow[from=1-1,to=2-2,"\scriptstyle(2)", phantom,xshift=6.0*\the\DL]
+        \end{tikzcd}
+    \]%
+    Since
+    \begin{itemize}
+        \item Subdiagram $(1)$ commutes by the naturality of the left unitor of $\CatFont{C}$;
+        \item Subdiagram $(2)$ commutes by the naturality of the right unitor of $\CatFont{C}$;
+    \end{itemize}
+    so does the boundary diagram. Then, \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-2}, subdiagrams $(1)$ and $(3)$, and the invertibility of $\LUnitor^{\CatFont{C}}_{A}$ imply \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1}.
+
+    \SubProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}}%
+    Consider the diagram
+    \[
+    \]%
+    \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-3}, subdiagrams $(2)$ and $(4)$, and the invertibility of $\RUnitor^{\CatFont{C}}_{A}$ imply \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-1}.%
+
+    These diagrams are commutative, as subdiagrams $(1)$ and $(3)$ commute by the naturality of the left unitor and subdiagrams $(2)$ and $(4)$ commute by the naturality of the right unitor. Then:
+
+    Consider the diagrams
+    \begin{webcompile}
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[d, "f"description]
+            \&
+            A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
+            \arrow[l, "\RUnitor^{\CatFont{C}}_{A}"']
+            \arrow[d, "f\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"]
+            \\
+            B
+            \&
+            \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"]
+            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}\mrp{.}
+            % Subdiagrams
+            \arrow[from=1-1,to=2-2,"\scriptstyle(1)", phantom]
+            \arrow[from=1-1,to=2-2,"\scriptstyle(2)", phantom,xshift=6.0*\the\DL]
+        \end{tikzcd}
+        \qquad
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            B
+            \arrow[d, "g"description]
+            \&
+            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
+            \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"']
+            \arrow[d, "g\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"]
+            \\
+            B
+            \&
+            \arrow[l, "\RUnitor^{\CatFont{C}}_{B}"]
+            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}\mrp{.}
+        \end{tikzcd}
+    \end{webcompile}
+    These commute by the naturality of the right unitor of $\CatFont{C}$. Since $\RUnitor^{\CatFont{C}}_{A}$ and $\RUnitor^{\CatFont{C}}_{B}$ are invertible and $f\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}=g\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}$, it follows that $f=g$.
 
     \ProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-unitors-with-the-identity-morphism-of-the-monoidal-unit}: Tensoring Unitors With the Identity Morphism of the Monoidal Unit}%
     Consider the diagram
