@@ -28,7 +28,7 @@ make init
 This will install all required dependencies. You can now proceed to build the website or the PDFs.
 
 ## Building the PDFs
-The PDFs can be built by running `make all`.
+The PDFs can be built by running `make all`, and in parallel by running `make all-parallel`.
 
 There are also individual `make` commands for the chapters, books, etc.:
 1. `make all-books` will build all book PDFs.
@@ -51,13 +51,11 @@ The available styles are the following:
 | `alegreya-sans-tcb` |  [Alegreya Sans](https://fonts.google.com/specimen/Alegreya+Sans)  | `tcbthm` (Boxed)     | 
 | `crimson-pro-tcb`   |  [Crimson Pro](https://fonts.google.com/specimen/Crimson+Pro)      | `tcbthm` (Boxed)     | 
 | `eb-garamond-tcb`   |  [EB Garamond](https://fonts.google.com/specimen/EB+Garamond)      | `tcbthm` (Boxed)     | 
-| `xcharter-tcb`      |  [XCharter](https://ctan.org/pkg/xcharter)                         | `tcbthm` (Boxed)     | 
 | `cm`                |  [Computer Modern](https://en.wikipedia.org/wiki/Computer_Modern)  | `amsthm` (Standard)  | 
 | `alegreya`          |  [Alegreya](https://fonts.google.com/specimen/Alegreya)            | `amsthm` (Standard)  | 
 | `alegreya-sans`     |  [Alegreya Sans](https://fonts.google.com/specimen/Alegreya+Sans)  | `amsthm` (Standard)  | 
 | `crimson-pro`       |  [Crimson Pro](https://fonts.google.com/specimen/Crimson+Pro)      | `amsthm` (Standard)  | 
 | `eb-garamond`       |  [EB Garamond](https://fonts.google.com/specimen/EB+Garamond)      | `amsthm` (Standard)  | 
-| `xcharter`          |  [XCharter](https://ctan.org/pkg/xcharter)                         | `amsthm` (Standard)  | 
 
 **The default style is `alegreya-sans-tcb`.**
 

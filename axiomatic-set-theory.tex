@@ -1,0 +1,180 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Axiomatic Set Theory}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter (will eventually) contain material on axiomatic set theory, as well as a couple other things.
+
+\ChapterTableOfContents
+
+\section{Sets and Functions}\label{section-sets-and-functions}
+\subsection{Functions}\label{subsection-sets-and-functions-functions}
+\begin{definition}{Functions}{functions}%
+    A \index[set-theory]{function}\textbf{function} is a functional and total relation.
+\end{definition}
+\begin{notation}{Additional Notation for Functions}{additional-notation-for-functions}%
+    Throughout this work, we will sometimes denote a function $f\colon X\to Y$ by
+    \[
+        f%
+        \defeq%
+        \llbracket x\mapsto f(x)\rrbracket.%
+    \]%
+    \begin{enumerate}
+        \item\label{additional-notation-for-functions-1}For example, given a function%
+            \[
+                \Phi%
+                \colon%
+                \Hom_{\Sets}(X,Y)%
+                \to%
+                K%
+            \]%
+            taking values on a set of functions such as $\Hom_{\Sets}(X,Y)$, we will sometimes also write
+            \[
+                \Phi(f)%
+                \defeq%
+                \Phi(\llbracket x\mapsto f(x)\rrbracket).%
+            \]%
+        \item\label{additional-notation-for-functions-2}This notational choice is based on the lambda notation
+            \[
+                f%
+                \defeq%
+                (\lambda x.\ f(x)),%
+            \]%
+            but uses a \say{$\mathord{\mapsto}$} symbol for better spacing and double brackets instead of either:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-2-a}Square brackets $[x\mapsto f(x)]$;
+                \item\label{additional-notation-for-functions-2-b}Parentheses $(x\mapsto f(x))$;
+            \end{enumerate}
+            hoping to improve readability when dealing with e.g.:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-2-c}Equivalence classes, cf.:
+                    \begin{enumerate}
+                        \item\label{additional-notation-for-functions-2-c-i}$\llbracket[x]\mapsto f([x])\rrbracket$%
+                        \item\label{additional-notation-for-functions-2-c-ii}$[[x]\mapsto f([x])]$%
+                        \item\label{additional-notation-for-functions-2-c-iii}$(\lambda[x].\ f([x]))$%
+                    \end{enumerate}
+                \item\label{additional-notation-for-functions-2-d}Function evaluations, cf.:
+                    \begin{enumerate}
+                        \item\label{additional-notation-for-functions-2-d-i}$\Phi(\llbracket x\mapsto f(x)\rrbracket)$%
+                        \item\label{additional-notation-for-functions-2-d-ii}$\Phi((x\mapsto f(x)))$%
+                        \item\label{additional-notation-for-functions-2-d-iii}$\Phi((\lambda x.\ f(x)))$%
+                    \end{enumerate}
+            \end{enumerate}
+        \item\label{additional-notation-for-functions-3}We will also sometimes write $-$, $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-3-a}Writing $f(-_{1})$ for a function $f\colon A\to B$.
+                \item\label{additional-notation-for-functions-3-b}Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
+                \item\label{additional-notation-for-functions-3-c}Given a function $f\colon A\times B\to C$, writing
+                    \[
+                        f(a,-)%
+                        \colon%
+                        B%
+                        \to%
+                        C%
+                    \]%
+                    for the function $\llbracket b\mapsto f(a,b)\rrbracket$.
+                \item\label{additional-notation-for-functions-3-d}Denoting a composition of the form%
+                    \[
+                        A\times B%
+                        \xlongrightarrow{\phi\times\id_{B}}%
+                        A'\times B%
+                        \xlongrightarrow{f}%
+                        C%
+                    \]%
+                    by $f(\phi(-_{1}),-_{2})$.
+            \end{enumerate}
+        \item\label{additional-notation-for-functions-4}Finally, given a function $f\colon A\to B$, we will sometimes write
+            \[
+                \ev_{a}(f)%
+                \defeq%
+                f(a)%
+            \]%
+            for the value of $f$ at some $a\in A$.
+    \end{enumerate}
+    For an example of the above notations being used in practice, see the proof of the adjunction
+    \begin{webcompile}
+        \AdjunctionShort#A\times -#{\Hom_{\Sets}(A,-)}#\Sets#\Sets,#
+    \end{webcompile}
+    stated in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}}.
+\end{notation}
+\section{Operations With Sets}\label{section-operations-with-sets}
+\subsection{The Empty Set}\label{subsection-the-empty-set}
+\begin{definition}{The Empty Set}{the-empty-set}%
+     The \index[set-theory]{empty set}\textbf{empty set} is the set \index[notation]{emptyset@$\emptyset$}$\emptyset$ defined by
+    \[
+        \emptyset
+        \defeq
+        \{%
+            x\in X%
+            \ \middle|\ %
+            x\neq x%
+        \},%
+    \]%
+    where $X$ is the set in the set existence axiom, \cref{zermelo-fraenkel-set-theory-the-axiom-of-set-existence} of \cref{zermelo-fraenkel-set-theory}.
+\end{definition}
+\subsection{Singleton Sets}\label{subsection-singleton-sets}
+Let $X$ be a set.
+\begin{definition}{Singleton Sets}{singleton-sets}%
+    The \index[set-theory]{singleton set}\textbf{singleton set containing $X$} is the set \index[notation]{X@$\{X\}$}$\{X\}$ defined by
+    \[
+        \{X\}
+        \defeq
+        \{X,X\},
+    \]%
+    where $\{X,X\}$ is the pairing of $X$ with itself of \cref{pairings-of-sets}.
+\end{definition}
+\subsection{Pairings of Sets}\label{subsection-pairings-of-sets}
+Let $X$ and $Y$ be sets.
+\begin{definition}{Pairings of Sets}{pairings-of-sets}%
+    The \index[set-theory]{pairing of two sets}\textbf{pairing of $X$ and $Y$} is the set \index[notation]{XY@$\{X,Y\}$}$\{X,Y\}$ defined by
+    \[
+        \{X,Y\}
+        \defeq
+        \{%
+            x\in A%
+            \ \middle|\ %
+            \text{%
+                $x=X$ or $x=Y$%
+            }%
+        \},
+    \]%
+    where $A$ is the set in the axiom of pairing, \cref{zermelo-fraenkel-set-theory-the-axiom-of-pairing} of \cref{zermelo-fraenkel-set-theory}.
+\end{definition}
+\subsection{Ordered Pairs}\label{subsection-ordered-pairs}
+Let $A$ and $B$ be sets.%
+\begin{definition}{Ordered Pairs}{ordered-pairs}%
+    The \index[set-theory]{ordered pairing}\textbf{ordered pair associated to $A$ and $B$} is the set \index[notation]{AB@$(A,B)$}$(A,B)$ defined by%
+    \[
+        (A,B)%
+        \defeq%
+        \{\{A\},\{A,B\}\}.%
+    \]%
+\end{definition}
+\begin{proposition}{Properties of Ordered Pairs}{properties-of-ordered-pairs}%
+    Let $A$ and $B$ be sets.%
+    \begin{enumerate}
+        \item\label{properties-of-ordered-pairs-uniqueness}\SloganFont{Uniqueness. }Let $A$, $B$, $C$, and $D$ be sets. The following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-ordered-pairs-uniqueness-1}We have $(A,B)=(C,D)$.
+                \item\label{properties-of-ordered-pairs-uniqueness-2}We have $A=C$ and $B=D$.
+            \end{enumerate}
+        %\item\label{properties-of-ordered-pairs-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-ordered-pairs}}%
+    \FirstProofBox{\cref{properties-of-ordered-pairs-uniqueness}: Uniqueness}%
+    See \cite[Theorem 1.2.3]{ciesielski1997set}.
+\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}
