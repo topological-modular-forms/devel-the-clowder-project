@@ -18,6 +18,7 @@ LIJST = introduction \
 		conditions-on-relations \
 		categories \
 		presheaves-and-the-yoneda-lemma \
+		monoidal-categories \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories \
 		notes
