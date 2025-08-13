@@ -32,14 +32,8 @@ TODO29: adjoints are unique when they exist
 TODO30: bifunctors are determined by its partial functors
 TODO31: left adjoints preserve colimits
 TODO32: bifunctors are determined by its partial functors
-TODO33: isomorphism rho_{X} x 1 with rho_{X x 1} right unitors
-TODO34: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
-TODO35: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
 TODO36: \RUnitor^{C,-1}_{1} o \LUnitor^{C}_{1} = braiding
 TODO37: \RUnitor^{C,-1}_{1} o \LUnitor^{C}_{1} = braiding
-TODO38: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
-TODO39: \RUnitor^{C}_{1}=\LUnitor^{C}_{1}
-TODO40: isomorphism rho_{X} x 1 with rho_{X x 1} right unitors
 TODO41: a certain proposition in the chapter on moduli categories of monoidal structures
 TODO42: more triangle identities for monoidal categories
 TODO43: moduli 2-category of symmetric monoidal category structures
