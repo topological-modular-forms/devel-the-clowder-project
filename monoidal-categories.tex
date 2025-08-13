@@ -28,15 +28,20 @@ TODO:
 \section{Monoidal Categories}\label{section-monoidal-categories}
 \subsection{Foundations}\label{subsection-monoidal-categories-foundations}
 \begin{definition}{Monoidal Categories}{monoidal-categories}%
-    A \index[categories]{monoidal category}\textbf{monoidal category} is a pseudomonoid $\smash{\big(\CatFont{C},\otimes_{\CatFont{C}},\Unit_{\CatFont{C}},\alpha^{\CatFont{C}},\LUnitor^{\CatFont{C}},\RUnitor^{\CatFont{C}}\big)}$ in $(\TwoCategoryOfCategories,\times,\PunctualCategory)$.%
+    A \index[categories]{monoidal category}\textbf{monoidal category} is a pseudomonoid $\smash{\big(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor\big)}$ in $(\TwoCategoryOfCategories,\times,\PunctualCategory)$.%
 \end{definition}
 \begin{remark}{Unwinding \cref{monoidal-categories}}{unwinding-monoidal-categories}%
-    In detail, a \textbf{monoidal category} $\smash{\big(\CatFont{C},\otimes_{\CatFont{C}},\Unit^{\CatFont{C}},\alpha^{\CatFont{C}},\LUnitor^{\CatFont{C}},\RUnitor^{\CatFont{C}}\big)}$ consists of:
+    In detail, a \textbf{monoidal category} $\smash{\big(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor\big)}$ consists of:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }When working with more than one monoidal category, we will use subscripts and superscripts in the notation, writing e.g.\ $\smash{\big(\CatFont{C},\otimes_{\CatFont{C}},\Unit,\alpha,\LUnitor,\RUnitor\big)}$.
+    }%
+    %---  End Footnote  ---%
     \begin{itemize}
         \item\SloganFont{The Underlying Category. }A category $\CatFont{C}$.
         \item\SloganFont{The Monoidal Product. }A functor
             \[
-                \otimes_{\CatFont{C}}
+                \otimes
                 \colon
                 \CatFont{C}\times\CatFont{C}
                 \rightarrow
@@ -51,104 +56,104 @@ TODO:
             of $\CatFont{C}$.
         \item\SloganFont{The Monoidal Unit. }A functor
             \[
-                \Unit^{\CatFont{C}}
+                \Unit
                 \colon
                 \PunctualCategory
                 \rightarrow
                 \CatFont{C}
             \]
-            determining an object $\Unit_{\CatFont{C}}$ of $\CatFont{C}$, called the \textbf{monoidal unit of $\CatFont{C}$}.
+            determining an object $\Unit$ of $\CatFont{C}$, called the \textbf{monoidal unit of $\CatFont{C}$}.
         \item\SloganFont{The Associators. }A natural isomorphism
             \begin{webcompile}
-                \alpha^{\CatFont{C}}
+                \alpha
                 \colon
-                \mathord{\otimes_{\CatFont{C}}}\circ(\mathord{\otimes_{\CatFont{C}}}\times\id_{\CatFont{C}})
+                \mathord{\otimes}\circ(\mathord{\otimes}\times\id)
                 \Longisorightarrow
-                \mathord{\otimes_{\CatFont{C}}}\circ(\id_{\CatFont{C}}\times\mathord{\otimes_{\CatFont{C}}}),
+                \mathord{\otimes}\circ(\id_{\CatFont{C}}\times\mathord{\otimes}),
                 \qquad
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[r,"\id_{\CatFont{C}}\times\mathord{\otimes_{\CatFont{C}}}"]
-                    \arrow[d,"\mathord{\otimes_{\CatFont{C}}}\times\id_{\CatFont{C}}"']
+                    \arrow[r,"\id_{\CatFont{C}}\times\mathord{\otimes}"]
+                    \arrow[d,"\mathord{\otimes}\times\id_{\CatFont{C}}"']
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[d,"\otimes_{\CatFont{C}}"]
+                    \arrow[d,"\otimes"]
                     \\
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[r,"\otimes_{\CatFont{C}}"']
+                    \arrow[r,"\otimes"']
                     \&
                     \CatFont{C}\mrp{,}
                     % 2-arrows
-                    \arrow[from=2-1,to=1-2,"\alpha^{\CatFont{C}}"description,shorten=0.5em,Rightarrow]%
+                    \arrow[from=2-1,to=1-2,"\alpha"description,shorten=0.5em,Rightarrow]%
                 \end{tikzcd}
             \end{webcompile}
             called the \textbf{associator} of $\CatFont{C}$, with components
             \[
-                \alpha^{\CatFont{C}}_{A,B,C}
+                \alpha_{A,B,C}
                 \colon
-                (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
+                (A\otimes B)\otimes C
                 \isorightarrow
-                A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C).
+                A\otimes(B\otimes C).
             \]%
         \item\SloganFont{The Left Unitors. }A natural isomorphism
             \begin{webcompile}
-                \LUnitor^{\CatFont{C}}
+                \LUnitor
                 \colon
-                \mathord{\otimes_{\CatFont{C}}}\circ(\Unit^{\CatFont{C}}\times\id_{\CatFont{C}})
+                \mathord{\otimes}\circ(\Unit\times\id_{\CatFont{C}})
                 \Longisorightarrow
                 \id_{\CatFont{C}},
                 \qquad
-                \begin{tikzcd}[row sep={8.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \PunctualCategory\times\CatFont{C}
-                    \arrow[r,  "\Unit^{\CatFont{C}}\times\id_{\CatFont{C}}"]
+                    \arrow[r,  "\Unit\times\id_{\CatFont{C}}"]
                     \arrow[rd, "\id_{\CatFont{C}}"'{name=1},bend right=30]
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[d, "\otimes_{\CatFont{C}}"]
+                    \arrow[d, "\otimes"]
                     \\
                     {}
                     \&
                     \CatFont{C}\mathrlap{,}
                     % 2-Arrows
-                    \arrow[Rightarrow,from=1-2,to=1,shorten >=1.0em,shorten <=1.0em,"\LUnitor^{\CatFont{C}}"description]
+                    \arrow[Rightarrow,from=1-2,to=1,shorten >=1.0em,shorten <=1.0em,"\LUnitor"description]
                 \end{tikzcd}
             \end{webcompile}
             called the \textbf{left unitor} of $\CatFont{C}$, with components
             \[
-                \LUnitor^{\CatFont{C}}_{A}
+                \LUnitor_{A}
                 \colon
-                \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
+                \Unit\otimes A
                 \isorightarrow
                 A.
             \]%
         \item\SloganFont{The Right Unitors. }A natural isomorphism
             \begin{webcompile}
-                \RUnitor^{\CatFont{C}}
+                \RUnitor
                 \colon
-                \mathord{\otimes_{\CatFont{C}}}\circ(\id_{\CatFont{C}}\times\Unit^{\CatFont{C}})
+                \mathord{\otimes}\circ(\id_{\CatFont{C}}\times\Unit)
                 \Longisorightarrow
                 \id_{\CatFont{C}},
                 \qquad
-                \begin{tikzcd}[row sep={8.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \CatFont{C}\times\PunctualCategory
-                    \arrow[r, "\id_{\CatFont{C}}\times\Unit^{\CatFont{C}}"]
+                    \arrow[r, "\id_{\CatFont{C}}\times\Unit"]
                     \arrow[rd, "\id_{\CatFont{C}}"'{name=1},bend right=30]
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[d, "\otimes_{\CatFont{C}}"]
+                    \arrow[d, "\otimes"]
                     \\
                     {}
                     \&
                     \CatFont{C}\mathrlap{,}
                     % 2-Arrows
-                    \arrow[Rightarrow,from=1-2,to=1,shorten >=1.0em,shorten <=1.0em,"\RUnitor^{\CatFont{C}}"description]
+                    \arrow[Rightarrow,from=1-2,to=1,shorten >=1.0em,shorten <=1.0em,"\RUnitor"description]
                 \end{tikzcd}
             \end{webcompile}
             called the \textbf{right unitor} of $\CatFont{C}$, with components
             \[
-                \RUnitor^{\CatFont{C}}_{A}
+                \RUnitor_{A}
                 \colon
-                A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
+                A\otimes\Unit
                 \isorightarrow
                 A.
             \]%
@@ -156,15 +161,15 @@ TODO:
     satisfying the following conditions:%
     %--- Begin Footnote ---%
     \footnote{%
-        The conditions in \cref{unwinding-monoidal-categories-interaction-of-identities-with-the-monoidal-product,unwinding-monoidal-categories-interaction-of-composition-with-the-monoidal-product} are already captured in the requirement for $\otimes_{\CatFont{C}}$ to be a functor, in particular preserving identities and composition. A similar remark applies to \cref{unwinding-monoidal-categories-naturality-of-the-associator,unwinding-monoidal-categories-naturality-of-the-left-unitor,unwinding-monoidal-categories-naturality-of-the-right-unitor}. Nevertheless, we spell out these conditions here for convenience.
+        The conditions in \cref{unwinding-monoidal-categories-interaction-of-identities-with-the-monoidal-product,unwinding-monoidal-categories-interaction-of-composition-with-the-monoidal-product} are already captured in the requirement for $\otimes$ to be a functor, in particular preserving identities and composition. A similar remark applies to \cref{unwinding-monoidal-categories-naturality-of-the-associator,unwinding-monoidal-categories-naturality-of-the-left-unitor,unwinding-monoidal-categories-naturality-of-the-right-unitor}. Nevertheless, we spell out these conditions here for convenience.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
         \item\label{unwinding-monoidal-categories-interaction-of-identities-with-the-monoidal-product}\SloganFont{Interaction of Identities With the Monoidal Product. }For each $A,B\in\Obj(\CatFont{C})$, we have
             \[
-                \id_{A\otimes_{\CatFont{C}}B}
+                \id_{A\otimes B}
                 =
-                \id_{A}\otimes_{\CatFont{C}}\id_{B}.
+                \id_{A}\otimes\id_{B}.
             \]%
         \item\label{unwinding-monoidal-categories-interaction-of-composition-with-the-monoidal-product}\SloganFont{Interaction of Composition With the Monoidal Product. }For each pair $\smash{A\xlongrightarrow{f}B\xlongrightarrow{g}C}$ and $\smash{X\xlongrightarrow{h}Y\xlongrightarrow{k}Z}$ of composable pairs of morphisms of $\CatFont{C}$, we have%
             %--- Begin Footnote ---%
@@ -174,51 +179,51 @@ TODO:
             }%
             %---  End Footnote  ---%
             \[
-                (g\otimes_{\CatFont{C}}k)\circ(f\otimes_{\CatFont{C}}h)
+                (g\otimes k)\circ(f\otimes h)
                 =
-                (g\circ f)\otimes_{\CatFont{C}}(k\circ h),
+                (g\circ f)\otimes(k\circ h),
             \]%
             i.e.\ the diagram
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    A\otimes_{\CatFont{C}}X
-                    \arrow[r,"f\otimes_{\CatFont{C}}h"]
-                    \arrow[rd,"{(g\circ f)\otimes_{\CatFont{C}}(k\circ h)}"']
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A\otimes X
+                    \arrow[r,"f\otimes h"]
+                    \arrow[rd,"{(g\circ f)\otimes(k\circ h)}"']
                     \&
-                    \arrow[d,"g\otimes_{\CatFont{C}}k"]
-                    B\otimes_{\CatFont{C}}Y
+                    \arrow[d,"g\otimes k"]
+                    B\otimes Y
                     \\
                     \&
-                    C\otimes_{\CatFont{C}}Z
+                    C\otimes Z
                 \end{tikzcd}
             \]%
             commutes.
         \item\label{unwinding-monoidal-categories-naturality-of-the-associator}\SloganFont{Naturality of the Associator. }Given morphisms $f\colon A\to X$, $g\colon B\to Y$, and $h\colon C\to Z$ of $\CatFont{C}$, the diagram
             \[
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={13.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C
-                    \arrow[r,"(f\otimes_{\CatFont{C}}g)\otimes_{\CatFont{C}}h"]
-                    \arrow[d,"\alpha^{\CatFont{C}}_{A,B,C}"']
+                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    (A\otimes B)\otimes C
+                    \arrow[r,"(f\otimes g)\otimes h"]
+                    \arrow[d,"\alpha_{A,B,C}"']
                     \&
-                    (X\otimes_{\CatFont{C}}Y)\otimes_{\CatFont{C}}Z
-                    \arrow[d,"\alpha^{\CatFont{C}}_{X,Y,Z}"]
+                    (X\otimes Y)\otimes Z
+                    \arrow[d,"\alpha_{X,Y,Z}"]
                     \\
-                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C)
-                    \arrow[r,"f\otimes_{\CatFont{C}}(g\otimes_{\CatFont{C}}h)"']
+                    A\otimes(B\otimes C)
+                    \arrow[r,"f\otimes(g\otimes h)"']
                     \&
-                    X\otimes_{\CatFont{C}}(Y\otimes_{\CatFont{C}}Z)
+                    X\otimes(Y\otimes Z)
                 \end{tikzcd}
             \]%
             commutes.
         \item\label{unwinding-monoidal-categories-naturality-of-the-left-unitor}\SloganFont{Naturality of the Left Unitor. }Given a morphism $f\colon A\to B$ of $\CatFont{C}$, the diagram
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[r,"f\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}"]
-                    \arrow[d,"\LUnitor^{\CatFont{C}}_{A}"']
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A\otimes\Unit
+                    \arrow[r,"f\otimes\id_{\Unit}"]
+                    \arrow[d,"\LUnitor_{A}"']
                     \&
-                    B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[d,"\LUnitor^{\CatFont{C}}_{B}"]
+                    B\otimes\Unit
+                    \arrow[d,"\LUnitor_{B}"]
                     \\
                     A
                     \arrow[r,"f"']
@@ -229,13 +234,13 @@ TODO:
             commutes.
         \item\label{unwinding-monoidal-categories-naturality-of-the-right-unitor}\SloganFont{Naturality of the Right Unitor. }Given a morphism $f\colon A\to B$ of $\CatFont{C}$, the diagram
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-                    \arrow[r,"\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f"]
-                    \arrow[d,"\RUnitor^{\CatFont{C}}_{A}"']
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={6.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \Unit\otimes A
+                    \arrow[r,"\id_{\Unit}\otimes f"]
+                    \arrow[d,"\RUnitor_{A}"']
                     \&
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
-                    \arrow[d,"\RUnitor^{\CatFont{C}}_{B}"]
+                    \Unit\otimes B
+                    \arrow[d,"\RUnitor_{B}"]
                     \\
                     A
                     \arrow[r,"f"']
@@ -248,107 +253,107 @@ TODO:
             \begin{scalemath}
                 \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rr, "\id_{\CatFont{C}\times\CatFont{C}}\times\otimes_{\CatFont{C}}"]
-                    \arrow[dd, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}\times\CatFont{C}}"']
-                    \arrow[rd, "\id_{\CatFont{C}}\times(\otimes_{\CatFont{C}}\times\id_{\CatFont{C}})"{name=1,description}]
+                    \arrow[rr, "\id_{\CatFont{C}\times\CatFont{C}}\times\mathord{\otimes}"]
+                    \arrow[dd, "\mathord{\otimes}\times\id_{\CatFont{C}\times\CatFont{C}}"']
+                    \arrow[rd, "\id_{\CatFont{C}}\times(\mathord{\otimes}\times\id_{\CatFont{C}})"{name=1,description}]
                     \&
                     \&
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rd, "\id_{\CatFont{C}}\times\otimes_{\CatFont{C}}"]
+                    \arrow[rd, "\id_{\CatFont{C}}\times\mathord{\otimes}"]
                     \&
                     \\
                     \&
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rr, "\id_{\CatFont{C}}\times\otimes_{\CatFont{C}}"description]
-                    \arrow[dd, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}}"description]
+                    \arrow[rr, "\id_{\CatFont{C}}\times\mathord{\otimes}"description]
+                    \arrow[dd, "\mathord{\otimes}\times\id_{\CatFont{C}}"description]
                     \&
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[dd, "\otimes_{\CatFont{C}}"description]
+                    \arrow[dd, "\mathord{\otimes}"description]
                     \\
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rd, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}}"'{name=2}]
+                    \arrow[rd, "\mathord{\otimes}\times\id_{\CatFont{C}}"'{name=2}]
                     \&
                     \&
                     \&
                     \\
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[rr, "\otimes_{\CatFont{C}}"']
+                    \arrow[rr, "\mathord{\otimes}"']
                     \&\&
                     \CatFont{C}
                     % 2-Arrows
-                    \arrow[from=3-1,to=2-2,"\alpha^{\CatFont{C}}"description,shorten=0.5em,Rightarrow]%
-                    \arrow[from=2-2,to=1-3,"\id_{\id_{\CatFont{C}}}\times\alpha^{\CatFont{C}}"description,shorten=0.5em,Rightarrow]%
-                    \arrow[from=4-2,to=2-4,"\alpha^{\CatFont{C}}"description,Rightarrow,shorten=3.0em]
+                    \arrow[from=3-1,to=2-2,"\alpha"description,shorten=0.5em,Rightarrow]%
+                    \arrow[from=2-2,to=1-3,"\id_{\id_{\CatFont{C}}}\times\alpha"description,shorten=0.5em,Rightarrow]%
+                    \arrow[from=4-2,to=2-4,"\alpha"description,Rightarrow,shorten=3.0em]
                 \end{tikzcd}%
                 \qquad
                 \bigequalssign
                 \qquad
                 \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rr, "\id_{\CatFont{C}\times\CatFont{C}}\times\otimes_{\CatFont{C}}"]
-                    \arrow[dd, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}\times\CatFont{C}}"']
+                    \arrow[rr, "\id_{\CatFont{C}\times\CatFont{C}}\times\mathord{\otimes}"]
+                    \arrow[dd, "\mathord{\otimes}\times\id_{\CatFont{C}\times\CatFont{C}}"']
                     \&
                     \&
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[dd, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}}"description,dashed]
-                    \arrow[rd, "\id_{\CatFont{C}}\times\otimes_{\CatFont{C}}"]
+                    \arrow[dd, "\mathord{\otimes}\times\id_{\CatFont{C}}"description,dashed]
+                    \arrow[rd, "\id_{\CatFont{C}}\times\mathord{\otimes}"]
                     \&
                     \\
                     \&
                     \&
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[dd, "\otimes_{\CatFont{C}}"]
+                    \arrow[dd, "\mathord{\otimes}"]
                     \\
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rr, "\id_{\CatFont{C}}\times\otimes_{\CatFont{C}}"description,dashed]
-                    \arrow[rd, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}}"'{name=2}]
+                    \arrow[rr, "\id_{\CatFont{C}}\times\mathord{\otimes}"description,dashed]
+                    \arrow[rd, "\mathord{\otimes}\times\id_{\CatFont{C}}"'{name=2}]
                     \&
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[rd, "\otimes_{\CatFont{C}}"description,dashed]
+                    \arrow[rd, "\mathord{\otimes}"description,dashed]
                     \&
                     \\
                     \&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[rr, "\otimes_{\CatFont{C}}"']
+                    \arrow[rr, "\mathord{\otimes}"']
                     \&\&
                     \CatFont{C}
                     % 2-Arrows
-                    \arrow[from=3-3,to=2-4,"\alpha^{\CatFont{C}}"description,shorten=0.5em,Rightarrow]%
+                    \arrow[from=3-3,to=2-4,"\alpha"description,shorten=0.5em,Rightarrow]%
                     \arrow[from=3-1,to=1-3,"\sfid",phantom]%
-                    \arrow[from=4-2,to=3-3,"\alpha^{\CatFont{C}}"description,shorten=0.5em,Rightarrow]%
+                    \arrow[from=4-2,to=3-3,"\alpha"description,shorten=0.5em,Rightarrow]%
                 \end{tikzcd}
             \end{scalemath}
             of pasting diagrams in $\TwoCategoryOfCategories$, i.e.\ for each $A,B,C,D\in\Obj(\CatFont{C})$, the diagram
             \begin{scalemath}
                 \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    \&[0.30901699437\FiveCmPlusAQuarter]
-                    \&[0.5\FiveCmPlusAQuarter]
-                    ((A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}C)\otimes_{\CatFont{C}}D
-                    \arrow[lld, "\alpha^{\CatFont{C}}_{A,B,C}\otimes_{\CatFont{C}}\id_{D}"']
-                    \arrow[rrd, "\alpha^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B,C,D}"]
-                    \&[0.5\FiveCmPlusAQuarter]
-                    \&[0.30901699437\FiveCmPlusAQuarter]
-                    \\[0.58778525229\FiveCmPlusAQuarter]
-                    (A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}C))\otimes_{\CatFont{C}}D
-                    \arrow[rd, "\alpha^{\CatFont{C}}_{A,B\otimes_{\CatFont{C}}C,D}"']
-                    \&[0.30901699437\FiveCmPlusAQuarter]
-                    \&[0.5\FiveCmPlusAQuarter]
-                    \&[0.5\FiveCmPlusAQuarter]
-                    \&[0.30901699437\FiveCmPlusAQuarter]
-                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}(C\otimes_{\CatFont{C}}D)
-                    \arrow[ld, "\alpha^{\CatFont{C}}_{A,B,C\otimes_{\CatFont{C}}D}"]
-                    \\[0.95105651629\FiveCmPlusAQuarter]
-                    \&[0.30901699437\FiveCmPlusAQuarter]
-                    A\otimes_{\CatFont{C}}((B\otimes_{\CatFont{C}}C)\otimes_{\CatFont{C}}D)
-                    \arrow[rr, "\id_{A}\otimes_{\CatFont{C}}\alpha^{\CatFont{C}}_{B,C,D}"']
-                    \&[0.5\FiveCmPlusAQuarter]
-                    \&[0.5\FiveCmPlusAQuarter]
-                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}(C\otimes_{\CatFont{C}}D))
-                    \&[0.30901699437\FiveCmPlusAQuarter]
+                    \&[0.30901699437\FourCmPlusHalf]
+                    \&[0.5\FourCmPlusHalf]
+                    ((A\otimes B)\otimes C)\otimes D
+                    \arrow[lld, "\alpha_{A,B,C}\otimes\id_{D}"']
+                    \arrow[rrd, "\alpha_{A\otimes B,C,D}"]
+                    \&[0.5\FourCmPlusHalf]
+                    \&[0.30901699437\FourCmPlusHalf]
+                    \\[0.58778525229\FourCmPlusHalf]
+                    (A\otimes(B\otimes C))\otimes D
+                    \arrow[rd, "\alpha_{A,B\otimes C,D}"']
+                    \&[0.30901699437\FourCmPlusHalf]
+                    \&[0.5\FourCmPlusHalf]
+                    \&[0.5\FourCmPlusHalf]
+                    \&[0.30901699437\FourCmPlusHalf]
+                    (A\otimes B)\otimes(C\otimes D)
+                    \arrow[ld, "\alpha_{A,B,C\otimes D}"]
+                    \\[0.95105651629\FourCmPlusHalf]
+                    \&[0.30901699437\FourCmPlusHalf]
+                    A\otimes((B\otimes C)\otimes D)
+                    \arrow[rr, "\id_{A}\otimes\alpha_{B,C,D}"']
+                    \&[0.5\FourCmPlusHalf]
+                    \&[0.5\FourCmPlusHalf]
+                    A\otimes(B\otimes(C\otimes D))
+                    \&[0.30901699437\FourCmPlusHalf]
                 \end{tikzcd}
             \end{scalemath}
             commutes.
@@ -359,19 +364,19 @@ TODO:
                     \CatFont{C}\times\PunctualCategory\times\CatFont{C}
                     \arrow[ldd,"\id_{\CatFont{C}}\times\id_{\CatFont{C}}"'{name=B}, bend right=20]
                     \arrow[rdd,"\id_{\CatFont{C}}\times\id_{\CatFont{C}}"{name=A}, bend left=20]
-                    \arrow[d,  "\id_{\CatFont{C}}\times\Unit^{\CatFont{C}}\times\id_{\CatFont{C}}"{description}, dashed]
+                    \arrow[d,  "\id_{\CatFont{C}}\times\Unit\times\id_{\CatFont{C}}"{description}, dashed]
                     \&
                     \\
                     \&
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[ld, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}}"{description}, dashed]
+                    \arrow[ld, "\mathord{\otimes}\times\id_{\CatFont{C}}"{description}, dashed]
                     \&
                     \\
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[rd, "\otimes_{\CatFont{C}}"'{name=f03}, bend right=20]
+                    \arrow[rd, "\otimes"'{name=f03}, bend right=20]
                     \&\&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[ld, "\otimes_{\CatFont{C}}", bend left=20]
+                    \arrow[ld, "\otimes", bend left=20]
                     \\
                     \&
                     \CatFont{C}
@@ -379,7 +384,7 @@ TODO:
                     % 2-Arrows
                     %\arrow[from=3-1, to=3-3, Rightarrow, shorten=2.0em, "\sfid"{description,yshift=-0.4em},bend right=20,yshift=+0.0em]
                     \arrow[from=3-1,to=3-3,"\sfid",phantom]%
-                    \arrow[from=2-2, to=B, Rightarrow, shorten >=0.5em, "\RUnitor^{\CatFont{C}}\times\sfid"{sloped},pos=0.35]
+                    \arrow[from=2-2, to=B, Rightarrow, shorten >=0.5em, "\RUnitor\times\sfid"{sloped},pos=0.35]
                 \end{tikzcd}%
                 \qquad
                 \bigequalssign
@@ -388,42 +393,42 @@ TODO:
                     \&
                     \CatFont{C}\times\PunctualCategory\times\CatFont{C}
                     \arrow[rdd,"\id_{\CatFont{C}}\times\id_{\CatFont{C}}"{name=A}, bend left=20]
-                    \arrow[d,  "\id_{\CatFont{C}}\times\Unit^{\CatFont{C}}\times\id_{\CatFont{C}}"{description}]
+                    \arrow[d,  "\id_{\CatFont{C}}\times\Unit\times\id_{\CatFont{C}}"{description}]
                     \&
                     \\
                     \&
                     \CatFont{C}\times\CatFont{C}\times\CatFont{C}
-                    \arrow[rd, "\id_{\CatFont{C}}\times\otimes_{\CatFont{C}}"'{description,name=f13}]
-                    \arrow[ld, "\otimes_{\CatFont{C}}\times\id_{\CatFont{C}}"{description}]
+                    \arrow[rd, "\id_{\CatFont{C}}\times\mathord{\otimes}"'{description,name=f13}]
+                    \arrow[ld, "\mathord{\otimes}\times\id_{\CatFont{C}}"{description}]
                     \&
                     \\
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[rd, "\otimes_{\CatFont{C}}"'{name=f03}, bend right=20]
+                    \arrow[rd, "\mathord{\otimes}"'{name=f03}, bend right=20]
                     \&\&
                     \CatFont{C}\times\CatFont{C}
-                    \arrow[ld, "\otimes_{\CatFont{C}}", bend left=20]
+                    \arrow[ld, "\mathord{\otimes}", bend left=20]
                     \\
                     \&
                     \CatFont{C}
                     \&
                     % 2-Arrows
-                    \arrow[from=3-1, to=3-3, Rightarrow, shorten=4.0em, "\alpha^{\CatFont{C}}"description]
-                    \arrow[from=2-2, to=A, Rightarrow, shorten >=0.5em, "\sfid\times\LUnitor^{\CatFont{C}}"{sloped},pos=0.4]
+                    \arrow[from=3-1, to=3-3, Rightarrow, shorten=4.0em, "\alpha"description]
+                    \arrow[from=2-2, to=A, Rightarrow, shorten >=0.5em, "\sfid\times\LUnitor"{sloped},pos=0.4]
                 \end{tikzcd}
             \end{scalemath}
             of pasting diagrams in $\TwoCategoryOfCategories$, i.e.\ for each $A,B\in\Obj(\CatFont{C})$, the diagram
             \begin{webcompile}
-                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    (A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}B
-                    \arrow[rr, "\alpha^{\CatFont{C}}_{A,\Unit_{\CatFont{C}},B}"]
-                    \arrow[rd, "\RUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B}"']
+                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    (A\otimes\Unit)\otimes B
+                    \arrow[rr, "\alpha_{A,\Unit,B}"]
+                    \arrow[rd, "\RUnitor_{A}\otimes\id_{B}"']
                     \&
                     \&
-                    A\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B)
-                    \arrow[ld, "\id_{A}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{B}"]
+                    A\otimes(\Unit\otimes B)
+                    \arrow[ld, "\id_{A}\otimes\LUnitor_{B}"]
                     \\
                     \&
-                    A\otimes_{\CatFont{C}}B
+                    A\otimes B
                     \&
                 \end{tikzcd}%
             \end{webcompile}
@@ -447,7 +452,7 @@ TODO:
                 \item For each $m,n\in\Z$, we have $m\otimes n\defeq mn$.
             \end{itemize}
         \item\label{examples-of-monoidal-categories-monoids}\SloganFont{Monoids. }More generally, every monoid $A$ gives rise to a strict monoidal category $A_{\disc}$; see \cref{TODO}.
-        \item\label{examples-of-monoidal-categories-cartesian-monoidal-categories}\SloganFont{Cartesian Monoidal Categories. }Every category $\CatFont{C}$ with binary products and a terminal object $\Unit_{\CatFont{C}}$ can be endowed with a monoidal structure $(\times,\Unit_{\CatFont{C}})$; see \cref{sec:cartesian-monoidal-categories}. Particular cases of this include:
+        \item\label{examples-of-monoidal-categories-cartesian-monoidal-categories}\SloganFont{Cartesian Monoidal Categories. }Every category $\CatFont{C}$ with binary products and a terminal object $\star$ can be endowed with a monoidal structure $(\times,\star)$; see \cref{sec:cartesian-monoidal-categories}. Particular cases of this include:
             \begin{itemize}
                 \item $\Sets$     (\ChapterRef{\ChapterMonoidalStructuresOnTheCategoryOfSets, \cref{monoidal-structures-on-the-category-of-sets:the-monoidal-structure-on-sets-associated-to-the-product}}{\cref{the-monoidal-structure-on-sets-associated-to-the-product}}).
                 \item $\Top$      (\cref{TODO}).
@@ -476,73 +481,73 @@ TODO:
     \end{enumerate}
 \end{example}
 \begin{proposition}{Properties of Monoidal Categories}{properties-of-monoidal-categories}%
-    Let $\smash{\big(\CatFont{C},\otimes_{\CatFont{C}},\Unit_{\CatFont{C}},\alpha^{\CatFont{C}},\LUnitor^{\CatFont{C}},\RUnitor^{\CatFont{C}}\big)}$ be a monoidal category and let $A,B\in\Obj(\CatFont{C})$.
+    Let $\smash{\big(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor\big)}$ be a monoidal category and let $A,B\in\Obj(\CatFont{C})$.
     \begin{enumerate}
         \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}\SloganFont{Cancellation of Identities in Monoidal Categories. }Let $f,g\colon A\rightrightarrows B$ be morphisms of $\CatFont{C}$. The following conditions are equivalent:
             \begin{enumerate}
                 \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}We have $f=g$.
-                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b}We have $\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f=\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g$.
-                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}We have $f\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}=g\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}$.
+                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b}We have $\id_{\Unit}\otimes f=\id_{\Unit}\otimes g$.
+                \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}We have $f\otimes\id_{\Unit}=g\otimes\id_{\Unit}$.
             \end{enumerate}
-        \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-left-unitors-with-identities}\SloganFont{Tensoring Left Unitors With Identities. }We have an equality
+        \item\label{properties-of-monoidal-categories-tensoring-left-unitors-with-identities}\SloganFont{Tensoring Left Unitors With Identities. }We have an equality
             \[
-                \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{A}%
+                \LUnitor_{\Unit}\otimes\id_{A}%
                 =%
-                \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A},%
+                \LUnitor_{\Unit\otimes A},%
             \]%
-            in $\Hom_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A),\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)$.
-        \item\label{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-right-unitors-with-identities}\SloganFont{Tensoring Right Unitors With Identities. }We have an equality
+            in $\Hom_{\CatFont{C}}(\Unit\otimes(\Unit\otimes A),\Unit\otimes A)$.
+        \item\label{properties-of-monoidal-categories-tensoring-right-unitors-with-identities}\SloganFont{Tensoring Right Unitors With Identities. }We have an equality
             \[
-                \id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}%
+                \id_{A}\otimes\RUnitor_{\Unit}%
                 =%
-                \RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}},%
+                \RUnitor_{A\otimes\Unit},%
             \]%
-            in $\Hom_{\CatFont{C}}((A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}},A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})$.
+            in $\Hom_{\CatFont{C}}((A\otimes\Unit)\otimes\Unit,A\otimes\Unit)$.
         \item\label{properties-of-monoidal-categories-tensoring-invertible-morphisms}\SloganFont{Tensoring Invertible Morphisms. }Let $f\colon A\rightarrow B$ and $h\colon X\rightarrow Y$ be morphisms of $\CatFont{C}$.
             \begin{itemize}
-                \itemstar If $f$ and $h$ are invertible, then so is $f\otimes_{\CatFont{C}}g$ and we have
+                \itemstar If $f$ and $h$ are invertible, then so is $f\otimes g$ and we have
                     \[
-                        (f\otimes_{\CatFont{C}}h)^{-1}
+                        (f\otimes h)^{-1}
                         =
-                        f^{-1}\otimes_{\CatFont{C}}h^{-1}.
+                        f^{-1}\otimes h^{-1}.
                     \]
             \end{itemize}
-        \item\label{properties-of-monoidal-categories-more-triangle-identities-1}\SloganFont{More Triangle Identities \rmI: Left Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
+        \item\label{properties-of-monoidal-categories-more-triangle-identities-1-left-unitors}\SloganFont{More Triangle Identities \rmI: Left Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
             \[
-                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)\otimes_{\CatFont{C}}B
-                    \arrow[rr, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B}"]
-                    \arrow[rd, "\LUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B}"']
+                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    (\Unit\otimes A)\otimes B
+                    \arrow[rr, "\alpha_{\Unit,A,B}"]
+                    \arrow[rd, "\LUnitor_{A}\otimes\id_{B}"']
                     \&\&
-                    \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(A\otimes_{\CatFont{C}}B)
-                    \arrow[ld, "\LUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}"]
+                    \Unit\otimes(A\otimes B)
+                    \arrow[ld, "\LUnitor_{A\otimes B}"]
                     \\
                     \&
-                    A\otimes_{\CatFont{C}}B
+                    A\otimes B
                     \&
                 \end{tikzcd}
             \]%
-        \item\label{properties-of-monoidal-categories-more-triangle-identities-2}\SloganFont{More Triangle Identities \rmII: Right Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
+        \item\label{properties-of-monoidal-categories-more-triangle-identities-2-right-unitors}\SloganFont{More Triangle Identities \rmII: Right Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
             \[
-                \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-                    \arrow[rr, "\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}}"]
-                    \arrow[rd, "\RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}"']
+                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    (A\otimes B)\otimes\Unit
+                    \arrow[rr, "\alpha_{A,B,\Unit}"]
+                    \arrow[rd, "\RUnitor_{A\otimes B}"']
                     \&\&
-                    A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})
-                    \arrow[ld, "\id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{B}"]
+                    A\otimes(B\otimes\Unit)
+                    \arrow[ld, "\id_{A}\otimes\RUnitor_{B}"]
                     \\\&
-                    A\otimes_{\CatFont{C}}B
+                    A\otimes B
                     \&
                 \end{tikzcd}
             \]%
         \item\label{properties-of-monoidal-categories-coherence-for-left-and-right-unitors-of-the-monoidal-unit}\SloganFont{Coherence for Left and Right Unitors of the Monoidal Unit. }We have an equality
             \[
-                \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}
+                \LUnitor_{\Unit}
                 =
-                \RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}},
+                \RUnitor_{\Unit},
             \]
-            in $\Hom_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}},\Unit_{\CatFont{C}})$.
+            in $\Hom_{\CatFont{C}}(\Unit\otimes\Unit,\Unit)$.
         \item\label{properties-of-monoidal-categories-interaction-with-representable-functors}\SloganFont{Interaction With Representable Functors. }We have an isomorphism%
             %--- Begin Footnote ---%
             \footnote{%
@@ -550,14 +555,14 @@ TODO:
             }%
             %---  End Footnote  ---%
             \[
-                \Hom_{\CatFont{C}}(A\otimes_{\CatFont{C}}B,C)%
+                \Hom_{\CatFont{C}}(A\otimes B,C)%
                 \cong
-                \Nat(h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B},h_{C}\circ\mathord{\otimes_{\CatFont{C}}}),%
+                \Nat(h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B},h_{C}\circ\mathord{\otimes}),%
             \]%
             natural in $A,B,C\in\Obj(\CatFont{C})$, where:
             \begin{itemize}
                 \item $h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B}$ is the functor of \cref{TODO}, given on objects by $(X,Y)\mapsto h_{A}(X)\times h_{B}(Y)$.
-                \item $h_{C}\circ\mathord{\otimes_{\CatFont{C}}}$ is given on objects by $(X,Y)\mapsto h_{C}(X\otimes_{\CatFont{C}}Y)$.
+                \item $h_{C}\circ\mathord{\otimes}$ is given on objects by $(X,Y)\mapsto h_{C}(X\otimes Y)$.
             \end{itemize}
         %\item\label{properties-of-monoidal-categories-}\SloganFont{. }
     \end{enumerate}
@@ -567,367 +572,372 @@ TODO:
     We claim that \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c} are equivalent.
 
     \SubProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b,properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}}%
-    This follows from the well-definedness of $\otimes_{\CatFont{C}}$.
+    This follows from the well-definedness of $\otimes$.
 
     \SubProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-b}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}}%
     Consider the diagrams
     \begin{webcompile}
         \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-            \arrow[r, "\LUnitor^{\CatFont{C}}_{A}",pos=0.45]
-            \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f"']
+            \Unit\otimes A
+            \arrow[r, "\LUnitor_{A}",pos=0.45]
+            \arrow[d, "\id_{\Unit}\otimes f"']
             \&
             A
             \arrow[d, "f"]
             \\
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
-            \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"',pos=0.45]
+            \Unit\otimes B
+            \arrow[r, "\LUnitor_{B}"',pos=0.45]
             \&
             B
         \end{tikzcd}
         \qquad
         \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-            \arrow[r, "\LUnitor^{\CatFont{C}}_{A}",pos=0.45]
-            \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g"']
+            \Unit\otimes A
+            \arrow[r, "\LUnitor_{A}",pos=0.45]
+            \arrow[d, "\id_{\Unit}\otimes g"']
             \&
             B
             \arrow[d, "g"]
             \\
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}B
-            \arrow[r, "\LUnitor^{\CatFont{C}}_{B}"',pos=0.45]
+            \Unit\otimes B
+            \arrow[r, "\LUnitor_{B}"',pos=0.45]
             \&
             B\mrp{,}
         \end{tikzcd}
     \end{webcompile}
-    which commute by the naturality of the left unitor of $\CatFont{C}$. Since $\LUnitor^{\CatFont{C}}_{A}$ and $\LUnitor^{\CatFont{C}}_{B}$ are invertible and $\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}f=\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}g$, it follows that $f=g$.
+    which commute by the naturality of the left unitor of $\CatFont{C}$. Since $\LUnitor_{A}$ and $\LUnitor_{B}$ are invertible and $\id_{\Unit}\otimes f=\id_{\Unit}\otimes g$, it follows that $f=g$.
 
     \SubProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-c}$\implies$\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-a}}%
     Consider the diagrams
     \begin{webcompile}
         \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[r, "\RUnitor^{\CatFont{C}}_{A}",pos=0.45]
-            \arrow[d, "f\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"']
+            A\otimes\Unit
+            \arrow[r, "\RUnitor_{A}",pos=0.45]
+            \arrow[d, "f\otimes\Unit"']
             \&
             A
             \arrow[d, "f"]
             \\
-            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[r, "\RUnitor^{\CatFont{C}}_{B}"',pos=0.45]
+            B\otimes\Unit
+            \arrow[r, "\RUnitor_{B}"',pos=0.45]
             \&
             B
         \end{tikzcd}
         \qquad
         \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[r, "\RUnitor^{\CatFont{C}}_{B}",pos=0.45]
+            B\otimes\Unit
+            \arrow[r, "\RUnitor_{B}",pos=0.45]
             \arrow[d, "g"description]
             \&
             B
-            \arrow[d, "g\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}"]
+            \arrow[d, "g\otimes\Unit"]
             \\
-            B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[r, "\RUnitor^{\CatFont{C}}_{B}"',pos=0.45]
+            B\otimes\Unit
+            \arrow[r, "\RUnitor_{B}"',pos=0.45]
             \&
             B\mrp{,}
         \end{tikzcd}
     \end{webcompile}
-    which commute by the naturality of the right unitor of $\CatFont{C}$. Since $\RUnitor^{\CatFont{C}}_{A}$ and $\RUnitor^{\CatFont{C}}_{B}$ are invertible and $f\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}=g\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}$, it follows that $f=g$.
+    which commute by the naturality of the right unitor of $\CatFont{C}$. Since $\RUnitor_{A}$ and $\RUnitor_{B}$ are invertible and $f\otimes\id_{\Unit}=g\otimes\id_{\Unit}$, it follows that $f=g$.
 
-    \ProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-left-unitors-with-identities}: Tensoring Left Unitors With Identities}%
+    \ProofBox{\cref{properties-of-monoidal-categories-tensoring-left-unitors-with-identities}: Tensoring Left Unitors With Identities}%
     Consider the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={10.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            {\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)}
-            \arrow[r, "\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A}"]
-            \arrow[d, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{A}"']
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {\Unit\otimes(\Unit\otimes A)}
+            \arrow[r, "\LUnitor_{\Unit\otimes A}"]
+            \arrow[d, "\id_{\Unit}\otimes\LUnitor_{A}"']
             \&
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-            \arrow[d, "\LUnitor^{\CatFont{C}}_{A}"]
+            \Unit\otimes A
+            \arrow[d, "\LUnitor_{A}"]
             \\
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A
-            \arrow[r, "\LUnitor^{\CatFont{C}}_{A}"']
+            \Unit\otimes A
+            \arrow[r, "\LUnitor_{A}"']
             \&
             A\mrp{,}
         \end{tikzcd}
     \]%
-    which commutes by the naturality of the left unitor of $\CatFont{C}$. Since $\LUnitor^{\CatFont{C}}_{A}$ is invertible, the equality
+    which commutes by the naturality of the left unitor of $\CatFont{C}$. Since $\LUnitor_{A}$ is invertible, the equality
     \[
-        \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{A}%
+        \LUnitor_{\Unit}\otimes\id_{A}%
         =%
-        \LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A}%
+        \LUnitor_{\Unit\otimes A}%
     \]%
     follows.
 
-    \ProofBox{\cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-right-unitors-with-identities}: Tensoring Right Unitors With Identities}%
+    \ProofBox{\cref{properties-of-monoidal-categories-tensoring-right-unitors-with-identities}: Tensoring Right Unitors With Identities}%
     Consider the diagram
     \[
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={11.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            (A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[r, "\RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}}"]
-            \arrow[d, "\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}"']
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            (A\otimes\Unit)\otimes\Unit
+            \arrow[r, "\RUnitor_{A\otimes\Unit}"]
+            \arrow[d, "\RUnitor_{\Unit}\otimes\id_{\Unit}"']
             \&
-            A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[d, "\RUnitor^{\CatFont{C}}_{A}"]
+            A\otimes\Unit
+            \arrow[d, "\RUnitor_{A}"]
             \\
-            A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[r, "\RUnitor^{\CatFont{C}}_{A}"']
+            A\otimes\Unit
+            \arrow[r, "\RUnitor_{A}"']
             \&
             A\mrp{.}
         \end{tikzcd}
     \]%
-    which commutes by the naturality of the right unitor of $\CatFont{C}$. Since $\RUnitor^{\CatFont{C}}_{A}$ is invertible, the equality
+    which commutes by the naturality of the right unitor of $\CatFont{C}$. Since $\RUnitor_{A}$ is invertible, the equality
     \[
-        \id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}%
+        \id_{A}\otimes\RUnitor_{\Unit}%
         =%
-        \RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}}%
+        \RUnitor_{A\otimes\Unit}%
     \]%
     follows.
 
     \ProofBox{\cref{properties-of-monoidal-categories-tensoring-invertible-morphisms}: Tensoring Invertible Morphisms}%
-    %We have%
-    %\begin{align*}
-    %    (f^{-1}\otimes_{\CatFont{C}}g^{-1})\circ(f\otimes_{\CatFont{C}}g) &= (f^{-1}\circ f)\otimes_{\CatFont{C}}(g^{-1}\circ g)\\
-    %                                                                      &= \id_{A}\otimes_{\CatFont{C}}\id_{C}\\
-    %                                                                      &= \id_{A\otimes_{\CatFont{C}}B
-    %\end{align*}
-    %and
-    %\begin{align*}
-    %    (f\otimes_{\CatFont{C}}g)\circ(f^{-1}\otimes_{\CatFont{C}}g^{-1}) &= (f\circ f^{-1})\otimes_{\CatFont{C}}(g\circ g^{-1})\\
-    %                                                                      &= \id_{B}\otimes_{\CatFont{C}}\id_{D}\\
-    %                                                                      &= \id_{B\otimes_{\CatFont{C}}D},%
-    %\end{align*}
+    We have%
+    \begin{align*}
+        (f^{-1}\otimes g^{-1})\circ(f\otimes g) &= (f^{-1}\circ f)\otimes (g^{-1}\circ g)\\
+                                                                          &= \id_{A}\otimes\id_{C}\\
+                                                                          &= \id_{A}\otimes B
+    \end{align*}
+    and
+    \begin{align*}
+        (f\otimes g)\circ(f^{-1}\otimes g^{-1}) &= (f\circ f^{-1})\otimes (g\circ g^{-1})\\
+                                                                          &= \id_{B}\otimes\id_{D}\\
+                                                                          &= \id_{B\otimes D},%
+    \end{align*}
     where we have used:
     \begin{itemize}
-        \item The functoriality of $\otimes_{\CatFont{C}}$ for the first equality (\cref{unwinding-monoidal-categories-interaction-of-composition-with-the-monoidal-product} of \cref{unwinding-monoidal-categories});
-        \item The functoriality of $\otimes_{\CatFont{C}}$ for the third equality (\cref{unwinding-monoidal-categories-interaction-of-identities-with-the-monoidal-product} of \cref{unwinding-monoidal-categories});
+        \item The functoriality of $\otimes$ for the first equality (\cref{unwinding-monoidal-categories-interaction-of-composition-with-the-monoidal-product} of \cref{unwinding-monoidal-categories});
+        \item The functoriality of $\otimes$ for the third equality (\cref{unwinding-monoidal-categories-interaction-of-identities-with-the-monoidal-product} of \cref{unwinding-monoidal-categories});
     \end{itemize}
     for both chains of equalities.
 
-    \ProofBox{\cref{properties-of-monoidal-categories-more-triangle-identities-1}: More Triangle Identities \rmI: Left Unitors}%
+    \ProofBox{\cref{properties-of-monoidal-categories-more-triangle-identities-1-left-unitors}: More Triangle Identities \rmI: Left Unitors}%
     Consider the diagram
     \begin{scalemath}
         \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}(A\otimes_{\CatFont{C}}B)
-            \arrow[rrd, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}},A,B}"]
-            \arrow[rdd, "\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{A\otimes_{\CatFont{C}}B}"description, bend right=30]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \\[0.58778525229\FourCm]
-            \&[0.5\FourCm]
-            ((\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}A)\otimes_{\CatFont{C}}B
-            \arrow[rru, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}},A\otimes_{\CatFont{C}}B}"]
-            \arrow[rd, "(\RUnitor_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{A})\otimes_{\CatFont{C}}\id_{B}"description]
-            \arrow[ldd, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}},A}\otimes_{\CatFont{C}}\id_{B}"', bend right=45]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(A\otimes_{\CatFont{C}} B))
-            \arrow[ld, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}"description]
-            \&[0.5\FourCm]
-            \\[0.95105651629\FourCm]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)\otimes_{\CatFont{C}}B
-            \arrow[rr, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B}"]
-            \&[0.5\FourCm]
-            \&[0.5\FourCm]
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(A\otimes_{\CatFont{C}}B)
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \\[1.0\FourCm]
-            (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A))\otimes_{\CatFont{C}} B
-            \arrow[rrrrrr, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A,B}"']
-            \arrow[rru, "(\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{A})\otimes_{\CatFont{C}}\id_{B}"description]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}((\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}A)\otimes_{\CatFont{C}} B)\mrp{,}
-            \arrow[llu, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}(\LUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B})"description]
-            \arrow[luu, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B}"', bend right=45]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            (\Unit\otimes\Unit)\otimes(A\otimes B)
+            \arrow[rrd, "\alpha_{\Unit\otimes\Unit,A,B}"]
+            \arrow[rdd, "\RUnitor_{\Unit}\otimes\id_{A\otimes B}"description, bend right=30]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \\[0.58778525229\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            ((\Unit\otimes\Unit)\otimes A)\otimes B
+            \arrow[rru, "\alpha_{\Unit,\Unit,A\otimes B}"]
+            \arrow[rd, "(\RUnitor_{\Unit}\otimes\id_{A})\otimes\id_{B}"description]
+            \arrow[ldd, "\alpha_{\Unit,\Unit,A}\otimes\id_{B}"', bend right=30]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \Unit\otimes(\Unit\otimes(A\otimes B))
+            \arrow[ld, "\id_{\Unit}\otimes\LUnitor_{A\otimes B}"description]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \\[0.95105651629\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            (\Unit\otimes A)\otimes B
+            \arrow[rr, "\alpha_{\Unit,A,B}"description]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \Unit\otimes(A\otimes B)
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \\[1.0\ThreeCmPlusAQuarter]
+            (\Unit\otimes(\Unit\otimes A))\otimes B
+            \arrow[rrrrrr, "\alpha_{\Unit,\Unit\otimes A,B}"',bend right=25]
+            \arrow[rru, "(\id_{\Unit}\otimes\LUnitor_{A})\otimes\id_{B}"description]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \Unit\otimes((\Unit\otimes A)\otimes B)\mrp{,}
+            \arrow[llu, "\id_{\Unit}\otimes(\LUnitor_{A}\otimes\id_{B})"description]
+            \arrow[luu, "\id_{\Unit}\otimes\alpha_{\Unit,A,B}"', bend right=30]
             % Subdiagrams
-            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(1)", xshift=-0.335\FourCm,yshift=-0.35\FourCm]
-            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(2)", xshift=+0.3\FourCm,  yshift=-0.15\FourCm]
-            \arrow[from=3-3,to=3-5, phantom, "\scriptstyle(3)", xshift=-1.1\FourCm]
-            \arrow[from=3-3,to=3-5, phantom, "\scriptstyle(4)", xshift=+1.1\FourCm]
-            \arrow[from=3-3,to=3-5, phantom, "\scriptstyle(5)", yshift=-0.5\FourCm]
+            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(1)", xshift=-0.335\ThreeCmPlusAQuarter,yshift=-0.35\ThreeCmPlusAQuarter]
+            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(2)", xshift=+0.3\ThreeCmPlusAQuarter,  yshift=-0.15\ThreeCmPlusAQuarter]
+            \arrow[from=3-3,to=3-5, phantom, "(3)", xshift=-1.0\ThreeCmPlusAQuarter]
+            \arrow[from=3-3,to=3-5, phantom, "(4)", xshift=+1.0\ThreeCmPlusAQuarter]
+            \arrow[from=3-3,to=3-5, phantom, "(5)", yshift=-0.65\ThreeCmPlusAQuarter]
         \end{tikzcd}
     \end{scalemath}
     where
     \begin{itemize}
         \item The boundary diagram commutes, as it is the pentagon identity of $\CatFont{C}$;
-        \item Subdiagram $(1)$ commutes by the naturality of the associator of $\CatFont{C}$ and the functoriality of $\otimes_{\CatFont{C}}$, which gives $\id_{A\otimes_{\CatFont{C}}B}=\id_{A}\otimes_{\CatFont{C}}\id_{B}$;
+        \item Subdiagram $(1)$ commutes by the naturality of the associator of $\CatFont{C}$ and the functoriality of $\otimes$, which gives $\id_{A\otimes B}=\id_{A}\otimes\id_{B}$;
         \item Subdiagram $(2)$ commutes, as it is the triangle identity of $\CatFont{C}$;
         \item Subdiagram $(3)$ commutes since
-            \begin{align*}
-                ((\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{A})\otimes_{\CatFont{C}}\id_{B})\circ(\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}},A}\otimes_{\CatFont{C}}\id_{B}) &= ((\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{A})\circ\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}},A})\otimes_{\CatFont{C}}(\id_{B}\circ\id_{B})\\
-                                                                                                        &= (\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{A})\otimes_{\CatFont{C}}\id_{B},
-            \end{align*}
+            \begin{envsmallsize}
+                \begin{align*}
+                    ((\id_{\Unit}\otimes\LUnitor_{A})\otimes\id_{B})\circ(\alpha_{\Unit,\Unit,A}\otimes\id_{B}) &= ((\id_{\Unit}\otimes\LUnitor_{A})\circ\alpha_{\Unit,\Unit,A})\otimes(\id_{B}\circ\id_{B})\\
+                                                                                                            &= (\RUnitor_{\Unit}\otimes\id_{A})\otimes\id_{B},
+                \end{align*}
+            \end{envsmallsize}
             where we have used the triangle identity of $\CatFont{C}$;
         \item Subdiagram $(5)$ commutes by the naturality of the associator of $\CatFont{C}$.
     \end{itemize}
     Since every morphism in the above diagram is invertible, it follows that subdiagram $(4)$ commutes. Hence we have
     \begin{align*}
-        \id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}(\LUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}\circ\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B}) &= (\id_{\Unit_{\CatFont{C}}}\circ\id_{\Unit_{\CatFont{C}}})\otimes_{\CatFont{C}}(\LUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}\circ\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B})\\
-                                        &= (\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B})\circ(\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B})\\
-                                        &= \id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}(\LUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B}).
+        \id_{\Unit}\otimes(\LUnitor_{A\otimes B}\circ\alpha_{\Unit,A,B}) &= (\id_{\Unit}\circ\id_{\Unit})\otimes(\LUnitor_{A\otimes B}\circ\alpha_{\Unit,A,B})\\
+                                                                         &= (\id_{\Unit}\otimes\LUnitor_{A\otimes B})\circ(\id_{\Unit}\otimes\alpha_{\Unit,A,B})\\
+                                                                         &= \id_{\Unit}\otimes(\LUnitor_{A}\otimes\id_{B}).
     \end{align*}
     It then follows from \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category} that we indeed have
     \[
-        \LUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}\circ\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},A,B}
+        \LUnitor_{A\otimes B}\circ\alpha_{\Unit,A,B}
         =
-        \LUnitor^{\CatFont{C}}_{A}\otimes_{\CatFont{C}}\id_{B}.
+        \LUnitor_{A}\otimes\id_{B}.
     \]
-    Thus the left diagram in \cref{properties-of-monoidal-categories-more-triangle-identities} commutes.%
+    This finishes the proof.
 
-    \ProofBox{\cref{properties-of-monoidal-categories-more-triangle-identities-2}: More Triangle Identities \rmII: Right Unitors}%
+    \ProofBox{\cref{properties-of-monoidal-categories-more-triangle-identities-2-right-unitors}: More Triangle Identities \rmII: Right Unitors}%
     Consider the diagram
     \begin{scalemath}
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})
-            \arrow[rrd, "\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}}"]
-            \arrow[ldd, "\id_{A\otimes_{\CatFont{C}}B}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}"description, bend left=30]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \\[0.58778525229\FourCm]
-            \&[0.5\FourCm]
-            ((A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[rru, "\alpha^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B,\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}"]
-            \arrow[rd, "(\RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B})\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}"description]
-            \arrow[ldd, "\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}"', bend right=45]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}))
-            \arrow[ld, "\id_{A}\otimes_{\CatFont{C}}(\id_{B}\otimes_{\CatFont{C}}\LUnitor_{\Unit_{\CatFont{C}}})"description]
-            \&[0.5\FourCm]
-            \\[0.95105651629\FourCm]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            (A\otimes_{\CatFont{C}}B)\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[rr, "\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}}"]
-            \&[0.5\FourCm]
-            \&[0.5\FourCm]
-            A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \\[1.0\FourCm]
-            (A\otimes_{\CatFont{C}}(B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}))\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[rrrrrr, "\alpha^{\CatFont{C}}_{A,B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}"']
-            \arrow[rru, "(\id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{B})\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}"description]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            \&[0.5\FourCm]
-            \&[0.30901699437\FourCm]
-            \&[0.5\FourCm]
-            A\otimes_{\CatFont{C}}((B\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\mrp{,}
-            \arrow[llu, "\id_{A}\otimes_{\CatFont{C}}(\RUnitor^{\CatFont{C}}_{B}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}})"description]
-            \arrow[luu, "\id_{A}\otimes_{\CatFont{C}}\alpha^{\CatFont{C}}_{B,\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}"', bend right=45]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            (A\otimesB)\otimes(\Unit\otimes\Unit)
+            \arrow[rrd, "\alpha_{A,B,\Unit\otimes\Unit}"]
+            \arrow[ldd, "\id_{A\otimes B}\otimes\LUnitor_{\Unit}"description, bend left=30]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \\[0.58778525229\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            ((A\otimes B)\otimes\Unit)\otimes\Unit
+            \arrow[rru, "\alpha_{A\otimes B,\Unit,\Unit}"]
+            \arrow[rd, "(\RUnitor_{A\otimes B})\otimes\id_{\Unit}"description]
+            \arrow[ldd, "\alpha_{A,B,\Unit}\otimes\id_{\Unit}"', bend right=30]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            A\otimes(B\otimes(\Unit\otimes\Unit))
+            \arrow[ld, "\id_{A}\otimes(\id_{B}\otimes\LUnitor_{\Unit})"description]
+            \&[0.5\ThreeCmPlusHalf]
+            \\[0.95105651629\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            (A\otimes B)\otimes\Unit
+            \arrow[rr, "\alpha_{A,B,\Unit}"description]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            A\otimes(B\otimes\Unit)
+            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \\[1.0\ThreeCmPlusHalf]
+            (A\otimes(B\otimes\Unit))\otimes\Unit
+            \arrow[rrrrrr, "\alpha_{A,B\otimes\Unit,\Unit}"',bend right=25]
+            \arrow[rru, "(\id_{A}\otimes\RUnitor_{B})\otimes\id_{\Unit}"description]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusHalf]
+            A\otimes((B\otimes\Unit)\otimes\Unit)\mrp{,}
+            \arrow[llu, "\id_{A}\otimes(\RUnitor_{B}\otimes\id_{\Unit})"description]
+            \arrow[luu, "\id_{A}\otimes\alpha_{B,\Unit,\Unit}"', bend right=30]
             % Subdiagrams
-            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(1)", xshift=-0.335\FourCm, yshift=-0.15\FourCm]
-            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(2)", xshift=+0.3\FourCm, yshift=-0.35\FourCm]
-            \arrow[from=3-3,to=3-5, phantom, "\scriptstyle(3)", xshift=-1.1\FourCm]
-            \arrow[from=3-3,to=3-5, phantom, "\scriptstyle(4)", xshift=+1.1\FourCm]
-            \arrow[from=3-3,to=3-5, phantom, "\scriptstyle(5)", yshift=-0.5\FourCm]
+            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(1)", xshift=-0.335\ThreeCmPlusHalf, yshift=-0.15\ThreeCmPlusHalf]
+            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(2)", xshift=+0.3\ThreeCmPlusHalf, yshift=-0.35\ThreeCmPlusHalf]
+            \arrow[from=3-3,to=3-5, phantom, "(3)", xshift=-1.1\ThreeCmPlusHalf]
+            \arrow[from=3-3,to=3-5, phantom, "(4)", xshift=+1.1\ThreeCmPlusHalf]
+            \arrow[from=3-3,to=3-5, phantom, "(5)", yshift=-0.7\ThreeCmPlusHalf]
         \end{tikzcd}
     \end{scalemath}
     where
     \begin{itemize}
         \item The boundary diagram commutes, as it is the pentagon identity of $\CatFont{C}$;
         \item Subdiagram $(1)$ commutes, as it is the triangle identity of $\CatFont{C}$;
-        \item Subdiagram $(2)$ commutes by the naturality of the associator of $\CatFont{C}$ and the fact that horizontal composition preserves identities, i.e.\ that $\id_{A\otimes_{\CatFont{C}}B}=\id_{A}\otimes_{\CatFont{C}}\id_{B}$;
+        \item Subdiagram $(2)$ commutes by the naturality of the associator of $\CatFont{C}$ and the fact that horizontal composition preserves identities, i.e.\ that $\id_{A\otimes B}=\id_{A}\otimes\id_{B}$;
         \item Subdiagram $(4)$ commutes since
-            \begin{align*}
-                (\id_{A}\otimes_{\CatFont{C}}(\id_{B}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}))\circ(\id_{A}\otimes_{\CatFont{C}}\alpha^{\CatFont{C}}_{B,\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}) &= (\id_{A}\circ\id_{B})\otimes_{\CatFont{C}}(\id_{B}\otimes_{\CatFont{C}}(\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\circ\alpha^{\CatFont{C}}_{B,\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}))\\
-                                                                                                        &= \id_{A}\otimes_{\CatFont{C}}(\RUnitor^{\CatFont{C}}_{B}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}),
-            \end{align*}
+            \begin{envsmallsize}
+                \begin{align*}
+                    (\id_{A}\otimes(\id_{B}\otimes\LUnitor_{\Unit}))\circ(\id_{A}\otimes\alpha_{B,\Unit,\Unit}) &= (\id_{A}\circ\id_{B})\otimes(\id_{B}\otimes(\LUnitor_{\Unit}\circ\alpha_{B,\Unit,\Unit}))\\
+                                                                                                            &= \id_{A}\otimes(\RUnitor_{B}\otimes\id_{\Unit}),
+                \end{align*}
+            \end{envsmallsize}
             where we have used the triangle identity of $\CatFont{C}$;
         \item Subdiagram $(5)$ commutes by the naturality of the associator of $\CatFont{C}$.
     \end{itemize}
     Since every morphism in the diagram above is invertible, it follows that subdiagram $(3)$ commutes. Hence we have
     \begin{align*}
-        ((\id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{B})\circ\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}})\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}} &= ((\id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{B})\circ\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}})\otimes_{\CatFont{C}}(\id_{\Unit_{\CatFont{C}}}\circ\id_{\Unit_{\CatFont{C}}}) \\
-                                                &= ((\id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{B})\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}})\circ(\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}})\\
-                                                &= (\RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B})\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}.
+        ((\id_{A}\otimes\RUnitor_{B})\circ\alpha_{A,B,\Unit})\otimes\id_{\Unit} &= ((\id_{A}\otimes\RUnitor_{B})\circ\alpha_{A,B,\Unit})\otimes(\id_{\Unit}\circ\id_{\Unit}) \\
+                                                &= ((\id_{A}\otimes\RUnitor_{B})\otimes\id_{\Unit})\circ(\alpha_{A,B,\Unit}\otimes\id_{\Unit})\\
+                                                &= (\RUnitor_{A\otimes B})\otimes\id_{\Unit}.
     \end{align*}
     It then follows from \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category} that
-    \[(\id_{A}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{B})\circ\alpha^{\CatFont{C}}_{A,B,\Unit_{\CatFont{C}}}=\RUnitor^{\CatFont{C}}_{A\otimes_{\CatFont{C}}B}.\]
-    Thus the right diagram in \cref{properties-of-monoidal-categories-more-triangle-identities} commutes.%
+    \[(\id_{A}\otimes\RUnitor_{B})\circ\alpha_{A,B,\Unit}=\RUnitor_{A\otimes B}.\]
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-monoidal-categories-coherence-for-left-and-right-unitors-of-the-monoidal-unit}: Coherence for Left and Right Unitors of the Monoidal Unit}%
     By the triangle identity of $\CatFont{C}$, the diagram
     \[
-        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[rr, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}"]
-            \arrow[rd, "\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}"']
+        \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\Unit\otimes\Unit)\otimes\Unit}
+            \arrow[rr, "\alpha_{\Unit,\Unit,\Unit}"]
+            \arrow[rd, "\RUnitor_{\Unit}\otimes\id_{\Unit}"']
             \&\&
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})
-            \arrow[ld, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}"]
+            {\Unit\otimes(\Unit\otimes\Unit)}
+            \arrow[ld, "\id_{\Unit}\otimes\LUnitor_{\Unit}"]
             \\\&
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
+            \Unit\otimes\Unit
             \&
         \end{tikzcd}
     \]%
-    commutes. By \cref{properties-of-monoidal-categories-more-triangle-identities}, the diagram
-    \[
-        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            (\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \arrow[rr, "\alpha^{\CatFont{C}}_{\Unit_{\CatFont{C}},\Unit_{\CatFont{C}},\Unit_{\CatFont{C}}}"]
-            \arrow[rd, "\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}}"']
-            \&\&
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}(\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}})
-            \arrow[ld, "\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}"]
-            \\\&
-            \Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}
-            \&
-        \end{tikzcd}
-    \]%
-    also commutes. Moreover, by \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category-tensoring-unitors-with-the-identity-morphism-of-the-monoidal-unit}, we have
-    \[\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}\otimes_{\CatFont{C}}\Unit_{\CatFont{C}}}=\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\id_{\Unit_{\CatFont{C}}}.\]
-    Since the associator is invertible, it follows that
-    \[\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}=\id_{\Unit_{\CatFont{C}}}\otimes_{\CatFont{C}}\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}.\]
-    By \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}, we have $\LUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}=\RUnitor^{\CatFont{C}}_{\Unit_{\CatFont{C}}}$.
+    %commutes. By \cref{{properties-of-monoidal-categories-more-triangle-identities-2-right-unitors}, the diagram
+    %\[
+    %    \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+    %        {(\Unit\otimes\Unit)\otimes\Unit}
+    %        \arrow[rr, "\alpha_{\Unit,\Unit,\Unit}"]
+    %        \arrow[rd, "\RUnitor_{\Unit\otimes\Unit}"']
+    %        \&\&
+    %        {\Unit\otimes(\Unit\otimes\Unit)}
+    %        \arrow[ld, "\id_{\Unit}\otimes\RUnitor_{\Unit}"]
+    %        \\
+    %        \&
+    %        \Unit\otimes\Unit
+    %        \&
+    %    \end{tikzcd}
+    %\]%
+    %also commutes. Moreover, by \cref{properties-of-monoidal-categories-tensoring-right-unitors-with-identities}, we have
+    %\[\RUnitor_{\Unit\otimes\Unit}=\RUnitor_{\Unit}\otimes\id_{\Unit}.\]
+    %Since the associator is invertible, it follows that
+    %\[\id_{\Unit}\otimes\LUnitor_{\Unit}=\id_{\Unit}\otimes\RUnitor_{\Unit}.\]
+    %By \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}, we have $\LUnitor_{\Unit}=\RUnitor_{\Unit}$.
 
-    \ProofBox{\cref{properties-of-monoidal-categories-interaction-with-representable-functors}: Interaction With Representable Functors}%
-    We have
-    \begin{align*}
-        \Nat(h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B},h_{C}\circ\mathord{\otimes_{\CatFont{C}}}) &\cong \int_{(X,Y)\in\CatFont{C}\times\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
-                                                                                                &\cong \int_{X\in\CatFont{C}}\int_{Y\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
-                                                                                                &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
-                                                                                                &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A},\Sets\big(h^{Y}_{B},h^{X\otimes Y}_{C}\big)\big)\\
-                                                                                                &\cong \int_{Y\in\CatFont{C}}\Nat\big(h_{A},\Sets\big(h^{Y}_{B},h^{-\otimes Y}_{C}\big)\big)\\
-                                                                                                &\cong \int_{Y\in\CatFont{C}}\Sets\big(h^{Y}_{B},h^{A\otimes Y}_{C}\big)\\
-                                                                                                &\cong \Nat\big(h_{B},h^{A\otimes-}_{C}\big)\\
-                                                                                                &\cong h^{A\otimes B}_{C})\\
-                                                                                                &=     \Hom_{\CatFont{C}}(A\otimes B,C)
-    \end{align*}
-    where we have used:
-    \begin{itemize}
-        \item \cref{NATASEND}     for the first natural isomorphism.
-        \item \cref{FUBINICOENDS} for the second and third natural isomorphisms.
-        \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}} for the fourth natural isomorphism.
-        \item \cref{NATASEND} again for the fifth natural isomorphism.
-        \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the sixth natural isomorphism.
-        \item \cref{NATASEND} once again for the seventh natural isomorphism.
-        \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the last natural isomorphism.
-    \end{itemize}
-    This finishes the proof.
+    %\ProofBox{\cref{properties-of-monoidal-categories-interaction-with-representable-functors}: Interaction With Representable Functors}%
+    %We have
+    %\begin{align*}
+    %    \Nat(h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B},h_{C}\circ\mathord{\otimes}) &\cong \int_{(X,Y)\in\CatFont{C}\times\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
+    %                                                                                            &\cong \int_{X\in\CatFont{C}}\int_{Y\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
+    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
+    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A},\Sets\big(h^{Y}_{B},h^{X\otimes Y}_{C}\big)\big)\\
+    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\Nat\big(h_{A},\Sets\big(h^{Y}_{B},h^{-\otimes Y}_{C}\big)\big)\\
+    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\Sets\big(h^{Y}_{B},h^{A\otimes Y}_{C}\big)\\
+    %                                                                                            &\cong \Nat\big(h_{B},h^{A\otimes-}_{C}\big)\\
+    %                                                                                            &\cong h^{A\otimes B}_{C}\\
+    %                                                                                            &=     \Hom_{\CatFont{C}}(A\otimes B,C)
+    %\end{align*}
+    %where we have used:
+    %\begin{itemize}
+    %    \item \cref{NATASEND}     for the first natural isomorphism.
+    %    \item \cref{FUBINICOENDS} for the second and third natural isomorphisms.
+    %    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}} for the fourth natural isomorphism.
+    %    \item \cref{NATASEND} again for the fifth natural isomorphism.
+    %    \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the sixth natural isomorphism.
+    %    \item \cref{NATASEND} once again for the seventh natural isomorphism.
+    %    \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the last natural isomorphism.
+    %\end{itemize}
+    %This finishes the proof.
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}

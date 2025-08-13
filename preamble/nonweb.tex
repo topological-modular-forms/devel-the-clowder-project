@@ -173,14 +173,15 @@
 \renewcommand{\thesection}{\oldthesection}
 \newcommand{\pastingdiagramequality}{\quad\scalebox{2.5}{$=$}\quad}
 %
-\begingroup
-\catcode`(\active\xdef({\left\string(}
-\catcode`)\active \xdef){\right\string)}
-\catcode`[\active \xdef[{\left\string[}
-\catcode`]\active \xdef]{\right\string]}
-\endgroup
-\mathcode`(="8000\mathcode`)="8000
-\mathcode`[="8000\mathcode`]="8000
+%\begingroup
+%\catcode`(\active\xdef({\left\string(}
+%\catcode`)\active \xdef){\right\string)}
+%\catcode`[\active \xdef[{\left\string[}
+%\catcode`]\active \xdef]{\right\string]}
+%\endgroup
+%\mathcode`(="8000\mathcode`)="8000
+%\mathcode`[="8000\mathcode`]="8000
 %\let\nsubset\relax
 %\newcommand{\nsubset}{\not{\subset}}
 \providecommand{\nsubset}{\nsubseteq}
+\usepackage{mathpartir}

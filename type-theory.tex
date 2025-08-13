@@ -16,6 +16,88 @@ This chapter contains material on type theory.
 
 \ChapterTableOfContents
 
+\section{Type Theory Basics}\label{section-type-theory-basics}
+\subsection{Inference Rules}\label{subsection-inference-rules}
+\begin{definition}{Inference Rules}{inference-rules}%
+    An \index[type-theory]{inference rule}\textbf{inference rule} is written in the form
+    \[
+        \inferrule{\mathcal{H}_{1}\quad\mathcal{H}_{2}\quad\ldots\quad\mathcal{H}_{n}}{\mathcal{C}}%
+    \]%
+    and represents a deduction going from a finite list $\mathcal{H}_{1}$, $\ldots$, $\mathcal{H}_{n}$ of \textbf{judgements} for the \textbf{premises} to a \textbf{conclusion} $\CatFont{C}$, which is itself a (single) judgement.
+\end{definition}
+\begin{example}{An Inference Rule for Function Types}{an-inference-rule-for-function-types}%
+    The inference rule
+    \[
+        \inferrule{\Gamma\vdash a:A\quad\Gamma\vdash f:A\to B}{\Gamma\vdash f(a):B}%
+    \]%
+    works as follows. In the \emph{context} $\Gamma$, we start with:
+    \begin{itemize}
+        \item A term $a$ of type $A$;
+        \item A term $f$ of type $A\to B$;
+    \end{itemize}
+    and then obtain a term $f(a)$ of type $B$.
+\end{example}
+\subsection{Contexts}\label{subsection-contexts}
+\begin{definition}{Contexts}{contexts}%
+    A \index[type-theory]{context}\textbf{context} is a finite list of \textbf{variable declarations}
+    \begin{itemize}
+        \item $a_{1}:A_{1}$;
+        \item $a_{2}:A_{2}(x_{1})$;
+        \item $\ldots$;
+        \item $a_{k}:A_{k}(x_{k-1})$;
+    \end{itemize}
+    such that, for each $1\leq k\leq n$, we may derive the judgement
+    \[
+        {\color{OIvermillion}{x:A_{1},\ldots,x_{k-1}:A_{k-1}(x_{1},\ldots,x_{k-2})}}%
+        \vdash%
+        {\color{OIblue}{A_{k}(x_{1},\ldots,x_{k-1})\type}}%
+    \]%
+\end{definition}
+\subsection{Type Families}\label{subsection-type-families}
+\begin{definition}{Type Families and Sections}{type-families-and-sections}%
+    Let $A$ be a type in a context $\Gamma$.
+    \begin{enumerate}
+        \item\label{type-families-and-sections-type-families}A \index[type-theory]{type family}\textbf{family of types over} $A$ in context $\Gamma$ is a type $B(x)$ in context $\Gamma,x:A$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }We also say that $B(x)$ is a type \textbf{indexed} by $x:A$ in context $\Gamma$.
+            }%
+            %---  End Footnote  ---%
+        \item\label{type-families-and-sections-sections}A \index[type-theory]{section}\textbf{section} of a type family $B$ over $A$ in context $\Gamma$ is a term $b(x)$ of type $B(x)$ in context $\Gamma,x:A$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }We also say that $b(x)$ is a term of type $B(x)$ \textbf{indexed} by $x:A$ in context $\Gamma$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+    \end{enumerate}
+\end{definition}
+\begin{example}{Identity Types}{identity-types}%
+    Identity types are introduced as
+    \[
+        \inferrule{\Gamma\vdash a:A}{{\color{OIvermillion}\Gamma,x:A}\mathbin{\dashv}{{\color{OIblue}a=x\type}}}.%
+    \]%
+    So $a=x$ is a type indexed over $x:A$.
+\end{example}
+\section{Martin--Löf Type Theory}\label{section-martin-lof-type-theory}
+\subsection{Judgements}\label{subsection-martin-lof-type-theory-judgements}
+\begin{definition}{Judgements}{martin-lof-type-theory-judgements}%
+    Martin--Löf type theory has four kinds of \textbf{judgements}:
+    \begin{enumerate}
+        \item\label{martin-lof-type-theory-being-a-type}$A$ is a \textbf{type} in context $\Gamma$.
+        \item\label{martin-lof-type-theory-being-judgementally-equal-types}$A$ and $B$ are \textbf{judgementally equal types} in context $\Gamma$.
+        \item\label{martin-lof-type-theory-being-a-term}$a$ is a \textbf{term} of type $A$ in context $\Gamma$.
+        \item\label{martin-lof-type-theory-being-judgementally-equal-terms}Terms $a$ and $b$ of type $A$ are \textbf{judgementally equal terms} of type $A$ in context $\Gamma$.
+    \end{enumerate}
+    These four judgements are written as follows:
+    \begin{itemize}
+        \item $\Gamma\vdash A$ type.
+        \item $\Gamma\vdash A\doteq B$ type.
+        \item $\Gamma\vdash a:A$.
+        \item $\Gamma\vdash a\doteq b:A$.
+    \end{itemize}
+\end{definition}
+\subsection{Inference Rules}\label{subsection-martin-lof-type-theory-inference-rules}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
