@@ -65,4 +65,3 @@ To build and serve the website on localhost (`127.0.0.1:5000`), run `make web-an
 Alternatively:
 - To serve on IPv6, run `make web-and-serve-on-ipv6`.
 - To render extra PDF statistics, run `make web-and-serve-with-pdf-statistics` (served on localhost).
-
