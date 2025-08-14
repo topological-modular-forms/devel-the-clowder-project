@@ -28,10 +28,10 @@ TODO:
 \section{Monoidal Categories}\label{section-monoidal-categories}
 \subsection{Foundations}\label{subsection-monoidal-categories-foundations}
 \begin{definition}{Monoidal Categories}{monoidal-categories}%
-    A \index[categories]{monoidal category}\textbf{monoidal category} is a pseudomonoid $\smash{\big(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor\big)}$ in $(\TwoCategoryOfCategories,\times,\PunctualCategory)$.%
+    A \index[categories]{monoidal category}\textbf{monoidal category} is a pseudomonoid $\smash{(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor)}$ in $(\TwoCategoryOfCategories,\times,\PunctualCategory)$.%
 \end{definition}
 \begin{remark}{Unwinding \cref{monoidal-categories}}{unwinding-monoidal-categories}%
-    In detail, a \textbf{monoidal category} $\smash{\big(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor\big)}$ consists of:%
+    In detail, a \textbf{monoidal category} $\smash{(\CatFont{C},\otimes,\Unit,\alpha,\LUnitor,\RUnitor)}$ consists of:%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }When working with more than one monoidal category, we may employ additional notation to differentiate each of the monoidal categories in question, such as:
@@ -423,7 +423,7 @@ TODO:
             \end{scalemath}
             of pasting diagrams in $\TwoCategoryOfCategories$, i.e.\ for each $A,B\in\Obj(\CatFont{C})$, the diagram
             \begin{webcompile}
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.5*\the\DL,between origins}, column sep={4.75*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     (A\otimes\Unit)\otimes B
                     \arrow[rr, "\alpha_{A,\Unit,B}"]
                     \arrow[rd, "\RUnitor_{A}\otimes\id_{B}"']
@@ -519,7 +519,7 @@ TODO:
             \end{itemize}
         \item\label{properties-of-monoidal-categories-more-triangle-identities-1-left-unitors}\SloganFont{More Triangle Identities \rmI: Left Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
             \[
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.5*\the\DL,between origins}, column sep={4.75*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     (\Unit\otimes A)\otimes B
                     \arrow[rr, "\alpha_{\Unit,A,B}"]
                     \arrow[rd, "\LUnitor_{A}\otimes\id_{B}"']
@@ -534,7 +534,7 @@ TODO:
             \]%
         \item\label{properties-of-monoidal-categories-more-triangle-identities-2-right-unitors}\SloganFont{More Triangle Identities \rmII: Right Unitors. }Let $A,B\in\Obj(\CatFont{C})$. The diagram
             \[
-                \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={5.5*\the\DL,between origins}, column sep={4.75*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     (A\otimes B)\otimes\Unit
                     \arrow[rr, "\alpha_{A,B,\Unit}"]
                     \arrow[rd, "\RUnitor_{A\otimes B}"']
@@ -805,57 +805,57 @@ TODO:
     Consider the diagram
     \begin{scalemath}
         \begin{tikzcd}[row sep={0*\the\DL,between origins}, column sep={0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.30901699437\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            (A\otimesB)\otimes(\Unit\otimes\Unit)
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            (A\otimes B)\otimes(\Unit\otimes\Unit)
             \arrow[rrd, "\alpha_{A,B,\Unit\otimes\Unit}"]
             \arrow[ldd, "\id_{A\otimes B}\otimes\LUnitor_{\Unit}"description, bend left=30]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.30901699437\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \\[0.58778525229\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \\[0.58778525229\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
             ((A\otimes B)\otimes\Unit)\otimes\Unit
             \arrow[rru, "\alpha_{A\otimes B,\Unit,\Unit}"]
             \arrow[rd, "(\RUnitor_{A\otimes B})\otimes\id_{\Unit}"description]
             \arrow[ldd, "\alpha_{A,B,\Unit}\otimes\id_{\Unit}"', bend right=30]
-            \&[0.30901699437\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
             A\otimes(B\otimes(\Unit\otimes\Unit))
             \arrow[ld, "\id_{A}\otimes(\id_{B}\otimes\LUnitor_{\Unit})"description]
-            \&[0.5\ThreeCmPlusHalf]
-            \\[0.95105651629\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.30901699437\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \\[0.95105651629\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
             (A\otimes B)\otimes\Unit
             \arrow[rr, "\alpha_{A,B,\Unit}"description]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
             A\otimes(B\otimes\Unit)
-            \&[0.30901699437\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \\[1.0\ThreeCmPlusHalf]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \\[1.0\ThreeCmPlusAQuarter]
             (A\otimes(B\otimes\Unit))\otimes\Unit
             \arrow[rrrrrr, "\alpha_{A,B\otimes\Unit,\Unit}"',bend right=25]
             \arrow[rru, "(\id_{A}\otimes\RUnitor_{B})\otimes\id_{\Unit}"description]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.30901699437\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
-            \&[0.30901699437\ThreeCmPlusHalf]
-            \&[0.5\ThreeCmPlusHalf]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
+            \&[0.30901699437\ThreeCmPlusAQuarter]
+            \&[0.5\ThreeCmPlusAQuarter]
             A\otimes((B\otimes\Unit)\otimes\Unit)\mrp{,}
             \arrow[llu, "\id_{A}\otimes(\RUnitor_{B}\otimes\id_{\Unit})"description]
             \arrow[luu, "\id_{A}\otimes\alpha_{B,\Unit,\Unit}"', bend right=30]
             % Subdiagrams
-            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(1)", xshift=-0.335\ThreeCmPlusHalf, yshift=-0.15\ThreeCmPlusHalf]
-            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(2)", xshift=+0.3\ThreeCmPlusHalf, yshift=-0.35\ThreeCmPlusHalf]
-            \arrow[from=3-3,to=3-5, phantom, "(3)", xshift=-1.1\ThreeCmPlusHalf]
-            \arrow[from=3-3,to=3-5, phantom, "(4)", xshift=+1.1\ThreeCmPlusHalf]
-            \arrow[from=3-3,to=3-5, phantom, "(5)", yshift=-0.7\ThreeCmPlusHalf]
+            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(1)", xshift=-0.335\ThreeCmPlusAQuarter, yshift=-0.15\ThreeCmPlusAQuarter]
+            \arrow[from=2-2,to=2-6, phantom, "\scriptstyle(2)", xshift=+0.3\ThreeCmPlusAQuarter, yshift=-0.35\ThreeCmPlusAQuarter]
+            \arrow[from=3-3,to=3-5, phantom, "(3)", xshift=-1.0\ThreeCmPlusAQuarter]
+            \arrow[from=3-3,to=3-5, phantom, "(4)", xshift=+1.0\ThreeCmPlusAQuarter]
+            \arrow[from=3-3,to=3-5, phantom, "(5)", yshift=-0.65\ThreeCmPlusAQuarter]
         \end{tikzcd}
     \end{scalemath}
     where
@@ -886,7 +886,7 @@ TODO:
     \ProofBox{\cref{properties-of-monoidal-categories-coherence-for-left-and-right-unitors-of-the-monoidal-unit}: Coherence for Left and Right Unitors of the Monoidal Unit}%
     By the triangle identity of $\CatFont{C}$, the diagram
     \[
-        \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.5*\the\DL,between origins}, column sep={4.75*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {(\Unit\otimes\Unit)\otimes\Unit}
             \arrow[rr, "\alpha_{\Unit,\Unit,\Unit}"]
             \arrow[rd, "\RUnitor_{\Unit}\otimes\id_{\Unit}"']
@@ -898,51 +898,51 @@ TODO:
             \&
         \end{tikzcd}
     \]%
-    %commutes. By \cref{{properties-of-monoidal-categories-more-triangle-identities-2-right-unitors}, the diagram
-    %\[
-    %    \begin{tikzcd}[row sep={7.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-    %        {(\Unit\otimes\Unit)\otimes\Unit}
-    %        \arrow[rr, "\alpha_{\Unit,\Unit,\Unit}"]
-    %        \arrow[rd, "\RUnitor_{\Unit\otimes\Unit}"']
-    %        \&\&
-    %        {\Unit\otimes(\Unit\otimes\Unit)}
-    %        \arrow[ld, "\id_{\Unit}\otimes\RUnitor_{\Unit}"]
-    %        \\
-    %        \&
-    %        \Unit\otimes\Unit
-    %        \&
-    %    \end{tikzcd}
-    %\]%
-    %also commutes. Moreover, by \cref{properties-of-monoidal-categories-tensoring-right-unitors-with-identities}, we have
-    %\[\RUnitor_{\Unit\otimes\Unit}=\RUnitor_{\Unit}\otimes\id_{\Unit}.\]
-    %Since the associator is invertible, it follows that
-    %\[\id_{\Unit}\otimes\LUnitor_{\Unit}=\id_{\Unit}\otimes\RUnitor_{\Unit}.\]
-    %By \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}, we have $\LUnitor_{\Unit}=\RUnitor_{\Unit}$.
+    commutes. By \cref{properties-of-monoidal-categories-more-triangle-identities-2-right-unitors}, the diagram
+    \[
+        \begin{tikzcd}[row sep={5.5*\the\DL,between origins}, column sep={4.75*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\Unit\otimes\Unit)\otimes\Unit}
+            \arrow[rr, "\alpha_{\Unit,\Unit,\Unit}"]
+            \arrow[rd, "\RUnitor_{\Unit\otimes\Unit}"']
+            \&\&
+            {\Unit\otimes(\Unit\otimes\Unit)}
+            \arrow[ld, "\id_{\Unit}\otimes\RUnitor_{\Unit}"]
+            \\
+            \&
+            \Unit\otimes\Unit
+            \&
+        \end{tikzcd}
+    \]%
+    also commutes. Moreover, by \cref{properties-of-monoidal-categories-tensoring-right-unitors-with-identities}, we have
+    \[\RUnitor_{\Unit\otimes\Unit}=\RUnitor_{\Unit}\otimes\id_{\Unit}.\]
+    Since the associator is invertible, it follows that
+    \[\id_{\Unit}\otimes\LUnitor_{\Unit}=\id_{\Unit}\otimes\RUnitor_{\Unit}.\]
+    By \cref{properties-of-monoidal-categories-cancellation-of-identities-in-a-monoidal-category}, we have $\LUnitor_{\Unit}=\RUnitor_{\Unit}$.
 
-    %\ProofBox{\cref{properties-of-monoidal-categories-interaction-with-representable-functors}: Interaction With Representable Functors}%
-    %We have
-    %\begin{align*}
-    %    \Nat(h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B},h_{C}\circ\mathord{\otimes}) &\cong \int_{(X,Y)\in\CatFont{C}\times\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
-    %                                                                                            &\cong \int_{X\in\CatFont{C}}\int_{Y\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
-    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
-    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A},\Sets\big(h^{Y}_{B},h^{X\otimes Y}_{C}\big)\big)\\
-    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\Nat\big(h_{A},\Sets\big(h^{Y}_{B},h^{-\otimes Y}_{C}\big)\big)\\
-    %                                                                                            &\cong \int_{Y\in\CatFont{C}}\Sets\big(h^{Y}_{B},h^{A\otimes Y}_{C}\big)\\
-    %                                                                                            &\cong \Nat\big(h_{B},h^{A\otimes-}_{C}\big)\\
-    %                                                                                            &\cong h^{A\otimes B}_{C}\\
-    %                                                                                            &=     \Hom_{\CatFont{C}}(A\otimes B,C)
-    %\end{align*}
-    %where we have used:
-    %\begin{itemize}
-    %    \item \cref{NATASEND}     for the first natural isomorphism.
-    %    \item \cref{FUBINICOENDS} for the second and third natural isomorphisms.
-    %    \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}} for the fourth natural isomorphism.
-    %    \item \cref{NATASEND} again for the fifth natural isomorphism.
-    %    \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the sixth natural isomorphism.
-    %    \item \cref{NATASEND} once again for the seventh natural isomorphism.
-    %    \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the last natural isomorphism.
-    %\end{itemize}
-    %This finishes the proof.
+    \ProofBox{\cref{properties-of-monoidal-categories-interaction-with-representable-functors}: Interaction With Representable Functors}%
+    We have
+    \begin{align*}
+        \Nat(h_{A}\boxtimes_{\PSh(\CatFont{C})}h_{B},h_{C}\circ\mathord{\otimes}) &\cong \int_{(X,Y)\in\CatFont{C}\times\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
+                                                                                                &\cong \int_{X\in\CatFont{C}}\int_{Y\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
+                                                                                                &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A}\times h^{Y}_{B},h^{X\otimes Y}_{C}\big)\\
+                                                                                                &\cong \int_{Y\in\CatFont{C}}\int_{X\in\CatFont{C}}\Sets\big(h^{X}_{A},\Sets\big(h^{Y}_{B},h^{X\otimes Y}_{C}\big)\big)\\
+                                                                                                &\cong \int_{Y\in\CatFont{C}}\Nat\big(h_{A},\Sets\big(h^{Y}_{B},h^{-\otimes Y}_{C}\big)\big)\\
+                                                                                                &\cong \int_{Y\in\CatFont{C}}\Sets\big(h^{Y}_{B},h^{A\otimes Y}_{C}\big)\\
+                                                                                                &\cong \Nat\big(h_{B},h^{A\otimes-}_{C}\big)\\
+                                                                                                &\cong h^{A\otimes B}_{C}\\
+                                                                                                &=     \Hom_{\CatFont{C}}(A\otimes B,C)
+    \end{align*}
+    where we have used:
+    \begin{itemize}
+        \item \cref{NATASEND}     for the first natural isomorphism.
+        \item \cref{FUBINICOENDS} for the second and third natural isomorphisms.
+        \item \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}} for the fourth natural isomorphism.
+        \item \cref{NATASEND} again for the fifth natural isomorphism.
+        \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the sixth natural isomorphism.
+        \item \cref{NATASEND} once again for the seventh natural isomorphism.
+        \item \ChapterRef{\ChapterPresheavesAndTheYonedaLemma, \cref{presheaves-and-the-yoneda-lemma:the-yoneda-lemma}}{\cref{the-yoneda-lemma}} for the last natural isomorphism.
+    \end{itemize}
+    This finishes the proof.
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
