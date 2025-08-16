@@ -21,6 +21,7 @@ LIJST = introduction \
 		monoidal-categories \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories \
+		topological-spaces \
 		notes
 
 # Add book to get all stems of tex files needed for tags
@@ -2356,7 +2357,7 @@ chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/alegreya-sans-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/alegreya-sans-tcb/$${item_basename}.tex"; \
 			cd tmp/alegreya-sans-tcb/; \
 			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya-sans-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \

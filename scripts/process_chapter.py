@@ -80,29 +80,29 @@ with open(tex_file) as fp:
             line = ""
             preamble_path = ""
             if style == "cm" or style == "tags-cm":
-                preamble_path = "./preamble/compiled/preamble-cm.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-cm.tex"
             elif style == "alegreya" or style == "tags-alegreya":
-                preamble_path = "./preamble/compiled/preamble-alegreya.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-alegreya.tex"
             elif style == "alegreya-sans" or style == "tags-alegreya-sans":
-                preamble_path = "./preamble/compiled/preamble-alegreya-sans.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-alegreya-sans.tex"
             elif style == "crimson-pro" or style == "tags-crimson-pro":
-                preamble_path = "./preamble/compiled/preamble-crimson-pro.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-crimson-pro.tex"
             elif style == "eb-garamond" or style == "tags-eb-garamond":
-                preamble_path = "./preamble/compiled/preamble-eb-garamond.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-eb-garamond.tex"
             elif style == "xcharter" or style == "tags-xcharter":
-                preamble_path = "./preamble/compiled/preamble-xcharter.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-xcharter.tex"
             elif style == "cm-tcb" or style == "tags-cm-tcb":
-                preamble_path = "./preamble/compiled/preamble-cm-tcb.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-cm-tcb.tex"
             elif style == "alegreya-tcb" or style == "tags-alegreya-tcb":
-                preamble_path = "./preamble/compiled/preamble-alegreya-tcb.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-alegreya-tcb.tex"
             elif style == "alegreya-sans-tcb" or style == "tags-alegreya-sans-tcb":
-                preamble_path = "./preamble/compiled/preamble-alegreya-sans-tcb.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-alegreya-sans-tcb.tex"
             elif style == "crimson-pro-tcb" or style == "tags-crimson-pro-tcb":
-                preamble_path = "./preamble/compiled/preamble-crimson-pro-tcb.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-crimson-pro-tcb.tex"
             elif style == "eb-garamond-tcb" or style == "tags-eb-garamond-tcb":
-                preamble_path = "./preamble/compiled/preamble-eb-garamond-tcb.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-eb-garamond-tcb.tex"
             elif style == "xcharter-tcb" or style == "tags-xcharter-tcb":
-                preamble_path = "./preamble/compiled/preamble-xcharter-tcb.tex"
+                preamble_path = preprocess.absolute_path()+"/preamble/compiled/preamble-xcharter-tcb.tex"
             with open(preamble_path,'r') as preamble:
                 for line2 in preamble:
                     if line2.find(r"\documentclass") >= 0:
@@ -128,7 +128,7 @@ with open(tex_file) as fp:
             continue
         if line.find(r"\input{chapter_modifications.tex}") >= 0:
             line = ""
-            with open('preamble/chapter_modifications.tex','r') as modifications:
+            with open(preprocess.absolute_path()+'/preamble/chapter_modifications.tex','r') as modifications:
                 # Lengths
                 # Column #1: length for section    headings
                 # Column #2: length for subsection headings
