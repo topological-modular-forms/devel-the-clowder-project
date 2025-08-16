@@ -23,6 +23,25 @@
   \displayindent=-\leftskip
 }{}{\errmessage{Cannot patch \string\mathdisplay}}
 \makeatother
+%\usepackage{etoolbox}
+%\makeatletter
+%% Define a helper command to avoid repetition
+%\newcommand\setcustomdisplaydefaults{%
+%  \displaywidth=\textwidth
+%  \displayindent=-\leftskip
+%}
+%% Add this code to the beginning of each specified environment
+%\AddToHook{env/gather/before}{\setcustomdisplaydefaults}
+%\AddToHook{env/align/before}{\setcustomdisplaydefaults}
+%\AddToHook{env/multline/before}{\setcustomdisplaydefaults}
+%% For \[...\] and the `displaymath` environment
+%\AddToHook{env/displaymath/before}{\setcustomdisplaydefaults}
+%% Simpler alternative:
+%%\everydisplay{%
+%%  \displaywidth=\textwidth
+%%  \displayindent=-\leftskip
+%%}
+%\makeatother
 \makeatletter
 \newcommand{\displaybump}{\hbox to \@totalleftmargin{\hfil}}
 \makeatother
