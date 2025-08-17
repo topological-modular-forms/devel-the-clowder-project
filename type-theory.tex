@@ -20,37 +20,26 @@ This chapter contains material on type theory.
 \subsection{Inference Rules}\label{subsection-inference-rules}
 \begin{definition}{Inference Rules}{inference-rules}%
     An \index[type-theory]{inference rule}\textbf{inference rule} is written in the form
-    \begin{webcompile}
-        \proofspacing
+    \begin{webprooftree}
         \begin{prooftree}
-            \hypo{\mathcal{H}_{1}\quad\mathcal{H}_{2}\quad\ldots\quad\mathcal{H}_{n}}%
-            \infer1[(name)]{\mathcal{C}}
+            \hypo{\mathcal{H}_{1}}%
+            \hypo{\mathcal{H}_{2}}%
+            \hypo{\ldots}%
+            \hypo{\mathcal{H}_{n}}%
+            \infer4[(name)]{\mathcal{C}}
         \end{prooftree}
-        \proofspacing
-    \end{webcompile}
+    \end{webprooftree}
     and represents a deduction going from a finite list $\mathcal{H}_{1}$, $\ldots$, $\mathcal{H}_{n}$ of \textbf{judgements} for the \textbf{premises} to a \textbf{conclusion} $\CatFont{C}$, which is itself a (single) judgement.
 \end{definition}
 \begin{example}{An Inference Rule for Function Types}{an-inference-rule-for-function-types}%
     The inference rule
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-            \quad%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}f\oftype A\to B}%
-        }{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{f(a)\oftype B}}%
-        }%
-        \mrp{\,(\text{ev})}%
-    \]%
-    \begin{webcompile}%
-        \proofspacing%
+    \begin{webprooftree}%
         \begin{prooftree}%
-            \hypo{\context{\Gamma}{a\colon A}}%
-            \hypo{\context{\Gamma}{f\colon A\to B}}%
-            \infer1[(ev)]{\context{\Gamma}{f(a)\colon B}}%
+            \hypo{\context{\Gamma}{a\oftype A}}%
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer2[(ev)]{\context{\Gamma}{f(a)\oftype B}}%
         \end{prooftree}%
-        \proofspacing%
-    \end{webcompile}%
+    \end{webprooftree}%
     works as follows. In the \emph{context} $\Gamma$, we start with:
     \begin{itemize}
         \item A term $a$ of type $A$;
@@ -69,9 +58,7 @@ This chapter contains material on type theory.
     \end{itemize}
     such that, for each $1\leq k\leq n$, we may derive the judgement
     \[
-        {\color{OIvermillion}{x\oftype A_{1},\ldots,x_{k-1}\oftype A_{k-1}(x_{1},\ldots,x_{k-2})}}%
-        \mathbin{\vdash}%
-        {\color{OIblue}{A_{k}(x_{1},\ldots,x_{k-1})\type}}%
+        \context{x\oftype A_{1},\ldots,x_{k-1}\oftype A_{k-1}(x_{1},\ldots,x_{k-2})}{A_{k}(x_{1},\ldots,x_{k-1})\type}.%
     \]%
 \end{definition}
 \subsection{Type Families}\label{subsection-type-families}
@@ -95,14 +82,13 @@ This chapter contains material on type theory.
 \end{definition}
 \begin{example}{Identity Types}{identity-types}%
     Identity types are introduced as
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{a\oftype A}}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,x\oftype A}\mathbin{\vdash}{{\color{OIblue}a=x\type}}%
-        }%
-        \mrp{\,(\text{id}).}%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{a\oftype A}}%
+            \infer1[(id)]{\context{\Gamma,\,x\oftype A}{a=x\type}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
     So $a=x$ is a type indexed over $x\oftype A$.
 \end{example}
 \subsection{Derivations}\label{subsection-derivations}
@@ -111,85 +97,47 @@ This chapter contains material on type theory.
 \end{definition}
 \begin{example}{Changing Variables in Martin-Löf Type Theory}{changing-variables-in-martin-löf-type-theory}%
     The inference rule
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,a\oftype A,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}\mathcal{J}[a/x]}%
-        }%
-        \,(\text{CV})%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{\mathcal{J}}}%
+            \infer1[(CV)]{\context{\Gamma,\,a\oftype A,\,\Delta[a/x]}{\mathcal{J}[a/x]}}%
+        \end{prooftree}%
+    \end{webprooftree}%
     admits the following derivation:
-    \[
-        \displaystyle\inferrule{%
-            \displaystyle\inferrule{%
-                {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-            }{%
-                {\color{OIvermillion}\Gamma,\,a\oftype A}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-            }%
-            \,(\text{G})%
-            \qquad
-            \displaystyle\inferrule{%
-                {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-                \quad%
-                {\color{OIvermillion}\Gamma,\,x\oftype A}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-            }{%
-                {\color{OIvermillion}\Gamma,\,x\oftype A,\,a\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-            }%
-            \,(\text{W})%
-        }{%
-            {\color{OIvermillion}\Gamma,\,a\oftype A,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}\mathcal{J}[a/x]}%
-        }%
-        \,(\text{S}).%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(G)]{\context{\Gamma,\,a\oftype A}{a\oftype A}}%
+            \hypo{\context{\Gamma,\,x\oftype A}{\mathcal{J}}}%
+            \infer1[(W)]{\context{\Gamma,\,x\oftype A,\,a\oftype A,\,\Delta}{\mathcal{J}}}%
+            \infer2[(S)]{\context{\Gamma,\,a\oftype A,\,\Delta[a/x]}{\mathcal{J}[a/x]}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
 \end{example}
 \begin{example}{Interchanging Variables in Martin-Löf Type Theory}{interchanging-variables-in-martin-löf-type-theory}%
     The inference rule
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\type}%
-            \quad%
-            {\color{OIvermillion}\Gamma,\,x\oftype A,\,y\oftype B,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,y\oftype B,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }%
-        \mrp{\,(\text{IV}).}%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,y\oftype B,\,\Delta}{\mathcal{J}}}%
+            \infer2[(IV)]{\context{\Gamma,\,y\oftype B,\,x\oftype A,\,\Delta}{\mathcal{J}}}%
+        \end{prooftree}%
+    \end{webprooftree}%
     admits the following derivation:
-    \begin{envfootnotesize}
-        \[
-            \inferrule{%
-                \displaystyle\inferrule{%
-                    \displaystyle\inferrule{%
-                        {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\type}%
-                    }{%
-                        {\color{OIvermillion}\Gamma,\,y\oftype B}\mathbin{\vdash}{\color{OIblue}y\oftype B}%
-                    }%
-                    \,(\text{G})%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,y\oftype B,\,x\oftype A}\mathbin{\vdash}{\color{OIblue}y\oftype B}%
-                }%
-                \,(\text{W})%
-                \qquad
-                \displaystyle\inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\type}%
-                    \quad%
-                    \displaystyle\inferrule{%
-                        {\color{OIvermillion}\Gamma,\,x\oftype A,\,y\oftype B,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-                    }{%
-                        {\color{OIvermillion}\Gamma,\,x\oftype A,\,y'\oftype B,\,\Delta[y'/y]}\mathbin{\vdash}{\color{OIblue}\mathcal{J}[y'/y]}%
-                    }%
-                    \,(\text{CV})%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,y\oftype B,\,x\oftype A,\,y'\oftype B,\,\Delta[y'/y]}\mathbin{\vdash}{\color{OIblue}\mathcal{J}[y'/y]}%
-                }%
-                \,(\text{W})%
-            }{%
-                {\color{OIvermillion}\Gamma,\,y\oftype B,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-            }%
-            \mrp{\,(\text{S}).}%
-        \]%
-    \end{envfootnotesize}
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer1[(G)]{\context{\Gamma,\,y\oftype B}{y\oftype B}}%
+            \infer1[(W)]{\context{\Gamma,\,y\oftype B,\,x\oftype A}{y\oftype B}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,y\oftype B,\,\Delta}{\mathcal{J}}}%
+            \infer1[(CV)]{\context{\Gamma,\,x\oftype A,\,y'\oftype B,\,\Delta[y'/y]}{\mathcal{J}[y'/y]}}%
+            \infer2[(W)]{\context{\Gamma,\,y\oftype B,\,x\oftype A,\,y'\oftype B,\,\Delta[y'/y]}{\mathcal{J}[y'/y]}}%
+            \infer2[(S)]{\context{\Gamma,\,y\oftype B,\,x\oftype A,\,\Delta}{\mathcal{J}}}
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
 \end{example}
 \section{Martin-Löf Type Theory}\label{section-martin-löf-type-theory}
 \subsection{Judgements}\label{subsection-martin-löf-type-theory-judgements}
@@ -203,10 +151,10 @@ This chapter contains material on type theory.
     \end{enumerate}
     These four judgements are written as follows:
     \begin{itemize}
-        \item ${\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}$.
-        \item ${\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}$.
-        \item ${\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}$.
-        \item ${\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq b\oftype A}$.
+        \item $\context{\Gamma}{A\type}$.
+        \item $\context{\Gamma}{A\doteq B\type}$.
+        \item $\context{\Gamma}{a\oftype A}$.
+        \item $\context{\Gamma}{a\doteq b\oftype A}$.
     \end{itemize}
 \end{definition}
 \subsection{Inference Rules}\label{subsection-martin-löf-type-theory-inference-rules}
@@ -214,77 +162,53 @@ This chapter contains material on type theory.
     Martin-Löf type theory has the following inference rules about the formation of contexts, types, and terms.
     \begin{enumerate}
         \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-dependent-types}\SloganFont{Formation of Dependent Types. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}{B(x)\type}}%
-                }{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}A\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
+                    \infer1{\context{\Gamma}{A\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-types-1}\SloganFont{Formation of Judgemental Equality of Types \rmI. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}{A\doteq B\type}}%
-                }{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}A\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer1{\context{\Gamma}{A\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-types-1}\SloganFont{Formation of Judgemental Equality of Types \rmII. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}{A\doteq B\type}}%
-                }{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}B\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer1{\context{\Gamma}{B\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-terms}\SloganFont{Formation of Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}{a\oftype A}}%
-                }{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}A\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \infer1{\context{\Gamma}{A\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-1}\SloganFont{Formation of Judgemental Equality of Terms \rmI. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}{a\doteq b\oftype A}}%
-                }{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}a\oftype A}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \infer1{\context{\Gamma}{a\oftype A}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-3}\SloganFont{Formation of Judgemental Equality of Terms \rmII. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}{a\doteq b\oftype A}}%
-                }{%
-                    {\color{OIvermillion}\Gamma}%
-                    \mathbin{\vdash}%
-                    {\color{OIblue}b\oftype A}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \infer1{\context{\Gamma}{b\oftype A}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-in-martin-löf-type-theory-1-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
@@ -292,17 +216,30 @@ This chapter contains material on type theory.
     Martin-Löf type theory has the following inference rules about judgemental equality of types, ensuring it behaves like an equivalence relation.
     \begin{enumerate}
         \item\label{inference-rules-in-martin-löf-type-theory-2-reflexivity}\SloganFont{Reflexivity. }We have
-            \[
-                \inferrule{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{A\type}}}{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq A\type}}.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \infer1{\context{\Gamma}{A\doteq A\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-2-symmetry}\SloganFont{Symmetry. }We have
-            \[
-                \inferrule{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{A\doteq B\type}}}{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\doteq A\type}}.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer1{\context{\Gamma}{B\doteq A\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-2-transitivity}\SloganFont{Transitivity. }We have
-            \[
-                \inferrule{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{A\doteq B\type}}\quad{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{B\doteq C\type}}}{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq C\type}}.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \hypo{\context{\Gamma}{B\doteq C\type}}%
+                    \infer2{\context{\Gamma}{A\doteq C\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-in-martin-löf-type-theory-2-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
@@ -310,17 +247,30 @@ This chapter contains material on type theory.
     Martin-Löf type theory has the following inference rules about judgemental equality of terms, ensuring it behaves like an equivalence relation.
     \begin{enumerate}
         \item\label{inference-rules-in-martin-löf-type-theory-3-reflexivity}\SloganFont{Reflexivity. }We have
-            \[
-                \inferrule{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{a\oftype A\type}}}{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq a\oftype A}}.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A\type}}%
+                    \infer1{\context{\Gamma}{a\doteq a\oftype A}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-3-symmetry}\SloganFont{Symmetry. }We have
-            \[
-                \inferrule{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{a\doteq b\oftype A}}}{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}b\doteq a\oftype A}}.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \infer1{\context{\Gamma}{b\doteq a\oftype A}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-3-transitivity}\SloganFont{Transitivity. }We have
-            \[
-                \inferrule{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{a\doteq b\oftype A}}\quad{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}{b\doteq c\oftype A}}}{{\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq c\oftype A}}.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \hypo{\context{\Gamma}{b\doteq c\oftype A}}%
+                    \infer2{\context{\Gamma}{a\doteq c\oftype A}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-in-martin-löf-type-theory-3-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
@@ -333,45 +283,42 @@ This chapter contains material on type theory.
                 \SloganFont{Slogan: }We may reindex a type $B(x)$ over $x\oftype A$ to $x\oftype A'$ when $A\doteq A'\type$.
             }%
             %---  End Footnote  ---%
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}C(x)\type}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype B,\,\Delta}\mathbin{\vdash}{\color{OIblue}C(x)\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{C(x)\type}}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer2{\context{\Gamma,\,x\oftype B,\,\Delta}{C(x)\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-terms}\SloganFont{Variable Conversion for Terms. }We have%
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Slogan: }If we have a term $c(x)$ of type $C(x)$ indexed by $x\oftype A$ and $A\doteq B\type$, then $c(x)$ will have type $C(x)$ indexed by $x\oftype B$.
             }%
             %---  End Footnote  ---%
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}c(x)\oftype C(x)}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype B,\Delta}\mathbin{\vdash}{\color{OIblue}c(x)\oftype C(x)}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{c(x)\oftype C(x)}}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer2{\context{\Gamma,\,x\oftype B,\Delta}{c(x)\oftype C(x)}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-judgemental-equality-of-types}\SloganFont{Variable Conversion for Judgemental Equality of Types. }We have%
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Slogan: }We may transfer a judgemental equality $C(x)\doteq C'(x)\type$ indexed over $x\oftype A$ to a judgemental equality $C(x)\doteq C'(x)\type$ indexed over $x\oftype B$ when $A\doteq B\type$.
             }%
             %---  End Footnote  ---%
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}C(x)\doteq C'(x)\type}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype B,\,\Delta}\mathbin{\vdash}{\color{OIblue}C(x)\doteq C'(x)\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{C(x)\doteq C'(x)\type}}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer2{\context{\Gamma,\,x\oftype B,\,\Delta}{C(x)\doteq C'(x)\type}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-judgemental-equality-of-terms}\SloganFont{Variable Conversion for Judgemental Equality of Terms. }We have%
             %--- Begin Footnote ---%
             \footnote{%
@@ -379,131 +326,68 @@ This chapter contains material on type theory.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}c(x)\doteq c'(x)\oftype C(x)}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,x\oftype B,\,\Delta}\mathbin{\vdash}{\color{OIblue}c(x)\doteq c'(x)\oftype C(x)}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{c(x)\doteq c'(x)\oftype C(x)}}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer2{\context{\Gamma,\,x\oftype B,\,\Delta}{c(x)\doteq c'(x)\oftype C(x)}}
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
     \end{enumerate}
     These rules may be summarised as
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-            \quad%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,x\oftype B,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }%
-        \mrp{\,(\text{VC})}%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{\mathcal{J}}}%
+            \hypo{\context{\Gamma}{A\doteq B\type}}%
+            \infer2[(VC)]{\context{\Gamma,\,x\oftype B,\,\Delta}{\mathcal{J}}}%
+        \end{prooftree}%
+    \end{webprooftree}%
     for $\mathcal{J}$ a \textit{generic judgement}.
 \end{definition}
 \begin{proposition}{More Variable Conversion Rules for Martin-Löf Type Theory}{more-variable-conversion-rules-for-martin-löf-type-theory}%
     Martin-Löf type theory has the following additional variable conversion rules.
     \begin{enumerate}
         \item\label{more-variable-conversion-rules-for-martin-löf-type-theory-converting-terms}\SloganFont{Converting Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype B}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer2{\context{\Gamma}{a\oftype B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{more-variable-conversion-rules-for-martin-löf-type-theory-converting-judgemental-equality-for-terms}\SloganFont{Converting Judgemental Equality for Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq b\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq b\oftype B}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \hypo{\context{\Gamma}{A\doteq B\type}}%
+                    \infer2{\context{\Gamma}{a\doteq b\oftype B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{more-variable-conversion-rules-for-martin-löf-type-theory}}%
     \FirstProofBox{\cref{more-variable-conversion-rules-for-martin-löf-type-theory-converting-terms}: Converting Terms}%
     The derivation
-    \[
-        \displaystyle\inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-            \qquad
-            \displaystyle\inferrule{%
-                \displaystyle\inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    \displaystyle\inferrule{%
-                        {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\type}%
-                    }{%
-                        {\color{OIvermillion}\Gamma,\,x\oftype B}\mathbin{\vdash}{\color{OIblue}x\oftype B}%
-                    }%
-                    \,(\text{G})%
-                }%
-                \qquad%
-                \displaystyle\inferrule{%
-                    % --- START FIX ---
-                    \vphantom{%
-                        \displaystyle\inferrule{%
-                            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                        }{%
-                            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\type}%
-                        }%
-                    }%
-                    % --- END FIX ---
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\doteq A\type}%
-                }%
-            }{%
-                {\color{OIvermillion}\Gamma,\,x\oftype A}\mathbin{\vdash}{\color{OIblue}x\oftype B}%
-            }%
-        }{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype B}%
-        }%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{a\oftype A}}%
+            \hypo{\context{\Gamma}{A\doteq B\type}}%
+            \infer1{\context{\Gamma}{B\type}}%
+            \infer1[(G)]{\context{\Gamma,\,x\oftype B}{x\oftype B}}%
+            \hypo{\context{\Gamma}{A\doteq B\type}}%
+            \infer1{\context{\Gamma}{B\doteq A\type}}%
+            \infer2{\context{\Gamma,\,x\oftype A}{x\oftype B}}%
+            \infer2{\context{\Gamma}{a\oftype B}}
+        \end{prooftree}%
         .%
-    \]%
+    \end{webprooftree}%
     This finishes the proof.
 
     \ProofBox{\cref{more-variable-conversion-rules-for-martin-löf-type-theory-converting-judgemental-equality-for-terms}: Converting Judgemental Equality for Terms}%
     The derivation
-    \[
-        \displaystyle\inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-            \qquad
-            \displaystyle\inferrule{%
-                \displaystyle\inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    \displaystyle\inferrule{%
-                        {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\type}%
-                    }{%
-                        {\color{OIvermillion}\Gamma,\,x\oftype B}\mathbin{\vdash}{\color{OIblue}x\oftype B}%
-                    }%
-                    \,(\text{G})%
-                }%
-                \qquad%
-                \displaystyle\inferrule{%
-                    % --- START FIX ---
-                    \vphantom{\displaystyle\inferrule{}{}}%
-                    % --- END FIX ---
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\doteq B\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B\doteq A\type}%
-                }%
-            }{%
-                {\color{OIvermillion}\Gamma,\,x\oftype A}\mathbin{\vdash}{\color{OIblue}x\oftype B}%
-            }%
-        }{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype B}%
-        }%
-        .%
-    \]%
 \end{Proof}
 \begin{definition}{Inference Rules in Martin-Löf Type Theory \rmV}{inference-rules-in-martin-löf-type-theory-5}%
     Martin-Löf type theory has the following inference rules about \textit{substitution}.%
@@ -520,83 +404,75 @@ This chapter contains material on type theory.
     %---  End Footnote  ---%
     \begin{enumerate}
         \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-types}\SloganFont{Substitution in Types. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}B(x)\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}B[a/x]\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{B(x)\type}}%
+                    \infer2{\context{\Gamma,\,\Delta[a/x]}{B[a/x]\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-terms}\SloganFont{Substitution in Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}b(x)\oftype B(x)}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}b[a/x]\oftype B[a/x]}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{b(x)\oftype B(x)}}%
+                    \infer2{\context{\Gamma,\,\Delta[a/x]}{b[a/x]\oftype B[a/x]}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-judgemental-equality-of-types}\SloganFont{Substitution in Judgemental Equality of Types. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}B(x)\doteq C(x)\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}B[a/x]\doteq C[a/x]\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{B(x)\doteq C(x)\type}}%
+                    \infer2{\context{\Gamma,\,\Delta[a/x]}{B[a/x]\doteq C[a/x]\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-judgemental-equality-of-terms}\SloganFont{Substitution in Judgemental Equality of Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}b(x)\doteq b'(x)\oftype B(x)}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}b[a/x]\doteq b'[a/x]\oftype B[a/x]}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{b(x)\doteq b'(x)\oftype B(x)}}%
+                    \infer2{\context{\Gamma,\,\Delta[a/x]}{b[a/x]\doteq b'[a/x]\oftype B[a/x]}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-in-martin-löf-type-theory-5-}\SloganFont{. }
     \end{enumerate}
     These rules may be summarised as
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\oftype A}%
-            \quad%
-            {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}\mathcal{J}[a/x]}%
-        }%
-        \mrp{\,(\text{S})}%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{a\oftype A}}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{\mathcal{J}}}%
+            \infer2{\context{\Gamma,\,\Delta[a/x]}{\mathcal{J}[a/x]}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
     for $\mathcal{J}$ a generic judgement.
 \end{definition}
 \begin{definition}{Inference Rules in Martin-Löf Type Theory \rmVI}{inference-rules-in-martin-löf-type-theory-6}%
     Martin-Löf type theory has the following additional \say{congruence} rules about \textit{substitution}.
     \begin{enumerate}
         \item\label{inference-rules-in-martin-löf-type-theory-6-substitution-by-judgementally-equal-terms-for-types-1-types}\SloganFont{Substitution by Judgementally Equal Terms \rmI: Types. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq b\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}C\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}C[a/x]\doteq C[b/x]\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{C\type}}%
+                    \infer2{\context{\Gamma,\,\Delta[a/x]}{C[a/x]\doteq C[b/x]\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-6-substitution-by-judgementally-equal-terms-for-types-2-terms}\SloganFont{Substitution by Judgementally Equal Terms \rmII: Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}a\doteq b\oftype A}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma,\,x\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}c\oftype C}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,\Delta[a/x]}\mathbin{\vdash}{\color{OIblue}c[a/x]\doteq c[b/x]\oftype C[a/x]}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{c\oftype C}}%
+                    \infer2{\context{\Gamma,\,\Delta[a/x]}{c[a/x]\doteq c[b/x]\oftype C[a/x]}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-in-martin-löf-type-theory-6-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
@@ -610,70 +486,63 @@ This chapter contains material on type theory.
     %---  End Footnote  ---%
     \begin{enumerate}
         \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-types}\SloganFont{Weakening for Types. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B(x)\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,a\oftype A}\mathbin{\vdash}{\color{OIblue}B(x)\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B(x)\type}}%
+                    \infer2{\context{\Gamma,\,a\oftype A}{B(x)\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-terms}\SloganFont{Weakening for Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}b(x)\oftype B(x)}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,a\oftype A}\mathbin{\vdash}{\color{OIblue}b(x)\oftype B(x)}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{b(x)\oftype B(x)}}%
+                    \infer2{\context{\Gamma,\,a\oftype A}{b(x)\oftype B(x)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-judgemental-equality-of-types}\SloganFont{Weakening for Judgemental Equality of Types. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}B(x)\doteq C(x)\type}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,a\oftype A}\mathbin{\vdash}{\color{OIblue}B(x)\doteq C(x)\type}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B(x)\doteq C(x)\type}}%
+                    \infer2{\context{\Gamma,\,a\oftype A}{B(x)\doteq C(x)\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-judgemental-equality-of-terms}\SloganFont{Weakening for Judgemental Equality of Terms. }We have
-            \[
-                \inferrule{%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-                    \quad%
-                    {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}b(x)\doteq b'(x)\oftype B(x)}%
-                }{%
-                    {\color{OIvermillion}\Gamma,\,a\oftype A}\mathbin{\vdash}{\color{OIblue}b(x)\doteq b'(x)\oftype B(x)}%
-                }.%
-            \]%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{b(x)\doteq b'(x)\oftype B(x)}}%
+                    \infer2{\context{\Gamma,\,a\oftype A}{b(x)\doteq b'(x)\oftype B(x)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-in-martin-löf-type-theory-7-}\SloganFont{. }
     \end{enumerate}
     These rules may be summarised as
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-            \quad%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,a\oftype A,\,\Delta}\mathbin{\vdash}{\color{OIblue}\mathcal{J}}%
-        }%
-        \mrp{\,(\text{W})}%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{\mathcal{J}}}%
+            \infer2{\context{\Gamma,\,a\oftype A,\,\Delta}{\mathcal{J}}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
     for $\mathcal{J}$ a generic judgement.
 \end{definition}
 \begin{definition}{Inference Rules in Martin-Löf Type Theory \rmVIII}{inference-rules-in-martin-löf-type-theory-8}%
     Martin-Löf type theory has the following \textbf{variable rule} about the \textbf{generic element}:
-    \[
-        \inferrule{%
-            {\color{OIvermillion}\Gamma}\mathbin{\vdash}{\color{OIblue}A\type}%
-        }{%
-            {\color{OIvermillion}\Gamma,\,x\oftype A}\mathbin{\vdash}{\color{OIblue}x\oftype A}%
-        }%
-        \mrp{\,(\text{G}).}%
-    \]%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(G)]{\context{\Gamma,\,x\oftype A}{x\oftype A}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
 \end{definition}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}

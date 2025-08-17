@@ -238,7 +238,7 @@ GERBY_WEBSITE_REPO = https://github.com/The-Clowder-Project/gerby-website.git
 PYBTEX_REPO = https://github.com/live-clones/pybtex.git
 PYBTEX_PATCH_URL = https://bitbucket.org/pybtex-devs/pybtex/issues/attachments/110/pybtex-devs/pybtex/1514284299.07/110/no-protected-in-math-mode.patch
 # Define LuaLaTeX arguments
-LUALATEX = lualatex -halt-on-error
+LUALATEX = lualatex -interaction=nonstopmode
 LUALATEX_ARGS = max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000
 
 # Target to create conda environment
@@ -366,6 +366,7 @@ init:
 		mkdir -p tmp/eb-garamond; \
 		mkdir -p tmp/xcharter; \
 		mkdir -p tmp/webcompile; \
+		mkdir -p tmp/webprooftree; \
 		mkdir -p tmp/tags/alegreya-sans-tcb; \
 		mkdir -p tmp/tags/alegreya-tcb; \
 		mkdir -p tmp/tags/cm-tcb; \
@@ -4049,6 +4050,8 @@ clean:
 	rm -f tmp/tikz-cd/dark-mode/*; \
 	rm -f tmp/webcompile/*; \
 	rm -f tmp/webcompile/dark-mode/*; \
+	rm -f tmp/webprooftree/*; \
+	rm -f tmp/webprooftree/dark-mode/*; \
 	rm -f tmp/scalemath/*; \
 	rm -f tmp/scalemath/dark-mode/*; \
 	rm -f tmp/cm/*; \
@@ -4203,11 +4206,14 @@ tikzcd:
 		cd -; \
 		mkdir -p ./gerby-website/gerby/static/scalemath-images/dark-mode/; \
 		mkdir -p ./gerby-website/gerby/static/webcompile-images/dark-mode/; \
+		mkdir -p ./gerby-website/gerby/static/webprooftree-images/dark-mode/; \
 		mkdir -p ./gerby-website/gerby/static/tikzcd-images/dark-mode/; \
 		cp ./tmp/tikz-cd/*.svg              ./gerby-website/gerby/static/tikzcd-images/; \
 		cp ./tmp/tikz-cd/dark-mode/*.svg    ./gerby-website/gerby/static/tikzcd-images/dark-mode/; \
 		cp ./tmp/webcompile/*.svg           ./gerby-website/gerby/static/webcompile-images/; \
 		cp ./tmp/webcompile/dark-mode/*.svg ./gerby-website/gerby/static/webcompile-images/dark-mode/; \
+		cp ./tmp/webprooftree/*.svg           ./gerby-website/gerby/static/webprooftree-images/; \
+		cp ./tmp/webprooftree/dark-mode/*.svg ./gerby-website/gerby/static/webprooftree-images/dark-mode/; \
 		cp ./tmp/scalemath/*.svg            ./gerby-website/gerby/static/scalemath-images/; \
 		cp ./tmp/scalemath/dark-mode/*.svg  ./gerby-website/gerby/static/scalemath-images/dark-mode/; \
 		cd -; \
@@ -4224,13 +4230,21 @@ wget-clone:
 	rm -rf web-clone; \
 	mv -f "127.0.0.1" web-clone 2>/dev/null || true; \
 	mv -f "127.0.0.1:5000" web-clone 2>/dev/null || true; \
+	mkdir -p web-clone/static/tikzcd-images/; \
 	mkdir -p web-clone/static/tikzcd-images/dark-mode/; \
+	mkdir -p web-clone/static/webcompile-images/; \
 	mkdir -p web-clone/static/webcompile-images/dark-mode/; \
+	mkdir -p web-clone/static/webprooftree-images/; \
+	mkdir -p web-clone/static/webprooftree-images/dark-mode/; \
 	mkdir -p web-clone/static/scalemath-images/; \
 	mkdir -p web-clone/static/scalemath-images/dark-mode/; \
-	cp tmp/tikz-cd/dark-mode/*.svg    web-clone/static/tikzcd-images/dark-mode; \
-	cp tmp/webcompile/dark-mode/*.svg web-clone/static/webcompile-images/dark-mode; \
-	cp tmp/scalemath/*.svg 			  web-clone/static/scalemath-images; \
+	cp tmp/tikz-cd/*.svg    web-clone/static/tikzcd-images/; \
+	cp tmp/tikz-cd/dark-mode/*.svg    web-clone/static/tikzcd-images/dark-mode/; \
+	cp tmp/webcompile/*.svg web-clone/static/webcompile-images/; \
+	cp tmp/webcompile/dark-mode/*.svg web-clone/static/webcompile-images/dark-mode/; \
+	cp tmp/webprooftree/*.svg web-clone/static/webprooftree-images/; \
+	cp tmp/webprooftree/dark-mode/*.svg web-clone/static/webprooftree-images/dark-mode/; \
+	cp tmp/scalemath/*.svg 			  web-clone/static/scalemath-images/; \
 	cp tmp/scalemath/dark-mode/*.svg  web-clone/static/scalemath-images/dark-mode;
 	cp -r ./gerby-website/gerby/static/gifs/dark-mode  web-clone/static/gifs/;
 

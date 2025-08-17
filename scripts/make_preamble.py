@@ -175,6 +175,9 @@ def main():
         modified_content_prepreamble = re.sub('\\\documentclass{amsart}','',content_prepreamble)
         modified_content_prepreamble = re.sub('\\\setcounter{minitocdepth}{2\}','',modified_content_prepreamble)
         preamble_tikzcd.write(expand_latex_inputs(modified_content_prepreamble,excluded_filenames=['preamble/webpreamble-refs.tex','preamble/cm.tex','preamble/fancyheader.tex','preamble/widebar.tex','preamble/nontikzcd.tex']))
+        #preamble_tikzcd.write(r'\let\proofspacing\relax')
+        #preamble_tikzcd.write('\n')
+        #preamble_tikzcd.write(r'\newcommand{\proofspacing}{\vspace{0.1em}}')
 
     # PREAMBLE_CM
     with open(absolute_path+'/preamble/compiled/preamble-cm.tex', 'w') as preamble_cm:
