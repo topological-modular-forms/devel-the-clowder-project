@@ -1957,7 +1957,7 @@ chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/alegreya-sans/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/alegreya-sans/$${item_basename}.tex"; \
 			cd tmp/alegreya-sans/; \
 			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya-sans "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -2277,7 +2277,7 @@ chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/alegreya-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/alegreya-tcb/$${item_basename}.tex"; \
 			cd tmp/alegreya-tcb/; \
 			python$(PYTHON_VERSION) ../../scripts/process_chapter.py alegreya-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -2517,7 +2517,7 @@ chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/crimson-pro-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/crimson-pro-tcb/$${item_basename}.tex"; \
 			cd tmp/crimson-pro-tcb/; \
 			python$(PYTHON_VERSION) ../../scripts/process_chapter.py crimson-pro-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -2597,7 +2597,7 @@ chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/eb-garamond-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/eb-garamond-tcb/$${item_basename}.tex"; \
 			cd tmp/eb-garamond-tcb/; \
 			python$(PYTHON_VERSION) ../../scripts/process_chapter.py eb-garamond-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -2764,7 +2764,7 @@ tags-chapters-cm:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/cm/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/cm/$${item_basename}.tex"; \
 			cd tmp/tags/cm/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-cm "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -2855,7 +2855,7 @@ tags-chapters-alegreya:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/alegreya/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya/$${item_basename}.tex"; \
 			cd tmp/tags/alegreya/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -2946,7 +2946,7 @@ tags-chapters-alegreya-sans:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/alegreya-sans/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya-sans/$${item_basename}.tex"; \
 			cd tmp/tags/alegreya-sans/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya-sans "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3037,7 +3037,7 @@ tags-chapters-crimson-pro:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/crimson-pro/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/crimson-pro/$${item_basename}.tex"; \
 			cd tmp/tags/crimson-pro/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-crimson-pro "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3128,7 +3128,7 @@ tags-chapters-eb-garamond:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/eb-garamond/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/eb-garamond/$${item_basename}.tex"; \
 			cd tmp/tags/eb-garamond/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-eb-garamond "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3219,7 +3219,7 @@ tags-chapters-xcharter:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/xcharter/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/xcharter/$${item_basename}.tex"; \
 			cd tmp/tags/xcharter/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-xcharter "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3310,7 +3310,7 @@ tags-chapters-alegreya-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/alegreya-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya-tcb/$${item_basename}.tex"; \
 			cd tmp/tags/alegreya-tcb/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3401,7 +3401,7 @@ tags-chapters-alegreya-sans-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/alegreya-sans-tcb/$${item_basename}.tex"; \
 			cd tmp/tags/alegreya-sans-tcb/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-alegreya-sans-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3492,7 +3492,7 @@ tags-chapters-cm-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/cm-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/cm-tcb/$${item_basename}.tex"; \
 			cd tmp/tags/cm-tcb/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-cm-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3583,7 +3583,7 @@ tags-chapters-crimson-pro-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/crimson-pro-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/crimson-pro-tcb/$${item_basename}.tex"; \
 			cd tmp/tags/crimson-pro-tcb/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-crimson-pro-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3674,7 +3674,7 @@ tags-chapters-eb-garamond-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/eb-garamond-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/eb-garamond-tcb/$${item_basename}.tex"; \
 			cd tmp/tags/eb-garamond-tcb/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-eb-garamond-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
@@ -3765,7 +3765,7 @@ tags-chapters-xcharter-tcb:
 			printf "$(GREEN)--------------------------------------------------$(NC)\n"; \
 			printf "$(GREEN)Processing chapter: $$item_basename$(NC)\n"; \
 			printf "$(GREEN)Processing the .TeX...$(NC)\n"; \
-			cp "$${item_basename}.tex" "tmp/tags/xcharter-tcb/$${item_basename}P.tex"; \
+			cp "$${item_basename}.tex" "tmp/tags/xcharter-tcb/$${item_basename}.tex"; \
 			cd tmp/tags/xcharter-tcb/; \
 			python$(PYTHON_VERSION) ../../../scripts/process_chapter.py tags-xcharter-tcb "$${i}" "$${item_basename}"; \
 			python$(PYTHON_VERSION) ../../../scripts/process_parentheses.py "$${item_basename}P.tex"; \
