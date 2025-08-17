@@ -450,13 +450,11 @@ def main(input_file):
         filename = os.path.join(output_dir_webprooftree, f'webprooftree-{i:06d}.tex')
         with open(filename, 'w') as file:
             file.write(get_preamble(IS_DARK_MODE=False,IS_WEBPROOF_TREE=True))
-            file.write("\\begin{document}\n")
-            file.write("\\[%\n")
-            #file.write("\\proofspacing%\n")
+            file.write("\\usepackage{adjustbox}\\begin{document}\n")
+            file.write(r"\[\begin{adjustbox}{width=\linewidth,center}$")
             environment = re.sub("\n\n","\n",environment)
             file.write(environment)
-            file.write("\\]\n")
-            #file.write("\\proofspacing%\n")
+            file.write("$\\end{adjustbox}\\]\n")
             file.write("\\end{document}\n")
         #regex(filename)
     # Write each dark-mode webprooftree environment to a separate file
