@@ -353,7 +353,7 @@ This chapter contains material on type theory.
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
-                    \infer2{\context{\Gamma}{a\oftype B}}%
+                    \infer2[(CT)]{\context{\Gamma}{a\oftype B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -362,7 +362,7 @@ This chapter contains material on type theory.
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
-                    \infer2{\context{\Gamma}{a\doteq b\oftype B}}%
+                    \infer2[(CJET)]{\context{\Gamma}{a\doteq b\oftype B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -370,7 +370,7 @@ This chapter contains material on type theory.
 \end{proposition}
 \begin{Proof}{Proof of \cref{more-variable-conversion-rules-for-martin-löf-type-theory}}%
     \FirstProofBox{\cref{more-variable-conversion-rules-for-martin-löf-type-theory-converting-terms}: Converting Terms}%
-    The derivation
+    We have
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{a\oftype A}}%
@@ -379,7 +379,7 @@ This chapter contains material on type theory.
             \infer1[(G)]{\context{\Gamma,\,x\oftype B}{x\oftype B}}%
             \hypo{\context{\Gamma}{A\doteq B\type}}%
             \infer1{\context{\Gamma}{B\doteq A\type}}%
-            \infer2{\context{\Gamma,\,x\oftype A}{x\oftype B}}%
+            \infer2[(VC)]{\context{\Gamma,\,x\oftype A}{x\oftype B}}%
             \infer2{\context{\Gamma}{a\oftype B}}
         \end{prooftree}%
         .%
@@ -387,7 +387,22 @@ This chapter contains material on type theory.
     This finishes the proof.
 
     \ProofBox{\cref{more-variable-conversion-rules-for-martin-löf-type-theory-converting-judgemental-equality-for-terms}: Converting Judgemental Equality for Terms}%
-    The derivation
+    We have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
+            \hypo{\context{\Gamma}{A\doteq B\type}}%
+            \infer1{\context{\Gamma}{B\type}}%
+            \infer1[(G)]{\context{\Gamma,\,x\oftype B}{x\oftype B}}%
+            \hypo{\context{\Gamma}{A\doteq B\type}}%
+            \infer1{\context{\Gamma}{B\doteq A\type}}%
+            \infer2[(VC)]{\context{\Gamma,\,x\oftype A}{x\oftype B}}%
+            \infer2[(CS2)]{\context{\Gamma}{x[a/x]\doteq x[b/x]\oftype B[a/x]}}
+            \infer1{\context{\Gamma}{a\doteq b\oftype B}}%
+        \end{prooftree}%
+        ,%
+    \end{webprooftree}%
+    where we have used \cref{inference-rules-in-martin-löf-type-theory-6-substitution-by-judgementally-equal-terms-for-types-2-terms} of \cref{inference-rules-in-martin-löf-type-theory-6} (CS2) from below.
 \end{Proof}
 \begin{definition}{Inference Rules in Martin-Löf Type Theory \rmV}{inference-rules-in-martin-löf-type-theory-5}%
     Martin-Löf type theory has the following inference rules about \textit{substitution}.%
@@ -459,8 +474,8 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
-                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{C\type}}%
-                    \infer2{\context{\Gamma,\,\Delta[a/x]}{C[a/x]\doteq C[b/x]\type}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{C(x)\type}}%
+                    \infer2[(CS1)]{\context{\Gamma,\,\Delta[a/x]}{C[a/x]\doteq C[b/x]\type}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -468,8 +483,8 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
-                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{c\oftype C}}%
-                    \infer2{\context{\Gamma,\,\Delta[a/x]}{c[a/x]\doteq c[b/x]\oftype C[a/x]}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,\Delta}{c(x)\oftype C(x)}}%
+                    \infer2[(CS2)]{\context{\Gamma,\,\Delta[a/x]}{c[a/x]\doteq c[b/x]\oftype C[a/x]}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%

@@ -238,7 +238,7 @@ GERBY_WEBSITE_REPO = https://github.com/The-Clowder-Project/gerby-website.git
 PYBTEX_REPO = https://github.com/live-clones/pybtex.git
 PYBTEX_PATCH_URL = https://bitbucket.org/pybtex-devs/pybtex/issues/attachments/110/pybtex-devs/pybtex/1514284299.07/110/no-protected-in-math-mode.patch
 # Define LuaLaTeX arguments
-LUALATEX = lualatex -interaction=nonstopmode
+LUALATEX = lualatex -halt-on-error
 LUALATEX_ARGS = max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000
 
 # Target to create conda environment
@@ -1872,6 +1872,7 @@ chapters-alegreya:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -1952,6 +1953,7 @@ chapters-alegreya-sans:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2032,6 +2034,7 @@ chapters-crimson-pro:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2112,6 +2115,7 @@ chapters-eb-garamond:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2192,6 +2196,7 @@ chapters-xcharter:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2272,6 +2277,7 @@ chapters-alegreya-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2352,6 +2358,7 @@ chapters-alegreya-sans-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2432,6 +2439,7 @@ chapters-cm-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2512,6 +2520,7 @@ chapters-crimson-pro-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2592,6 +2601,7 @@ chapters-eb-garamond-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2672,6 +2682,7 @@ chapters-xcharter-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling chapters (1/4): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2759,6 +2770,7 @@ tags-chapters-cm:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2850,6 +2862,7 @@ tags-chapters-alegreya:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -2941,6 +2954,7 @@ tags-chapters-alegreya-sans:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3032,6 +3046,7 @@ tags-chapters-crimson-pro:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3123,6 +3138,7 @@ tags-chapters-eb-garamond:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3214,6 +3230,7 @@ tags-chapters-xcharter:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3305,6 +3322,7 @@ tags-chapters-alegreya-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3396,6 +3414,7 @@ tags-chapters-alegreya-sans-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3487,6 +3506,7 @@ tags-chapters-cm-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3578,6 +3598,7 @@ tags-chapters-crimson-pro-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3669,6 +3690,7 @@ tags-chapters-eb-garamond-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \
@@ -3760,6 +3782,7 @@ tags-chapters-xcharter-tcb:
 		printf "$(GREEN)Conda environment '$(CONDA_ENV_NAME)' is active. Proceeding with chapter processing...$(NC)\n"; \
 		printf "$(GREEN)Processing chapters from LIJST...$(NC)\n"; \
 		python$(PYTHON_VERSION) scripts/make_preamble.py; \
+		python$(PYTHON_VERSION) scripts/make_chapters_tex.py chapters.tex chapters2.tex; \
 		printf "$(GREEN)Compiling tags-chapters (1/5): Processing$(NC)\n"; \
 		i=1; \
 		for item_basename in $(LIJST); do \

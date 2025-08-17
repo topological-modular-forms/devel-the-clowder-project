@@ -7,7 +7,7 @@ def clear_lua_cache():
 def get_preamble(IS_DARK_MODE,IS_WEBPROOF_TREE):
     preamble = ""
     if IS_WEBPROOF_TREE:
-        preamble += "\\documentclass[varwidth,border={20pt 2pt 20pt 2pt}]{standalone}\n"
+        preamble += "\\documentclass[varwidth,border={2pt 2pt 2pt 2pt}]{standalone}\n"
     else:
         preamble += "\\documentclass[varwidth]{standalone}\n"
     # Get TikZ preamble
@@ -464,13 +464,14 @@ def main(input_file):
         filename = os.path.join(output_dir_webprooftree_dark_mode, f'webprooftree-{i:06d}.tex')
         with open(filename, 'w') as file:
             file.write(get_preamble(IS_DARK_MODE=True,IS_WEBPROOF_TREE=True))
-            file.write("\\begin{document}\n")
-            file.write("\\[%")
+            file.write("\\usepackage{adjustbox}\\begin{document}\n")
+            file.write(r"\[\begin{adjustbox}{width=\linewidth,center}$")
             environment = re.sub("\n\n","\n",environment)
             environment = re.sub("/pictures/light-mode","/pictures/dark-mode",environment)
             environment = re.sub("gray!40","gray!80!black",environment)
             file.write(environment)
-            file.write("\\]\n")
+            #file.write("\\]\n")
+            file.write("$\\end{adjustbox}\\]\n")
             file.write("\\end{document}\n")
         #regex(filename)
     # Write the modified content back to the input file
