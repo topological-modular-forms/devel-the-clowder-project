@@ -7,7 +7,6 @@
 LIJST = introduction \
         a-guide-to-the-literature \
         axiomatic-set-theory \
-        type-theory \
         sets \
 		constructions-with-sets \
 		monoidal-structures-on-the-category-of-sets \
@@ -22,7 +21,8 @@ LIJST = introduction \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories \
 		topological-spaces \
-		notes
+		notes \
+        type-theory
 
 # Add book to get all stems of tex files needed for tags
 LIJST_TAGS = $(LIJST_FDL) book

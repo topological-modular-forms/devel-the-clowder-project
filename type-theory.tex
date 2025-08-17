@@ -20,14 +20,14 @@ This chapter contains material on type theory.
 \subsection{Inference Rules}\label{subsection-inference-rules}
 \begin{definition}{Inference Rules}{inference-rules}%
     An \index[type-theory]{inference rule}\textbf{inference rule} is written in the form
-    \[
-        \inferrule{%
-            \mathcal{H}_{1}\quad\mathcal{H}_{2}\quad\ldots\quad\mathcal{H}_{n}%
-        }{%
-            \mathcal{C}%
-        }%
-        \mrp{\,(\text{name})}%
-    \]%
+    \begin{webcompile}
+        \proofspacing
+        \begin{prooftree}
+            \hypo{\mathcal{H}_{1}\quad\mathcal{H}_{2}\quad\ldots\quad\mathcal{H}_{n}}%
+            \infer1[(name)]{\mathcal{C}}
+        \end{prooftree}
+        \proofspacing
+    \end{webcompile}
     and represents a deduction going from a finite list $\mathcal{H}_{1}$, $\ldots$, $\mathcal{H}_{n}$ of \textbf{judgements} for the \textbf{premises} to a \textbf{conclusion} $\CatFont{C}$, which is itself a (single) judgement.
 \end{definition}
 \begin{example}{An Inference Rule for Function Types}{an-inference-rule-for-function-types}%
@@ -42,6 +42,15 @@ This chapter contains material on type theory.
         }%
         \mrp{\,(\text{ev})}%
     \]%
+    \begin{webcompile}%
+        \proofspacing%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{a\colon A}}%
+            \hypo{\context{\Gamma}{f\colon A\to B}}%
+            \infer1[(ev)]{\context{\Gamma}{f(a)\colon B}}%
+        \end{prooftree}%
+        \proofspacing%
+    \end{webcompile}%
     works as follows. In the \emph{context} $\Gamma$, we start with:
     \begin{itemize}
         \item A term $a$ of type $A$;
