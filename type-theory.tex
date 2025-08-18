@@ -915,7 +915,19 @@ Let $A$ and $B$ be types.
     This finishes the proof.
 
     \ProofBox{\cref{constant-functions-precomposition-with-the-constant-function}: Precomposition With the Constant Function}%
-    We have
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}$, as we can then finish that derivation with
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\evdots}%
+            \infer1{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto g(\const_{y}(x))\rrbracket\doteq\llbracket x\mapsto g(y)\rrbracket\oftype A\to B}}%
+            \hypo{\context{\Gamma}{\const_{g(y)}\oftype A\to C}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto g(y)\rrbracket\doteq\const_{g(y)}\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{g\circ\const_{y}\doteq\const_{g(y)}\oftype A\to B}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    Now, for the proof of the judgement, we have
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
@@ -1340,7 +1352,19 @@ Let $A$, $B$, and $C$ be types.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-composition-of-functions-right-unitality}: Right Unitality}%
-    We have
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\evdots}%
+            \infer1{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto f(\id_{A}(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    Now, for the proof of the judgement, we have
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
