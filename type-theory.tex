@@ -915,15 +915,15 @@ Let $A$ and $B$ be types.
     This finishes the proof.
 
     \ProofBox{\cref{constant-functions-precomposition-with-the-constant-function}: Precomposition With the Constant Function}%
-    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}$, as we can then finish that derivation with
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype C}$, as we can then finish that derivation with
     \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\evdots}%
-            \infer1{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}}
-            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto g(\const_{y}(x))\rrbracket\doteq\llbracket x\mapsto g(y)\rrbracket\oftype A\to B}}%
+            \infer1{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype C}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto g(\const_{y}(x))\rrbracket\doteq\llbracket x\mapsto g(y)\rrbracket\oftype A\to C}}%
             \hypo{\context{\Gamma}{\const_{g(y)}\oftype A\to C}}%
-            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto g(y)\rrbracket\doteq\const_{g(y)}\oftype A\to B}}%
-            \infer2[(trans)]{\context{\Gamma}{g\circ\const_{y}\doteq\const_{g(y)}\oftype A\to B}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto g(y)\rrbracket\doteq\const_{g(y)}\oftype A\to C}}%
+            \infer2[(trans)]{\context{\Gamma}{g\circ\const_{y}\doteq\const_{g(y)}\oftype A\to C}}%
         \end{prooftree}%
         .%
     \end{scalewebprooftree}%
@@ -936,7 +936,7 @@ Let $A$ and $B$ be types.
             \infer3[(const-ev)]{\context{\Gamma,\,x\oftype A}{\const_{y}(x)\doteq y\oftype B}}%
             \hypo{\context{\Gamma}{g\oftype B\to C}}%
             \infer1[(refl)]{\context{\Gamma}{g\doteq g\oftype B\to C}}%
-            \infer2[(ev-eq)]{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}}%
+            \infer2[(ev-eq)]{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype C}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
