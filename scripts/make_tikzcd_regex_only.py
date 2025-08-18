@@ -44,6 +44,13 @@ def main(input_file):
         img_tag = f'\\webprooftree{{{i:06d}}}'
         content = webprooftree_pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
 
+    # Process scalewebprooftree environments
+    scalewebprooftree_pattern = re.compile(r'\\begin\{scalewebprooftree\}(.*?)\\end\{scalewebprooftree\}', re.DOTALL)
+    scalewebprooftree_environments = scalewebprooftree_pattern.findall(content)
+    for i, environment in enumerate(scalewebprooftree_environments):
+        img_tag = f'\\scalewebprooftree{{{i:06d}}}'
+        content = scalewebprooftree_pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
+
     # Process tikzcd environments
     tikzcd_pattern = re.compile(r'\\begin\{tikzcd\}(.*?)\\end\{tikzcd\}', re.DOTALL)
     tikzcd_environments = tikzcd_pattern.findall(content)
@@ -70,6 +77,7 @@ def main(input_file):
     print(f"Processed {len(webcompile_environments)} webcompile environments.")
     print(f"Processed {len(scalemath_environments)} scalemath environments.")
     print(f"Processed {len(webprooftree_environments)} webprooftree environments.")
+    print(f"Processed {len(scalewebprooftree_environments)} scalewebprooftree environments.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

@@ -219,7 +219,7 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
-                    \infer1{\context{\Gamma}{A\doteq A\type}}
+                    \infer1[(refl)]{\context{\Gamma}{A\doteq A\type}}
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -227,7 +227,7 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
-                    \infer1{\context{\Gamma}{B\doteq A\type}}
+                    \infer1[(symm)]{\context{\Gamma}{B\doteq A\type}}
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -236,7 +236,7 @@ This chapter contains material on type theory.
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
                     \hypo{\context{\Gamma}{B\doteq C\type}}%
-                    \infer2{\context{\Gamma}{A\doteq C\type}}
+                    \infer2[(trans)]{\context{\Gamma}{A\doteq C\type}}
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -250,7 +250,7 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A\type}}%
-                    \infer1{\context{\Gamma}{a\doteq a\oftype A}}
+                    \infer1[(refl)]{\context{\Gamma}{a\doteq a\oftype A}}
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -258,7 +258,7 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
-                    \infer1{\context{\Gamma}{b\doteq a\oftype A}}
+                    \infer1[(symm)]{\context{\Gamma}{b\doteq a\oftype A}}
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -267,7 +267,7 @@ This chapter contains material on type theory.
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
                     \hypo{\context{\Gamma}{b\doteq c\oftype A}}%
-                    \infer2{\context{\Gamma}{a\doteq c\oftype A}}
+                    \infer2[(trans)]{\context{\Gamma}{a\doteq c\oftype A}}
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -378,7 +378,7 @@ This chapter contains material on type theory.
             \infer1{\context{\Gamma}{B\type}}%
             \infer1[(G)]{\context{\Gamma,\,x\oftype B}{x\oftype B}}%
             \hypo{\context{\Gamma}{A\doteq B\type}}%
-            \infer1{\context{\Gamma}{B\doteq A\type}}%
+            \infer1[(symm)]{\context{\Gamma}{B\doteq A\type}}%
             \infer2[(VC)]{\context{\Gamma,\,x\oftype A}{x\oftype B}}%
             \infer2{\context{\Gamma}{a\oftype B}}
         \end{prooftree}%
@@ -395,7 +395,7 @@ This chapter contains material on type theory.
             \infer1{\context{\Gamma}{B\type}}%
             \infer1[(G)]{\context{\Gamma,\,x\oftype B}{x\oftype B}}%
             \hypo{\context{\Gamma}{A\doteq B\type}}%
-            \infer1{\context{\Gamma}{B\doteq A\type}}%
+            \infer1[(symm)]{\context{\Gamma}{B\doteq A\type}}%
             \infer2[(VC)]{\context{\Gamma,\,x\oftype A}{x\oftype B}}%
             \infer2[(CS2)]{\context{\Gamma}{x[a/x]\doteq x[b/x]\oftype B[a/x]}}
             \infer1{\context{\Gamma}{a\doteq b\oftype B}}%
@@ -571,7 +571,7 @@ This chapter contains material on type theory.
         \item\label{the-pi-formation-rule-forming-pi-types}\SloganFont{Forming Π-Types. }We have%
             %--- Begin Footnote ---%
             \footnote{%
-                \SloganFont{Slogan: }We may form a Π-type $\prod_{(x:A)}B(x)$ given a type family $B(x)$ indexed over $x:A$.
+                \SloganFont{Slogan: }We may form a Π-type $\prod_{(x\oftype A)}B(x)$ given a type family $B(x)$ indexed over $x\oftype A$.
             }%
             %---  End Footnote  ---%
             \begin{webprooftree}%
@@ -633,7 +633,7 @@ This chapter contains material on type theory.
             %---  End Footnote  ---%
             \begin{webprooftree}%
                 \begin{prooftree}%
-                    \hypo{\context{\Gamma,\,x\oftype A}{b(x)\doteq b'(x):B(x)}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{b(x)\doteq b'(x)\oftype B(x)}}%
                     \infer1[(λ-eq)]{\context{\Gamma}{\displaystyle\lambda x\ldotp b(x)\doteq\lambda x\ldotp b'(x)\oftype\prod_{x\oftype A}B(x)}}%
                 \end{prooftree}%
                 .%
@@ -656,7 +656,7 @@ This chapter contains material on type theory.
         \item\label{lambda-notation-congruence-rule-for-the-formation-of-terms-of-pi-types}\SloganFont{Congruence Rule for the Formation of Terms of Π-Types. }We have%
             \begin{webprooftree}%
                 \begin{prooftree}%
-                    \hypo{\context{\Gamma,\,x\oftype A}{b(x)\doteq b'(x):B(x)}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{b(x)\doteq b'(x)\oftype B(x)}}%
                     \infer1[(λ-eq)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto b(x)\rrbracket\doteq\llbracket x\mapsto b'(x)\rrbracket\oftype\prod_{x\oftype A}B(x)}}%
                 \end{prooftree}%
                 .%
@@ -727,6 +727,39 @@ This chapter contains material on type theory.
             \end{webprooftree}%
     \end{enumerate}
 \end{definition}
+\begin{proposition}{Properties of Dependent Function Types}{properties-of-dependent-function-types}%
+    Let $A$ be a type and let $B(x)$ be a type family indexed over $x\oftype A$.
+    \begin{enumerate}
+        \item\label{properties-of-dependent-function-types-dependent-function-extensionality}\SloganFont{Dependent Function Extensionality. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{\displaystyle f\oftype\prod_{x\oftype A}B(x)}}%
+                    \hypo{\context{\Gamma}{\displaystyle f'\oftype\prod_{x\oftype A}B(x)}}%
+                    \hypo{\context{\Gamma,x\oftype A}{f(x)\doteq f'(x)\oftype B(x)}}%
+                    \infer3[(FEXT)]{\context{\Gamma}{\displaystyle f\doteq f'\oftype\prod_{x\oftype A}B(x)}}%
+                \end{prooftree}%
+            \end{webprooftree}%
+        %\item\label{properties-of-function-types-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-dependent-function-types}}%
+    \FirstProofBox{\cref{properties-of-dependent-function-types-dependent-function-extensionality}: Dependent Function Extensionality}%
+    We have
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{\displaystyle f\oftype\prod_{x\oftype A}B(x)}}%
+            \infer1[(η)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype\prod_{x\oftype A}B(x)}}%
+            \hypo{\context{\Gamma,a\oftype A}{f(a)\doteq f'(a)\oftype B}}%
+            \infer1[(λ-eq)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto f(x)\rrbracket\doteq\llbracket x\mapsto f'(x)\rrbracket\oftype\prod_{x\oftype A}B(x)}}%
+            \infer2[(trans)]{\context{\Gamma}{\displaystyle f\doteq\llbracket x\mapsto f'(x)\rrbracket\oftype\prod_{x\oftype A}B(x)}}%
+            \hypo{\context{\Gamma}{\displaystyle f'\oftype\prod_{x\oftype A}B(x)}}%
+            \infer1[(η)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto f'(x)\rrbracket\doteq f'\oftype\prod_{x\oftype A}B(x)}}%
+            \infer2[(trans)]{\context{\Gamma}{\displaystyle f\doteq f'\oftype\prod_{x\oftype A}B(x)}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    This finishes the proof.
+\end{Proof}
 \subsection{Function Types}\label{subsection-martin-löf-type-theory-function-types}
 Let $A$ and $B$ be types.
 \begin{definition}{Function Types}{function-types}%
@@ -762,10 +795,10 @@ Let $A$ and $B$ be types.
         \item\label{further-terminology-for-function-types-codomain}Given a function $f\oftype A\to B$, the type $B$ is called its \index[type-theory]{codomain}\textbf{codomain}.
     \end{enumerate}
 \end{definition}
-\begin{proposition}{Inference Rules for Function Types}{inference-rules-for-function-types}%
+\begin{proposition}{Inference Rules for Function Types}{properties-of-function-types}%
     Let $A$ and $B$ be types.
     \begin{enumerate}
-        \item\label{inference-rules-for-function-types-formation-of-function-types}\SloganFont{Formation of Function Types. }We have
+        \item\label{properties-of-function-types-formation-of-function-types}\SloganFont{Formation of Function Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -774,7 +807,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-congruence-rule-for-the-formation-of-function-types}\SloganFont{Congruence Rule for the Formation of Function Types. }We have
+        \item\label{properties-of-function-types-congruence-rule-for-the-formation-of-function-types}\SloganFont{Congruence Rule for the Formation of Function Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq A'\type}}%
@@ -783,16 +816,16 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-lambda-abstraction}\SloganFont{λ-Abstraction. }We have
+        \item\label{properties-of-function-types-lambda-abstraction}\SloganFont{λ-Abstraction. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{B\type}}%
-                    \hypo{\context{\Gamma,\,x\oftype A}{b(x):B}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{b(x)\oftype B}}%
                     \infer2[(λ)]{\context{\Gamma}{\llbracket x\mapsto b(x)\rrbracket\oftype A\to B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-congruence-rule-for-the-formation-of-functions}\SloganFont{Congruence Rule for the Formation of Functions. }We have
+        \item\label{properties-of-function-types-congruence-rule-for-the-formation-of-functions}\SloganFont{Congruence Rule for the Formation of Functions. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A}{b(x)\doteq b'(x)\oftype B}}%
@@ -800,7 +833,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-evaluation-1}\SloganFont{Evaluation \rmI. }We have
+        \item\label{properties-of-function-types-evaluation-1}\SloganFont{Evaluation \rmI. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
@@ -808,7 +841,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-evaluation-2}\SloganFont{Evaluation \rmII. }We have
+        \item\label{properties-of-function-types-evaluation-2}\SloganFont{Evaluation \rmII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
@@ -817,7 +850,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-evaluation-3}\SloganFont{Evaluation \rmIII. }We have
+        \item\label{properties-of-function-types-evaluation-3}\SloganFont{Evaluation \rmIII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -826,14 +859,14 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-congruence-rule-for-evaluation}\SloganFont{Congruence Rule for Evaluation. }We have
+        \item\label{properties-of-function-types-congruence-rule-for-evaluation}\SloganFont{Congruence Rule for Evaluation. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\doteq f'\oftype A\to B}}%
                     \infer1[(ev-eq)]{\context{\Gamma,\,x\oftype A}{f(x)\doteq f'(x)\oftype B}}%
                 \end{prooftree}%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-beta-reduction}\SloganFont{β-Reduction. }We have
+        \item\label{properties-of-function-types-beta-reduction}\SloganFont{β-Reduction. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{B\type}}%
@@ -842,7 +875,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-eta-conversion}\SloganFont{η-Conversion. }We have
+        \item\label{properties-of-function-types-eta-conversion}\SloganFont{η-Conversion. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
@@ -850,35 +883,35 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-function-types-function-extensionality}\SloganFont{Function Extensionality. }We have
+        \item\label{properties-of-function-types-function-extensionality}\SloganFont{Function Extensionality. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
                     \hypo{\context{\Gamma}{f'\oftype A\to B}}%
                     \hypo{\context{\Gamma,a\oftype A}{f(a)\doteq f'(a)\oftype B}}%
-                    \infer3[(FE)]{\context{\Gamma}{f\doteq f'\oftype A\to B}}%
+                    \infer3[(FEXT)]{\context{\Gamma}{f\doteq f'\oftype A\to B}}%
                 \end{prooftree}%
             \end{webprooftree}%
-        %\item\label{inference-rules-for-function-types-}\SloganFont{. }
+        %\item\label{properties-of-function-types-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
-\begin{Proof}{Proof of \cref{inference-rules-for-function-types}}%
-    \ProofBox{\cref{inference-rules-for-function-types-formation-of-function-types}: Formation of Function Types}%
+\begin{Proof}{Proof of \cref{properties-of-function-types}}%
+    \ProofBox{\cref{properties-of-function-types-formation-of-function-types}: Formation of Function Types}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-formation-rule}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-congruence-rule-for-the-formation-of-function-types}: Congruence Rule for the Formation of Function Types}%
+    \ProofBox{\cref{properties-of-function-types-congruence-rule-for-the-formation-of-function-types}: Congruence Rule for the Formation of Function Types}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-formation-rule-congruence-rule-for-the-formation-of-pi-types} of \cref{the-pi-formation-rule}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-lambda-abstraction}: λ-Abstraction}%
+    \ProofBox{\cref{properties-of-function-types-lambda-abstraction}: λ-Abstraction}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-introduction-rule}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-congruence-rule-for-the-formation-of-functions}: Congruence Rule for the Formation of Functions}%
+    \ProofBox{\cref{properties-of-function-types-congruence-rule-for-the-formation-of-functions}: Congruence Rule for the Formation of Functions}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-introduction-rule-congruence-rule-for-the-formation-of-terms-of-pi-types} of \cref{the-pi-formation-rule}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-evaluation-1}: Evaluation \rmI}%
+    \ProofBox{\cref{properties-of-function-types-evaluation-1}: Evaluation \rmI}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-elimination-rule}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-evaluation-2}: Evaluation \rmII}%
+    \ProofBox{\cref{properties-of-function-types-evaluation-2}: Evaluation \rmII}%
     We have
     \begin{webprooftree}%
         \begin{prooftree}%
@@ -892,7 +925,7 @@ Let $A$ and $B$ be types.
     \end{webprooftree}%
     This finishes the proof.
 
-    \ProofBox{\cref{inference-rules-for-function-types-evaluation-3}: Evaluation \rmIII}%
+    \ProofBox{\cref{properties-of-function-types-evaluation-3}: Evaluation \rmIII}%
     We have
     \begin{webprooftree}%
         \begin{prooftree}%
@@ -906,18 +939,18 @@ Let $A$ and $B$ be types.
     \end{webprooftree}%
     This finishes the proof.
 
-    \ProofBox{\cref{inference-rules-for-function-types-congruence-rule-for-evaluation}: Congruence Rule for Evaluation}%
+    \ProofBox{\cref{properties-of-function-types-congruence-rule-for-evaluation}: Congruence Rule for Evaluation}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-formation-rule-congruence-rule-for-pi-elimination} of \cref{the-pi-formation-rule}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-beta-reduction}: β-Reduction}%
+    \ProofBox{\cref{properties-of-function-types-beta-reduction}: β-Reduction}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-computation-rules-beta-reduction} of \cref{the-pi-computation-rules}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-eta-conversion}: η-Conversion}%
+    \ProofBox{\cref{properties-of-function-types-eta-conversion}: η-Conversion}%
     This follows from the respective inference rule for dependent function types, \cref{the-pi-computation-rules-eta-conversion} of \cref{the-pi-computation-rules}.
 
-    \ProofBox{\cref{inference-rules-for-function-types-function-extensionality}: Function Extensionality}%
-    We have
-    \begin{webprooftree}%
+    \ProofBox{\cref{properties-of-function-types-function-extensionality}: Function Extensionality}%
+    This follows from the respective inference rule for dependent function types, \cref{properties-of-dependent-function-types-dependent-function-extensionality} of \cref{properties-of-dependent-function-types}. Here, however, is a complete derivation:
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
             \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
@@ -929,7 +962,7 @@ Let $A$ and $B$ be types.
             \infer2[(trans)]{\context{\Gamma}{f\doteq f'\oftype A\to B}}%
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     This finishes the proof.
 \end{Proof}
 \subsection{Identity Functions}\label{subsection-martin-löf-type-theory-identity-functions}
@@ -939,7 +972,7 @@ Let $A$ be a type.
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
-            \infer1{\context{\Gamma}{\id_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
+            \infer1[(id-def)]{\context{\Gamma}{\id_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
         \end{prooftree}%
     \end{webprooftree}%
     via the derivation
@@ -965,12 +998,37 @@ Let $A$ be a type.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
+        \item\label{inference-rules-for-identity-functions-identity-evaluation}\SloganFont{Identity Evaluation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \infer1[(id-ev)]{\context{\Gamma,\,x\oftype A}{\id_{A}(x)\doteq x\oftype A}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
         %\item\label{inference-rules-for-identity-functions-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{inference-rules-for-identity-functions}}%
     \FirstProofBox{\cref{inference-rules-for-identity-functions-formation-of-identity-functions}: Formation of Identity Functions}%
     This follows from \cref{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-1} of \cref{inference-rules-in-martin-löf-type-theory-1}.
+
+    \ProofBox{\cref{inference-rules-for-identity-functions-identity-evaluation}: Identity Evaluation}%
+    We have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(id-def)]{\context{\Gamma}{\id_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
+            \infer1[(ev-eq)]{\context{\Gamma,\,a\oftype A}{\id_{A}(a)\doteq\llbracket x\mapsto x\rrbracket(a)\oftype A}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(G)]{\context{\Gamma,\,a\oftype A}{a\oftype A}}%
+            \infer2[(β)]{\context{\Gamma,\,a\oftype A}{\llbracket x\mapsto x\rrbracket(a)\doteq a\oftype A}}%
+            \infer2[(trans)]{\context{\Gamma,\,a\oftype A}{\id_{A}(a)\doteq a\oftype A}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the proof.
 \end{Proof}
 \subsection{Composition of Functions}\label{subsection-martin-löf-type-theory-composition-of-functions}
 Let $A$, $B$, and $C$ be types.
@@ -995,7 +1053,7 @@ Let $A$, $B$, and $C$ be types.
                       &\defeq \llbracket g\mapsto\llbracket f\mapsto\llbracket x\mapsto g(f(x))\rrbracket\rrbracket\rrbracket
     \end{align*}
     via the derivation
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
             \hypo{\context{\Gamma}{B\type}}%
@@ -1012,7 +1070,7 @@ Let $A$, $B$, and $C$ be types.
             \infer1{\context{\Gamma}{\comp_{A,B,C}\doteq\llbracket g\mapsto\llbracket f\mapsto\llbracket x\mapsto g(f(x))\rrbracket\rrbracket\rrbracket\oftype[B,C]\to[[A,B],[A,C]]}}%
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
 \end{definition}
 \begin{proposition}{Properties of Composition of Functions}{properties-of-composition-of-functions}%
     Let $A$, $B$, and $C$ be types.
@@ -1033,6 +1091,22 @@ Let $A$, $B$, and $C$ be types.
                     \hypo{\context{\Gamma}{g\oftype B\to C}}%
                     \hypo{\context{\Gamma}{h\oftype C\to D}}%
                     \infer3[(ass)]{\context{\Gamma}{(h\circ g)\circ f\doteq h\circ(g\circ f)\oftype A\to D}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{properties-of-composition-of-functions-left-unitality}\SloganFont{Left Unitality. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{f\oftype A\to B}}%
+                    \infer1[(LU)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{properties-of-composition-of-functions-right-unitality}\SloganFont{Right Unitality. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{f\oftype A\to B}}%
+                    \infer1[(RU)]{\context{\Gamma}{f\circ\id_{A}\doteq f\oftype A\to B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1066,7 +1140,7 @@ Let $A$, $B$, and $C$ be types.
         ,%
     \end{webprooftree}%
     so taking the judgement $\context{\Gamma,\,x\oftype A}{h(g(f(x)))\doteq h(g(f(x)))\oftype D}$ for granted for now, we have
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{(h\circ g)\circ f\oftype A\to D}}%
             \hypo{\context{\Gamma}{h\circ(g\circ f)\oftype A\to D}}%
@@ -1079,12 +1153,12 @@ Let $A$, $B$, and $C$ be types.
             \hypo{\context{\Gamma,\,x\oftype A}{h((g\circ f)(x))\doteq(h\circ(g\circ f)(x))\oftype D}}%
             \infer2[(trans)]{\context{\Gamma,\,x\oftype A}{h(g(f(x)))\doteq(h\circ(g\circ f)(x))\oftype D}}
             \infer2[(trans)]{\context{\Gamma,\,x\oftype A}{((h\circ g)\circ f)(x)\doteq(h\circ(g\circ f)(x))\oftype D}}
-            \infer3[(FE)]{\context{\Gamma}{(h\circ g)\circ f\doteq h\circ(g\circ f)\oftype A\to D}}
+            \infer3[(FEXT)]{\context{\Gamma}{(h\circ g)\circ f\doteq h\circ(g\circ f)\oftype A\to D}}
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     Thus, to prove $(h\circ g)\circ f=h\circ(g\circ f)$, it remains to show $\context{\Gamma,\,x\oftype A}{h(g(f(x)))\doteq h(g(f(x)))\oftype D}$. For this, we have
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
             \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
@@ -1097,6 +1171,60 @@ Let $A$, $B$, and $C$ be types.
             \infer1[(W)]{\context{\Gamma,\,x\oftype A,\,z\oftype C}{h(z)\oftype D}}%
             \infer2[(S)]{\context{\Gamma,\,x\oftype A}{h(g(f(x)))\oftype D}}%
             \infer1[(refl)]{\context{\Gamma,\,x\oftype A}{h(g(f(x)))\doteq h(g(f(x)))\oftype D}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-composition-of-functions-left-unitality}: Left Unitality}%
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\evdots}%
+            \infer1{\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto\id_{B}(f(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+        \end{prooftree}%
+    \end{scalewebprooftree}%
+    Now, for the proof of this judgement, we have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer1[(id-ev)]{\context{\Gamma,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}%
+            \infer2[(W)]{\context{\Gamma,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}
+            \infer2[(S)]{\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}}
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-composition-of-functions-right-unitality}: Right Unitality}%
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\evdots}%
+            \infer1{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto f(\id_{A}(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+        \end{prooftree}%
+    \end{scalewebprooftree}%
+    Now, for the proof of this judgement, we have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(id-ev)]{\context{\Gamma,\,x\oftype B}{\id_{A}(x)\doteq x\oftype A}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer2[(W)]{\context{\Gamma,\,x\oftype A}{\id_{A}(x)\doteq x\oftype A}}
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+            \infer2[(S)]{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}
         \end{prooftree}%
         .%
     \end{webprooftree}%

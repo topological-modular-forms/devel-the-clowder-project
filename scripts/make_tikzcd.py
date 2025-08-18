@@ -115,6 +115,22 @@ def compile_webprooftree(output_dir, webprooftree_environments):
                 print(f"Error reading {file_path} in webprooftree function: {e}")
         concurrent.futures.wait(futures)
 
+def compile_scalewebprooftree(output_dir, scalewebprooftree_environments):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
+        futures = []
+        for i in range(len(scalewebprooftree_environments)):
+            filename = f'scalewebprooftree-{i:06d}.tex'
+            file_path = os.path.join(output_dir, filename)
+            try:
+                with open(file_path, 'r') as f:
+                    content = f.read()
+                if has_file_changed(output_dir, filename, content):
+                    future = executor.submit(compile_tex, output_dir, filename)
+                    futures.append(future)
+            except IOError as e:
+                print(f"Error reading {file_path} in scalewebprooftree function: {e}")
+        concurrent.futures.wait(futures)
+
 def compile_tikzcd(output_dir, tikzcd_environments):
     with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
         futures = []
@@ -451,15 +467,65 @@ def main(input_file):
         with open(filename, 'w') as file:
             file.write(get_preamble(IS_DARK_MODE=False,IS_WEBPROOF_TREE=True))
             file.write("\\usepackage{adjustbox}\\begin{document}\n")
+            file.write("\\[\n")
+            environment = re.sub("\n\n","\n",environment)
+            file.write(environment)
+            file.write("\\]\n")
+            file.write("\\end{document}\n")
+        #regex(filename)
+    # Write each dark-mode webprooftree environment to a separate file
+    for i, environment in enumerate(webprooftree_environments):
+        filename = os.path.join(output_dir_webprooftree_dark_mode, f'webprooftree-{i:06d}.tex')
+        with open(filename, 'w') as file:
+            file.write(get_preamble(IS_DARK_MODE=True,IS_WEBPROOF_TREE=True))
+            file.write("\\begin{document}\n")
+            file.write("\\[\n")
+            environment = re.sub("\n\n","\n",environment)
+            environment = re.sub("/pictures/light-mode","/pictures/dark-mode",environment)
+            environment = re.sub("gray!40","gray!80!black",environment)
+            file.write(environment)
+            file.write("\\]\n")
+            file.write("\\end{document}\n")
+        #regex(filename)
+
+    # SCALEWEBPROOFTREE
+    output_dir_scalewebprooftree           = '../tmp/scalewebprooftree'
+    output_dir_scalewebprooftree_dark_mode = '../tmp/scalewebprooftree/dark-mode'
+
+    # Regular expression pattern to find scalewebprooftree environments
+    pattern = re.compile(r'\\begin\{scalewebprooftree\}(.*?)\\end\{scalewebprooftree\}', re.DOTALL)
+
+    # Read the content of the input file
+    with open(input_file, 'r') as file:
+        content = file.read()
+
+    # Extract scalewebprooftree environments and store them in a list
+    scalewebprooftree_environments = pattern.findall(content)
+
+    # Replace scalewebprooftree environments in the content
+    for i, environment in enumerate(scalewebprooftree_environments):
+        img_tag = f'\\scalewebprooftree{{{i:06d}}}'
+        content = pattern.sub(img_tag, content, 1)  # Replace only the first occurrence
+
+    # Check if the output directory exists, if not create it
+    os.makedirs(output_dir_scalewebprooftree, exist_ok=True)
+    os.makedirs(output_dir_scalewebprooftree_dark_mode, exist_ok=True)
+
+    # Write each scalewebprooftree environment to a separate file
+    for i, environment in enumerate(scalewebprooftree_environments):
+        filename = os.path.join(output_dir_scalewebprooftree, f'scalewebprooftree-{i:06d}.tex')
+        with open(filename, 'w') as file:
+            file.write(get_preamble(IS_DARK_MODE=False,IS_WEBPROOF_TREE=True))
+            file.write("\\usepackage{adjustbox}\\begin{document}\n")
             file.write(r"\[\begin{adjustbox}{width=\linewidth,center}$")
             environment = re.sub("\n\n","\n",environment)
             file.write(environment)
             file.write("$\\end{adjustbox}\\]\n")
             file.write("\\end{document}\n")
         #regex(filename)
-    # Write each dark-mode webprooftree environment to a separate file
-    for i, environment in enumerate(webprooftree_environments):
-        filename = os.path.join(output_dir_webprooftree_dark_mode, f'webprooftree-{i:06d}.tex')
+    # Write each dark-mode scalewebprooftree environment to a separate file
+    for i, environment in enumerate(scalewebprooftree_environments):
+        filename = os.path.join(output_dir_scalewebprooftree_dark_mode, f'scalewebprooftree-{i:06d}.tex')
         with open(filename, 'w') as file:
             file.write(get_preamble(IS_DARK_MODE=True,IS_WEBPROOF_TREE=True))
             file.write("\\usepackage{adjustbox}\\begin{document}\n")
@@ -468,30 +534,30 @@ def main(input_file):
             environment = re.sub("/pictures/light-mode","/pictures/dark-mode",environment)
             environment = re.sub("gray!40","gray!80!black",environment)
             file.write(environment)
-            #file.write("\\]\n")
             file.write("$\\end{adjustbox}\\]\n")
             file.write("\\end{document}\n")
         #regex(filename)
     # Write the modified content back to the input file
     with open(input_file, 'w') as file:
         file.write(content)
-
-
     # Write the modified content back to the input file
     with open(input_file, 'w') as file:
         file.write(content)
+
     # Compile Light Mode
     clear_lua_cache()
     scalemath(output_dir_scalemath,scalemath_environments)
     webcompile(output_dir_webcompile,webcompile_environments)
     compile_tikzcd(output_dir,tikzcd_environments)
     compile_webprooftree(output_dir_webprooftree,webprooftree_environments)
+    compile_scalewebprooftree(output_dir_scalewebprooftree,scalewebprooftree_environments)
     # Compile Dark Mode
     clear_lua_cache()
     scalemath(output_dir_scalemath_dark_mode,scalemath_environments)
     webcompile(output_dir_webcompile_dark_mode,webcompile_environments)
     compile_tikzcd(output_dir_dark_mode,tikzcd_environments)
     compile_webprooftree(output_dir_webprooftree_dark_mode,webprooftree_environments)
+    compile_scalewebprooftree(output_dir_scalewebprooftree_dark_mode,scalewebprooftree_environments)
     # Make backups | scalemath
     for i, environment in enumerate(scalemath_environments):
         filename = os.path.join(output_dir_scalemath_dark_mode, f'scalemath-{i:06d}.tex')
@@ -516,11 +582,18 @@ def main(input_file):
         shutil.copyfile(filename,filename+".bak")
         filename = os.path.join(output_dir_webprooftree, f'webprooftree-{i:06d}.tex')
         shutil.copyfile(filename,filename+".bak")
+    # Make backups | scalewebprooftree
+    for i, environment in enumerate(scalewebprooftree_environments):
+        filename = os.path.join(output_dir_scalewebprooftree_dark_mode, f'scalewebprooftree-{i:06d}.tex')
+        shutil.copyfile(filename,filename+".bak")
+        filename = os.path.join(output_dir_scalewebprooftree, f'scalewebprooftree-{i:06d}.tex')
+        shutil.copyfile(filename,filename+".bak")
     # Make backups | tikzcd
     print(f"Processed {len(tikzcd_environments)} tikzcd environments.")
     print(f"Processed {len(webcompile_environments)} webcompile environments.")
     print(f"Processed {len(scalemath_environments)} scalemath environments.")
     print(f"Processed {len(webprooftree_environments)} webprooftree environments.")
+    print(f"Processed {len(scalewebprooftree_environments)} scalewebprooftree environments.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
