@@ -675,7 +675,7 @@ This chapter contains material on type theory.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{\displaystyle f\oftype\prod_{x\oftype A}B}}%
-                    \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B(x)}}%
+                    \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B(x)}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -760,7 +760,7 @@ This chapter contains material on type theory.
     \end{scalewebprooftree}%
     This finishes the proof.
 \end{Proof}
-\subsection{Function Types}\label{subsection-martin-löf-type-theory-function-types}
+\subsection{Function Types and Functions}\label{subsection-martin-löf-type-theory-function-types-and-functions}
 Let $A$ and $B$ be types.
 \begin{definition}{Function Types}{function-types}%
     The \index[type-theory]{function type}\textbf{type of (ordinary) functions from $A$ to $B$} is the type%
@@ -795,6 +795,152 @@ Let $A$ and $B$ be types.
         \item\label{further-terminology-for-function-types-codomain}Given a function $f\oftype A\to B$, the type $B$ is called its \index[type-theory]{codomain}\textbf{codomain}.
     \end{enumerate}
 \end{definition}
+\begin{example}{Identity Functions}{identity-functions-example}%
+    See \cref{subsection-martin-löf-type-theory-identity-functions}.
+\end{example}
+\begin{example}{Constant Functions}{constant-functions}%
+    Given a term $y$ of type $B$, we have a function \index[notation]{consty@$\const_{y}$}$\const_{y}\oftype A\to B$, giving rise to a judgement of the form
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer2{\context{\Gamma,\,y\oftype B}{\const_{y}\oftype A\to B}}%
+        \end{prooftree}%
+        ,%
+    \end{webprooftree}%
+    and being defined by
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \hypo{\context{\Gamma}{y\oftype B}}%
+            \infer3[(const)]{\context{\Gamma}{\const_{y}\doteq\llbracket x\mapsto y\rrbracket\oftype A\to B}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    It satisfies the following two properties:
+    \begin{enumerate}
+        \item\label{constant-functions-evaluation-for-constant-functions}\SloganFont{Evaluation for Constant Functions. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \hypo{\context{\Gamma}{y\oftype B}}%
+                    \infer3[(const-ev)]{\context{\Gamma,\,x\oftype A}{\const_{y}(x)\doteq y\oftype B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{constant-functions-postcomposition-with-the-constant-function}\SloganFont{Postcomposition With the Constant Function. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{f\oftype A\to B}}%
+                    \infer1{\context{\Gamma,\,z\oftype C}{\const_{z}\circ f\doteq\const_{z}\oftype A\to C}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{constant-functions-precomposition-with-the-constant-function}\SloganFont{Precomposition With the Constant Function. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{g\oftype B\to C}}%
+                    \infer1{\context{\Gamma,\,y\oftype B}{g\circ\const_{y}\doteq\const_{g(y)}\oftype A\to C}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{example}
+\begin{Proof}{Proof of \cref{constant-functions}}%
+    \FirstProofBox{Construction of $\const$}%
+    We have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer1[(G)]{\context{\Gamma,\,y\oftype B}{y\oftype B}}%
+            \infer2[(const)]{\context{\Gamma,\,y\oftype B}{\const_{y}\oftype A\to B}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the construction of $\const_{y}$.
+
+    \ProofBox{\cref{constant-functions-evaluation-for-constant-functions}: Evaluation for Constant Functions}%
+    We have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \hypo{\context{\Gamma}{y\oftype B}}%
+            \infer3[(const-def)]{\context{\Gamma}{\const_{y}\doteq\llbracket x\mapsto y\rrbracket\oftype A\to B}}%
+            \infer1[(ev-eq)]{\context{\Gamma,\,a\oftype A}{\const_{y}(a)\doteq\llbracket x\mapsto y\rrbracket(a)\oftype A}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(G)]{\context{\Gamma,\,a\oftype A}{a\oftype A}}%
+            \infer2[(β)]{\context{\Gamma,\,a\oftype A}{\llbracket x\mapsto y\rrbracket(a)\doteq a\oftype A}}%
+            \infer2[(trans)]{\context{\Gamma,\,a\oftype A}{\const_{y}(a)\doteq a\oftype A}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the proof.%
+
+
+    \ProofBox{\cref{constant-functions-postcomposition-with-the-constant-function}: Postcomposition With the Constant Function}%
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{\const_{y}(f(x))\doteq y\oftype B}$, as we can then finish that derivation with
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\evdots}%
+            \infer1{\context{\Gamma,\,x\oftype A}{\const_{y}(f(x))\doteq y\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto\const_{y}(f(x))\rrbracket\doteq\llbracket x\mapsto y\rrbracket\oftype A\to B}}%
+            \hypo{\context{\Gamma}{\const_{y}\oftype A\to B}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto y\rrbracket\doteq\const_{y}\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{\const_{y}\circ f\doteq\const_{y}\oftype A\to B}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    Now, for the proof of the judgement, we have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{f\oftype A\to B}}%
+            \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{C\type}}%
+            \hypo{\context{\Gamma}{z\oftype C}}%
+            \infer3[(const)]{\context{\Gamma}{\const_{z}\doteq\llbracket x\mapsto z\rrbracket\oftype A\to C}}%
+            \infer1[(const-ev)]{\context{\Gamma,\,y\oftype B}{\const_{z}(y)\doteq z\oftype C}}%
+            \infer1[(W)]{\context{\Gamma,\,x\oftype A,\,y\oftype B}{\const_{z}(y)\doteq z\oftype C}}%
+            \infer2[(S)]{\context{\Gamma,\,x\oftype A}{\const_{z}(f(x))\doteq z\oftype B}}
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the proof.
+
+    \ProofBox{\cref{constant-functions-precomposition-with-the-constant-function}: Precomposition With the Constant Function}%
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}$, as we can then finish that derivation with
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\evdots}%
+            \infer1{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto g(\const_{y}(x))\rrbracket\doteq\llbracket x\mapsto g(y)\rrbracket\oftype A\to C}}%
+            \hypo{\context{\Gamma}{g\oftype B\to C}}%
+            \infer1[(η)]{\context{\Gamma}{\llbracket y\mapsto g(y)\rrbracket\doteq g\oftype B\to C}}%
+            \infer1[(TODO)]{\context{\Gamma}{\llbracket x\mapsto g(y)\rrbracket\doteq g??\oftype A\to C}}%
+            \infer2[(trans)]{\context{\Gamma}{g\circ\const_{y}\doteq\const_{g(y)}\oftype A\to C}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    Now, for the proof of the judgement, we have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \hypo{\context{\Gamma}{y\oftype B}}%
+            \infer3[(const-ev)]{\context{\Gamma,\,x\oftype A}{\const_{y}(x)\doteq y\oftype B}}%
+            \hypo{\context{\Gamma}{g\oftype B\to C}}%
+            \infer1[(refl)]{\context{\Gamma}{g\doteq g\oftype B\to C}}%
+            \infer2[(ev-eq)]{\context{\Gamma,\,x\oftype A}{g(\const_{y}(x))\doteq g(y)\oftype B}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the proof.
+\end{Proof}
 \begin{proposition}{Inference Rules for Function Types}{properties-of-function-types}%
     Let $A$ and $B$ be types.
     \begin{enumerate}
@@ -837,7 +983,7 @@ Let $A$ and $B$ be types.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
-                    \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+                    \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -917,7 +1063,7 @@ Let $A$ and $B$ be types.
         \begin{prooftree}%
             \hypo{\context{\Gamma}{a\oftype A}}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
-            \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+            \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
             \infer2[(S)]{\context{\Gamma}{f[a/x]\oftype B[a/x]}}%
             \infer1{\context{\Gamma}{f(a)\oftype B}}%
         \end{prooftree}%
@@ -933,7 +1079,7 @@ Let $A$ and $B$ be types.
             \hypo{\context{\Gamma}{B\type}}%
             \infer2[(FT)]{\context{\Gamma}{A\to B\type}}%
             \infer1[(G)]{\context{\Gamma,\,f\oftype A\to B}{f\oftype A\to B}}%
-            \infer1[(ev)]{\context{\Gamma,\,f\oftype A\to B,\,x\oftype A}{f(x)\oftype B}}%
+            \infer1[(ev1)]{\context{\Gamma,\,f\oftype A\to B,\,x\oftype A}{f(x)\oftype B}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
@@ -998,7 +1144,7 @@ Let $A$ be a type.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-for-identity-functions-identity-evaluation}\SloganFont{Identity Evaluation. }We have
+        \item\label{inference-rules-for-identity-functions-evaluation-for-identity-functions}\SloganFont{Evaluation for Identity Functions. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -1013,7 +1159,7 @@ Let $A$ be a type.
     \FirstProofBox{\cref{inference-rules-for-identity-functions-formation-of-identity-functions}: Formation of Identity Functions}%
     This follows from \cref{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-1} of \cref{inference-rules-in-martin-löf-type-theory-1}.
 
-    \ProofBox{\cref{inference-rules-for-identity-functions-identity-evaluation}: Identity Evaluation}%
+    \ProofBox{\cref{inference-rules-for-identity-functions-evaluation-for-identity-functions}: Evaluation for Identity Functions}%
     We have
     \begin{webprooftree}%
         \begin{prooftree}%
@@ -1063,7 +1209,7 @@ Let $A$, $B$, and $C$ be types.
             \hypo{\context{\Gamma}{C\type}}%
             \infer2[(ev3)]{\context{\Gamma,\,g\oftype[B,C],\,y\oftype B}{g(y)\oftype C}}%
             \infer1[(W)]{\context{\Gamma,\,g\oftype[B,C],\,f\oftype[A,B],\,y\oftype B}{g(y)\oftype C}}%
-            \infer2[(ev)]{\context{\Gamma,\,g\oftype[B,C],\,f\oftype[A,B],\,x\oftype A}{g(f(x))\oftype C}}%
+            \infer2[(ev1)]{\context{\Gamma,\,g\oftype[B,C],\,f\oftype[A,B],\,x\oftype A}{g(f(x))\oftype C}}%
             \infer1[(λ)]{\context{\Gamma,\,g\oftype[B,C],\,f\oftype[A,B]}{\llbracket x\mapsto g(f(x))\rrbracket\oftype[A,C]}}%
             \infer1[(λ)]{\context{\Gamma,\,g\oftype[B,C]}{\llbracket f\mapsto\llbracket x\mapsto g(f(x))\rrbracket\rrbracket\oftype[[A,B],[A,C]]}}%
             \infer1[(λ)]{\context{\Gamma}{\llbracket g\mapsto\llbracket f\mapsto\llbracket x\mapsto g(f(x))\rrbracket\rrbracket\rrbracket\oftype[[B,C],[[A,B],[A,C]]]}}%
@@ -1161,13 +1307,13 @@ Let $A$, $B$, and $C$ be types.
     \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
-            \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+            \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
             \hypo{\context{\Gamma}{g\oftype B\to C}}%
-            \infer1[(ev)]{\context{\Gamma,\,y\oftype B}{g(y)\oftype C}}%
+            \infer1[(ev1)]{\context{\Gamma,\,y\oftype B}{g(y)\oftype C}}%
             \infer1[(W)]{\context{\Gamma,\,x\oftype A,\,y\oftype B}{g(y)\oftype C}}%
             \infer2[(S)]{\context{\Gamma,\,x\oftype A}{g(f(x))\oftype C}}%
             \hypo{\context{\Gamma}{h\oftype C\to D}}%
-            \infer1[(ev)]{\context{\Gamma,\,z\oftype C}{h(z)\oftype D}}%
+            \infer1[(ev1)]{\context{\Gamma,\,z\oftype C}{h(z)\oftype D}}%
             \infer1[(W)]{\context{\Gamma,\,x\oftype A,\,z\oftype C}{h(z)\oftype D}}%
             \infer2[(S)]{\context{\Gamma,\,x\oftype A}{h(g(f(x)))\oftype D}}%
             \infer1[(refl)]{\context{\Gamma,\,x\oftype A}{h(g(f(x)))\doteq h(g(f(x)))\oftype D}}%
@@ -1187,16 +1333,17 @@ Let $A$, $B$, and $C$ be types.
             \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
             \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
         \end{prooftree}%
+        .%
     \end{scalewebprooftree}%
-    Now, for the proof of this judgement, we have
+    Now, for the proof of the judgement, we have
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
-            \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
+            \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
             \hypo{\context{\Gamma}{A\type}}%
             \hypo{\context{\Gamma}{B\type}}%
             \infer1[(id-ev)]{\context{\Gamma,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}%
-            \infer2[(W)]{\context{\Gamma,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}
+            \infer2[(W)]{\context{\Gamma,\,x\oftype A,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}
             \infer2[(S)]{\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}}
         \end{prooftree}%
         .%
@@ -1214,17 +1361,16 @@ Let $A$, $B$, and $C$ be types.
             \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
             \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
         \end{prooftree}%
+        .%
     \end{scalewebprooftree}%
-    Now, for the proof of this judgement, we have
+    Now, for the proof of the judgement, we have
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
-            \infer1[(id-ev)]{\context{\Gamma,\,x\oftype B}{\id_{A}(x)\doteq x\oftype A}}%
-            \hypo{\context{\Gamma}{B\type}}%
-            \infer2[(W)]{\context{\Gamma,\,x\oftype A}{\id_{A}(x)\doteq x\oftype A}}
+            \infer1[(id-ev)]{\context{\Gamma,\,x\oftype A}{\id_{A}(x)\doteq x\oftype A}}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
-            \infer1[(ev)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
-            \infer2[(S)]{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}
+            \infer1[(refl)]{\context{\Gamma}{f\doteq f\oftype A\to B}}%
+            \infer2[(ev-eq)]{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
