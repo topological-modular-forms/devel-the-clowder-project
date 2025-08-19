@@ -3285,3 +3285,11 @@
 034A,type-theory:properties-of-composition-of-functions-associativity
 034B,type-theory:properties-of-composition-of-functions-left-unitality
 034C,type-theory:properties-of-composition-of-functions-right-unitality
+034D,type-theory:subsection-martin-löf-type-theory-the-natural-numbers
+034E,type-theory:the-n-formation-rule
+034F,type-theory:the-introduction-rules-of-n
+034G,type-theory:the-introduction-rules-of-n-the-zero-element
+034H,type-theory:the-introduction-rules-of-n-the-successor-function
+034J,type-theory:the-induction-principle-of-n
+034K,type-theory:the-induction-principle-of-n-1
+034L,type-theory:the-induction-principle-of-n-2

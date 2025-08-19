@@ -49,7 +49,14 @@ This chapter contains material on type theory.
 \end{example}
 \subsection{Contexts}\label{subsection-contexts}
 \begin{definition}{Contexts}{contexts}%
-    A \index[type-theory]{context}\textbf{context} is a finite list of \textbf{variable declarations}
+    A \index[type-theory]{context}\textbf{context} is a finite list%
+    %--- Begin Footnote ---%
+    \footnote{%
+        There is, in particular, the empty context.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    of \textbf{variable declarations}
     \begin{itemize}
         \item $a_{1}\oftype A_{1}$;
         \item $a_{2}\oftype A_{2}(x_{1})$;
@@ -571,13 +578,13 @@ This chapter contains material on type theory.
         \item\label{the-pi-formation-rule-forming-pi-types}\SloganFont{Forming Π-Types. }We have%
             %--- Begin Footnote ---%
             \footnote{%
-                \SloganFont{Slogan: }We may form a Π-type $\prod_{(x\oftype A)}B(x)$ given a type family $B(x)$ indexed over $x\oftype A$.
+                \SloganFont{Slogan: }We may form a Π-type $\prod_{x\oftype A}B(x)$ given a type family $B(x)$ indexed over $x\oftype A$.
             }%
             %---  End Footnote  ---%
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
-                    \infer1[(Π)]{\context{\Gamma}{\displaystyle\prod_{(x\oftype A)}B(x)\type}}%
+                    \infer1[(Π)]{\context{\Gamma}{\displaystyle\prod_{x\oftype A}B(x)\type}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -592,7 +599,7 @@ This chapter contains material on type theory.
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq A'\type}}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\doteq B'(x)\type}}%
-                    \infer2[(Π-eq)]{\context{\Gamma}{\displaystyle\prod_{(x\oftype A)}B(x)\doteq\prod_{(x\oftype A')}B'(x)\type}}%
+                    \infer2[(Π-eq)]{\context{\Gamma}{\displaystyle\prod_{x\oftype A}B(x)\doteq\prod_{x\oftype A'}B'(x)\type}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1375,6 +1382,138 @@ Let $A$, $B$, and $C$ be types.
         \end{prooftree}%
         .%
     \end{webprooftree}%
+    This finishes the proof.
+\end{Proof}
+\subsection{The Natural Numbers}\label{subsection-martin-löf-type-theory-the-natural-numbers}
+\begin{definition}{The $\N$-Formation Rule}{the-n-formation-rule}%
+    Martin-Löf type theory has the following inference rule about the formation of the \index[type-theory]{natural numbers}\textbf{type of natural numbers}:\index[type-theory]{N-formation rule@$\N$-formation rule}%
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{}
+            \infer1[($\N$-form)]{\vdash\N\type}
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+\end{definition}
+\begin{definition}{The Introduction Rules of $\N$}{the-introduction-rules-of-n}%
+    Martin-Löf type theory has the following \textbf{introduction rules} rule about the type of the natural numbers:%
+    \begin{enumerate}
+        \item\label{the-introduction-rules-of-n-the-zero-element}\SloganFont{The Zero Element. }We have\index[notation]{ZeroN@$\Zero_{\N}$}%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{}%
+                    \infer1[($\N$-zero)]{\vdash\Zero_{\N}\oftype\N}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{the-introduction-rules-of-n-the-successor-function}\SloganFont{The Successor Function. }We have\index[notation]{succN@$\succ_{\N}$}%
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{}%
+                    \infer1[($\N$-succ)]{\vdash\succ_{\N}\oftype\N\to\N}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{definition}
+\begin{definition}{The Induction Principle of $\N$}{the-induction-principle-of-n}%
+    Martin-Löf type theory has the following interderivable \index[type-theory]{induction principle of N@induction principle of $\N$}\textbf{induction principle} rules about the type of the natural numbers:\index[notation]{indN@$\ind_{\N}$}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }The term $p_{0}\oftype P(\Zero_{\N})$ is called the \index[type-theory]{induction principle of N@induction principle of $\N$!base case}\textbf{base case}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }The term $p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))$ is called the \index[type-theory]{induction principle of N@induction principle of $\N$!inductive step}\textbf{inductive step}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{the-induction-principle-of-n-1}\SloganFont{The Induction Principle of $\N$, \rmI. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+                    \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
+                    \hypo{\context{\Gamma}{\displaystyle p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
+                    \infer3[($\N$-ind1)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0},p_{S})\oftype\prod_{n\oftype\N}P(n)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{the-induction-principle-of-n-2}\SloganFont{The Induction Principle of $\N$, \rmII. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+                    \infer1[($\N$-ind2)]{\context{\Gamma}{\displaystyle\ind_{\N}\oftype P(\Zero_{\N})\to\left[\left[\prod_{n\oftype\N}P(n),P(\succ_{\N}(n))\right],\prod_{n\oftype\N}P(n)\right]}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Proof of the interderivability of \cref{the-induction-principle-of-n-1,the-induction-principle-of-n-2}}%
+    \FirstProofBox{\cref{the-induction-principle-of-n-1}$\implies$\cref{the-induction-principle-of-n-2}}%
+    First, let's derive $\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}$ from $\context{\Gamma,\,n\oftype\N}{P(n)\type}$:
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+            \hypo{}%
+            \infer1[($\N$-zero)]{\vdash\Zero_{\N}\oftype\N}%
+            \infer2[(S)]{\context{\Gamma}{P(\Zero_{\N})\type}}%
+            \infer1[(G)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    Next, we derive
+    \[
+        \context{\Gamma,\,p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}
+    \]%
+    from $\context{\Gamma,\,n\oftype\N}{P(n)\type}$:
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+            \hypo{}%
+            \infer1[($\N$-succ)]{\vdash\succ_{\N}\oftype\N\to\N}%
+            \hypo{}%
+            \infer1[($\N$-form)]{\vdash\N\type}%
+            \infer1[(G)]{\context{\Gamma,\,n\oftype\N}{n\oftype\N}}%
+            \infer2[(ev2)]{\context{\Gamma,\,n\oftype\N}{\succ_{\N}(n)\oftype\N}}%
+            \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+            \infer2[(S)]{\context{\Gamma,\,n\oftype\N}{P(\succ_{\N}(n))\type}}%
+            \infer2[(FT)]{\context{\Gamma,\,n\oftype\N}{P(n)\to P(\succ_{\N}(n))\type}}%
+            \infer1[(Π)]{\context{\Gamma}{\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\type}}%
+            \infer1[(G)]{\context{\Gamma,\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\type}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    We then have
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+            \hypo{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}}%
+            \hypo{\context{\Gamma,\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\type}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
+            \infer3[(WWW)]{\context{\Gamma,\,n\oftype\N,\,p_{0}\oftype P(\Zero_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}
+            \infer1[($\N$-ind1)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{\displaystyle\ind_{\N}(p_{0},p_{S})\oftype\prod_{n\oftype\N}P(n)\type}}%
+            \infer1[(λ)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{\displaystyle\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\oftype\left(\prod_{n\oftype\N}P(n)\type\to\prod_{n\oftype\N}P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket p_{0}\mapsto\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\rrbracket\oftype P(\Zero_{\N})\to\left[\left[\prod_{n\oftype\N}\left[P(n),P(\succ_{\N}(n))\right]\right],\prod_{n\oftype\N}P(n)\right]}}%
+        \end{prooftree}%
+        ,%
+    \end{scalewebprooftree}%
+    where in (WWW) we applied weakening repeatedly for all hypotheses. This finishes the proof.
+
+    \ProofBox{\cref{the-induction-principle-of-n-2}$\implies$\cref{the-induction-principle-of-n-1}}%
+    We have
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
+            \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+            \infer1[($\N$-ind2)]{\context{\Gamma}{\displaystyle\ind_{\N}\oftype P(\Zero_{\N})\to\left(\left(\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)\right)}}%
+            \infer2[(ev2)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0})\oftype\left(\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)}}%
+            \hypo{\context{\Gamma}{\displaystyle p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
+            \infer2[(ev2)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0},p_{s})\oftype\prod_{n\oftype\N}P(n)}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
     This finishes the proof.
 \end{Proof}
 \begin{appendices}
