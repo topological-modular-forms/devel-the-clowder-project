@@ -1451,7 +1451,7 @@ Let $A$, $B$, and $C$ be types.
             \end{webprooftree}%
     \end{enumerate}
 \end{definition}
-\begin{Proof}{Proof of the interderivability of \cref{the-induction-principle-of-n-1,the-induction-principle-of-n-2}}%
+\begin{Proof}{Proof of the Interderivability of \cref{the-induction-principle-of-n-1,the-induction-principle-of-n-2}}%
     \FirstProofBox{\cref{the-induction-principle-of-n-1}$\implies$\cref{the-induction-principle-of-n-2}}%
     First, let's derive $\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}$ from $\context{\Gamma,\,n\oftype\N}{P(n)\type}$:
     \begin{webprooftree}%
@@ -1494,7 +1494,7 @@ Let $A$, $B$, and $C$ be types.
             \hypo{\context{\Gamma,\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\type}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
             \infer3[(WWW)]{\context{\Gamma,\,n\oftype\N,\,p_{0}\oftype P(\Zero_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}
             \infer1[($\N$-ind1)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{\displaystyle\ind_{\N}(p_{0},p_{S})\oftype\prod_{n\oftype\N}P(n)\type}}%
-            \infer1[(λ)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{\displaystyle\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\oftype\left(\prod_{n\oftype\N}P(n)\type\to\prod_{n\oftype\N}P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)}}%
+            \infer1[(λ)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{\displaystyle\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\oftype\left[\prod_{n\oftype\N}P(n),\prod_{n\oftype\N}P(\succ_{\N}(n))\right]\to\prod_{n\oftype\N}P(n)}}%
             \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket p_{0}\mapsto\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\rrbracket\oftype P(\Zero_{\N})\to\left[\left[\prod_{n\oftype\N}\left[P(n),P(\succ_{\N}(n))\right]\right],\prod_{n\oftype\N}P(n)\right]}}%
         \end{prooftree}%
         ,%
