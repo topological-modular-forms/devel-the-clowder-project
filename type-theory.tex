@@ -20,15 +20,15 @@ This chapter contains material on type theory.
 \subsection{Inference Rules}\label{subsection-inference-rules}
 \begin{definition}{Inference Rules}{inference-rules}%
     An \index[type-theory]{inference rule}\textbf{inference rule} is written in the form
-    \begin{webprooftree}
-        \begin{prooftree}
+    \begin{webprooftree}%
+        \begin{prooftree}%
             \hypo{\mathcal{H}_{1}}%
             \hypo{\mathcal{H}_{2}}%
             \hypo{\ldots}%
             \hypo{\mathcal{H}_{n}}%
             \infer4[(name)]{\mathcal{C}}
-        \end{prooftree}
-    \end{webprooftree}
+        \end{prooftree}%
+    \end{webprooftree}%
     and represents a deduction going from a finite list $\mathcal{H}_{1}$, $\ldots$, $\mathcal{H}_{n}$ of \textbf{judgements} for the \textbf{premises} to a \textbf{conclusion} $\CatFont{C}$, which is itself a (single) judgement.
 \end{definition}
 \begin{example}{An Inference Rule for Function Types}{an-inference-rule-for-function-types}%
@@ -147,8 +147,8 @@ This chapter contains material on type theory.
     \end{webprooftree}%
 \end{example}
 \section{Martin-Löf Type Theory}\label{section-martin-löf-type-theory}
-\subsection{Judgements}\label{subsection-martin-löf-type-theory-judgements}
-\begin{definition}{Judgements}{martin-löf-type-theory-judgements}%
+\subsection{Judgements}\label{subsection-the-judgements-of-martin-löf-type-theory}
+\begin{definition}{Judgements in Martin-Löf Type Theory}{judgements-in-martin-löf-type-theory}%
     Martin-Löf type theory has four kinds of \textbf{judgements}:
     \begin{enumerate}
         \item\label{martin-löf-type-theory-being-a-type}$A$ is a \textbf{type} in context $\Gamma$.
@@ -164,11 +164,11 @@ This chapter contains material on type theory.
         \item $\context{\Gamma}{a\doteq b\oftype A}$.
     \end{itemize}
 \end{definition}
-\subsection{Inference Rules}\label{subsection-martin-löf-type-theory-inference-rules}
-\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmI}{inference-rules-in-martin-löf-type-theory-1}%
+\subsection{Formation of Contexts, Types, and Terms}\label{subsection-formation-of-contexts-types-and-terms}
+\begin{definition}{Formation of Contexts, Types, and Terms in Martin-Löf Type Theory}{formation-of-contexts-types-and-terms-in-martin-löf-type-theory}%
     Martin-Löf type theory has the following inference rules about the formation of contexts, types, and terms.
     \begin{enumerate}
-        \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-dependent-types}\SloganFont{Formation of Dependent Types. }We have
+        \item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-dependent-types}\SloganFont{Formation of Dependent Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
@@ -176,7 +176,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-types-1}\SloganFont{Formation of Judgemental Equality of Types \rmI. }We have
+        \item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-judgemental-equality-of-types-1}\SloganFont{Formation of Judgemental Equality of Types \rmI. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
@@ -184,7 +184,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-types-1}\SloganFont{Formation of Judgemental Equality of Types \rmII. }We have
+        \item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-judgemental-equality-of-types-1}\SloganFont{Formation of Judgemental Equality of Types \rmII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
@@ -192,7 +192,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-terms}\SloganFont{Formation of Terms. }We have
+        \item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-terms}\SloganFont{Formation of Terms. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
@@ -200,7 +200,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-1}\SloganFont{Formation of Judgemental Equality of Terms \rmI. }We have
+        \item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-judgemental-equality-of-terms-1}\SloganFont{Formation of Judgemental Equality of Terms \rmI. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
@@ -208,7 +208,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-3}\SloganFont{Formation of Judgemental Equality of Terms \rmII. }We have
+        \item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-judgemental-equality-of-terms-3}\SloganFont{Formation of Judgemental Equality of Terms \rmII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\doteq b\oftype A}}%
@@ -216,13 +216,14 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        %\item\label{inference-rules-in-martin-löf-type-theory-1-}\SloganFont{. }
+        %\item\label{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
-\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmII}{inference-rules-in-martin-löf-type-theory-2}%
+\subsection{Judgemental Equality}\label{subsection-judgemental-equality-in-martin-löf-type-theory}
+\begin{definition}{Judgemental Equality in Martin-Löf Type Theory \rmII}{judgemental-equality-in-martin-löf-type-theory}%
     Martin-Löf type theory has the following inference rules about judgemental equality of types, ensuring it behaves like an equivalence relation.
     \begin{enumerate}
-        \item\label{inference-rules-in-martin-löf-type-theory-2-reflexivity}\SloganFont{Reflexivity. }We have
+        \item\label{judgemental-equality-in-martin-löf-type-theory-reflexivity}\SloganFont{Reflexivity. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -230,7 +231,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-2-symmetry}\SloganFont{Symmetry. }We have
+        \item\label{judgemental-equality-in-martin-löf-type-theory-symmetry}\SloganFont{Symmetry. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
@@ -238,7 +239,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-2-transitivity}\SloganFont{Transitivity. }We have
+        \item\label{judgemental-equality-in-martin-löf-type-theory-transitivity}\SloganFont{Transitivity. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\doteq B\type}}%
@@ -247,7 +248,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        %\item\label{inference-rules-in-martin-löf-type-theory-2-}\SloganFont{. }
+        %\item\label{judgemental-equality-in-martin-löf-type-theory-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
 \begin{definition}{Inference Rules in Martin-Löf Type Theory \rmIII}{inference-rules-in-martin-löf-type-theory-3}%
@@ -281,10 +282,11 @@ This chapter contains material on type theory.
         %\item\label{inference-rules-in-martin-löf-type-theory-3-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
-\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmIV}{inference-rules-in-martin-löf-type-theory-4}%
+\subsection{Variable Conversion}\label{subsection-variable-conversion-in-martin-löf-type-theory}
+\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmIV}{variable-conversion-in-martin-löf-type-theory}%
     Martin-Löf type theory has the following inference rules about \textbf{variable conversion}. They postulate we may convert a variable to a judgementally equal type/term.\index[type-theory]{variable conversion rules}%
     \begin{enumerate}
-        \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-types}\SloganFont{Variable Conversion for Types. }We have%
+        \item\label{variable-conversion-in-martin-löf-type-theory-variable-conversion-for-types}\SloganFont{Variable Conversion for Types. }We have%
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Slogan: }We may reindex a type $B(x)$ over $x\oftype A$ to $x\oftype A'$ when $A\doteq A'\type$.
@@ -298,7 +300,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-terms}\SloganFont{Variable Conversion for Terms. }We have%
+        \item\label{variable-conversion-in-martin-löf-type-theory-variable-conversion-for-terms}\SloganFont{Variable Conversion for Terms. }We have%
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Slogan: }If we have a term $c(x)$ of type $C(x)$ indexed by $x\oftype A$ and $A\doteq B\type$, then $c(x)$ will have type $C(x)$ indexed by $x\oftype B$.
@@ -312,7 +314,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-judgemental-equality-of-types}\SloganFont{Variable Conversion for Judgemental Equality of Types. }We have%
+        \item\label{variable-conversion-in-martin-löf-type-theory-variable-conversion-for-judgemental-equality-of-types}\SloganFont{Variable Conversion for Judgemental Equality of Types. }We have%
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Slogan: }We may transfer a judgemental equality $C(x)\doteq C'(x)\type$ indexed over $x\oftype A$ to a judgemental equality $C(x)\doteq C'(x)\type$ indexed over $x\oftype B$ when $A\doteq B\type$.
@@ -326,7 +328,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-4-variable-conversion-for-judgemental-equality-of-terms}\SloganFont{Variable Conversion for Judgemental Equality of Terms. }We have%
+        \item\label{variable-conversion-in-martin-löf-type-theory-variable-conversion-for-judgemental-equality-of-terms}\SloganFont{Variable Conversion for Judgemental Equality of Terms. }We have%
             %--- Begin Footnote ---%
             \footnote{%
                 \SloganFont{Slogan: }We may transfer a judgemental equality $c(x)\doteq c'(x)\oftype C(x)$ indexed over $x\oftype A$ to a judgemental equality $c(x)\doteq c'(x)\oftype C(x)$ indexed over $x\oftype B$ when $A\doteq B\type$.
@@ -411,7 +413,8 @@ This chapter contains material on type theory.
     \end{webprooftree}%
     where we have used \cref{inference-rules-in-martin-löf-type-theory-6-substitution-by-judgementally-equal-terms-for-types-2-terms} of \cref{inference-rules-in-martin-löf-type-theory-6} (CS2) from below.
 \end{Proof}
-\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmV}{inference-rules-in-martin-löf-type-theory-5}%
+\subsection{Substitution}\label{subsection-substitution-in-martin-löf-type-theory}
+\begin{definition}{Substitution in Martin-Löf Type Theory}{substitution-in-martin-löf-type-theory}%
     Martin-Löf type theory has the following inference rules about \textbf{substitution}:\index[type-theory]{substitution rules}%
     %--- Begin Footnote ---%
     \footnote{%
@@ -425,7 +428,7 @@ This chapter contains material on type theory.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-types}\SloganFont{Substitution in Types. }We have
+        \item\label{substitution-in-martin-löf-type-theory-substitution-in-types}\SloganFont{Substitution in Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
@@ -434,7 +437,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-terms}\SloganFont{Substitution in Terms. }We have
+        \item\label{substitution-in-martin-löf-type-theory-substitution-in-terms}\SloganFont{Substitution in Terms. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
@@ -443,7 +446,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-judgemental-equality-of-types}\SloganFont{Substitution in Judgemental Equality of Types. }We have
+        \item\label{substitution-in-martin-löf-type-theory-substitution-in-judgemental-equality-of-types}\SloganFont{Substitution in Judgemental Equality of Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
@@ -452,7 +455,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-5-substitution-in-judgemental-equality-of-terms}\SloganFont{Substitution in Judgemental Equality of Terms. }We have
+        \item\label{substitution-in-martin-löf-type-theory-substitution-in-judgemental-equality-of-terms}\SloganFont{Substitution in Judgemental Equality of Terms. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{a\oftype A}}%
@@ -461,7 +464,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        %\item\label{inference-rules-in-martin-löf-type-theory-5-}\SloganFont{. }
+        %\item\label{substitution-in-martin-löf-type-theory-}\SloganFont{. }
     \end{enumerate}
     These rules may be summarised as
     \begin{webprooftree}%
@@ -498,7 +501,8 @@ This chapter contains material on type theory.
         %\item\label{inference-rules-in-martin-löf-type-theory-6-}\SloganFont{. }
     \end{enumerate}
 \end{definition}
-\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmVII}{inference-rules-in-martin-löf-type-theory-7}%
+\subsection{Weakening}\label{subsection-weakening-in-martin-löf-type-theory}
+\begin{definition}{Weakening in Martin-Löf Type Theory \rmVII}{weakening-in-martin-löf-type-theory}%
     Martin-Löf type theory has the following rules about \textit{weakening}:\index[type-theory]{weakening rule}%
     %--- Begin Footnote ---%
     \footnote{%
@@ -507,7 +511,7 @@ This chapter contains material on type theory.
     }%
     %---  End Footnote  ---%
     \begin{enumerate}
-        \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-types}\SloganFont{Weakening for Types. }We have
+        \item\label{weakening-in-martin-löf-type-theory-weakening-for-types}\SloganFont{Weakening for Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -516,7 +520,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-terms}\SloganFont{Weakening for Terms. }We have
+        \item\label{weakening-in-martin-löf-type-theory-weakening-for-terms}\SloganFont{Weakening for Terms. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -525,7 +529,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-judgemental-equality-of-types}\SloganFont{Weakening for Judgemental Equality of Types. }We have
+        \item\label{weakening-in-martin-löf-type-theory-weakening-for-judgemental-equality-of-types}\SloganFont{Weakening for Judgemental Equality of Types. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -534,7 +538,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{inference-rules-in-martin-löf-type-theory-7-weakening-for-judgemental-equality-of-terms}\SloganFont{Weakening for Judgemental Equality of Terms. }We have
+        \item\label{weakening-in-martin-löf-type-theory-weakening-for-judgemental-equality-of-terms}\SloganFont{Weakening for Judgemental Equality of Terms. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -543,7 +547,7 @@ This chapter contains material on type theory.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        %\item\label{inference-rules-in-martin-löf-type-theory-7-}\SloganFont{. }
+        %\item\label{weakening-in-martin-löf-type-theory-}\SloganFont{. }
     \end{enumerate}
     These rules may be summarised as
     \begin{webprooftree}%
@@ -556,7 +560,8 @@ This chapter contains material on type theory.
     \end{webprooftree}%
     for $\mathcal{J}$ a generic judgement.
 \end{definition}
-\begin{definition}{Inference Rules in Martin-Löf Type Theory \rmVIII}{inference-rules-in-martin-löf-type-theory-8}%
+\subsection{Generic Elements}\label{subsection-generic-elements-in-martin-löf-type-theory}
+\begin{definition}{Generic Elements in Martin-Löf Type Theory}{generic-elements-in-martin-löf-type-theory}%
     Martin-Löf type theory has the following \textbf{variable rule} about the \textbf{generic element}:\index[type-theory]{generic element rule}%
     \begin{webprooftree}%
         \begin{prooftree}%
@@ -566,6 +571,7 @@ This chapter contains material on type theory.
         .%
     \end{webprooftree}%
 \end{definition}
+\section{Functions in Martin-Löf Type Theory}\label{section-functions-in-martin-löf-type-theory}
 \subsection{Dependent Function Types}\label{subsection-martin-löf-type-theory-dependent-function-types}
 \begin{definition}{The Π-Formation Rule}{the-pi-formation-rule}%
     Martin-Löf type theory has the following inference rules about the formation of \index[type-theory]{Π-types}\textbf{Π-types}:\index[type-theory]{Π-formation rule}%
@@ -1165,7 +1171,7 @@ Let $A$ be a type.
 \end{proposition}
 \begin{Proof}{Proof of \cref{inference-rules-for-identity-functions}}%
     \FirstProofBox{\cref{inference-rules-for-identity-functions-formation-of-identity-functions}: Formation of Identity Functions}%
-    This follows from \cref{inference-rules-in-martin-löf-type-theory-1-formation-of-judgemental-equality-of-terms-1} of \cref{inference-rules-in-martin-löf-type-theory-1}.
+    This follows from \cref{formation-of-contexts-types-and-terms-in-martin-löf-type-theory-formation-of-judgemental-equality-of-terms-1} of \cref{formation-of-contexts-types-and-terms-in-martin-löf-type-theory}.
 
     \ProofBox{\cref{inference-rules-for-identity-functions-evaluation-for-identity-functions}: Evaluation for Identity Functions}%
     We have
@@ -1384,7 +1390,8 @@ Let $A$, $B$, and $C$ be types.
     \end{webprooftree}%
     This finishes the proof.
 \end{Proof}
-\subsection{The Natural Numbers}\label{subsection-martin-löf-type-theory-the-natural-numbers}
+\section{The Natural Numbers}\label{subsection-martin-löf-type-theory-the-natural-numbers}
+\subsection{Foundations}\label{subsection-martin-löf-type-theory-the-natural-numbers-foundations}
 \begin{definition}{The $\N$-Formation Rule}{the-n-formation-rule}%
     Martin-Löf type theory has the following inference rule about the formation of the \index[type-theory]{natural numbers}\textbf{type of natural numbers}:\index[type-theory]{N-formation rule@$\N$-formation rule}%
     \begin{webprooftree}%
@@ -1396,13 +1403,13 @@ Let $A$, $B$, and $C$ be types.
     \end{webprooftree}%
 \end{definition}
 \begin{definition}{The Introduction Rules of $\N$}{the-introduction-rules-of-n}%
-    Martin-Löf type theory has the following \textbf{introduction rules} rule about the type of the natural numbers:%
+    Martin-Löf type theory has the following \index[type-theory]{natural numbers!introduction rules}\textbf{introduction rules} about the type of the natural numbers:%
     \begin{enumerate}
-        \item\label{the-introduction-rules-of-n-the-zero-element}\SloganFont{The Zero Element. }We have\index[notation]{ZeroN@$\Zero_{\N}$}%
+        \item\label{the-introduction-rules-of-n-the-zero-element}\SloganFont{The Zero Element. }We have\index[notation]{ZeroN@$0_{\N}$}%
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{}%
-                    \infer1[($\N$-zero)]{\vdash\Zero_{\N}\oftype\N}%
+                    \infer1[($\N$-zero)]{\vdash0_{\N}\oftype\N}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1417,10 +1424,10 @@ Let $A$, $B$, and $C$ be types.
     \end{enumerate}
 \end{definition}
 \begin{definition}{The Induction Principle of $\N$}{the-induction-principle-of-n}%
-    Martin-Löf type theory has the following interderivable \index[type-theory]{induction principle of N@induction principle of $\N$}\textbf{induction principle} rules about the type of the natural numbers:\index[notation]{indN@$\ind_{\N}$}%
+    Martin-Löf type theory has the following interderivable \index[type-theory]{induction principle of N@induction principle of $\N$}\index[type-theory]{natural numbers!induction principle}\textbf{induction principle} rules about the type of the natural numbers:\index[notation]{indN@$\ind_{\N}$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Terminology: }The term $p_{0}\oftype P(\Zero_{\N})$ is called the \index[type-theory]{induction principle of N@induction principle of $\N$!base case}\textbf{base case}.
+        \SloganFont{Further Terminology: }The term $p_{0}\oftype P(0_{\N})$ is called the \index[type-theory]{induction principle of N@induction principle of $\N$!base case}\textbf{base case}.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -1445,7 +1452,7 @@ Let $A$, $B$, and $C$ be types.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
-                    \infer1[($\N$-ind2)]{\context{\Gamma}{\displaystyle\ind_{\N}\oftype P(\Zero_{\N})\to\left[\left[\prod_{n\oftype\N}P(n),P(\succ_{\N}(n))\right],\prod_{n\oftype\N}P(n)\right]}}%
+                    \infer1[($\N$-ind2)]{\context{\Gamma}{\displaystyle\ind_{\N}\oftype P(0_{\N})\to\left[\left[\prod_{n\oftype\N}P(n),P(\succ_{\N}(n))\right],\prod_{n\oftype\N}P(n)\right]}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1453,14 +1460,14 @@ Let $A$, $B$, and $C$ be types.
 \end{definition}
 \begin{Proof}{Proof of the Interderivability of \cref{the-induction-principle-of-n-1,the-induction-principle-of-n-2}}%
     \FirstProofBox{\cref{the-induction-principle-of-n-1}$\implies$\cref{the-induction-principle-of-n-2}}%
-    First, let's derive $\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}$ from $\context{\Gamma,\,n\oftype\N}{P(n)\type}$:
+    First, let's derive $\context{\Gamma,\,p_{0}\oftype P(0_{\N})}{p_{0}\oftype P(0_{\N})}$ from $\context{\Gamma,\,n\oftype\N}{P(n)\type}$:
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
             \hypo{}%
-            \infer1[($\N$-zero)]{\vdash\Zero_{\N}\oftype\N}%
-            \infer2[(S)]{\context{\Gamma}{P(\Zero_{\N})\type}}%
-            \infer1[(G)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}}%
+            \infer1[($\N$-zero)]{\vdash0_{\N}\oftype\N}%
+            \infer2[(S)]{\context{\Gamma}{P(0_{\N})\type}}%
+            \infer1[(G)]{\context{\Gamma,\,p_{0}\oftype P(0_{\N})}{p_{0}\oftype P(0_{\N})}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
@@ -1490,12 +1497,12 @@ Let $A$, $B$, and $C$ be types.
     \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
-            \hypo{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{p_{0}\oftype P(\Zero_{\N})}}%
+            \hypo{\context{\Gamma,\,p_{0}\oftype P(0_{\N})}{p_{0}\oftype P(0_{\N})}}%
             \hypo{\context{\Gamma,\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\type}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
-            \infer3[(WWW)]{\context{\Gamma,\,n\oftype\N,\,p_{0}\oftype P(\Zero_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}
-            \infer1[($\N$-ind1)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{\displaystyle\ind_{\N}(p_{0},p_{S})\oftype\prod_{n\oftype\N}P(n)\type}}%
-            \infer1[(λ)]{\context{\Gamma,\,p_{0}\oftype P(\Zero_{\N})}{\displaystyle\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\oftype\left[\prod_{n\oftype\N}P(n),\prod_{n\oftype\N}P(\succ_{\N}(n))\right]\to\prod_{n\oftype\N}P(n)}}%
-            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket p_{0}\mapsto\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\rrbracket\oftype P(\Zero_{\N})\to\left[\left[\prod_{n\oftype\N}\left[P(n),P(\succ_{\N}(n))\right]\right],\prod_{n\oftype\N}P(n)\right]}}%
+            \infer3[(WWW)]{\context{\Gamma,\,n\oftype\N,\,p_{0}\oftype P(0_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}
+            \infer1[($\N$-ind1)]{\context{\Gamma,\,p_{0}\oftype P(0_{\N}),\,p_{S}\oftype\displaystyle\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}{\displaystyle\ind_{\N}(p_{0},p_{S})\oftype\prod_{n\oftype\N}P(n)\type}}%
+            \infer1[(λ)]{\context{\Gamma,\,p_{0}\oftype P(0_{\N})}{\displaystyle\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\oftype\left[\prod_{n\oftype\N}P(n),\prod_{n\oftype\N}P(\succ_{\N}(n))\right]\to\prod_{n\oftype\N}P(n)}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket p_{0}\mapsto\llbracket p_{S}\mapsto\ind_{\N}(p_{0},p_{S})\rrbracket\rrbracket\oftype P(0_{\N})\to\left[\left[\prod_{n\oftype\N}\left[P(n),P(\succ_{\N}(n))\right]\right],\prod_{n\oftype\N}P(n)\right]}}%
         \end{prooftree}%
         ,%
     \end{scalewebprooftree}%
@@ -1507,7 +1514,7 @@ Let $A$, $B$, and $C$ be types.
         \begin{prooftree}%
             \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
             \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
-            \infer1[($\N$-ind2)]{\context{\Gamma}{\displaystyle\ind_{\N}\oftype P(\Zero_{\N})\to\left(\left(\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)\right)}}%
+            \infer1[($\N$-ind2)]{\context{\Gamma}{\displaystyle\ind_{\N}\oftype P(0_{\N})\to\left(\left(\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)\right)}}%
             \infer2[(ev2)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0})\oftype\left(\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))\right)\to\prod_{n\oftype\N}P(n)}}%
             \hypo{\context{\Gamma}{\displaystyle p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
             \infer2[(ev2)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0},p_{s})\oftype\prod_{n\oftype\N}P(n)}}%
@@ -1515,6 +1522,402 @@ Let $A$, $B$, and $C$ be types.
         .%
     \end{scalewebprooftree}%
     This finishes the proof.
+\end{Proof}
+\begin{definition}{The Computation Rules of $\N$}{the-computation-rules-of-n}%
+    Martin-Löf type theory has the following \index[type-theory]{natural numbers!computation rules}\textbf{computation rules} about the type of the natural numbers, dictating that induction works as it should:%
+    \begin{enumerate}
+        \item\label{the-computation-rules-of-n-the-base-case}\SloganFont{The Base Case. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+                    \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
+                    \hypo{\context{\Gamma}{\displaystyle p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
+                    \infer3[($\N$-comp1)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0},p_{S},0_{\N})\doteq p_{0}\oftype P(0_{\N})}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{the-computation-rules-of-n-the-inductive-step}\SloganFont{The Inductive Step. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
+                    \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
+                    \hypo{\context{\Gamma}{\displaystyle p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))}}%
+                    \infer3[($\N$-comp2)]{\context{\Gamma,\,n\oftype\N}{\displaystyle\ind_{\N}(p_{0},p_{S},\succ_{\N}(n))\doteq p_{S}(n,\ind_{\N}(p_{0},p_{S},n))\oftype P(0_{\N})}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{definition}
+\subsection{Pattern Matching}\label{subsection-pattern-matching}
+\begin{definition}{Pattern Matching}{pattern-matching}%
+    A dependent function
+    \[
+        f%
+        \oftype%
+        \prod_{n\oftype\N}P(n)%
+    \]%
+    may be defined by \index[type-theory]{pattern matching}\textbf{pattern matching} by specifying
+    \begin{align*}
+        f(0_{\N})        &\defeq p_{0},\\
+        f(\succ_{\N}(n)) &\defeq p_{S}(n,f(n)),%
+    \end{align*}
+    where:
+    \begin{itemize}
+        \item $p_{0}$ is a term of type $P(0_{\N})$.
+        \item $p_{S}$ is a term of type $\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))$.
+    \end{itemize}
+\end{definition}
+\begin{example}{Addition via Pattern Matching}{addition-via-pattern-matching}%
+    We may define an addition operation $\add'_{\N}\oftype\N\to[\N,\N]$ via
+    \begin{align*}
+        \add'_{\N}(0_{\N},0_{\N})               &\defeq 0_{\N},\\%
+        \add'_{\N}(0_{\N},\succ_{\N}(m))        &\defeq \succ_{\N}(m),\\%
+        \add'_{\N}(\succ_{\N}(n),0_{\N})        &\defeq \succ_{\N}(n),\\%
+        \add'_{\N}(\succ_{\N}(n),\succ_{\N}(m)) &\defeq \succ_{\N}(\succ_{\N}(\add'_{\N}(n,m))).%
+    \end{align*}
+\end{example}
+\subsection{Addition of Natural Numbers}\label{subsection-addition-of-natural-numbers}
+\begin{definition}{Addition of Natural Numbers}{addition-of-natural-numbers}%
+    The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }We write \index[notation]{nplusm@$n+m$}$n+m$ for $\add_{\N}(n,m)$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \add_{\N}%
+        \oftype%
+        \N%
+        \to%
+        [\N,\N]%
+    \]%
+    defined via the following two specifications:%
+    \begin{enumerate}
+        \item\label{addition-of-natural-numbers-the-base-case}\SloganFont{The Base Case. }We have
+            \[
+                \add_{\N}(n,0_{\N})%
+                \doteq%
+                n%
+                {\color{OIblue}\oftype\N}.%
+            \]%
+        \item\label{addition-of-natural-numbers-the-inductive-step}\SloganFont{The Inductive Step. }We have
+            \[
+                \add_{\N}(n,\succ_{\N}(m))%
+                \doteq%
+                \succ_{\N}(\add_{\N}(n,m))%
+                {\color{OIblue}\oftype\N}.%
+            \]%
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Construction of $\add_{\N}$}%
+    We construct $\add_{\N}$ via induction on its second variable, constructing
+    \[
+        \context{n,\,\N}{\add_{\N}(n)\oftype\N\to\N}.%
+    \]%
+    We will thus take our context ${\color{OIvermillion}\Gamma}$ to be ${\color{OIvermillion}n\oftype\N}$, and use the induction principle of $\N$ with the family of types $P(m)\doteq\N$ indexed by $m\oftype\N$ in context ${\color{OIvermillion}n\oftype\N}$. Moreover:
+    \begin{itemize}
+        \item $p_{0}\oftype P(0_{\N})$ will be a term of the form
+            \[
+                \addzero_{\N}(n)%
+                \oftype%
+                \N.%
+            \]%
+        \item $p_{S}\oftype\prod_{n\oftype\N}P(n)\to P(\succ_{\N}(n))$ will be a term of the form
+            \[
+                \addsucc_{\N}(n)%
+                \oftype%
+                \prod_{n\oftype\N}(\N\to\N)%
+            \]%
+            i.e.\ a term $\addsucc_{\N}(n)\oftype\N\to[\N,\N]$.
+    \end{itemize}
+
+    \ProofBox{The Base Case}%
+    We want to construct $\context{n\oftype\N}{\addzero_{\N}(n)\oftype\N}$. For this, we have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{n\oftype\N}{n\oftype\N}}%
+            \infer1{\context{n\oftype\N}{\addzero_{\N}(n)\doteq n\oftype\N}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+
+    \ProofBox{The Inductive Step}%
+    We want to construct $\context{n\oftype\N}{\addsucc_{\N}(n)\oftype\N\to[\N,\N]}$. For this, we have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{}%
+            \infer1[($\N$-form)]{\vdash\N\type}%
+            \hypo{}%
+            \infer1[($\N$-succ)]{\vdash\succ_{\N}\oftype\N\to\N}%
+            \hypo{}%
+            \infer1[($\N$-form)]{\vdash\N\type}%
+            \infer2{\context{m\oftype\N}{\succ_{\N}\oftype\N\to\N}}%
+            \infer2{\context{n\oftype\N,\,m\oftype\N}{\succ_{\N}\oftype\N\to\N}}%
+            \infer1[(λ)]{\context{n\oftype\N}{\llbracket m\mapsto\succ_{\N}\rrbracket\oftype\N\to[\N,\N]}}%
+            \infer1[(add-succ)]{\context{n\oftype\N}{\addsucc_{\N}(n)\doteq\llbracket m\mapsto\succ_{\N}\rrbracket\oftype\N\to[\N,\N]}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+
+    \ProofBox{Wrapping Up}%
+    The induction principle for $\N$ then gives us
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,n\oftype\N}{\N\type}}%
+            \hypo{\evdots}%
+            \infer1{\context{n\oftype\N}{\addzero_{\N}(n)\doteq n\oftype\N}}%
+            \hypo{\evdots}%
+            \infer1{\context{n\oftype\N}{\addsucc_{\N}(n)\oftype\N\to[\N,\N]}}%
+            \infer3[($\N$-ind1)]{\context{n\oftype\N}{\ind_{\N}(\addzero_{\N}(n),\addsucc_{\N}(n))\oftype\N\to\N}}%
+            \infer1{\context{n\oftype\N}{\add_{\N}(n)\doteq\ind_{\N}(\addzero_{\N}(n),\addsucc_{\N}(n))\oftype\N\to\N}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    This finishes the construction of $\add_{\N}$.
+
+    \ProofBox{\cref{addition-of-natural-numbers-the-base-case,addition-of-natural-numbers-the-inductive-step}}%
+    This follows from the computation rules of $\N$.
+\end{Proof}
+\begin{proposition}{Properties of Addition}{properties-of-addition}%
+    Let $n\oftype\N$ and $m\oftype\N$.
+    \begin{enumerate}
+        \item\label{properties-of-addition-unitality}\SloganFont{Unitality. }
+        \item\label{properties-of-addition-associativity}\SloganFont{Associativity. }
+        \item\label{properties-of-addition-commutativity}\SloganFont{Commutativity. }
+        \item\label{properties-of-addition-successors-via-addition}\SloganFont{Successors via Addition. }
+        %\item\label{properties-of-addition-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-addition}}%
+    \FirstProofBox{\cref{properties-of-addition-unitality}: Unitality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-addition-associativity}: Associativity}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-addition-commutativity}: Commutativity}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-addition-successors-via-addition}: Successors via Addition}%
+    Omitted.
+\end{Proof}
+\subsection{Multiplication of Natural Numbers}\label{subsection-multiplication-of-natural-numbers}
+\begin{definition}{Multiplication of Natural Numbers}{multiplication-of-natural-numbers}%
+    The \index[type-theory]{natural numbers!multiplication}\index[type-theory]{multiplication of natural numbers}\textbf{multiplication} of natural numbers is the function%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }We write \index[notation]{ntimesm@$n\cdot m$}$n\cdot m$ for $\mult_{\N}(n,m)$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \mult_{\N}%
+        \oftype%
+        \N%
+        \to%
+        [\N,\N]%
+    \]%
+    defined via pattern matching with the following specifications:%
+    \begin{align*}
+        \mult_{\N}(0_{\N},m)        &\defeq 0_{\N},\\
+        \mult_{\N}(n,0_{\N})        &\defeq 0_{\N},\\
+        \mult_{\N}(\succ_{\N}(n),m) &\defeq m+\succ_{\N}(\mult_{\N}(n,m)),\\%
+        \mult_{\N}(n,\succ_{\N}(m)) &\defeq n+\succ_{\N}(\mult_{\N}(n,m)).%
+    \end{align*}
+\end{definition}
+\begin{proposition}{Properties of Multiplication}{properties-of-multiplication}%
+    Let $n\oftype\N$ and $m\oftype\N$.
+    \begin{enumerate}
+        \item\label{properties-of-multiplication-unitality}\SloganFont{Unitality. }
+        \item\label{properties-of-multiplication-associativity}\SloganFont{Associativity. }
+        \item\label{properties-of-multiplication-commutativity}\SloganFont{Commutativity. }
+        %\item\label{properties-of-multiplication-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-multiplication}}%
+    \FirstProofBox{\cref{properties-of-multiplication-unitality}: Unitality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-multiplication-associativity}: Associativity}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-multiplication-commutativity}: Commutativity}%
+    Omitted.
+\end{Proof}
+\section{More Inductive Types}\label{section-more-inductive-types}
+\subsection{The Unit Type}\label{subsection-martin-löf-type-theory-the-unit-type}
+\begin{definition}{The Unit Type}{the-unit-type}%
+    The \index[type-theory]{unit type}\textbf{unit type} is the type $\UnitType$ equipped with a term $\point\oftype\UnitType$ satisfying the following induction principle:
+    \begin{itemize}
+        \itemstar Given a family of types $P(x)$ indexed by $x\oftype\UnitType$, there exists a function
+            \[
+                \ind_{\UnitType}%
+                \oftype%
+                P(\point)%
+                \to%
+                \prod_{x\oftype\UnitType}P(x)%
+            \]%
+            for which the computation rule
+            \[
+                \ind_{\UnitType}(p,\point)%
+                \doteq%
+                p%
+            \]%
+            holds.
+    \end{itemize}
+\end{definition}
+\begin{remark}{Explicit Inference Rules for the Unit Type}{explicit-inference-rules-for-the-unit-type}%
+    The unit type has the following inference rules:
+    \begin{enumerate}
+        \item\label{explicit-inference-rules-for-the-unit-type-formation}\SloganFont{Formation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{}%
+                    \infer1[($\UnitType$-form)]{\vdash\UnitType}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-unit-type-introduction}\SloganFont{Introduction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{}%
+                    \infer1[($\UnitType$-point)]{\vdash\point\oftype\UnitType}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-unit-type-induction}\SloganFont{Induction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype\UnitType}{P(x)\type}}%
+                    \hypo{\context{\Gamma}{p\oftype P(\point)}}%
+                    \infer2[($\UnitType$-ind)]{\context{\Gamma}{\displaystyle\ind_{\UnitType}(p,\point)\oftype\prod_{x\oftype\UnitType}P(x)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-unit-type-computation}\SloganFont{Computation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype\UnitType}{P(x)\type}}%
+                    \hypo{\context{\Gamma}{p\oftype P(\point)}}%
+                    \infer2[($\UnitType$-comp)]{\context{\Gamma}{\displaystyle\ind_{\UnitType}(p,\point)\doteq p\oftype\prod_{x\oftype\UnitType}P(x)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{remark}
+\begin{example}{From Terms $x\oftype A$ to Functions $\pt_{x}\oftype\UnitType\to A$}{from-terms-x-oftype-a-to-functions-pt-x-oftype-unittype-to-a}%
+    The induction principle of the unit type allows us to construct a function $\pt_{x}\oftype\UnitType\to A$ from a term $x\oftype A$:
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{x\oftype A}}%
+            \infer1{\context{\Gamma}{A\type}}%
+            \infer1[(W)]{\context{\Gamma,\,x\oftype\UnitType}{A\type}}%
+            \hypo{\context{\Gamma}{x\oftype A}}%
+            \infer2[($\UnitType$-ind)]{\context{\Gamma}{\displaystyle\ind_{\UnitType}(x,\point)\oftype\prod_{x\oftype\UnitType}A}}%
+            \infer1{\context{\Gamma}{\ind_{\UnitType}(x,\point)\oftype\UnitType\to A}}%
+            \infer1{\context{\Gamma}{\pt_{x}\doteq\ind_{\UnitType}(x,\point)\oftype\UnitType\to A}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+\end{example}
+\subsection{The Empty Type}\label{subsection-martin-löf-type-theory-the-empty-type}
+\begin{definition}{The Empty Type}{the-empty-type}%
+    The \index[type-theory]{empty type}\textbf{empty type} is the type $\EmptyType$ satisfying the following induction principle:
+    \begin{itemize}
+        \itemstar Given a family of types $P(x)$ indexed by $x\oftype\EmptyType$, there exists a function
+            \[
+                \ind_{\EmptyType}%
+                \oftype%
+                \prod_{x\oftype\EmptyType}P(x).%
+            \]%
+    \end{itemize}
+\end{definition}
+\begin{remark}{Explicit Inference Rules for the Empty Type}{explicit-inference-rules-for-the-empty-type}%
+    The unit type has the following inference rules:
+    \begin{enumerate}
+        \item\label{explicit-inference-rules-for-the-empty-type-formation}\SloganFont{Formation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{}%
+                    \infer1[($\EmptyType$-form)]{\vdash\EmptyType}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-empty-type-induction}\SloganFont{Induction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype\EmptyType}{P(x)\type}}%
+                    \infer1[($\EmptyType$-ind)]{\context{\Gamma}{\displaystyle\ind_{\EmptyType}\oftype\prod_{x\oftype\EmptyType}P(x)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{remark}
+\begin{example}{The $\exfalso$ Function}{the-exfalso-function}%
+    The induction principle of the empty type allows us to construct a function
+    \[
+        \exfalso%
+        \oftype%
+        \EmptyType\to A%
+    \]%
+    via the derivation
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{x\oftype A}}%
+            \infer1{\context{\Gamma}{A\type}}%
+            \infer1[(W)]{\context{\Gamma,\,x\oftype\EmptyType}{A\type}}%
+            \infer1[($\EmptyType$-ind)]{\context{\Gamma}{\displaystyle\ind_{\EmptyType}\oftype\prod_{x\oftype\EmptyType}A}}%
+            \infer1{\context{\Gamma}{\ind_{\EmptyType}\oftype\EmptyType\to A}}%
+            \infer1{\context{\Gamma}{\exfalso\doteq\ind_{\EmptyType}\oftype\EmptyType\to A}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+\end{example}
+\section{Constructions With Types}\label{section-constructions-with-types}
+\subsection{The Negation of a Type}\label{subsection-the-negation-of-a-type}
+Let $A$ be a type.
+\begin{definition}{The Negation of a Type}{the-negation-of-a-type}%
+    The \index[type-theory]{negation of a type}\textbf{negation of $A$} is the type \index[notation]{A@$\neg A$}$\neg A$ defined by%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }A type is \index[type-theory]{type!empty}\textbf{empty} if there exists a term of type $\neg A$.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }We define
+        \[
+            \isempty(A)%
+            \defeq%
+            A%
+            \to%
+            \EmptyType.%
+        \]%
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \neg A%
+        \defeq%
+        A\to\EmptyType.%
+    \]%
+\end{definition}
+\begin{proposition}{Properties of Negations of Types}{properties-of-negations-of-types}%
+    Let $A$ and $B$ be types.
+    \begin{enumerate}
+        \item\label{properties-of-negations-of-types-contrapositive}\SloganFont{Contrapositive. }There exists a function
+            \[
+                (A\to B)%
+                \to
+                (\neg B\to\neg A).%
+            \]%
+        %\item\label{properties-of-negations-of-types-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-negations-of-types}}%
+    \FirstProofBox{\cref{properties-of-negations-of-types-contrapositive}: Contrapositive}%
+    Omitted.
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}

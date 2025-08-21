@@ -54,6 +54,7 @@ def amsthm_web(line):
     line = re.sub(r"\\begin\{"+regex_env_str()+r"\}\{(.*?)\}\{(.*?)\}",r"\\begin{\1}[\2]\\label{\3}",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?):(.*?)\}%",r"\\begin{proof}[\1:\2}]",line)
     line = re.sub(r"\\begin\{Proof\}\{(.*?)\}\}%",r"\\begin{proof}[\1}]",line)
+    line = re.sub(r"\\begin\{Proof\}\{(.*?)\}%",r"\\begin{proof}[\1]",line)
     line = re.sub(r"FirstProofBox",r"ProofBox",line)
     return line
 
