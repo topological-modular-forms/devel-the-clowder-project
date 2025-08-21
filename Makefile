@@ -238,7 +238,7 @@ GERBY_WEBSITE_REPO = https://github.com/The-Clowder-Project/gerby-website.git
 PYBTEX_REPO = https://github.com/live-clones/pybtex.git
 PYBTEX_PATCH_URL = https://bitbucket.org/pybtex-devs/pybtex/issues/attachments/110/pybtex-devs/pybtex/1514284299.07/110/no-protected-in-math-mode.patch
 # Define LuaLaTeX arguments
-LUALATEX = lualatex -interaction=nonstopmode#halt-on-error
+LUALATEX = lualatex halt-on-error
 LUALATEX_ARGS = max_strings=80000000 hash_extra=10000000 pool_size=4250000 main_memory=12000000
 
 # Target to create conda environment
