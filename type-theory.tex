@@ -1746,7 +1746,7 @@ Let $A$, $B$, and $C$ be types.
     Omitted.
 \end{Proof}
 \section{More Inductive Types}\label{section-more-inductive-types}
-\subsection{The Unit Type}\label{subsection-martin-löf-type-theory-the-unit-type}
+\subsection{The Unit Type}\label{subsection-the-unit-type}
 \begin{definition}{The Unit Type}{the-unit-type}%
     The \index[type-theory]{unit type}\textbf{unit type} is the type $\UnitType$ equipped with a term $\point\oftype\UnitType$ satisfying the following induction principle:
     \begin{itemize}
@@ -1821,7 +1821,7 @@ Let $A$, $B$, and $C$ be types.
         .%
     \end{webprooftree}%
 \end{example}
-\subsection{The Empty Type}\label{subsection-martin-löf-type-theory-the-empty-type}
+\subsection{The Empty Type}\label{subsection-the-empty-type}
 \begin{definition}{The Empty Type}{the-empty-type}%
     The \index[type-theory]{empty type}\textbf{empty type} is the type $\EmptyType$ satisfying the following induction principle:
     \begin{itemize}
@@ -1874,6 +1874,183 @@ Let $A$, $B$, and $C$ be types.
         .%
     \end{webprooftree}%
 \end{example}
+\subsection{Coproduct Types}\label{subsection-coproduct-types}
+Let $A$ and $B$ be types.
+\begin{definition}{Coproduct Types}{coproduct-types}%
+    The \index[type-theory]{coproduct type}\textbf{coproduct type}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[type-theory]{direct sum type|see {coproduct type}}\textbf{direct sum} of $A$ and $B$.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    of $A$ and $B$ is the type \index[notation]{AplusB@$A+B$}$A+B$ equipped with terms
+    \begin{align*}
+        \iota^{\rmL}_{A+B} &\colon A\to A+B,\\%
+        \iota^{\rmR}_{A+B} &\colon B\to A+B%
+    \end{align*}
+    satisfying the following induction principle:
+    \begin{itemize}
+        \itemstar Given a family of types $P(x)$ indexed by $x\oftype A+B$, there exists a function
+            \[
+                \ind_{+}%
+                \oftype%
+                \prod_{x\oftype A}P\left(\iota^{\rmL}_{A+B}(x)\right)%
+                \to
+                \left[\prod_{y\oftype B}P\left(\iota^{\rmR}_{A+B}(y)\right),\prod_{z\oftype A+B}P(x)\right]
+            \]%
+            for which the computation rules
+            \begin{align*}
+                \ind_{+}\left(f,g,\iota^{\rmL}_{A+B}(x)\right) &\doteq f(x),\\
+                \ind_{+}\left(f,g,\iota^{\rmR}_{A+B}(x)\right) &\doteq g(y).
+            \end{align*}
+            hold.
+    \end{itemize}
+\end{definition}
+\begin{remark}{Explicit Inference Rules for Coproduct Types}{explicit-inference-rules-for-the-coproduct-types}%
+    Coproduct types have the following inference rules:
+    \begin{enumerate}
+        \item\label{explicit-inference-rules-for-the-coproduct-types-formation}\SloganFont{Formation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \infer2{\context{\Gamma}{A+B\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-coproduct-types-introduction-1}\SloganFont{Introduction \rmI. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \infer2{\context{\Gamma}{\iota^{\rmL}_{A+B}\oftype A\to A+B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-coproduct-types-introduction-2}\SloganFont{Introduction \rmII. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \infer2{\context{\Gamma}{\iota^{\rmR}_{A+B}\oftype B\to A+B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-coproduct-types-induction}\SloganFont{Induction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A+B}{P(x)\type}}%
+                    \infer1{\context{\Gamma}{\displaystyle\prod_{x\oftype A}P\left(\iota^{\rmL}_{A+B}(x)\right)\to\left[\prod_{y\oftype B}P\left(\iota^{\rmR}_{A+B}(y)\right),\prod_{z\oftype A+B}P(x)\right]}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-coproduct-types-computation-1}\SloganFont{Computation \rmI. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A+B}{P(x)\type}}%
+                    \hypo{\context{\Gamma}{f\oftype A\to X}}%
+                    \hypo{\context{\Gamma}{g\oftype B\to X}}%
+                    \infer3{\context{\Gamma}{\displaystyle\ind_{+}\left(f,g,\iota^{\rmL}_{A+B}(x)\right)\doteq f(x)\oftype X}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-the-coproduct-types-computation-2}\SloganFont{Computation \rmII. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma,\,x\oftype A+B}{P(x)\type}}%
+                    \hypo{\context{\Gamma}{f\oftype A\to X}}%
+                    \hypo{\context{\Gamma}{g\oftype B\to X}}%
+                    \infer3{\context{\Gamma}{\displaystyle\ind_{+}\left(f,g,\iota^{\rmR}_{A+B}(x)\right)\doteq g(x)\oftype X}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{remark}
+\begin{example}{Recovering the Universal Property of Coproducts}{recovering-the-universal-property-of-coproducts}%
+    The induction principle for coproduct types allows us to construct a function
+    \[
+        \ind_{+}%
+        \oftype%
+        [A,X]%
+        \to%
+        [[B,X],[A+B,X]]%
+    \]%
+    via the derivation
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,x\oftype A+B}{X\type}}%
+            \infer1[(ind)]{\context{\Gamma}{\displaystyle\prod_{x\oftype A}X\to\left[\prod_{y\oftype B}X,\prod_{z\oftype A+B}X\right]}}%
+            \infer1{\context{\Gamma}{\displaystyle[A,X]\to\left[[B,X],[A+B,X]\right]}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+\end{example}
+\subsection{Dependent Pair Types}\label{subsection-dependent-pair-types}
+Let $A$ be a type and let $B$ be a type family over $A$.
+\begin{definition}{Dependent Pair Types}{dependent-pair-types}%
+    The \index[type-theory]{dependent pair type}\textbf{dependent pair type}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        Also called the \index[type-theory]{Sigma-type@$\Sigma$-type}\textbf{$\Sigma$-type} of $B(x)$ over $A$.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    of $B(x)$ over $A$ is the type \index[notation]{sumxoftypeABx@$\sum_{x\oftype A}B(x)$}$\sum_{x\oftype A}B(x)$ equipped with a \index[type-theory]{pairing function}\textbf{pairing function}
+    \[
+        \pair%
+        \oftype%
+        \prod_{x\oftype A}\left(B(x)\to\sum_{y\oftype A}B(y)\right)%
+    \]%
+    satisfying the following induction principle:
+    \begin{itemize}
+        \itemstar Given a family of types $P(x)$ indexed by $p\oftype\sum_{x\oftype A}B(x)$, there exists a function
+            \[
+                \ind_{\Sigma}%
+                \colon%
+                \left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)%
+                \to%
+                \left(\prod_{z\oftype\sum_{x\oftype A}B(x)}P(z)\right)%
+            \]%
+            satisfying the computation rule
+            \[
+                \ind_{\Sigma}(f,\pair(x,y))%
+                \doteq%
+                f(x,y).
+            \]%
+    \end{itemize}
+\end{definition}
+\begin{definition}{Projection Functions for $\Sigma$-Types}{projection-functions-for-sigma-types}%
+    Let $A$ be a type and let $B$ be a type family over $A$.
+    \begin{enumerate}
+        \item\label{projection-functions-for-sigma-types-the-first-projection-map}The \index[type-theory]{Sigma-type@$\Sigma$-type@first projection map}\textbf{first projection map} is the function
+            \[
+                \pr_{1}%
+                \oftype%
+                \left(\sum_{x\oftype A}B(x)\right)
+                \to%
+                A%
+            \]%
+            defined via induction by
+            \[
+                \pr_{1}(x,y)%
+                \defeq%
+                x.%
+            \]%
+        \item\label{projection-functions-for-sigma-types-the-second-projection-map}The \index[type-theory]{Sigma-type@$\Sigma$-type@second projection map}\textbf{second projection map} is the dependent function
+            \[
+                \pr_{2}%
+                \oftype%
+                \prod_{p\oftype\sum_{x\oftype A}B(x)}B(\pr_{1}(p))%
+            \]%
+            defined via induction by
+            \[
+                \pr_{2}(x,y)%
+                \defeq%
+                y.%
+            \]%
+    \end{enumerate}
+\end{definition}
 \section{Constructions With Types}\label{section-constructions-with-types}
 \subsection{The Negation of a Type}\label{subsection-the-negation-of-a-type}
 Let $A$ be a type.
@@ -1917,6 +2094,144 @@ Let $A$ be a type.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-negations-of-types}}%
     \FirstProofBox{\cref{properties-of-negations-of-types-contrapositive}: Contrapositive}%
+    We have
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer2[(FT)]{\context{\Gamma}{A\to B\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer1{\context{\Gamma}{\neg B\type}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \infer1[(G)]{\context{\Gamma,\,a\oftype A}{a\oftype A}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer1{\context{\Gamma}{\neg B\type}}%
+            \infer1[(G)]{\context{\Gamma,\,\widetilde{b}\oftype\neg B}{\widetilde{b}\oftype\neg B}}%
+            \hypo{\context{\Gamma}{A\type}}%
+            \hypo{\context{\Gamma}{B\type}}%
+            \infer2[(FT)]{\context{\Gamma}{A\to B\type}}%
+            \infer1[(G)]{\context{\Gamma,\,f\oftype A\to B}{f\oftype A\to B}}%
+            \infer2[(comp)]{\context{\Gamma,\,\widetilde{b}\oftype\neg B,\,f\oftype A\to B}{\widetilde{b}\circ f\oftype A\to\EmptyType}}%
+            \infer2[(ev2)]{\context{\Gamma,\,a\oftype A,\,\widetilde{b}\oftype\neg B,\,f\oftype A\to B}{[\widetilde{b}\circ f](a)\oftype\EmptyType}}%
+            \infer2[(λ)]{\context{\Gamma,\,\widetilde{b}\oftype\neg B,\,f\oftype A\to B}{\llbracket a\mapsto[\widetilde{b}\circ f](a)\rrbracket\oftype A\to\EmptyType}}%
+            \infer1{\context{\Gamma,\,\widetilde{b}\oftype\neg B,\,f\oftype A\to B}{\llbracket a\mapsto[\widetilde{b}\circ f](a)\rrbracket\oftype\neg A}}%
+            \infer2[(λ)]{\context{\Gamma,\,f\oftype A\to B}{\llbracket\widetilde{b}\mapsto\llbracket a\mapsto[\widetilde{b}\circ f](a)\rrbracket\rrbracket\oftype\neg B\to\neg A}}%
+            \infer2[(λ)]{\context{\Gamma}{\llbracket f\mapsto\llbracket\widetilde{b}\mapsto\llbracket a\mapsto[\widetilde{b}\circ f](a)\rrbracket\rrbracket\rrbracket\oftype(A\to B)\to(\neg B\to\neg A)}}%
+        \end{prooftree}%
+        ,%
+    \end{scalewebprooftree}%
+    where we have omitted a few weakening steps. This finishes the proof.
+\end{Proof}
+\section{Identity Types}\label{section-martin-löf-type-theory-identity-types}
+\subsection{Foundations}\label{subsection-martin-löf-type-theory-identity-types-foundations}
+Let $A$ be a type and let $a\oftype A$.
+\begin{definition}{Identity Types}{identity-types}%
+    The \index[type-theory]{identity type}\textbf{identity type} of $A$ at $a$ is the inductive family of types \index[notation]{aequalsAx@$a\equals_{A}x$}$a\equals_{A}x$%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }Also written \index[notation]{IdA@$\Id_{A}$}$\Id_{A}$ or \index[notation]{aequalsx@$a\equals x$}$a\equals X$.%
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    equipped with a term
+    \[
+        \refl_{a}%
+        \oftype%
+        a\equals_{A}a%
+    \]%
+    satisfying the following induction principle:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }A term of type $a\equals_{A}x$ is called an \index[type-theory]{identification}\textbf{identification} of $a$ with $x$, or a \textbf{path} from $a$ to $x$.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }The induction principle for identity types is called \index[type-theory]{identification elimination}\textbf{identification elimination} or \index[type-theory]{path induction}\textbf{path induction}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{itemize}
+        \itemstar Given a family of types $P(x,p)$ indexed by $x\oftype A$ and $p\oftype a\equals_{A}x$, there exists a function
+            \[
+                \indeq{a}%
+                \colon%
+                P(a,\refl_{a})%
+                \to%
+                \prod_{x\oftype A}\prod_{p\oftype a\equals_{A}x}P(x,p)%
+            \]%
+            satisfying the computation rule
+            \[
+                \indeq{a}(u,a,\refl_{a})%
+                \doteq%
+                u.%
+            \]%
+    \end{itemize}
+\end{definition}
+\begin{remark}{Explicit Inference Rules for Identity Types}{explicit-inference-rules-for-identity-types}%
+    The identity type of $A$ at $a$ has the following inference rules:
+    \begin{enumerate}
+        \item\label{explicit-inference-rules-for-identity-types-formation}\SloganFont{Formation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \infer1[(id-form)]{\context{\Gamma,\,x\oftype A}{a\equals_{A}x\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-identity-types-introduction}\SloganFont{Introduction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \infer1[(id-intro)]{\context{\Gamma}{\refl_{a}\oftype a\equals_{A}a}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-identity-types-induction}\SloganFont{Induction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,p\oftype a\equals_{A}x}{P(x,p)\type}}%
+                    \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{a}\oftype P(a,\refl_{a})\to\prod_{x\oftype A}\prod_{p\oftype a\equals_{A}x}P(x,p)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-identity-types-computation}\SloganFont{Computation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{a\oftype A}}%
+                    \hypo{\context{\Gamma,\,x\oftype A,\,p\oftype a\equals_{A}x}{P(x,p)\type}}%
+                    \infer2[(id-comp)]{\context{\Gamma,\,u\oftype P(a,\refl_{a})}{\indeq{a}(u,a,\refl_{a})\doteq u\oftype P(a,\refl_{a})}}%
+                \end{prooftree}
+                .%
+            \end{webprooftree}%
+        %\item\label{explicit-inference-rules-for-identity-types-}\SloganFont{. }
+    \end{enumerate}
+\end{remark}
+\begin{proposition}{Properties of Identity Types}{properties-of-identity-types}%
+    Let $A$ be a type and let $a\oftype A$.
+    \begin{enumerate}
+        \item\label{properties-of-identity-types-concatenation}\SloganFont{Concatenation. }There exists a function
+            \[
+                \concat%
+                \oftype%
+                \prod_{x,y,z\oftype A}x=_{A}y\to[y=_{A}z,x=_{A}z].%
+            \]%
+        \item\label{properties-of-identity-types-inversion}\SloganFont{Inversion. }There exists a function
+            \[
+                \inv%
+                \colon%
+                \prod_{x,y\oftype A}x=_{A}y\to y=_{A}x%
+            \]%
+        %\item\label{properties-of-identity-types-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-identity-types}}%
+    \FirstProofBox{\cref{properties-of-identity-types-concatenation}: Concatenation}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-identity-types-inversion}: Inversion}%
     Omitted.
 \end{Proof}
 \begin{appendices}
