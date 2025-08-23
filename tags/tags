@@ -3368,6 +3368,9 @@
 036R,type-theory:explicit-inference-rules-for-identity-types-induction
 036S,type-theory:explicit-inference-rules-for-identity-types-computation
 036T,type-theory:properties-of-identity-types
-036U,type-theory:properties-of-identity-types-concatenation
-036V,type-theory:properties-of-identity-types-associativity
-036W,type-theory:properties-of-identity-types-inversion
+036U,type-theory:properties-of-identity-types-a-second-identity-formation-rule
+036V,type-theory:properties-of-identity-types-concatenation
+036W,type-theory:properties-of-identity-types-associativity
+036X,type-theory:properties-of-identity-types-left-unitality
+036Y,type-theory:properties-of-identity-types-right-unitality
+036Z,type-theory:properties-of-identity-types-inversion
