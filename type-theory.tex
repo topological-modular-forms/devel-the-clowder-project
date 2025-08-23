@@ -752,6 +752,37 @@ This chapter contains material on type theory.
                     \infer3[(FEXT)]{\context{\Gamma}{\displaystyle f\doteq f'\oftype\prod_{x\oftype A}B(x)}}%
                 \end{prooftree}%
             \end{webprooftree}%
+        \item\label{properties-of-function-types-changing-the-order-of-arguments}\SloganFont{Changing the Order of Arguments. }Let $A$ and $B$ be types and let $C$ be a type family indexed over $x\oftype A$ and $y\oftype B$.
+            \begin{enumerate}
+                \item\label{properties-of-function-types-changing-the-order-of-arguments-1}We have a \textbf{swap function}
+                    \[
+                        \sigma%
+                        \oftype%
+                        \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)%
+                        \to%
+                        \left(\prod_{y\oftype B}\prod_{x\oftype A}C(x,y)\right)%
+                    \]%
+                    defined by the swap rule
+                    \begin{webprooftree}%
+                        \begin{prooftree}%
+                            \hypo{\context{\Gamma}{A\type}}%
+                            \hypo{\context{\Gamma}{B\type}}%
+                            \hypo{\context{\Gamma,\,x\oftype A,\,y\oftype B}{C(x,y)\type}}%
+                            \infer3[(swap)]{\context{\Gamma}{\displaystyle\sigma\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)\to\left(\prod_{y\oftype B}\prod_{x\oftype A}C(x,y)\right)}}%
+                        \end{prooftree}%
+                        .%
+                    \end{webprooftree}%
+                \item\label{properties-of-function-types-changing-the-order-of-arguments-1}We have
+                    \begin{webprooftree}%
+                        \begin{prooftree}%
+                            \hypo{\context{\Gamma}{A\type}}%
+                            \hypo{\context{\Gamma}{B\type}}%
+                            \hypo{\context{\Gamma,\,x\oftype A,\,y\oftype B}{C(x,y)\type}}%
+                            \infer3{\context{\Gamma}{\displaystyle\sigma\circ\sigma\doteq\id_{\scalebox{0.7}{$\displaystyle\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)$}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)\to\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)}}%
+                        \end{prooftree}%
+                        .%
+                    \end{webprooftree}%
+            \end{enumerate}
         %\item\label{properties-of-function-types-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -772,6 +803,9 @@ This chapter contains material on type theory.
         .%
     \end{scalewebprooftree}%
     This finishes the proof.
+
+    \ProofBox{\cref{properties-of-function-types-changing-the-order-of-arguments}: Changing the Order of Arguments}%
+    Omitted.
 \end{Proof}
 \subsection{Function Types and Functions}\label{subsection-martin-löf-type-theory-function-types-and-functions}
 Let $A$ and $B$ be types.
@@ -2212,24 +2246,60 @@ Let $A$ be a type and let $a\oftype A$.
 \begin{proposition}{Properties of Identity Types}{properties-of-identity-types}%
     Let $A$ be a type and let $a\oftype A$.
     \begin{enumerate}
-        \item\label{properties-of-identity-types-concatenation}\SloganFont{Concatenation. }There exists a function\index[notation]{concatxyz@$\concat_{x,y,z}$}%
+        \item\label{properties-of-identity-types-concatenation}\SloganFont{Concatenation. }There exists a dependent function\index[notation]{concat@$\concat$}%
             %--- Begin Footnote ---%
             \footnote{%
-                \SloganFont{Further Notation: }We write \index[notation]{qp@$q\cdot p$}$q\cdot p$ for $\concat_{x,y,z}(q,p)$.
+                \SloganFont{Further Notation: }We write \index[notation]{qp@$q\ccirc p$}$q\ccirc p$ for $\concat_{x,y,z}(q,p)$.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
             \[
-                \concat_{x,y,z}%
+                \concat%
                 \oftype%
                 \prod_{x,y,z\oftype A}%
-                \left((x\equals_{A}y)\to(y\equals_{A}z\to x\equals_{A}z)\right).%
+                \left((x\equals_{A}y)\to(y\equals_{A}z\to x\equals_{A}z)\right)%
             \]%
-        \item\label{properties-of-identity-types-inversion}\SloganFont{Inversion. }There exists a function
+            taking terms $p\oftype x\equals_{A}y$ and $q\oftype y\equals_{A}z$ and producing a term
             \[
-                \inv_{x,y}%
+                \concat_{x,y,z}(q,p)%
                 \oftype%
-                \prod_{x,y\oftype A}x\equals_{A}y\to y\equals_{A}x%
+                x\equals_{A}z.%
+            \]%
+        \item\label{properties-of-identity-types-associativity}\SloganFont{Associativity. }There exists a dependent function\index[notation]{assoc@$\assoc$}
+            \[
+                \assoc%
+                \oftype%
+                \prod_{\substack{w\oftype A\\x\oftype A\\y\oftype A\\z\oftype A}}%
+                \prod_{\substack{p\oftype w\equals_{A}x\\q\oftype x\equals_{A}y\\r\oftype y\equals_{A}z}}%
+                (r\ccirc q)\ccirc p%
+                \equals_{w\equals_{a}z}%
+                r\ccirc(q\ccirc p)%
+            \]%
+            taking terms $p\oftype w\equals_{A}x$, $q\oftype x\equals_{A}y$, and $r\oftype y\equals_{A}z$ and producing a term
+            \[
+                \assoc_{w,x,y,z}(r,q,p)%
+                \oftype%
+                (r\ccirc q)\ccirc p%
+                \equals_{w\equals_{a}z}%
+                r\ccirc(q\ccirc p).%
+            \]%
+        \item\label{properties-of-identity-types-inversion}\SloganFont{Inversion. }There exists a dependent function\index[notation]{inv@$\inv$}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Notation: }We write \index[notation]{pminusone@$p^{-1}$}$p^{-1}$ for $\inv_{x,y}(p)$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[
+                \inv%
+                \oftype%
+                \prod_{x,y\oftype A}(x\equals_{A}y\to y\equals_{A}x)%
+            \]%
+            taking a term $p\oftype x\equals_{A}y$ and producing a term
+            \[
+                \inv_{x,y}(p)%
+                \oftype%
+                y\equals_{A}x.%
             \]%
         %\item\label{properties-of-identity-types-}\SloganFont{. }
     \end{enumerate}
@@ -2238,7 +2308,7 @@ Let $A$ be a type and let $a\oftype A$.
     \FirstProofBox{\cref{properties-of-identity-types-concatenation}: Concatenation}%
     We start by first constructing a function
     \[
-        \concat^{x}_{y,z}%
+        \concat_{x}%
         \oftype%
         \prod_{y\oftype A}x\equals_{A}y%
         \to%
@@ -2246,7 +2316,7 @@ Let $A$ be a type and let $a\oftype A$.
     \]%
     given $x\oftype A$. For this, we first construct a dependent function
     \[
-        \concat^{x}_{y,z}(x,\refl_{x})%
+        \concat_{x}(x,\refl_{x})%
         \oftype%
         \prod_{z\oftype A}(x\equals_{A}z\to x\equals_{A}z).%
     \]%
@@ -2257,36 +2327,88 @@ Let $A$ be a type and let $a\oftype A$.
             \infer1[(id-form)]{\context{\Gamma,\,z\oftype A}{x\equals_{A}z}}%
             \infer1[(id)]{\context{\Gamma}{\id_{x\equals_{A}z}\oftype x\equals_{A}z\to x\equals_{A}z}}%
             \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket z\mapsto\id_{x\equals_{A}z}\rrbracket\oftype\prod_{z\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat^{x}_{y,z}(x,\refl_{x})\doteq\llbracket z\mapsto\id_{x\equals_{A}z}\rrbracket\oftype\prod_{z\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat_{x}(x,\refl_{x})\doteq\llbracket z\mapsto\id_{x\equals_{A}z}\rrbracket\oftype\prod_{z\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
-    Now that we have constructed $\concat^{x}_{y,z}(x,\refl_{x})$, we may use path induction to obtain $\concat^{x}_{y,z}$:
+    Now that we have constructed $\concat_{x}(x,\refl_{x})$, we may use path induction to obtain $\concat_{x}$:
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{x\oftype A}}%
             \hypo{\context{\Gamma,\,y\oftype A,\,p\oftype x\equals_{A}y}{\displaystyle\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)\type}}%
             \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{x}\oftype\prod_{z\oftype A}(x\equals_{A}z\to x\equals_{A}z)\to\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat^{x}_{y,z}\doteq\indeq{x}(\concat^{x}_{y,z}(x,\refl_{x}))\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat^{x}_{y,z}\doteq\indeq{x}(\concat^{x}_{y,z}(x,\refl_{x}))\oftype\prod_{y\oftype A}x\equals_{A}y\to\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat_{x}\doteq\indeq{x}\left(\concat_{x}(x,\refl_{x})\right)\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat_{x}\doteq\indeq{x}\left(\concat_{x}(x,\refl_{x})\right)\oftype\prod_{y\oftype A}x\equals_{A}y\to\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
     Finally, we define $\concat_{x,y,z}$ via λ-abstraction:
     \begin{webprooftree}%
         \begin{prooftree}%
-            \hypo{\context{\Gamma,\,x\oftype A}{\displaystyle\concat^{x}_{y,z}\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
-            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto\concat^{x}_{y,z}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
-            \infer1{\context{\Gamma,\,x\oftype A}{\displaystyle\llbracket x\mapsto\concat^{x}_{y,z}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}\prod_{q\oftype y\equals_{A}z}x\equals_{A}z}}%
-            \infer1[(swap)]{\context{\Gamma,\,x\oftype A}{\displaystyle\llbracket x\mapsto\concat^{x}_{y,z}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{z\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{q\oftype y\equals_{A}z}x\equals_{A}z}}%
-            \infer1{\context{\Gamma,\,x\oftype A}{\displaystyle\llbracket x\mapsto\concat^{x}_{y,z}\rrbracket\oftype\prod_{x,y,z\oftype A}(x\equals_{A}y)\to(y\equals_{A}z\to x\equals_{A}z)}}%
+            \hypo{\context{\Gamma,\,x\oftype A}{\displaystyle\concat_{x}\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto\concat_{x}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}(y\equals_{A}z\to x\equals_{A}z)}}%
+            \infer1{\context{\Gamma}{\displaystyle\llbracket x\mapsto\concat_{x}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{z\oftype A}\prod_{q\oftype y\equals_{A}z}x\equals_{A}z}}%
+            \infer1[(swap)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto\sigma\circ\concat_{x}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{z\oftype A}\prod_{p\oftype x\equals_{A}y}\prod_{q\oftype y\equals_{A}z}x\equals_{A}z}}%
+            \infer1{\context{\Gamma}{\displaystyle\llbracket x\mapsto\sigma\circ\concat_{x}\rrbracket\oftype\prod_{x,y,z\oftype A}(x\equals_{A}y)\to(y\equals_{A}z\to x\equals_{A}z)}}%
         \end{prooftree}%
         .
     \end{webprooftree}%
     This finishes the construction of $\concat_{x,y,z}$.
 
+    \ProofBox{\cref{properties-of-identity-types-associativity}: Associativity}%
+    We start by first constructing the term
+    \[
+        \assoc_{w,w,y,z}(r,q,\refl_{w})%
+        \oftype%
+        \prod_{y\oftype A}%
+        \prod_{q\oftype w\equals_{A}y}%
+        \prod_{z\oftype A}%
+        \prod_{r\oftype y\equals_{A}z}%
+        (r\ccirc q)\ccirc\refl_{w}%
+        \equals_{w\equals_{A}y}%
+        r\ccirc(q\ccirc\refl_{w}).%
+    \]%
+    For this, notice that the computation rules for identity types provide us with judgemental equalities of the form $q\ccirc\refl_{w}\doteq q$, so we have
+    \begin{align*}
+        (r\ccirc)q\ccirc\refl_{w} &\doteq r\ccirc q,\\
+        r\ccirc(q\ccirc\refl_{w}) &\doteq r\ccirc q.
+    \end{align*}
+    As a result, we may define $\assoc_{w,w,y,z}(r,q,\refl_{w})=\refl_{q\circ r}$. With the construction of $\assoc_{w,w,y,z}(r,q,\refl_{w})$ at hand, we may use path induction to obtain $\assoc_{w,x,y,z}(r,q,p)$:
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{w\oftype A}}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,p\oftype w\equals_{A}x}{\displaystyle\prod_{y\oftype A}\prod_{q\oftype w\equals_{A}y}\prod_{z\oftype A}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)\type}}%
+            \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{w}\oftype\prod_{y\oftype A}\prod_{q\oftype w\equals_{A}y}\prod_{z\oftype A}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc\refl_{w}\equals_{w\equals_{A}x}r\ccirc(q\ccirc\refl_{w})\to\prod_{x\oftype A}\prod_{p\oftype w\equals_{A}x}\prod_{y\oftype A}\prod_{q\oftype x\equals_{A}y}\prod_{z\oftype A}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)}}%
+            \infer1{\context{\Gamma}{\displaystyle\indeq{x}(r,q,\refl_{w})\oftype\prod_{x\oftype A}\prod_{p\oftype w\equals_{A}x}\prod_{y\oftype A}\prod_{q\oftype x\equals_{A}y}\prod_{z\oftype A}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    Finally, we define $\assoc_{w,x,y,z}$ via λ-abstraction:
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,w\oftype A}{\displaystyle\assoc_{w,x,y,z}(r,q,\refl_{w})\oftype\prod_{x\oftype A}\prod_{p\oftype w\equals_{A}x}\prod_{y\oftype A}\prod_{q\oftype x\equals_{A}y}\prod_{z\oftype A}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket w\mapsto\assoc_{w,x,y,z}(r,q,\refl_{x})\rrbracket\oftype\prod_{w\oftype A}\prod_{x\oftype A}\prod_{p\oftype w\equals_{A}x}\prod_{y\oftype A}\prod_{q\oftype x\equals_{A}y}\prod_{z\oftype A}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)}}%
+            \infer1[(swap)]{\context{\Gamma}{\displaystyle\llbracket w\mapsto\sigma\circ\assoc_{w,x,y,z}(r,q,\refl_{x})\rrbracket\oftype\prod_{w\oftype A}\prod_{x\oftype A}\prod_{y\oftype A}\prod_{z\oftype A}\prod_{p\oftype w\equals_{A}x}\prod_{q\oftype x\equals_{A}y}\prod_{r\oftype y\equals_{A}z}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)}}%
+            \infer1{\context{\Gamma}{\displaystyle\llbracket w\mapsto\sigma\circ\assoc_{w,x,y,z}(r,q,\refl_{x})\rrbracket\oftype\prod_{\substack{w\oftype A\\x\oftype A\\y\oftype A\\z\oftype A}}\prod_{\substack{p\oftype w\equals_{A}x\\q\oftype x\equals_{A}y\\r\oftype y\equals_{A}z}}(r\ccirc q)\ccirc p\equals_{w\equals_{A}x}r\ccirc(q\ccirc p)}}%
+        \end{prooftree}%
+        .
+    \end{scalewebprooftree}%
+    This finishes the construction of $\assoc$.
+
     \ProofBox{\cref{properties-of-identity-types-inversion}: Inversion}%
-    Omitted.
+    We have
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{x\oftype A}}%
+            \infer1[(id-intro)]{\context{\Gamma}{\refl_{x}\oftype x\equals_{A}x}}%
+            \hypo{\context{\Gamma}{x\oftype A}}%
+            \hypo{\context{\Gamma,\,y\oftype A,\,p\oftype x\equals_{A}y}{y\equals_{A}x\type}}%
+            \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{x}\oftype x\equals_{A}x\to\prod_{x\oftype A}(x\equals_{A}y\to y\equals_{A}x)}}%
+            \infer2[(ev2)]{\context{\Gamma}{\displaystyle\indeq{x}(\refl_{x})\oftype\prod_{x\oftype A}(x\equals_{A}y\to y\equals_{A}x)}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    This finishes the construction of $\inv$.
 \end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
