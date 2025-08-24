@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('dark_background')
 
 # --------------------------------------------------------
 # 1. Create the index array n and define the amplitude A(n)
@@ -30,21 +31,21 @@ for i in range(len(n)):
 # ----------------------------------------------
 # 4. Plot everything:
 #    - x(n): blue dots
-#    - partial sup/inf: #d55e00 lines
+#    - partial sup/inf: #f0e442 lines
 #    - dashed lines for lim sup/inf = ±1.0
 # ----------------------------------------------
 plt.figure(figsize=(8,6))
 
 # Plot x_n in blue dots
-plt.plot(n, x, '.', color = '#0072b2', markersize=3, label=r'$x_n$')
+plt.plot(n, x, '.', color = '#56b4e9', markersize=3, label=r'$x_n$')
 
-# Plot partial sup (#d55e00) and partial inf (#d55e00) as step-like lines
-plt.step(n, partial_sup, where='post', color='#d55e00', label=r'$\displaystyle\sup_{m \geq n}(x_m)$')
-plt.step(n, partial_inf, where='post', color='#d55e00', label=r'$\displaystyle\inf_{m \geq n}(x_m)$')
+# Plot partial sup (#f0e442) and partial inf (#f0e442) as step-like lines
+plt.step(n, partial_sup, where='post', color='#f0e442', label=r'$\displaystyle\sup_{m \geq n}(x_m)$')
+plt.step(n, partial_inf, where='post', color='#f0e442', label=r'$\displaystyle\inf_{m \geq n}(x_m)$')
 
 # Horizontal dashed lines for lim sup = 1.0 and lim inf = -1.0
-plt.axhline(y=1.0, color='k', linestyle='--', label=r'$\displaystyle\limsup_{n\to\infty}(x_n)$')
-plt.axhline(y=-1.0, color='k', linestyle='--', label=r'$\displaystyle\liminf_{n\to\infty}(x_n)$')
+plt.axhline(y=1.0, color='w', linestyle='--', label=r'$\displaystyle\limsup_{n\to\infty}(x_n)$')
+plt.axhline(y=-1.0, color='w', linestyle='--', label=r'$\displaystyle\liminf_{n\to\infty}(x_n)$')
 
 # Decorate axes
 plt.xlim(0, 600)
@@ -56,8 +57,8 @@ plt.ylabel(r'$x_n$',rotation=0)
 # (Optional) Annotate in the figure
 plt.rc('text',usetex=True)
 plt.rc('text.latex', preamble=r'\usepackage{charter}\usepackage[charter]{newtxmath}')
-plt.text(45, 1.6, r'$\displaystyle\sup_{m \geq n}(x_m)$', color='#d55e00')
-plt.text(15, -1.65, r"$\displaystyle\inf_{m \geq n}(x_m)$", color='#d55e00')
+plt.text(45, 1.6, r'$\displaystyle\sup_{m \geq n}(x_m)$', color='#f0e442')
+plt.text(15, -1.65, r"$\displaystyle\inf_{m \geq n}(x_m)$", color='#f0e442')
 plt.text(535, 1.15, r'$\displaystyle\limsup_{n\to\infty}(x_n)$')
 plt.text(535, -1.15, r'$\displaystyle\liminf_{n\to\infty}(x_n)$')
 
