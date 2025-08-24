@@ -72,6 +72,10 @@ def proofbox_to_proof(line):
     line = re.sub(r"\\SubProofBox",r"\\noindent\\SubProofBox",line)
     line = re.sub(r"\\SubProofBox{\\cref{([a-zA-Z0-9-]+)}: ([\\`,'a-zA-Z0-9 :\-$_{}\*\(\)\/]+)}%",r"\\textit{\\cref{\1}, \2}:",line)
     line = re.sub(r"\\SubProofBox{(.*)}%\n",r"\\textbf{\1. }",line)
+    # SubSubProofBox
+    line = re.sub(r"\\SubSubProofBox",r"\\noindent\\SubSubProofBox",line)
+    line = re.sub(r"\\SubSubProofBox{\\cref{([a-zA-Z0-9-]+)}: ([\\`,'a-zA-Z0-9 :\-$_{}\*\(\)\/]+)}%",r"\\textit{\\cref{\1}, \2}:",line)
+    line = re.sub(r"\\SubSubProofBox{(.*)}%\n",r"\\textsc{\1. }",line)
     return line
 
 def remove_index(line):

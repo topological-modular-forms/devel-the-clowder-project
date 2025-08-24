@@ -349,7 +349,9 @@ separator sign={\ $\blacktriangleright$}%
 }
 
 %--- Proof Box
-\definecolor{ProofBoxColor}{rgb}{0.4,0.4,0.4}
+\definecolor{ProofBoxColor}{rgb}{0.25,0.25,0.25}
+\definecolor{SubProofBoxColor}{rgb}{0.4,0.4,0.4}
+\definecolor{SubSubProofBoxColor}{rgb}{0.55,0.55,0.55}
 
 \let\proofBox\relax
 \newtcbox{\proofBox}{
@@ -411,7 +413,7 @@ separator sign={\ $\blacktriangleright$}%
   fontupper=\bfseries,  % Bold text
   boxrule=0pt,          % No border
   frame code={
-    \path[fill=thmColor]
+    \path[fill=SubProofBoxColor]
       ([xshift=0.75em,yshift=0.75em]frame.north west) --  % Top-left, shifted right
       ([yshift=0.75em]frame.north east) --                % Top-right
       ([xshift=-0.75em,yshift=0.25em]frame.south east) -- % Bottom-right, shifted left
@@ -420,3 +422,20 @@ separator sign={\ $\blacktriangleright$}%
   },
 }
 \newcommand{\SubProofBox}[1]{\begin{subproofbox}\hypersetup{hidelinks}\centering{#1}\end{subproofbox}}
+\newtcolorbox{subsubproofbox}{
+  standard jigsaw,opacityback=0, % Transparent background
+  coltext=white,        % Text color
+  fontupper=\bfseries,  % Bold text
+  boxrule=0pt,          % No border
+  frame code={
+    \path[fill=SubSubProofBoxColor]
+      ([xshift=0.75em,yshift=0.75em]frame.north west) --  % Top-left, shifted right
+      ([xshift=-0.75em,yshift=0.75em]frame.north east) -- % Top-right
+      ([yshift=-0.25em]frame.north east) --               % Top-right
+      ([xshift=-0.75em,yshift=0.25em]frame.south east) -- % Bottom-right, shifted left
+      ([xshift=0.75em,yshift=0.25em]frame.south west) --  % Bottom-left
+      ([yshift=1.25em]frame.south west) --                % Bottom-left
+      cycle;
+  },
+}
+\newcommand{\SubSubProofBox}[1]{\begin{subsubproofbox}\hypersetup{hidelinks}\centering{#1}\end{subsubproofbox}}
