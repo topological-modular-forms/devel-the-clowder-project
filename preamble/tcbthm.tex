@@ -385,14 +385,15 @@ separator sign={\ $\blacktriangleright$}%
         }%
     }%
     \noindent\proofBox{%
-        \hyperwhite #1%\mdseries\textsf{#1}%
+        \hyperwhite%
+        $\mrp{\phantom{\text{ÂhỵyẮ}}}$% Fix height to descender + max(ascender,caps)
+        #1%\mdseries\textsf{#1}%
         \hspace{\textwidth}%
         \hspace{-\widthProofBox}%
         \hspace{-\pgfkeysLastValueOf{/tcb/left}}%
         \hspace{-\pgfkeysLastValueOf{/tcb/right}}%
         \hspace{-\pgfkeysLastValueOf{/tcb/boxsep}}%
         \hspace{-5.725pt}%
-        $\mlp{\phantom{Ayd}}$% Fix height to descender + max(ascender,caps)
     }%
     \vspace{0.25\baselineskip}%
     \newline\hyperred%
@@ -421,7 +422,7 @@ separator sign={\ $\blacktriangleright$}%
       cycle;
   },
 }
-\newcommand{\SubProofBox}[1]{\begin{subproofbox}\hypersetup{hidelinks}\centering{#1}\end{subproofbox}}
+\newcommand{\SubProofBox}[1]{\begin{subproofbox}\hypersetup{hidelinks}\centering{$\mrp{\phantom{\text{ÂhỵyẮ}}}$#1}\end{subproofbox}}% The purpose of ÂhỵyẮ is to fix height to descender + max(ascender,caps)
 \newtcolorbox{subsubproofbox}{
   standard jigsaw,opacityback=0, % Transparent background
   coltext=white,        % Text color
@@ -438,4 +439,4 @@ separator sign={\ $\blacktriangleright$}%
       cycle;
   },
 }
-\newcommand{\SubSubProofBox}[1]{\begin{subsubproofbox}\hypersetup{hidelinks}\centering{#1}\end{subsubproofbox}}
+\newcommand{\SubSubProofBox}[1]{\begin{subsubproofbox}\hypersetup{hidelinks}\centering{$\mrp{\phantom{\text{ÂhỵyẮ}}}$#1}\end{subsubproofbox}}% The purpose of ÂhỵyẮ is to fix height to descender + max(ascender,caps)

@@ -92,7 +92,7 @@ TODO general analysis things:
 \begin{enumerate}
     \item \url{https://en.wikipedia.org/wiki/Schwarzian_derivative}
     \item $L^p$ spaces but they take values in fields other than R or C
-    \item Holder and minkowsky inequalities for $0\less p\less 1$
+    \item Holder and minkowsky inequalities for $0\lt p\lt 1$
     \item topological vector spaces in characteristic p
     \item \url{https://mathoverflow.net/questions/66332/is-the-characteristic-of-a-field-detectable-from-the-topology-of-a-topological-v}
     \item \url{https://en.m.wikipedia.org/wiki/Stochastic_analysis_on_manifolds}
@@ -140,7 +140,7 @@ TODO general analysis things:
         \item\label{dedekind-cuts-1}\SloganFont{Nonemptiness. }We have $A\neq\emptyset$.
         \item\label{dedekind-cuts-2}\SloganFont{Properness. }We have $A\neq\Q$.
         \item\label{dedekind-cuts-3}\SloganFont{Downward-Closedness. }For each $x,y\in\Q$, if $x\leq y$ and $y\in A$, then $x\in A$.
-        \item\label{dedekind-cuts-4}\SloganFont{Inexistence of a Greatest Element. }If $x\in A$, then there exists some $y\in A$ such that $x\less y$.
+        \item\label{dedekind-cuts-4}\SloganFont{Inexistence of a Greatest Element. }If $x\in A$, then there exists some $y\in A$ such that $x\lt y$.
         \item\label{dedekind-cuts-5}\SloganFont{Partition of $\Q$. }We have $A\cup B=\Q$.
     \end{enumerate}
 \end{definition}
@@ -149,8 +149,8 @@ TODO general analysis things:
     \begin{enumerate}
         \item\label{dual-axioms-for-dedekind-cuts-1}\SloganFont{Nonemptiness. }We have $B\neq\emptyset$.
         \item\label{dual-axioms-for-dedekind-cuts-2}\SloganFont{Properness. }We have $B\neq\Q$.
-        \item\label{dual-axioms-for-dedekind-cuts-3}\SloganFont{Upward-Closedness. }For each $x,y\in\Q$, if $x\less y$ and $x\in B$, then $y\in B$.
-        \item\label{dual-axioms-for-dedekind-cuts-4}\SloganFont{Inexistence of a Greatest Element. }If $x\in A$, then there exists some $y\in A$ such that $x\less y$.
+        \item\label{dual-axioms-for-dedekind-cuts-3}\SloganFont{Upward-Closedness. }For each $x,y\in\Q$, if $x\lt y$ and $x\in B$, then $y\in B$.
+        \item\label{dual-axioms-for-dedekind-cuts-4}\SloganFont{Inexistence of a Greatest Element. }If $x\in A$, then there exists some $y\in A$ such that $x\lt y$.
         \item\label{dual-axioms-for-dedekind-cuts-5}\SloganFont{Partition of $\Q$. }We have $A\cup B=\Q$.
     \end{enumerate}
 \end{remark}
@@ -183,7 +183,7 @@ TODO general analysis things:
             \[
                 \iota(a)%
                 \defeq%
-                (\{k\in\Q\ \middle|\ k\less a\},\{k\in\Q\ \middle|\ k\geq a\})%
+                (\{k\in\Q\ \middle|\ k\lt a\},\{k\in\Q\ \middle|\ k\geq a\})%
             \]%
             for each $a\in\Q$.
         \item\label{properties-of-the-dedekind-real-numbers-addition}\SloganFont{Addition. }The Dedekind real numbers admit an addition operation given by
@@ -210,7 +210,7 @@ TODO general analysis things:
                     k-a\in\Q%
                     \ \middle|\ %
                     \text{%
-                        $k\in\Q_{\less0}$ and $a\nin A$%
+                        $k\in\Q_{\lt0}$ and $a\nin A$%
                     }%
                 \}.%
             \]%
@@ -228,7 +228,7 @@ TODO general analysis things:
                         \defeq%
                         0.%
                     \]%
-                \item\label{properties-of-the-dedekind-real-numbers-multiplication-2}If $A,B\greater0$, we define
+                \item\label{properties-of-the-dedekind-real-numbers-multiplication-2}If $A,B\gt0$, we define
                     \[
                         AB%
                         \defeq%
@@ -239,19 +239,19 @@ TODO general analysis things:
                         A_{\geq0} &\defeq \{a\in A\ \middle|\ a\geq0\},\\
                         B_{\geq0} &\defeq \{b\in B\ \middle|\ b\geq0\}.
                     \end{align*}
-                \item\label{properties-of-the-dedekind-real-numbers-multiplication-3}If $A\geq0$ and $B\less 0$, we define
+                \item\label{properties-of-the-dedekind-real-numbers-multiplication-3}If $A\geq0$ and $B\lt 0$, we define
                     \[
                         AB%
                         \defeq%
                         -A(-B).
                     \]%
-                \item\label{properties-of-the-dedekind-real-numbers-multiplication-4}If $A\less 0$ and $B\geq0$, we define
+                \item\label{properties-of-the-dedekind-real-numbers-multiplication-4}If $A\lt 0$ and $B\geq0$, we define
                     \[
                         AB%
                         \defeq%
                         -(-A)B.
                     \]%
-                \item\label{properties-of-the-dedekind-real-numbers-multiplication-5}If $A,B\less 0$, we define
+                \item\label{properties-of-the-dedekind-real-numbers-multiplication-5}If $A,B\lt 0$, we define
                     \[
                         AB%
                         \defeq%
@@ -263,8 +263,8 @@ TODO general analysis things:
                 [A]^{-1}%
                 \defeq
                 \begin{cases}
-                    [A^{-1}]   &\text{if $[A]\greater0$,}\\
-                    -[-A^{-1}] &\text{if $[A]\less0$,}
+                    [A^{-1}]   &\text{if $[A]\gt0$,}\\
+                    -[-A^{-1}] &\text{if $[A]\lt0$,}
                 \end{cases}
             \]%
             where
@@ -278,7 +278,7 @@ TODO general analysis things:
                     \ \middle|\ %
                     \begin{aligned}%
                         &\text{there exists some $r\in\Q\setminus A$}\\%
-                        &\text{such that $r\less k$}%
+                        &\text{such that $r\lt k$}%
                     \end{aligned}%
                 \}.%
             \]%
@@ -288,7 +288,7 @@ TODO general analysis things:
                 \item\label{properties-of-the-dedekind-real-numbers-the-dedekind-real-numbers-admit-suprema-of-bounded-subsets-2}The set $S$ is bounded above in that there exists some $a\in\R$ such that $s\leq a$ for all $s\in S$.
             \end{enumerate}
             are satisfied, then $S$ has a supremum in $\R$.
-        \item\label{properties-of-the-dedekind-real-numbers-the-archimedean-property}\SloganFont{The Archimedean Property. }For each $x,y\in\R$, if $x,y\greater0$, then there exists some $n\in\N$ such that $nx\greater y$.
+        \item\label{properties-of-the-dedekind-real-numbers-the-archimedean-property}\SloganFont{The Archimedean Property. }For each $x,y\in\R$, if $x,y\gt0$, then there exists some $n\in\N$ such that $nx\gt y$.
         \item\label{properties-of-the-dedekind-real-numbers-the-bourbaki-real-numbers-form-a-complete-totally-ordered-field}\SloganFont{The Dedekind Real Numbers Form a Complete Totally Ordered Field. }The set $\R$ of Dedekind real numbers together with the order $\leq$ of \cref{properties-of-the-dedekind-real-numbers-total-order}, addition and multiplication as in \cref{properties-of-the-dedekind-real-numbers-addition,properties-of-the-dedekind-real-numbers-multiplication} form a complete totally ordered field.
         %\item\label{properties-of-the-dedekind-real-numbers-}\SloganFont{. }
     \end{enumerate}
@@ -309,32 +309,32 @@ TODO general analysis things:
     \SubProofBox{Totality}%
     Suppose that $[A]\nleq[B]$. Then there exists some $a\in A$ with $a\nin B$. We claim that the following condition holds:
     \begin{itemize}
-        \itemstar For each $b\in B$, we have $b\less a$.
+        \itemstar For each $b\in B$, we have $b\lt a$.
     \end{itemize}
     Indeed, if there exists some $b\in B$ such that $b\geq a$, then $a\in B$ since $ B$ is downward-closed, which is a contradiction.
 
-    \indent Now, since $A$ is downward-closed and we have $a\in A$ and $b\less a$ for all $b\in B$, it follows that $b\in A$ for all $b\in B$. Thus $B\subset A$ and we have $[B]\leq[A]$.
+    \indent Now, since $A$ is downward-closed and we have $a\in A$ and $b\lt a$ for all $b\in B$, it follows that $b\in A$ for all $b\in B$. Thus $B\subset A$ and we have $[B]\leq[A]$.
 
     \ProofBox{\cref{properties-of-the-dedekind-real-numbers-the-embedding-of-q-into-r}: The Embedding of $\Q$ Into $\R$}%
     Let
     \[
         [\iota(a)]%
         =%
-        \{k\in\Q\ \middle|\ k\less a\}.%
+        \{k\in\Q\ \middle|\ k\lt a\}.%
     \]%
     We claim that $\iota(a)$ is indeed a Dedekind cut.
 
     \SubProofBox{Nonemptiness}%
-    Since $a-1\less a$, we have $a-1\in[\iota(a)]$, so $[\iota(a)]$ is nonempty.
+    Since $a-1\lt a$, we have $a-1\in[\iota(a)]$, so $[\iota(a)]$ is nonempty.
 
     \SubProofBox{Properness}%
     Since $a+1\nless a$, we have $a+1\nin[\iota(a)]$, so $[\iota(a)]\neq\Q$.
 
     \SubProofBox{Downward-Closedness}%
-    Let $b\in\iota(a)$ and $c\in\Q$. If $c\leq b$, then $c\less a$ since $b\less a$, so $c\in\iota(a)$.
+    Let $b\in\iota(a)$ and $c\in\Q$. If $c\leq b$, then $c\lt a$ since $b\lt a$, so $c\in\iota(a)$.
 
     \SubProofBox{Inexistence of a Greatest Element}%
-    Let $k\in\iota(a)$. We need to construct some rational number $b$ such that $k\less b$ and $b\in\iota(a)$. Picking
+    Let $k\in\iota(a)$. We need to construct some rational number $b$ such that $k\lt b$ and $b\in\iota(a)$. Picking
     \[
         b%
         \defeq%
@@ -345,29 +345,29 @@ TODO general analysis things:
     we see that
     \[
         k%
-        \less%
+        \lt%
         k+\frac{a-k}{2}%
         \defeq%
         b,%
     \]%
-    and thus $k\less b$ and
+    and thus $k\lt b$ and
     \[
         b%
         \defeq%
         k+\frac{a-k}{2}%
         =%
         \frac{a+k}{2}%
-        \less%
+        \lt%
         \frac{a+a}{2}%
         =%
         a,%
     \]%
-    and thus $b\less a$ so $b\in\iota(a)$.
+    and thus $b\lt a$ so $b\in\iota(a)$.
 
     \SubProofBox{Partition of $\Q$}%
     We have
     \begin{align*}
-        \{k\in\Q\ \middle|\ k\less a\} \cup \{k\in\Q\ \middle|\ k\geq a\} &= \{k\in\Q\ \middle|\ \text{$k\less a$ or $k\geq a$}\}\\%
+        \{k\in\Q\ \middle|\ k\lt a\} \cup \{k\in\Q\ \middle|\ k\geq a\} &= \{k\in\Q\ \middle|\ \text{$k\lt a$ or $k\geq a$}\}\\%
                                                                           &= \Q,%
     \end{align*}
     where we have used that $\leq$ is a total order on $\Q$.
@@ -375,11 +375,11 @@ TODO general analysis things:
     \SubProofBox{Proof of the Injectivity of $\iota\colon\Q\hookrightarrow\R$}%
     Next, we prove that $\iota$ is injective. Let $a,b\in\Q$ such that $\iota(a)=\iota(b)$. Since
     \begin{align*}
-        \{k\in\Q\ \middle|\ k\less a\} &\defeq \iota(a)\\
+        \{k\in\Q\ \middle|\ k\lt a\} &\defeq \iota(a)\\
                                        &=      \iota(b)\\
-                                       &\defeq \{k\in\Q\ \middle|\ k\less b\},
+                                       &\defeq \{k\in\Q\ \middle|\ k\lt b\},
     \end{align*}
-    we must have $a=b$, as otherwise there would be some $k\in\{k\in\Q\ \middle|\ k\less b\}$ such that $k\nless a$, but this would contradict the above equality.
+    we must have $a=b$, as otherwise there would be some $k\in\{k\in\Q\ \middle|\ k\lt b\}$ such that $k\nless a$, but this would contradict the above equality.
 
     \ProofBox{\cref{properties-of-the-dedekind-real-numbers-addition}: Addition}%
     We claim that the operation $+$ defined in the statement is associative, unital, and commutative.
@@ -393,13 +393,13 @@ TODO general analysis things:
     \SubSubProofBox{Properness}%
     Let $x,y\in\Q$ with $x\nin A$ and $y\nin B$. Since $A$ and $B$ are Dedekind cuts, we have
     \begin{align*}
-        a &\less x,\\
-        b &\less y
+        a &\lt x,\\
+        b &\lt y
     \end{align*}
     for each $a\in A$ and each $b\in B$, as otherwise downward-closedness would imply $x\in A$ and $y\in B$. Thus, we have
     \[
         a+b%
-        \less%
+        \lt%
         x+y%
     \]%
     for each $a\in A$ and each $b\in B$, which gives $x+y\nin A+B$. Thus $A+B\neq\Q$.
@@ -410,10 +410,10 @@ TODO general analysis things:
     \SubSubProofBox{Inexistence of a Greatest Element}%
     Let $a+b\in A+B$. Since $A$ and $B$ are Dedekind cuts, there exist $a'\in A$ and $b'\in B$ with
     \begin{align*}
-        a &\less a',\\
-        b &\less b',
+        a &\lt a',\\
+        b &\lt b',
     \end{align*}
-    so we have $a+b\less a'+b'$. Thus $A+B$ does not have a greatest element.
+    so we have $a+b\lt a'+b'$. Thus $A+B$ does not have a greatest element.
 
     \SubSubProofBox{Partition of $\Q$}%
     This follows by definition, since $[A+B]\defeq(A+B,(A+B)^{\sfc})$.
@@ -441,8 +441,8 @@ TODO general analysis things:
     \SubProofBox{Unitality}%
     We have
     \begin{align*}
-        [A]+\iota(0) &\defeq  [A] + \{b\in\Q\ \middle|\ b\less0\}\\
-                     &=       \{a+b\in\Q\ \middle|\ \text{$a\in A$ and $b\less0$}\}\\
+        [A]+\iota(0) &\defeq  [A] + \{b\in\Q\ \middle|\ b\lt0\}\\
+                     &=       \{a+b\in\Q\ \middle|\ \text{$a\in A$ and $b\lt0$}\}\\
                      &\eqstar \{a\in\Q\ \middle|\ a\in A\}\\%
                      &\defeq  [A]%
     \end{align*}
@@ -457,16 +457,16 @@ TODO general analysis things:
     We claim that $-[A]$ is indeed a Dedekind cut.
 
     \SubSubProofBox{Nonemptiness}%
-    This follows from the fact that $A\neq\Q$, as then there exists $a\nin A$, so $k-a\in-A$ for all $\Q_{\less0}$.
+    This follows from the fact that $A\neq\Q$, as then there exists $a\nin A$, so $k-a\in-A$ for all $\Q_{\lt0}$.
 
     \SubSubProofBox{Properness}%
-    This follows from the fact that $A\neq\emptyset$,  as then there exists some $a\in A$ which is not in $-A$, since $k-a\less a$ for all $k\in\Q_{\less0}$.
+    This follows from the fact that $A\neq\emptyset$,  as then there exists some $a\in A$ which is not in $-A$, since $k-a\lt a$ for all $k\in\Q_{\lt0}$.
 
     \SubSubProofBox{Downward-Closedness}%
-    Let $k-a\in-A$ and let $b\in\Q$ with $b\leq k-a$. Since $b+a\leq k-a+a=k\less0$ and $b=(b+a)-a$, it follows that $b\in-A$.
+    Let $k-a\in-A$ and let $b\in\Q$ with $b\leq k-a$. Since $b+a\leq k-a+a=k\lt0$ and $b=(b+a)-a$, it follows that $b\in-A$.
 
     \SubSubProofBox{Inexistence of a Greatest Element}%
-    Let $k-a\in-A$. There exists some $k'\in\Q_{\less0}$ with $k\less k'$. We then have $k-a\less k'-a$, so $-A$ does not have a greatest element.
+    Let $k-a\in-A$. There exists some $k'\in\Q_{\lt0}$ with $k\lt k'$. We then have $k-a\lt k'-a$, so $-A$ does not have a greatest element.
 
     \SubSubProofBox{Partition of $\Q$}%
     This follows by definition, since $[AB]\defeq(-A,(-A)^{\sfc})$.
@@ -476,18 +476,18 @@ TODO general analysis things:
     \[
         [A]+(-[A])%
         =%
-        \{a+k-b\in\Q\ \middle|\ \text{$a\in A$, $k\in\Q_{\less0}$, and $b\nin A$}\}.%
+        \{a+k-b\in\Q\ \middle|\ \text{$a\in A$, $k\in\Q_{\lt0}$, and $b\nin A$}\}.%
     \]%
-    We now claim that $a+k-b\less0$. Indeed, since $b\nin A$, we have $a\leq b$, as otherwise the downward-closedness property of $A$ would imply $b\in A$. We then have
+    We now claim that $a+k-b\lt0$. Indeed, since $b\nin A$, we have $a\leq b$, as otherwise the downward-closedness property of $A$ would imply $b\in A$. We then have
     \begin{align*}
         a+k-b &\leq  a+k-a\\
               &=     k\\
-              &\less 0.
+              &\lt 0.
     \end{align*}
     Therefore, we have
     \begin{align*}
-        [A]+(-[A]) &=      \{a+k-b\in\Q\ \middle|\ \text{$a\in A$, $k\in\Q_{\less0}$, and $b\nin A$}\}\\
-                   &=      \{k\in\Q\ \middle|\ k\less0\}\\
+        [A]+(-[A]) &=      \{a+k-b\in\Q\ \middle|\ \text{$a\in A$, $k\in\Q_{\lt0}$, and $b\nin A$}\}\\
+                   &=      \{k\in\Q\ \middle|\ k\lt0\}\\
                    &\defeq \iota(0).
     \end{align*}
 
@@ -495,7 +495,7 @@ TODO general analysis things:
     We claim that the operation defined in the statement is associative, unital, and commutative.
 
     \SubProofBox{Well-Definedness: $[A][B]$ Is Indeed a Dedekind Cut}%
-    We claim that $[A][B]$ is indeed a Dedekind cut, and it suffices to prove the case where $A,B\greater0$.
+    We claim that $[A][B]$ is indeed a Dedekind cut, and it suffices to prove the case where $A,B\gt0$.
 
     \SubSubProofBox{Nonemptiness}%
     This follows from the fact that $[A]$ and $[B]$ are nonempty, as there then exists $a\in A$ and $b\in B$, so $ab\in AB$.
@@ -503,13 +503,13 @@ TODO general analysis things:
     \SubSubProofBox{Properness}%
     Let $x,y\in\Q$ with $x\nin A$ and $y\nin B$. Since $A$ and $B$ are Dedekind cuts, we have
     \begin{align*}
-        a &\less x,\\
-        b &\less y
+        a &\lt x,\\
+        b &\lt y
     \end{align*}
-    for each $a\in A$ and each $b\in B$, as otherwise downward-closedness would imply $x\in A$ and $y\in B$. Since $x,y\greater0$, we have
+    for each $a\in A$ and each $b\in B$, as otherwise downward-closedness would imply $x\in A$ and $y\in B$. Since $x,y\gt0$, we have
     \[
         ab%
-        \less%
+        \lt%
         xy%
     \]%
     for each $a\in A$ and each $b\in B$, and hence $x+y\nin A+B$. Thus $A+B\neq\Q$.
@@ -523,11 +523,11 @@ TODO general analysis things:
         \cup%
         \{ab\in\Q\ \middle|\ \text{$a\in A_{\geq0}$ and $b\in B_{\geq0}$}\}.%
     \]%
-    Since $\Q_{\leq0}$ is downward-closed, it suffices to prove that, given $ab\in\Q$ with $a\in A_{\greater0}$ and $b\in B_{\greater0}$ and given $k\in\Q$, if $k\leq ab$, then $k\in AB$. Indeed:
+    Since $\Q_{\leq0}$ is downward-closed, it suffices to prove that, given $ab\in\Q$ with $a\in A_{\gt0}$ and $b\in B_{\gt0}$ and given $k\in\Q$, if $k\leq ab$, then $k\in AB$. Indeed:
     \begin{itemize}
-        \item Since $b\greater0$, we have $k/b\leq a$.
+        \item Since $b\gt0$, we have $k/b\leq a$.
         \item Since $A$ is downward-closed, we then have $k/b\in A$.
-        \item Moreover, $k/b\greater0$, so $k/b\in A_{\geq0}$.
+        \item Moreover, $k/b\gt0$, so $k/b\in A_{\geq0}$.
         \item Thus $k=(k/b)b$ is in $AB$.
     \end{itemize}
 
@@ -540,15 +540,15 @@ TODO general analysis things:
         \cup%
         \{ab\in\Q\ \middle|\ \text{$a\in A_{\geq0}$ and $b\in B_{\geq0}$}\}.%
     \]%
-    We need to show that, given $k\in AB$ with $k\geq0$, there exists $k'\in AB$ with $k\less k'$. Indeed:
+    We need to show that, given $k\in AB$ with $k\geq0$, there exists $k'\in AB$ with $k\lt k'$. Indeed:
     \begin{itemize}
         \item First, suppose that $k=0$.
-        \item Since $A$ and $B$ are Dedekind cuts and $A\greater0$ and $B\greater0$, there exist $a\in A$ and $b\in B$ with $0\less a$ and $0\less b$.
-        \item We then have $0\less ab$, as we wished to show.
-        \item Now, suppose that $k\greater0$, in which case we have $k=ab$ for some $a\in A_{\greater0}$ and some $b\in B_{\greater0}$.
-        \item Since $A$ is a Dedekind cut, there exists $a'\in A$ with $a\less a'$.
-        \item Since $B$ is a Dedekind cut, there exists $b'\in B$ with $b\less b'$.
-        \item Since $a,b,a',b'\greater0$, we then have $ab\less a'b'$, as we wished to show.
+        \item Since $A$ and $B$ are Dedekind cuts and $A\gt0$ and $B\gt0$, there exist $a\in A$ and $b\in B$ with $0\lt a$ and $0\lt b$.
+        \item We then have $0\lt ab$, as we wished to show.
+        \item Now, suppose that $k\gt0$, in which case we have $k=ab$ for some $a\in A_{\gt0}$ and some $b\in B_{\gt0}$.
+        \item Since $A$ is a Dedekind cut, there exists $a'\in A$ with $a\lt a'$.
+        \item Since $B$ is a Dedekind cut, there exists $b'\in B$ with $b\lt b'$.
+        \item Since $a,b,a',b'\gt0$, we then have $ab\lt a'b'$, as we wished to show.
     \end{itemize}
 
     \SubSubProofBox{Partition of $\Q$}%
@@ -585,13 +585,13 @@ TODO general analysis things:
     for each $[A]\in\R$, where we claim that the equality marked with a dagger ($\dagger$) above holds:
     \begin{itemize}
         \item Firstly, let $L=\{ak\in\Q\ \middle|\ a\in A_{\geq0}\}$ and $k\in\left[0,1\right)$ for ease of writing.
-        \item Since $ak\less a$ if $k\in\left[0,1\right)$, it follows that $ak\in[A]$ as $A$ is downward-closed. Thus $L\subset A$.
+        \item Since $ak\lt a$ if $k\in\left[0,1\right)$, it follows that $ak\in[A]$ as $A$ is downward-closed. Thus $L\subset A$.
         \item Since $[A]$ is positive (by assumption), we have $\Q_{\leq0}\subset A$ as well.
         \item Therefore we have $\Q_{\geq0}\cup L\subset A$.%
         \item Conversely, given $a\in A$, we claim that $a\in L$. Indeed:
             \begin{itemize}
-                \item Since $A$ is a Dedekind cut, there exists some $g\in A$ with $a\less g$.
-                \item Since $a\less g$, we have $a/g\in\left[0,1\right)$.
+                \item Since $A$ is a Dedekind cut, there exists some $g\in A$ with $a\lt g$.
+                \item Since $a\lt g$, we have $a/g\in\left[0,1\right)$.
                 \item We then have $a=g(a/g)$ where $g\in A$ and $g/a\in\left[0,1\right)$. Thus $a\in L$.
             \end{itemize}
             This shows that $A\subset L$, so $A=\Q_{\geq0}\cup L$, and we are done.
@@ -604,25 +604,25 @@ TODO general analysis things:
     for each $[A]\in\R$.
 
     \SubProofBox{If $[A]\neq0$, Then $[A]^{-1}$ Is Indeed a Dedekind Cut}%
-    We claim that $[A]^{-1}$ is indeed a Dedekind cut if $[A]\neq0$. We prove only the case where $[A]\greater0$.
+    We claim that $[A]^{-1}$ is indeed a Dedekind cut if $[A]\neq0$. We prove only the case where $[A]\gt0$.
 
     \SubSubProofBox{Nonemptiness}%
-    Since $A\neq\Q$, there exists some $r\in A^{\sfc}$, and we then have $1/k\in A^{-1}$ for some $k\in\Q$ with $r\less k$.
+    Since $A\neq\Q$, there exists some $r\in A^{\sfc}$, and we then have $1/k\in A^{-1}$ for some $k\in\Q$ with $r\lt k$.
 
     \SubSubProofBox{Properness}%
-    Since $A\neq\emptyset$, there exists some $a\in A$. Then, for all $r\in A^{\sfc}$ we have $a\less r$, as otherwise we would have $r\leq a$, which would imply $r\in A$ since $A$ is downward-closed. We then have $1/k\less 1/r\less 1/a$ for all $1/k\in A^{-1}$. Therefore $1/a\nin A^{-1}$, and we have $A^{-1}\neq\Q$.
+    Since $A\neq\emptyset$, there exists some $a\in A$. Then, for all $r\in A^{\sfc}$ we have $a\lt r$, as otherwise we would have $r\leq a$, which would imply $r\in A$ since $A$ is downward-closed. We then have $1/k\lt 1/r\lt 1/a$ for all $1/k\in A^{-1}$. Therefore $1/a\nin A^{-1}$, and we have $A^{-1}\neq\Q$.
 
     \SubSubProofBox{Downward-Closedness}%
-    Let $1/k\in A^{-1}$ and let $a\in\Q$ with $a\leq 1/k$. Since $1/k\in A^{-1}$, there exists some $r\in A^{\sfc}$ such that $r\less k$, i.e. $1/k\less 1/r$. We then have $a\leq 1/k\less 1/r$, so $a\in A^{-1}$ as well.
+    Let $1/k\in A^{-1}$ and let $a\in\Q$ with $a\leq 1/k$. Since $1/k\in A^{-1}$, there exists some $r\in A^{\sfc}$ such that $r\lt k$, i.e. $1/k\lt 1/r$. We then have $a\leq 1/k\lt 1/r$, so $a\in A^{-1}$ as well.
 
     \SubSubProofBox{Inexistence of a Greatest Element}%
-    Let $1/k\in A^{-1}$ and let $k'\in\Q$ with $r\less k'\less k$, e.g.\ $k'=r+(k-r)/2$. Then $1/k'\less1/r$ and $1/k\less 1/k'$. Thus $A^{-1}$ does not have a greatest element.
+    Let $1/k\in A^{-1}$ and let $k'\in\Q$ with $r\lt k'\lt k$, e.g.\ $k'=r+(k-r)/2$. Then $1/k'\lt1/r$ and $1/k\lt 1/k'$. Thus $A^{-1}$ does not have a greatest element.
 
     \SubSubProofBox{Partition of $\Q$}%
     This follows by definition, since $[A^{-1}]\defeq(A^{-1},(A^{-1})^{\sfc})$.
 
     \SubProofBox{$[A]^{-1}$ Is the Multiplicative Inverse of $[A]$}%
-    We prove only the case where $[A]\greater0$. First, note that
+    We prove only the case where $[A]\gt0$. First, note that
     \[
         [A][A]^{-1}%
         =%
@@ -633,18 +633,18 @@ TODO general analysis things:
             \ \middle|\ %
             \begin{aligned}%
                 &\text{$a\in A_{\geq0}$ and there exists some}\\
-                &\text{$r\in A^{\sfc}$ such that $r\less k$}
+                &\text{$r\in A^{\sfc}$ such that $r\lt k$}
             \end{aligned}%
         \}.%
     \]%
-    We claim that $a(1/k)\less1$:
+    We claim that $a(1/k)\lt1$:
     \begin{itemize}
-        \item Since $r\in A^{\sfc}$, it follows that $a\less r$, as otherwise we would have $r\leq a$, which would imply $r\in A$ by the downward-closedness of $A$.
-        \item Since $r\less k$, we have $1/k\less 1/r$.
+        \item Since $r\in A^{\sfc}$, it follows that $a\lt r$, as otherwise we would have $r\leq a$, which would imply $r\in A$ by the downward-closedness of $A$.
+        \item Since $r\lt k$, we have $1/k\lt 1/r$.
         \item Combining both inequalities then gives
             \begin{align*}
-                a(1/k) &\less r(1/k)\\
-                       &\less r(1/r)\\
+                a(1/k) &\lt r(1/k)\\
+                       &\lt r(1/r)\\
                        &=     1,
             \end{align*}
             as we wished to show.
@@ -673,13 +673,13 @@ TODO general analysis things:
     Since $S\neq\emptyset$, there exists some $s\in S$. Since $s$ is a Dedekind cut, we have $s\neq\emptyset$. Since $s\subset\mathcal{S}$, we have $s\cap\mathcal{S}\neq\emptyset$. Thus $\mathcal{S}\neq\emptyset$.
 
     \SubSubProofBox{Properness}%
-    Since $S$ is bounded above, there exists some $a\in\R$ such that $s\leq a$ for each $s\in S$. Let $b\in\R$ with $a\less b$. Then $s\leq a\less b$, so $s\less b$ and $b\nin S$. Thus $S\neq\Q$.
+    Since $S$ is bounded above, there exists some $a\in\R$ such that $s\leq a$ for each $s\in S$. Let $b\in\R$ with $a\lt b$. Then $s\leq a\lt b$, so $s\lt b$ and $b\nin S$. Thus $S\neq\Q$.
 
     \SubSubProofBox{Downward-Closedness}%
     Let $a\in\Q$ and $b\in\mathcal{S}$ with $a\leq b$. Then there exists some $s\in S$ such that $b\in s$. But since $s$ is downward-closed and $a\leq b$, we must have $a\in s$ as well, and thus $a\in\mathcal{S}$.
 
     \SubSubProofBox{Inexistence of a Greatest Element}%
-    Let $a\in\mathcal{S}$. Then there exists some $s\in S$ with $a\in s$. As $s$ is a Dedekind cut, there exists some $b\in s$ with $a\less b$. But since $b\in s$, we have $b\in\mathcal{S}$.
+    Let $a\in\mathcal{S}$. Then there exists some $s\in S$ with $a\in s$. As $s$ is a Dedekind cut, there exists some $b\in s$ with $a\lt b$. But since $b\in s$, we have $b\in\mathcal{S}$.
 
     \SubSubProofBox{Partition of $\Q$}%
     This follows by definition, since $[\mathcal{S}]\defeq(\mathcal{S},\mathcal{S}^{\sfc})$.
@@ -709,13 +709,13 @@ TODO general analysis things:
             n\in\N%
         \}.%
     \]%
-    Since $nx\leq y$ for all $n\in\N$, the set $S$ is bounded above by $y$. By \cref{properties-of-the-dedekind-real-numbers-the-dedekind-real-numbers-admit-suprema-of-bounded-subsets}, the set $S$ admits a supremum $\sup(S)$. Since $S$ is bounded above by $y$, we have $\sup(S)\leq y$. Now, since $x\greater 0$, we have
+    Since $nx\leq y$ for all $n\in\N$, the set $S$ is bounded above by $y$. By \cref{properties-of-the-dedekind-real-numbers-the-dedekind-real-numbers-admit-suprema-of-bounded-subsets}, the set $S$ admits a supremum $\sup(S)$. Since $S$ is bounded above by $y$, we have $\sup(S)\leq y$. Now, since $x\gt 0$, we have
     \[
         \sup(S)-x%
-        \less%
+        \lt%
         \sup(S),%
     \]%
-    and therefore $\sup(S)-x$ is not an upper bound of $S$. Thus, there exists $n\in\N$ such that $\sup(S)-x\leq nx$, and therefore $\sup(S)\less (n+1)x$. However, this contradicts the fact that $\sup(S)$ is an upper bound of $S$. This finishes the proof.%
+    and therefore $\sup(S)-x$ is not an upper bound of $S$. Thus, there exists $n\in\N$ such that $\sup(S)-x\leq nx$, and therefore $\sup(S)\lt (n+1)x$. However, this contradicts the fact that $\sup(S)$ is an upper bound of $S$. This finishes the proof.%
     %--- Begin Footnote ---%
     \footnote{%
         We follow the proof given in \cite[Theorem 3.6]{belotto:notes-about-dedekind-cuts}.
@@ -736,7 +736,7 @@ TODO general analysis things:
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \itemstar For each $\epsilon\greater0$, there exists some $N\in\N$ such that, if $n,\greater N$, then $\abs{a_{n}-a_{m}}\less\epsilon$.
+        \itemstar For each $\epsilon\gt0$, there exists some $N\in\N$ such that, if $n,m\gt N$, then $\abs{a_{n}-a_{m}}\lt\epsilon$.
     \end{itemize}
 \end{definition}
 \begin{construction}{The Cauchy Real Numbers}{the-cauchy-real-numbers}%
@@ -834,13 +834,13 @@ TODO general analysis things:
                 \defeq%
                 [(a_{n}b_{n})_{n\in\N}].%
             \]%
-        \item\label{properties-of-the-cauchy-real-numbers-rational-approximation}\SloganFont{Rational Approximation. }For each $x\in\R$ and each $\epsilon\greater0$, there exists some $a\in\Q$ such that we have
+        \item\label{properties-of-the-cauchy-real-numbers-rational-approximation}\SloganFont{Rational Approximation. }For each $x\in\R$ and each $\epsilon\gt0$, there exists some $a\in\Q$ such that we have
             \[
                 \abs{x-\iota(a)}%
-                \less_{\R}%
+                \lt_{\R}%
                 \epsilon.%
             \]%
-        \item\label{properties-of-the-cauchy-real-numbers-the-archimedean-property}\SloganFont{The Archimedean Property. }For each $x,y\in\R$, if $x,y\greater0$, then there exists some $n\in\N$ such that $nx\greater y$.
+        \item\label{properties-of-the-cauchy-real-numbers-the-archimedean-property}\SloganFont{The Archimedean Property. }For each $x,y\in\R$, if $x,y\gt0$, then there exists some $n\in\N$ such that $nx\gt y$.
         \item\label{properties-of-the-cauchy-real-numbers-the-cauchy-real-numbers-admit-suprema-of-bounded-subsets}\SloganFont{The Cauchy Real Numbers Admit Suprema of Bounded Subsets. }Let $S\subset\R$. If the conditions
             \begin{enumerate}
                 \item\label{properties-of-the-cauchy-real-numbers-the-cauchy-real-numbers-admit-suprema-of-bounded-subsets-1}We have $S\neq\emptyset$.
@@ -877,23 +877,23 @@ TODO general analysis things:
                 =%
                 0.%
             \]%
-            Therefore, for each $\epsilon\greater0$, there exists some $N_{a}\in\N$ such that, for each $n\geq N_{a}$, we have $\abs{x_{n}-a_{n}}\less\epsilon$.
-        \item Similarly, since $(b_{n})_{n\in\N}\sim(y_{n})_{n\in\N}$, for each $\epsilon\greater0$, there exists some $N_{b}\in\N$ such that, for each $n\geq N_{b}$, we have $\abs{y_{n}-b_{n}}\less\epsilon$.
+            Therefore, for each $\epsilon\gt0$, there exists some $N_{a}\in\N$ such that, for each $n\geq N_{a}$, we have $\abs{x_{n}-a_{n}}\lt\epsilon$.
+        \item Similarly, since $(b_{n})_{n\in\N}\sim(y_{n})_{n\in\N}$, for each $\epsilon\gt0$, there exists some $N_{b}\in\N$ such that, for each $n\geq N_{b}$, we have $\abs{y_{n}-b_{n}}\lt\epsilon$.
         \item We then have
             \begin{align*}
                 x_{n} &=     x_{n}+a_{n}-a_{n}\\
                       &=     a_{n}+(x_{n}-a_{n})\\
                       &\leq  a_{n}+\abs{x_{n}-a_{n}}\\
-                      &\less a_{n}+\epsilon\\
+                      &\lt a_{n}+\epsilon\\
                       &\leq  b_{n}+\epsilon\\
                       &=     y_{n}-y_{n}+b_{n}+\epsilon\\
                       &=     y_{n}+(b_{n}-y_{n})+\epsilon\\
                       &\leq  y_{n}+\abs{b_{n}-y_{n}}+\epsilon\\
                       &=     y_{n}+\abs{y_{n}-b_{n}}+\epsilon\\
-                      &\less y_{n}+2\epsilon
+                      &\lt y_{n}+2\epsilon
             \end{align*}
             for all $n\geq\max(N_{a},N_{b})$.
-        \item Since the above holds for all $\epsilon\greater0$ provided $n$ is big enough, we must in fact have $x_{n}\leq y_{n}$ for sufficiently large $n$.
+        \item Since the above holds for all $\epsilon\gt0$ provided $n$ is big enough, we must in fact have $x_{n}\leq y_{n}$ for sufficiently large $n$.
         \item Thus $[(x_{n})_{n\in\N}]\leq_{\R}[(y_{n})_{n\in\N}]$, as we wanted to show.
     \end{itemize}
 
@@ -919,10 +919,10 @@ TODO general analysis things:
                 [(a_{n})_{n\in\N}] &\leq_{\R} [(b_{n})_{n\in\N}],\\
                 [(b_{n})_{n\in\N}] &\leq_{\R} [(c_{n})_{n\in\N}].
             \end{align*}
-        \item By the definition of $\leq_{\R}$, there exists $N_{1}\in\N$ such that, for each $n\greater N_{2}$, we have $a_{n}\leq b_{n}$.
-        \item By the definition of $\leq_{\R}$, there exists $N_{2}\in\N$ such that, for each $n\greater N_{2}$, we have $b_{n}\leq c_{n}$.
-        \item Thus, for each $n\greater\max(N_{1},N_{2})$, we have $a_{n}\leq b_{n}$ and $b_{n}\leq c_{n}$.
-        \item Since $\leq$ is transitive, we have $a_{n}\leq c_{n}$ for $n\greater\max(N_{1},N_{2})$.
+        \item By the definition of $\leq_{\R}$, there exists $N_{1}\in\N$ such that, for each $n\gt N_{2}$, we have $a_{n}\leq b_{n}$.
+        \item By the definition of $\leq_{\R}$, there exists $N_{2}\in\N$ such that, for each $n\gt N_{2}$, we have $b_{n}\leq c_{n}$.
+        \item Thus, for each $n\gt\max(N_{1},N_{2})$, we have $a_{n}\leq b_{n}$ and $b_{n}\leq c_{n}$.
+        \item Since $\leq$ is transitive, we have $a_{n}\leq c_{n}$ for $n\gt\max(N_{1},N_{2})$.
         \item Therefore, by the definition of $\leq_{\R}$, we have
             \[
                 [(a_{n})_{n\in\N}]%
@@ -940,10 +940,10 @@ TODO general analysis things:
                 [(a_{n})_{n\in\N}] &\leq_{\R} [(b_{n})_{n\in\N}],\\
                 [(b_{n})_{n\in\N}] &\leq_{\R} [(a_{n})_{n\in\N}].
             \end{align*}
-        \item By the definition of $\leq_{\R}$, there exists $N_{1}\in\N$ such that, for each $n\greater N_{2}$, we have $a_{n}\leq b_{n}$.
-        \item By the definition of $\leq_{\R}$, there exists $N_{2}\in\N$ such that, for each $n\greater N_{2}$, we have $b_{n}\leq a_{n}$.
-        \item Thus, for each $n\greater\max(N_{1},N_{2})$, we have $a_{n}\leq b_{n}$ and $b_{n}\leq a_{n}$.
-        \item Since $\leq$ is a partial order, we have $a_{n}=c_{n}$ for each $n\greater\max(N_{1},N_{2})$.
+        \item By the definition of $\leq_{\R}$, there exists $N_{1}\in\N$ such that, for each $n\gt N_{2}$, we have $a_{n}\leq b_{n}$.
+        \item By the definition of $\leq_{\R}$, there exists $N_{2}\in\N$ such that, for each $n\gt N_{2}$, we have $b_{n}\leq a_{n}$.
+        \item Thus, for each $n\gt\max(N_{1},N_{2})$, we have $a_{n}\leq b_{n}$ and $b_{n}\leq a_{n}$.
+        \item Since $\leq$ is a partial order, we have $a_{n}=c_{n}$ for each $n\gt\max(N_{1},N_{2})$.
         \item Therefore we have
             \[
                 \lim_{n\to\infty}(\abs{c_{n}-a_{n}})%
@@ -958,7 +958,7 @@ TODO general analysis things:
     \begin{itemize}
         \item Let $[(a_{n})_{n\in\N}],[(b_{n})_{n\in\N}]\in\R$.
         \item Suppose that $[(a_{n})_{n\in\N}]\nleq_{\R}[(b_{n})_{n\in\N}]$.
-        \item By the definition of $\leq_{\R}$, there does not exist $N\in\N$ such that, for each $n\greater N_{2}$, we have $a_{n}\leq b_{n}$.
+        \item By the definition of $\leq_{\R}$, there does not exist $N\in\N$ such that, for each $n\gt N_{2}$, we have $a_{n}\leq b_{n}$.
         \item Thus, we have $a_{n}\nleq b_{n}$ for all $n\in\N$.
         \item Since $\leq$ is a partial order, we must then have $b_{n}\geq a_{n}$ for all $n\in\N$.
         \item By the definition of $\leq_{\R}$, we have
@@ -1039,19 +1039,19 @@ TODO general analysis things:
     We proceed in a few steps:
     \begin{itemize}
         \item Let $(x_{n})_{n\in\N}$ be a representative of $x\in\R$.
-        \item Since $(x_{n})_{n\in\N}$ is a Cauchy sequence, there exists some $N\in\N$ such that, for each $n,m\in\N$, if $n,m\greater N$, then $\abs{a_{n}-a_{m}}\less\epsilon$.
-        \item Pick some $\ell\greater N$ and define $a=x_{\ell}$.
+        \item Since $(x_{n})_{n\in\N}$ is a Cauchy sequence, there exists some $N\in\N$ such that, for each $n,m\in\N$, if $n,m\gt N$, then $\abs{a_{n}-a_{m}}\lt\epsilon$.
+        \item Pick some $\ell\gt N$ and define $a=x_{\ell}$.
         \item We have
             \begin{align*}
                 \abs{x-\iota(a)} &= [(\abs{x_{n}-x_{\ell}})_{n\in\N}],
             \end{align*}
-            and since $n\greater N$, we have
+            and since $n\gt N$, we have
             \[
                 \abs{x_{n}-x_{\ell}}%
-                \less%
+                \lt%
                 \epsilon.%
             \]%
-        \item By the definition of $\leq_{\R}$, we then have $\abs{x-\iota(a)}\less\epsilon$.
+        \item By the definition of $\leq_{\R}$, we then have $\abs{x-\iota(a)}\lt\epsilon$.
     \end{itemize}
     This finishes the proof.%
     %--- Begin Footnote ---%
@@ -1068,25 +1068,25 @@ TODO general analysis things:
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \item Let $x,y\greater0$ and let $(x_{n})_{n\in\N}$ and $(y_{n})_{n\in\N}$ be representatives of $x$ and $y$.
+        \item Let $x,y\gt0$ and let $(x_{n})_{n\in\N}$ and $(y_{n})_{n\in\N}$ be representatives of $x$ and $y$.
         \item The Archimedean property is then the statement that there exists some $n\in\N$ such that we have
             \[
                 [(nx_{m})_{m\in\N}]%
-                \greater%
+                \gt%
                 [(y_{m})_{m\in\N}],%
             \]%
-            i.e.\ there exists some $N\in\N$ such that, for each $m\geq N$, we have $nx_{m}\greater y_{m}$.
+            i.e.\ there exists some $N\in\N$ such that, for each $m\geq N$, we have $nx_{m}\gt y_{m}$.
         \item We proceed by contradiction, assuming that for each $n,N\in\N$, there exists some $m\geq N$ such that $nx_{m}\leq y_{m}$.
         \item Since $(y_{m})_{m\in\N}$ is a Cauchy sequence, it is bounded, so there exists some $M\in\Q$ such that $y_{m}\leq M$ for all $m\in\N$.
-        \item By the Archimedean property of the rational numbers, for each $\epsilon\greater0$ there exists some $N'\in\N$ such that $M/N'\less\epsilon$.
+        \item By the Archimedean property of the rational numbers, for each $\epsilon\gt0$ there exists some $N'\in\N$ such that $M/N'\lt\epsilon$.
         \item Letting $n=N=N'$, we have
             \begin{align*}
                 x_{m} &\leq  y_{m}/N'\\
                       &\leq  M/N'\\
-                      &\less \epsilon
+                      &\lt \epsilon
             \end{align*}
             for each $m\geq N$.
-        \item Therefore $(x_{n})_{n\in\N}$ converges to zero, which is a contradiction, since $x\greater0$.
+        \item Therefore $(x_{n})_{n\in\N}$ converges to zero, which is a contradiction, since $x\gt0$.
     \end{itemize}
     This finishes the proof.
 
@@ -1251,27 +1251,27 @@ TODO general analysis things:
         \item We claim that $(u_{n})_{n\in\N}$ is a Cauchy sequence:
             \begin{itemize}
                 \item We proceed by contradiction, supposing that $(u_{n})_{n\in\N}$ is not a Cauchy sequence.
-                \item Thus, there exists some $\epsilon\greater0$ such that, given any $N\in\N$, we have
+                \item Thus, there exists some $\epsilon\gt0$ such that, given any $N\in\N$, we have
                     \[
                         \abs{u_{n}-u_{m}}%
-                        \greater%
+                        \gt%
                         \epsilon%
                     \]%
-                    for some $n,m\greater N$.
-                \item Starting with $N=1$, we may pick $u_{n_{1}}$ and $u_{n_{2}}$ such that $u_{n_{2}}-u_{n_{1}}\greater\epsilon$.
-                \item Next, we pick some $N'\in\N$ with $N'\greater\max(n_{1},n_{2})$ and pick $u_{n_{3}}$ and $u_{n_{4}}$ such that $u_{n_{4}}-u_{n_{3}}\greater\epsilon$.
+                    for some $n,m\gt N$.
+                \item Starting with $N=1$, we may pick $u_{n_{1}}$ and $u_{n_{2}}$ such that $u_{n_{2}}-u_{n_{1}}\gt\epsilon$.
+                \item Next, we pick some $N'\in\N$ with $N'\gt\max(n_{1},n_{2})$ and pick $u_{n_{3}}$ and $u_{n_{4}}$ such that $u_{n_{4}}-u_{n_{3}}\gt\epsilon$.
                 \item We then have
                     \begin{align*}
                         u_{n_{k}}-u_{n_{1}} &=        u_{n_{k}}-u_{n_{k-1}}+u_{n_{k-1}}-\cdots+u_{n_{2}}-u_{n_{1}}\\
-                                            &\greater k\epsilon.%
+                                            &\gt k\epsilon.%
                     \end{align*}
-                \item By \cref{properties-of-the-cauchy-real-numbers-the-archimedean-property} of this proposition, it then follows that, for each $\epsilon'\greater0$, there exists some $k\in\N$ such that $k\epsilon\greater\epsilon'$.
+                \item By \cref{properties-of-the-cauchy-real-numbers-the-archimedean-property} of this proposition, it then follows that, for each $\epsilon'\gt0$, there exists some $k\in\N$ such that $k\epsilon\gt\epsilon'$.
                 \item This then gives
                     \begin{align*}
-                        u_{n_{k}}-u_{n_{1}} &\greater k\epsilon\\%
-                                            &\greater \epsilon'%
+                        u_{n_{k}}-u_{n_{1}} &\gt k\epsilon\\%
+                                            &\gt \epsilon'%
                     \end{align*}
-                    for each $\epsilon'\greater0$, showing the sequence $(u_{n_{k}})_{k\in\N}$ to be unbounded.
+                    for each $\epsilon'\gt0$, showing the sequence $(u_{n_{k}})_{k\in\N}$ to be unbounded.
                 \item Since $(u_{n_{k}})_{k\in\N}$ is a subsequence of $(u_{n})_{n\in\N}$, this is a contradiction.
                 \item Thus $(u_{n})_{n\in\N}$ is a Cauchy sequence.
             \end{itemize}
@@ -1281,7 +1281,7 @@ TODO general analysis things:
                 \item By \cref{properties-of-the-cauchy-real-numbers-rational-approximation} of this proposition, there exists some $q_{n}\in\Q$ such that we have
                     \[
                         \abs{u_{n}-q_{n}}%
-                        \less%
+                        \lt%
                         \frac{1}{n}.%
                     \]%
                 \item Let $q$ be the sequence defined by
@@ -1292,16 +1292,16 @@ TODO general analysis things:
                     \]%
                 \item We claim that $q$ is a Cauchy sequence:
                     \begin{itemize}
-                        \item Let $\epsilon\greater0$.
-                        \item By \cref{properties-of-the-cauchy-real-numbers-the-archimedean-property} of this proposition, there exists some $N$ such that $1/N\less\epsilon/3$.
-                        \item Since $u$ is Cauchy, there exists some $N'\in\N$ such that, for each $n,m\greater N'$, we have $\abs{u_{n}-u_{m}}\less\epsilon/3$.
+                        \item Let $\epsilon\gt0$.
+                        \item By \cref{properties-of-the-cauchy-real-numbers-the-archimedean-property} of this proposition, there exists some $N$ such that $1/N\lt\epsilon/3$.
+                        \item Since $u$ is Cauchy, there exists some $N'\in\N$ such that, for each $n,m\gt N'$, we have $\abs{u_{n}-u_{m}}\lt\epsilon/3$.
                         \item We then have
                             \begin{align*}
                                 \abs{q_{n}-q_{m}} &=     \abs{(q_{n}-u_{n})+(u_{n}-u_{m})+(u_{m}-q_{m})}\\
                                                   &\leq  \abs{q_{n}-u_{n}}+\abs{u_{n}-u_{m}}+\abs{u_{m}-q_{m}}\\
                                                   &=     \abs{u_{n}-q_{n}}+\abs{u_{n}-u_{m}}+\abs{u_{m}-q_{m}}\\
-                                                  &\less \frac{1}{n}+\frac{\epsilon}{3}+\frac{1}{m}\\
-                                                  &\less \frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}\\
+                                                  &\lt \frac{1}{n}+\frac{\epsilon}{3}+\frac{1}{m}\\
+                                                  &\lt \frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}\\
                                                   &=     \epsilon
                             \end{align*}
                             for each $n,m\geq\max(N,N')$, and therefore $q$ is a Cauchy sequence.
@@ -1313,7 +1313,7 @@ TODO general analysis things:
                         \item We have
                             \begin{align*}
                                 \abs{u_{m}-(\widetilde{q}_{n})_{m}} &\defeq \abs{q_{m}-q_{n}}\\
-                                                                    &\less  \epsilon
+                                                                    &\lt  \epsilon
                             \end{align*}
                             for sufficiently large $m\in\N$, since $(q_{n})_{n\in\N}$ is a Cauchy sequence.
                         \item Since
@@ -1348,10 +1348,10 @@ TODO general analysis things:
                         =%
                         \frac{M-s_{0}}{2^{n}}.%
                     \]%
-                \item By \cref{properties-of-the-cauchy-real-numbers-the-archimedean-property} of this proposition, for each $\epsilon\greater0$, there exists some $n\in\N$ such that we have
+                \item By \cref{properties-of-the-cauchy-real-numbers-the-archimedean-property} of this proposition, for each $\epsilon\gt0$, there exists some $n\in\N$ such that we have
                     \[
                         \frac{M-s_{0}}{2^{n}}%
-                        \less%
+                        \lt%
                         \epsilon.%
                     \]%
                 \item We then have
@@ -1360,17 +1360,17 @@ TODO general analysis things:
                                          &\leq  \abs{u-u_{n}}+\abs{u_{n}-\ell_{n}}\\
                                          &=     \abs{u-u_{n}}+\abs{\frac{M-s_{0}}{2^{n}}}\\
                                          &=     \abs{u-u_{n}}+\frac{M-s_{0}}{2^{n}}\\
-                                         &\less 2\epsilon,%
+                                         &\lt 2\epsilon,%
                     \end{align*}
                     so $(\ell_{n})_{n\in\N}$ converges to $u$.
             \end{itemize}
         \item We claim that $u$ is an upper bound of $S$:
             \begin{itemize}
-                \item We proceed by contradiction, supposing that $u$ is not an upper bound, so that there exists some $s\in S$ such that $u\less s$.
-                \item Let $\epsilon=s-u$, and observe that since $(u_{n})_{n\in\N}$ is non-increasing and converges to $u$, there must exist some $n\in\N$ such that $u_{n}-u\less\epsilon$.
-                \item Therefore, we have $u_{n}\less u+\epsilon$, which gives
+                \item We proceed by contradiction, supposing that $u$ is not an upper bound, so that there exists some $s\in S$ such that $u\lt s$.
+                \item Let $\epsilon=s-u$, and observe that since $(u_{n})_{n\in\N}$ is non-increasing and converges to $u$, there must exist some $n\in\N$ such that $u_{n}-u\lt\epsilon$.
+                \item Therefore, we have $u_{n}\lt u+\epsilon$, which gives
                     \begin{align*}
-                        u_{n} &\less u+\epsilon\\
+                        u_{n} &\lt u+\epsilon\\
                               &=     u+s-u\\
                               &=     s,
                     \end{align*}
@@ -1379,13 +1379,13 @@ TODO general analysis things:
         \item We claim that $u$ is the least upper bound of $S$:
             \begin{itemize}
                 \item Since, for each $n\in\N$, the number $\ell_{n}$ is not an upper bound of $S$, there exists, for each $n\in\N$, some $s_{n}\in S$ such that $\ell_{n}\leq s$.
-                \item Since $(\ell_{n})_{n\in\N}$ is non-decreasing and converges to $u$, for each $\epsilon\greater0$, there exists some $N\in\N$ such that, if $n\geq N$, then $\ell_{n}\greater u-\epsilon$.
+                \item Since $(\ell_{n})_{n\in\N}$ is non-decreasing and converges to $u$, for each $\epsilon\gt0$, there exists some $N\in\N$ such that, if $n\geq N$, then $\ell_{n}\gt u-\epsilon$.
                 \item Therefore, for each $n\geq N$, we have
                     \begin{align*}
-                        u-\epsilon &\less \ell_{n}\\
-                                   &\less s_{n}.
+                        u-\epsilon &\lt \ell_{n}\\
+                                   &\lt s_{n}.
                     \end{align*}
-                \item This shows that, for each $\epsilon\greater0$, there exists some $s\in S$ such that $s\greater u-\epsilon$, and hence $u\leq s$.
+                \item This shows that, for each $\epsilon\gt0$, there exists some $s\in S$ such that $s\gt u-\epsilon$, and hence $u\leq s$.
             \end{itemize}
     \end{itemize}
     This finishes the proof.
@@ -1532,27 +1532,27 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
             \]%
         \item\label{rational-filters-and-some-definitions-surrounding-them-cauchy-filters}A rational filter $\mathcal{F}$ is \index[real-analysis]{rational filter!Cauchy}\textbf{Cauchy} if it satisfies the following condition:
             \begin{itemize}
-                \itemstar For each rational number $\epsilon\greater0$, there exists some $k\in\Q$ such that we have $k_{\epsilon}\in\mathcal{F}$, where
+                \itemstar For each rational number $\epsilon\gt0$, there exists some $k\in\Q$ such that we have $k_{\epsilon}\in\mathcal{F}$, where
                     \[
                         k_{\epsilon}%
                         \defeq%
                         \{%
                             a\in\Q%
                             \ \middle|\ %
-                            k-\epsilon\less a\less k+\epsilon%
+                            k-\epsilon\lt a\lt k+\epsilon%
                         \}.%
                     \]%
             \end{itemize}
         \item\label{rational-filters-and-some-definitions-surrounding-them-cauchy-filter-bases}A \index[real-analysis]{rational filter base!Cauchy}\textbf{Cauchy filter base} is a filter base $\mathcal{B}$ satisfying the following condition:
             \begin{itemize}
-                \itemstar For each rational number $\epsilon\greater0$, there exists some $k\in\Q$ and some $B\in\mathcal{B}$ such that we have $B\subset k_{\epsilon}$, where
+                \itemstar For each rational number $\epsilon\gt0$, there exists some $k\in\Q$ and some $B\in\mathcal{B}$ such that we have $B\subset k_{\epsilon}$, where
                     \[
                         k_{\epsilon}%
                         \defeq%
                         \{%
                             a\in\Q%
                             \ \middle|\ %
-                            k-\epsilon\less a\less k+\epsilon%
+                            k-\epsilon\lt a\lt k+\epsilon%
                         \}.%
                     \]%
             \end{itemize}
@@ -1562,7 +1562,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
             \end{itemize}
         \item\label{rational-filters-and-some-definitions-surrounding-them-round-filters}A rational filter $\mathcal{F}$ is \index[real-analysis]{rational filter!round}\textbf{round} if it satisfies the following condition:
             \begin{itemize}
-                \itemstar There exists a rational number $\epsilon\greater0$ such that, for each $F\in\mathcal{F}$ and each $k\in\Q$, if $k_{\epsilon}\in\mathcal{F}$, then $k_{\epsilon}\subset F$.
+                \itemstar There exists a rational number $\epsilon\gt0$ such that, for each $F\in\mathcal{F}$ and each $k\in\Q$, if $k_{\epsilon}\in\mathcal{F}$, then $k_{\epsilon}\subset F$.
             \end{itemize}
         \item\label{rational-filters-and-some-definitions-surrounding-them-the-roundification-of-a-filter}The \index[real-analysis]{rational filter!roundification of}\textbf{roundification} of a rational filter $\mathcal{F}$ is the rational filter \index[notation]{Fcirc@$\mathcal{F}_{\circ}$}$\mathcal{F}_{\circ}$ defined by
             \[
@@ -1585,7 +1585,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
                     \ \middle|\ %
                     \begin{aligned}%
                         &\text{there exists some $x\in F$}\\%
-                        &\text{such that $\abs{a-x}\less\epsilon$}%
+                        &\text{such that $\abs{a-x}\lt\epsilon$}%
                     \end{aligned}%
                 \}.%
             \]%
@@ -1608,16 +1608,16 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
 \end{lemma}
 \begin{Proof}{Proof of \cref{properties-of-rational-filters}}%
     \FirstProofBox{\cref{properties-of-rational-filters-filters-associated-to-cauchy-filter-bases-are-cauchy}: Filters Associated to Cauchy Filter Bases Are Cauchy}%
-    Since $\mathcal{B}$ is a Cauchy filter base, for each $\epsilon\greater0$, there exists some $k\in\Q$ and some $B\in\mathcal{B}$ such that $B\subset k_{\epsilon}$. By the definition of $\langle\mathcal{B}\rangle$, we then have $k_{\epsilon}\in\langle\mathcal{B}\rangle$.
+    Since $\mathcal{B}$ is a Cauchy filter base, for each $\epsilon\gt0$, there exists some $k\in\Q$ and some $B\in\mathcal{B}$ such that $B\subset k_{\epsilon}$. By the definition of $\langle\mathcal{B}\rangle$, we then have $k_{\epsilon}\in\langle\mathcal{B}\rangle$.
 
     \ProofBox{\cref{properties-of-rational-filters-the-roundification-of-a-proper-filter-is-round}: The Roundification of a Proper Filter Is Round}%
     We proceed in a few steps, following the proof given in \cite[Propositions 3.4]{weiss:the-reals-as-rational-cauchy-filters}:
     \begin{itemize}
         \item Let $G\in\mathcal{F}_{\circ}$.
-        \item By the definition of $\mathcal{F}_{\circ}$, there exists some $\epsilon\greater0$ and some $F\in\mathcal{F}$ such that $F_{\epsilon}\subset G$.
-        \item To show that $\mathcal{F}_{\circ}$ is round, we need to find some $\epsilon'\greater0$ such that, for each $F\in\mathcal{F}_{\circ}$ and each $k\in\Q$, if $k_{\epsilon'}\in\mathcal{F}_{\circ}$, then $k_{\epsilon'}\subset F_{\epsilon}$.
+        \item By the definition of $\mathcal{F}_{\circ}$, there exists some $\epsilon\gt0$ and some $F\in\mathcal{F}$ such that $F_{\epsilon}\subset G$.
+        \item To show that $\mathcal{F}_{\circ}$ is round, we need to find some $\epsilon'\gt0$ such that, for each $F\in\mathcal{F}_{\circ}$ and each $k\in\Q$, if $k_{\epsilon'}\in\mathcal{F}_{\circ}$, then $k_{\epsilon'}\subset F_{\epsilon}$.
         \item Let $\epsilon'=\epsilon/2$, and suppose that $k_{\epsilon/2}\in\mathcal{F}_{\circ}$.
-        \item Since $k_{\epsilon/2}\in\mathcal{F}_{\circ}$ and $\epsilon/2\less\epsilon$, there exists some $G\in\mathcal{F}$ such that $k_{\epsilon/2}\subset G$.
+        \item Since $k_{\epsilon/2}\in\mathcal{F}_{\circ}$ and $\epsilon/2\lt\epsilon$, there exists some $G\in\mathcal{F}$ such that $k_{\epsilon/2}\subset G$.
         \item Since $\mathcal{F}$ is proper, we have $F\cap G\neq\emptyset$.
         \item Now, recall that
             \[
@@ -1628,11 +1628,11 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
                     \ \middle|\ %
                     \begin{aligned}%
                         &\text{there exists some $x\in F$}\\%
-                        &\text{such that $\abs{a-x}\less\epsilon$}%
+                        &\text{such that $\abs{a-x}\lt\epsilon$}%
                     \end{aligned}%
                 \}.%
             \]%
-            Picking any $x\in F\cap G$, we then have $\abs{a-x}\less\epsilon$ for any $a\in k_{\epsilon/2}$, so $k_{\epsilon/2}\subset F_{\epsilon}$.
+            Picking any $x\in F\cap G$, we then have $\abs{a-x}\lt\epsilon$ for any $a\in k_{\epsilon/2}$, so $k_{\epsilon/2}\subset F_{\epsilon}$.
         \item Thus $F_{\circ}$ is round.
     \end{itemize}
     This finishes the proof.
@@ -1647,7 +1647,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
                 \{F_{\epsilon}\in\mathcal{P}(\Q)\ \middle|\ F\in\mathcal{F}\},%
             \]%
             it suffices, by \cref{properties-of-rational-filters-filters-associated-to-cauchy-filter-bases-are-cauchy}, to show that $\mathcal{B}$ is a Cauchy filter base.
-        \item Let $\epsilon\greater0$.
+        \item Let $\epsilon\gt0$.
         \item Since $\mathcal{F}$ is Cauchy, there exists some $k\in\Q$ such that $k_{\epsilon/2}\in\mathcal{F}$.
         \item Since $k_{\epsilon}=(k_{\epsilon/2})_{\epsilon/2}$ and $(k_{\epsilon/2})_{\epsilon/2}\in\mathcal{B}$, we have $k_{\epsilon}\in\mathcal{B}$, showing $\mathcal{B}$ to be a Cauchy filter base.
     \end{itemize}
@@ -1664,7 +1664,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
     \begin{itemize}
         \item Let $\mathcal{G}$ be a rational Cauchy filter such that $\mathcal{G}\subset\mathcal{F}$.
         \item Let $F\in\mathcal{F}$.
-        \item Since $\mathcal{F}$ is round, there exists some $\epsilon\greater0$ such that, for each $k\in\Q$, if $k_{\epsilon}\in\mathcal{F}$, then $k_{\epsilon}\subset\mathcal{F}$.
+        \item Since $\mathcal{F}$ is round, there exists some $\epsilon\gt0$ such that, for each $k\in\Q$, if $k_{\epsilon}\in\mathcal{F}$, then $k_{\epsilon}\subset\mathcal{F}$.
         \item Since $\mathcal{G}$ is Cauchy, there exists some $k\in\Q$ such that $k_{\epsilon}\in\mathcal{G}$.
         \item Since $\mathcal{G}\subset\mathcal{F}$ and $k_{\epsilon}\in\mathcal{G}$, we have $k_{\epsilon}\in\mathcal{F}$.
         \item By \cref{proof-of-properties-of-rational-filters-characterisation-of-minimal-cauchy-filters-1-c}, we have $k_{\epsilon}\subset F$.
@@ -1706,23 +1706,23 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
         \}.%
     \]%
 \end{construction}
-\begin{definition}{The Relations $\less_{\forall\exists}$ and $\less_{\exists\forall}$}{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each}%
+\begin{definition}{The Relations $\lt_{\forall\exists}$ and $\lt_{\exists\forall}$}{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each}%
     Let $\mathcal{F},\mathcal{G}\in\R$.
     \begin{enumerate}
-        \item\label{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each-less-than-for-each-there-exists}Declare $\mathcal{F}\less_{\forall\exists}\mathcal{G}$ if the following condition is satisfied:
+        \item\label{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each-less-than-for-each-there-exists}Declare $\mathcal{F}\lt_{\forall\exists}\mathcal{G}$ if the following condition is satisfied:
             \begin{itemize}
-                \itemstar For each $F\in\mathcal{F}$ and each $G\in\mathcal{G}$, there exist $a\in F$ and $b\in G$ such that $a\less b$.
+                \itemstar For each $F\in\mathcal{F}$ and each $G\in\mathcal{G}$, there exist $a\in F$ and $b\in G$ such that $a\lt b$.
             \end{itemize}
-        \item\label{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each-less-than-there-exists-for-each}Declare $\mathcal{F}\less_{\exists\forall}\mathcal{G}$ if the following condition is satisfied:
+        \item\label{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each-less-than-there-exists-for-each}Declare $\mathcal{F}\lt_{\exists\forall}\mathcal{G}$ if the following condition is satisfied:
             \begin{itemize}
-                \itemstar There exists $F\in\mathcal{F}$ and $G\in\mathcal{G}$ such that, for each $a\in F$ and each $b\in G$, we have $a\less b$.
+                \itemstar There exists $F\in\mathcal{F}$ and $G\in\mathcal{G}$ such that, for each $a\in F$ and each $b\in G$, we have $a\lt b$.
             \end{itemize}
     \end{enumerate}
 \end{definition}
 \begin{lemma}{Lemmas for the Bourbaki Real Numbers}{lemmas-for-the-bourbaki-real-numbers}%
     Let $\R$ denote the Bourbaki real numbers.
     \begin{enumerate}
-        \item\label{lemmas-for-the-bourbaki-real-numbers-antisymmetry-of-less-than-for-each-there-exists}\SloganFont{Antisymmetry of $\less_{\forall\exists}$. }The relation $\less_{\forall\exists}$ of \cref{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each-less-than-for-each-there-exists} of \cref{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each} is antisymmetric.
+        \item\label{lemmas-for-the-bourbaki-real-numbers-antisymmetry-of-less-than-for-each-there-exists}\SloganFont{Antisymmetry of $\lt_{\forall\exists}$. }The relation $\lt_{\forall\exists}$ of \cref{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each-less-than-for-each-there-exists} of \cref{the-relations-less-than-for-each-there-exists-and-less-than-there-exists-for-each} is antisymmetric.
         \item\label{lemmas-for-the-bourbaki-real-numbers-an-equality-criterion-for-bourbaki-real-numbers}\SloganFont{An Equality Criterion for Bourbaki Real Numbers. }Let $\mathcal{F},\mathcal{G}\in\R$. The following conditions are equivalent:
             \begin{enumerate}
                 \item\label{lemmas-for-the-bourbaki-real-numbers-an-equality-criterion-for-bourbaki-real-numbers-1}We have $\mathcal{F}=\mathcal{G}$.
@@ -1732,20 +1732,20 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
     \end{enumerate}
 \end{lemma}
 \begin{Proof}{Proof of \cref{lemmas-for-the-bourbaki-real-numbers}}%
-    \FirstProofBox{\cref{lemmas-for-the-bourbaki-real-numbers-antisymmetry-of-less-than-for-each-there-exists}: Antisymmetry of The Relation $\less_{\forall\exists}$}%
+    \FirstProofBox{\cref{lemmas-for-the-bourbaki-real-numbers-antisymmetry-of-less-than-for-each-there-exists}: Antisymmetry of The Relation $\lt_{\forall\exists}$}%
     We proceed in a few steps, following the proof given in \cite[Lemma 4.3]{weiss:the-reals-as-rational-cauchy-filters}:
     \begin{itemize}
         \item We will proceed by showing that $\mathcal{F}\cap\mathcal{G}$ is a Cauchy filter, as this will then imply that $\mathcal{F}=\mathcal{F}\cap\mathcal{G}$ and $\mathcal{F}\cap\mathcal{G}=\mathcal{G}$ by the minimality of $\mathcal{F}$ and $\mathcal{G}$, which in turn gives $\mathcal{F}=\mathcal{G}$, as we wish to show.
-        \item Let $\epsilon\greater0$.
+        \item Let $\epsilon\gt0$.
         \item Since $\mathcal{F}$ and $\mathcal{G}$ are Cauchy there exist $x,y\in\Q$ such that $x_{\epsilon/2}\in\mathcal{F}$ and $y_{\epsilon/2}\in\mathcal{G}$.
         \item Without loss of generality, suppose that $x\leq y$.
         \item If $x=y$, we may pick some $p\in x_{\epsilon/2}\cap y_{\epsilon/2}$.
         \item We then have $x_{\epsilon/2}\subset p_{\epsilon}$ and $y_{\epsilon/2}\subset p_{\epsilon}$.
         \item By the upward-directedness of $\mathcal{F}$ and $\mathcal{G}$, we have $p_{\epsilon}\in\mathcal{F}$ and $p_{\epsilon}\in\mathcal{G}$.
         \item Therefore $p_{\epsilon}\in\mathcal{F}\cap\mathcal{G}$, showing $\mathcal{F}\cap\mathcal{G}$ to be Cauchy.
-        \item Otherwise, we will have $x\less y$.
+        \item Otherwise, we will have $x\lt y$.
         \item In this case, by assumption, there will be some $a\in x_{\epsilon/2}$ and some $b\in y_{\epsilon/2}$ such that $b\leq a$.
-        \item Since $x\less y$, we have $x_{\epsilon/2}\cap y_{\epsilon/2}\neq\emptyset$.
+        \item Since $x\lt y$, we have $x_{\epsilon/2}\cap y_{\epsilon/2}\neq\emptyset$.
         \item Picking some $r\in x_{\epsilon/2}\cap y_{\epsilon/2}$, we have $x_{\epsilon/2}\subset r_{\epsilon}$.
         \item By the upward directedness of $\mathcal{F}$, we have $r_{\epsilon}\in\mathcal{F}$.
         \item Similarly, by the upward directedness of $\mathcal{G}$, we have $r_{\epsilon}\in\mathcal{G}$.
@@ -1778,7 +1778,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
         \item\label{properties-of-the-bourbaki-real-numbers-total-order}\SloganFont{Total Order. }The Bourbaki real numbers admit a total order $\leq_{\R}$, defined by declaring $\mathcal{F}\leq_{\R}\mathcal{G}$ if one of the following conditions is satisfied:
             \begin{enumerate}
                 \item\label{properties-of-the-bourbaki-real-numbers-total-order-1}We have $\mathcal{F}=\mathcal{G}$.
-                \item\label{properties-of-the-bourbaki-real-numbers-total-order-2}We have $\mathcal{F}\neq\mathcal{G}$ and $\mathcal{F}\less_{\exists\forall}\mathcal{G}$.
+                \item\label{properties-of-the-bourbaki-real-numbers-total-order-2}We have $\mathcal{F}\neq\mathcal{G}$ and $\mathcal{F}\lt_{\exists\forall}\mathcal{G}$.
             \end{enumerate}
         \item\label{properties-of-the-bourbaki-real-numbers-the-embedding-of-q-into-r}\SloganFont{The Embedding of $\Q$ Into $\R$. }Let $\iota\colon\Q\hookrightarrow\R$ be the function defined by
             \[
@@ -1796,7 +1796,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
                             F\in\mathcal{P}(\Q)%
                             \ \middle|\ %
                             \begin{aligned}
-                                &\text{for each $\epsilon\greater 0$, we have}\\
+                                &\text{for each $\epsilon\gt 0$, we have}\\
                                 &[x-\epsilon,x+\epsilon]\subset F
                             \end{aligned}
                         \}.%
@@ -1926,10 +1926,10 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
         \item Thus, we assume neither of these filters are equal.
         \item By the definition of $\leq_{\R}$, there then exist $F\in\mathcal{F}$, $G,G'\in\mathcal{G}$, and $H\in\mathcal{H}$ satisfying the following conditions:
             \begin{itemize}
-                \item For each $a\in F$ and each $b\in G$, we have $a\less b$.
-                \item For each $b\in G'$ and each $c\in H$, we have $b\less c$.
+                \item For each $a\in F$ and each $b\in G$, we have $a\lt b$.
+                \item For each $b\in G'$ and each $c\in H$, we have $b\lt c$.
             \end{itemize}
-        \item Since $a\less b\less c$ for each $a\in F$, each $b\in G\cap G'$, and each $c\in H$, it follows from the definition of $\leq_{\R}$ that $\mathcal{F}\leq_{\R}\mathcal{H}$.
+        \item Since $a\lt b\lt c$ for each $a\in F$, each $b\in G\cap G'$, and each $c\in H$, it follows from the definition of $\leq_{\R}$ that $\mathcal{F}\leq_{\R}\mathcal{H}$.
     \end{itemize}
 
     \SubProofBox{Antisymmetry}%
@@ -1939,11 +1939,11 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
         \item We proceed by contradiction, assuming that $\mathcal{F}\neq\mathcal{G}$.
         \item By the definition of $\leq_{\R}$, there exist $F,F'\in\mathcal{F}$ and $G,G'\in\mathcal{G}$ satisfying the following conditions:
             \begin{itemize}
-                \item For each $a\in F$ and each $b\in G$, we have $a\less b$.
-                \item For each $a'\in F'$ and each $b'\in G'$, we have $b'\less a'$.
+                \item For each $a\in F$ and each $b\in G$, we have $a\lt b$.
+                \item For each $a'\in F'$ and each $b'\in G'$, we have $b'\lt a'$.
             \end{itemize}
-        \item Taking intersections, we have $a\less b$ and $b\less a'$ for each $a\in F$, each $a'\in F'$, and each $b\in G\cap G'$.
-        \item Since $a\less a'$ for each $a\in F$ and each $a'\in F'$, we have $F\cap F'=\emptyset$.
+        \item Taking intersections, we have $a\lt b$ and $b\lt a'$ for each $a\in F$, each $a'\in F'$, and each $b\in G\cap G'$.
+        \item Since $a\lt a'$ for each $a\in F$ and each $a'\in F'$, we have $F\cap F'=\emptyset$.
         \item However, this contradicts \cref{lemmas-for-the-bourbaki-real-numbers-an-equality-criterion-for-bourbaki-real-numbers} of \cref{lemmas-for-the-bourbaki-real-numbers}.
         \item Therefore we must have $\mathcal{F}=\mathcal{G}$.
     \end{itemize}
@@ -2058,14 +2058,14 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
             \]%
             Moreover, if $[f]\neq[0]$, then $[f]$ admits a multiplicative inverse $[f]^{-1}$ defined as follows:
             \begin{enumerate}
-                \item\label{properties-of-the-eudoxus-real-numbers-multiplication-1}If $[f]\greater[0]$, we define
+                \item\label{properties-of-the-eudoxus-real-numbers-multiplication-1}If $[f]\gt[0]$, we define
                     \[
                         [f]^{-1}(k)%
                         \defeq%
                         \sgn(k)\min(\{n\in\N\ \middle|\ f(n)\geq\abs{k}\})%
                     \]%
                     for each $k\in\Z$.
-                \item\label{properties-of-the-eudoxus-real-numbers-multiplication-2}If $[f]\less [0]$, we define
+                \item\label{properties-of-the-eudoxus-real-numbers-multiplication-2}If $[f]\lt [0]$, we define
                     \[
                         [f]^{-1}%
                         \defeq%
@@ -2151,7 +2151,36 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
 \section{Sequences in $\R$}\label{section-sequences-in-r}
 \subsection{Foundations}\label{subsection-sequences-in-r-foundations}
 \begin{definition}{Sequences in $\R$}{sequences-in-r}%
-    A \index[analysis]{sequence in R@sequence in $\R$}\textbf{sequence} in $\R$ is a map $\smash{(x_{n})_{n\in\N}\colon\N\to\R}$.
+    Let $\R$ be the real numbers.
+    \begin{enumerate}
+        \item\label{sequences-in-r-sequences-in-r}A \index[analysis]{sequence in R@sequence in $\R$}\textbf{sequence} in $\R$ is a map $\smash{(x_{n})_{n\in\N}\colon\N\to\R}$.
+        \item\label{sequences-in-r-subsequences-in-r}A \index[analysis]{sequence in R@sequence in $\R$!subsequence of}\textbf{subsequence} of a sequence $\smash{(x_{n})_{n\in\N}\colon\N\to\R}$ is a pair $(f,(x_{f(n)})_{n\in\N})$ consisting of:
+            \begin{itemize}
+                \item A monotonically increasing function $f\colon\N\to\N$;
+                \item The sequence $(x_{f(n)})_{n\in\N}$ in $\R$ obtained by precomposing $(x_{n})_{n\in\N}$ with $f$.
+            \end{itemize}
+        \item\label{sequences-in-r-convergence-of-sequences-in-r}A sequence $\smash{(x_{n})_{n\in\N}\colon\N\to\R}$ \textbf{converges} to a \index[analysis]{sequence in R@sequence in $\R$!limit of}\textbf{limit} $x\in\R$ if it satisfies the following condition:%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }A sequence is \index[analysis]{sequence in R@sequence in $\R$!convergent}\textbf{convergent} if it converges to some $x\in\R$.
+            }%
+            %---  End Footnote  ---%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Notation: }We write\index[notation]{limntoinfty@$\lim_{n\to\infty}$}%
+                \[
+                    x%
+                    =%
+                    \lim_{n\to\infty}(x_{n})%
+                \]%
+                to mean that $x$ is the limit of $(x_{n})_{n\in\N}$, 
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \begin{itemize}
+                \itemstar For each $\epsilon\gt0$, there exists some $N\in\N$ such that if $n\geq N$, then $\abs{x-x_{n}}\lt\epsilon$.
+            \end{itemize}
+    \end{enumerate}
 \end{definition}
 \begin{example}{Examples of Sequences in $\R$}{examples-of-sequences-in-r}%
     Here are a few examples of sequences in $\R$.
@@ -2171,14 +2200,40 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
     \begin{enumerate}
         \item\label{properties-of-sequences-in-r-characterisations-of-convergence}\SloganFont{Characterisations of Convergence. }The following conditions are equivalent:
             \begin{enumerate}
-                \item The sequence $(x_{n})_{n\in\N}$ converges.
-                \item We have%
+                \item\label{properties-of-sequences-in-r-characterisations-of-convergence-a}The sequence $(x_{n})_{n\in\N}$ converges.
+                \item\label{properties-of-sequences-in-r-characterisations-of-convergence-b}We have%
+                    %--- Begin Footnote ---%
+                    \footnote{%
+                        In this case, we additionally have
+                        \begin{align*}
+                            \lim_{n\to\infty}(x_{n}) &= \liminf_{n\to\infty}(x_{n})\\
+                                                     &= \limsup_{n\to\infty}(x_{n}).
+                        \end{align*}
+                        \par\vspace*{\TCBBoxCorrection}
+                    }%
+                    %---  End Footnote  ---%
                     \[
-                        \limsup_{n\to\infty}(x_{n})%
+                        \liminf_{n\to\infty}(x_{n})%
                         =%
-                        \liminf_{n\to\infty}(x_{n}),%
+                        \limsup_{n\to\infty}(x_{n}).%
                     \]%
-                    in which case we also have $\displaystyle\lim_{n\to\infty}(x_{n})=\limsup_{n\to\infty}(x_{n})=\liminf_{n\to\infty}(x_{n})$.
+            \end{enumerate}
+        \item\label{properties-of-sequences-in-r-bounded-monotone-sequences-are-convergent}\SloganFont{Bounded Monotone Sequences Are Convergent. }Let $(x_{n})_{n\in\N}$ be a sequence.
+            \begin{enumerate}
+                \item\label{properties-of-sequences-in-r-bounded-monotone-sequences-are-convergent-a}If $(x_{n})_{n\in\N}$ is bounded and monotonically increasing, then
+                    \[
+                        \lim_{n\to\infty}(x_{n})%
+                        =%
+                        \sup_{n\in\N}(x_{n}),%
+                    \]%
+                    so in particular $(x_{n})_{n\in\N}$ converges.
+                \item\label{properties-of-sequences-in-r-bounded-monotone-sequences-are-convergent-b}If $(x_{n})_{n\in\N}$ is bounded and monotonically decreasing, then
+                    \[
+                        \lim_{n\to\infty}(x_{n})%
+                        =%
+                        \inf_{n\in\N}(x_{n}),%
+                    \]%
+                    so in particular $(x_{n})_{n\in\N}$ converges.
             \end{enumerate}
         \item\label{properties-of-sequences-in-r-the-bolzano-weierstrass-theorem}\SloganFont{The Bolzano--Weierstrass Theorem. }Every bounded sequence in $\R$ has a convergent subsequence.
         %\item\label{properties-of-sequences-in-r-}\SloganFont{. }
@@ -2188,6 +2243,28 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
     \FirstProofBox{\cref{properties-of-sequences-in-r-characterisations-of-convergence}: Characterisations of Convergence}%
     Omitted.
 
+    \ProofBox{\cref{properties-of-sequences-in-r-bounded-monotone-sequences-are-convergent}: Bounded Monotone Sequences Are Convergent}%
+    Let $(x_{n})_{n\in\N}$ be a bounded and monotonically increasing sequence.
+    \begin{itemize}
+        \item Let $x=\sup_{n\in\N}(x_{n})$ and let $\epsilon\gt0$.
+        \item If there were no integer $N$ with $x_{N}\gt x-\epsilon$, then $x-\epsilon$ would be a smaller upper bound, a contradiction.
+        \item We thus have
+            \[
+                x-\epsilon%
+                \lt%
+                x_{N}%
+                \leq%
+                x_{n}%
+                \leq%
+                x%
+                \lt%
+                x+\epsilon%
+            \]%
+            for each $n\geq N$ since $(x_{n})_{n\in\N}$ is monotonically increasing.
+        \item Thus we have $\abs{x_{n}-x}\lt\epsilon$ for each $n\geq N$, showing $(x_{n})_{n\in\N}$ to converge to $x$.
+    \end{itemize}
+    The proof for monotonically decreasing sequences has $x=\inf_{n\in\N}(x_{n})$ and proceeds in a similar fashion, being thus omitted.
+
     \ProofBox{\cref{properties-of-sequences-in-r-the-bolzano-weierstrass-theorem}: The Bolzano--Weierstrass Theorem}%
     Omitted.
 \end{Proof}
@@ -2195,11 +2272,11 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
 \begin{definition}{Limit Inferior and Limit Superior}{limit-inferior-and-limit-superior}%
     Let $\smash{(x_{n})_{n\in\N}}$ be a sequence in $\R$.%
     \begin{enumerate}
-        \item The \index[analysis]{sequence in R@sequence in $\R$!limit infimum of}\textbf{limit infimum} of $(x_{n})_{n\in\N}$ is the real number \index[notation]{liminfntoinftyxn@$\liminf_{n\to\infty}(x_{n})$}$\liminf_{n\to\infty}(x_{n})$ defined by
+        \item The \index[analysis]{sequence in R@sequence in $\R$!limit infimum of}\textbf{limit infimum} of $(x_{n})_{n\in\N}$ is the real number \index[notation]{liminfntoinftyxn@$\liminf_{n\to\infty}(x_{n})$}$\smash{\displaystyle\liminf_{n\to\infty}(x_{n})}$ defined by
             \[
                 \liminf_{n\to\infty}(x_{n})%
                 \defeq%
-                \lim_{n\to\infty}(\inf_{m\geq n}(x_{m})),%
+                \lim_{n\to\infty}\left(\inf_{m\geq n}(x_{m})\right),%
             \]%
             where
             \[
@@ -2207,11 +2284,11 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
                 \defeq%
                 \inf(\{x_{m}\ \middle|\ m\geq n\}).%
             \]%
-        \item The \index[analysis]{sequence in R@sequence in $\R$!limit supremum of}\textbf{limit supremum} of $(x_{n})_{n\in\N}$ is the real number \index[notation]{limsupntoinftyxn@$\limsup_{n\to\infty}(x_{n})$}$\limsup_{n\to\infty}(x_{n})$ defined by
+        \item The \index[analysis]{sequence in R@sequence in $\R$!limit supremum of}\textbf{limit supremum} of $(x_{n})_{n\in\N}$ is the real number \index[notation]{limsupntoinftyxn@$\limsup_{n\to\infty}(x_{n})$}$\smash{\displaystyle\limsup_{n\to\infty}(x_{n})}$ defined by
             \[
                 \limsup_{n\to\infty}(x_{n})%
                 \defeq%
-                \lim_{n\to\infty}(\sup_{m\geq n}(x_{m})),%
+                \lim_{n\to\infty}\left(\sup_{m\geq n}(x_{m})\right),%
             \]%
             where
             \[
@@ -2244,15 +2321,11 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
                 \item We have%
                     %--- Begin Footnote ---%
                     \footnote{%
-                        In this case, we have
-                        \[
-                            \limsup_{n\to\infty}(x_{n})
-                            =
-                            \lim_{n\to\infty}(x_{n})
-                            =
-                            \liminf_{n\to\infty}(x_{n}).
-                        \]
-                        \par\vspace*{-0.75\baselineskip}
+                        In this case, we also have
+                        \begin{align*}
+                            \lim_{n\to\infty}(x_{n}) &= \liminf_{n\to\infty}(x_{n})\\
+                                                     &= \limsup_{n\to\infty}(x_{n}).
+                        \end{align*}
                     }%
                     %---  End Footnote  ---%
                     \[
@@ -2261,6 +2334,25 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
                         \liminf_{n\to\infty}(x_{n}).
                     \]%
             \end{enumerate}
+        \item\label{properties-of-sequences-in-r-interaction-with-order}\SloganFont{Interaction With Order. }Let $(x_{n})_{n\in\N}$ and $(y_{n})_{n\in\N}$ be sequences in $\R$.
+            \begin{enumerate}
+                \item\label{properties-of-sequences-in-r-interaction-with-order-a}We have
+                    \[
+                        \liminf_{n\to\infty}(x_{n})%
+                        \leq%
+                        \limsup_{n\to\infty}(x_{n}).%
+                    \]%
+                \item\label{properties-of-sequences-in-r-interaction-with-order-b}If $x_{n}\leq y_{n}$ for each $n\in\N$, then we have
+                    \begin{align*}
+                        \limsup_{n\to\infty}(x_{n}) &\leq \limsup_{n\to\infty}(y_{n}),\\
+                        \liminf_{n\to\infty}(x_{n}) &\leq \liminf_{n\to\infty}(y_{n}).
+                    \end{align*}
+            \end{enumerate}
+        \item\label{properties-of-sequences-in-r-interaction-with-subsequences}\SloganFont{Interaction With Subsequences. }There exists subsequences $\big(x_{f(n)}\big)_{n\in\N}$ and $\big(x_{g(n)}\big)_{n\in\N}$ of $(x_{n})_{n\in\N}$ with
+            \begin{align*}
+                \lim_{n\to\infty}\big(x_{f(n)}\big) &= \liminf_{n\to\infty}(x_{n}),\\%
+                \lim_{n\to\infty}\big(x_{g(n)}\big) &= \limsup_{n\to\infty}(x_{n}).%
+            \end{align*}
         \item\label{properties-of-sequences-in-r-subtraction}\SloganFont{Subtraction. }We have
             \[
                 \limsup_{n\to\infty}(-x_{n})
@@ -2284,14 +2376,14 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
             }%
             %---  End Footnote  ---%
             \begin{align*}
-                \limsup_{n\to\infty}(x_{n}y_{n}) &\leq (\limsup_{n\to\infty}(x_{n}))(\limsup_{n\to\infty}(y_{n})),\\
-                \liminf_{n\to\infty}(x_{n}y_{n}) &\geq (\liminf_{n\to\infty}(x_{n}))(\liminf_{n\to\infty}(y_{n})).
+                \limsup_{n\to\infty}(x_{n}y_{n}) &\leq \left(\limsup_{n\to\infty}(x_{n})\right)\left(\limsup_{n\to\infty}(y_{n})\right),\\
+                \liminf_{n\to\infty}(x_{n}y_{n}) &\geq \left(\liminf_{n\to\infty}(x_{n})\right)\left(\liminf_{n\to\infty}(y_{n})\right).
             \end{align*}
         \item\label{properties-of-sequences-in-r-multiplication-2}\SloganFont{Multiplication \rmII. }If $\smash{\displaystyle\lim_{n\to\infty}(x_{n})}$ exists%
             %--- Begin Footnote ---%
             \footnote{%
                 The case $A=\infty$ is allowed.
-                \par\vspace*{-1.75\baselineskip}
+                \par\vspace*{\TCBBoxCorrection}
             }, %
             %---  End Footnote  ---%
             then
@@ -2303,11 +2395,16 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
             \]%
             as long as the right hand side of the above equality is not of the form $0\cdot\infty$.
         %\item\label{properties-of-sequences-in-r-}\SloganFont{. }
-        \item\label{properties-of-sequences-in-r-the-bolzano-weierstrass-theorem}\SloganFont{The Bolzano--Weierstrass Theorem. }Every bounded sequence in $\R$ has a convergent subsequence with limit in $\R$.
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-sequences-in-r}}%
     \FirstProofBox{\cref{properties-of-sequences-in-r-characterisations-of-convergence}: Characterisations of Convergence}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-sequences-in-r-interaction-with-order}: Interaction With Order}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-sequences-in-r-interaction-with-subsequences}: Interaction With Subsequences}%
     Omitted.
 
     \ProofBox{\cref{properties-of-sequences-in-r-subtraction}: Subtraction}%
