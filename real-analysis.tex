@@ -132,6 +132,279 @@ TODO general analysis things:
         \end{enumerate}
 \end{enumerate}
 
+\section{The Real Numbers}\label{section-the-real-numbers}
+\subsection{Foundations}\label{subsection-foundations}
+\begin{definition}{The Real Numbers}{the-real-numbers}%
+    The real numbers \index[notation]{R@$\R$}$\R$ is the object universally defined via the following equivalent universal properties:
+    \begin{enumerate}
+        \item\label{the-real-numbers-characterisation-1}The real numbers $\R$ is the terminal object of the full subcategory of $\TOrdFld$ spanned by the Archimedean totally ordered fields.
+        \item\label{the-real-numbers-characterisation-2}The real numbers $\R$ is the unique (up to unique isomorphism) Dedekind complete (\cref{TODO}) totally ordered field.
+        \item\label{the-real-numbers-characterisation-3}The real numbers $\R$ is The real numbers $\R$ is the unique (up to unique isomorphism) Cauchy complete (\cref{TODO}) totally ordered field.
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Proof of the Statements Made in \cref{the-real-numbers}}%
+    Omitted.
+\end{Proof}
+\subsection{Infima and Suprema}\label{subsection-infima-and-suprema}
+\begin{definition}{Infima and Suprema}{infima-and-suprema}%
+    Let $U$ be a subset of $\R$.%
+    %--- Begin Footnote ---%
+    \footnote{%
+        The notions of suprema and infima of subsets of $\R$ are special cases of the notion of suprema and infima of subsets of a poset $(X,\preceq_{X})$; see \cref{TODO}.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{infima-and-suprema-infima}The \index[real-analysis]{infimum}\textbf{infimum}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }Also called the \index[real-analysis]{greatest lower bound}\textbf{greatest lower bound} of $S$.
+                \par\vspace*{\TCBBoxCorrection}
+            } %
+            %---  End Footnote  ---%
+            of $U$ is the real number \index[notation]{infU@$\inf(U)$}$\inf(U)$ uniquely defined by the following property:
+            \begin{itemize}
+                \itemstar Given $r\in\R$, if $r\leq u$ for all $u\in U$, then $r\leq\inf(U)$.
+            \end{itemize}
+        \item\label{infima-and-suprema-suprema}The \index[real-analysis]{supremum}\textbf{supremum}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Terminology: }Also called the \index[real-analysis]{smallest upper bound}\textbf{smallest upper bound} of $U$.
+                \par\vspace*{\TCBBoxCorrection}
+            } %
+            %---  End Footnote  ---%
+            of $U$ is the real number \index[notation]{supU@$\sup(U)$}$\sup(U)$ uniquely defined by the following property:
+            \begin{itemize}
+                \itemstar Given $r\in\R$, if $u\leq r$ for all $u\in U$, then $\sup(U)\leq r$.
+            \end{itemize}
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Infima and Suprema}{properties-of-infima-and-suprema}%
+    Let $U,V\in\mathcal{P}(\R)$.
+    \begin{enumerate}
+        \item\label{properties-of-infima-and-suprema-functoriality}\SloganFont{Functoriality. }The assignments $U\mapsto\inf(U),\sup(U)$ define functors
+            \[
+                \TwoSimilarFunctorsPeriod{\inf}{\sup}{\mathcal{P}(\R)^{\op}}{\mathcal{P}(\R)}{\R}%
+            \]%
+            In particular:
+            \begin{enumerate}
+                \item\label{properties-of-infima-and-suprema-functoriality-a}If $U\subset V$, then $\inf(V)\leq\inf(U)$.
+                \item\label{properties-of-infima-and-suprema-functoriality-b}If $U\subset V$, then $\sup(U)\leq\sup(V)$.
+            \end{enumerate}
+        \item\label{properties-of-infima-and-suprema-interaction-with-monotone-functions}\SloganFont{Interaction With Monotone Functions. }Given a monotone function $f\colon\R\to\R$, we have inequalities
+            \begin{webcompile}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(\R)}
+                    \arrow[r,"f_{!}"]
+                    \arrow[d,"\inf"']
+                    \&
+                    {\mathcal{P}(\R)}
+                    \arrow[d,"\inf"]
+                    \\
+                    \R%
+                    \arrow[r,"f"']
+                    \&
+                    \R,%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\subset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    f(\inf(U))     &\leq \inf(f_{!}(U)),\\
+                    \sup(f_{!}(U)) &\leq f(\sup(U)).
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}(\R)}
+                    \arrow[r,"f_{!}"]
+                    \arrow[d,"\sup"']
+                    \&
+                    {\mathcal{P}(\R)}
+                    \arrow[d,"\sup"]
+                    \\
+                    \R%
+                    \arrow[r,"f"']
+                    \&
+                    \R.%
+                    % 2-Arrows
+                    \arrow[from=1-2,to=2-1,"\scalebox{1.5}{$\supset$}"{sloped,description},phantom,shorten <= 0.5*\the\DL,shorten >= 0.625*\the\DL,Rightarrow,pos=0.5]%
+                \end{tikzcd}
+            \end{webcompile}
+        \item\label{properties-of-infima-and-suprema-interaction-with-addition}\SloganFont{Interaction With Addition. }We have equalities
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}_{0}(\R)\times\mathcal{P}_{0}(\R)}
+                    \arrow[r,"+"]
+                    \arrow[d,"\mathord{\inf}\times\mathord{\inf}"']
+                    \&
+                    {\mathcal{P}_{0}(\R)}
+                    \arrow[d,"\inf"]
+                    \\
+                    \R\times\R%
+                    \arrow[r,"+"']
+                    \&
+                    \R,%
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    \inf(U+V) &= \inf(U)+\inf(V),\\
+                    \sup(U+V) &= \sup(U)+\sup(V).
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}_{0}(\R)\times\mathcal{P}_{0}(\R)}
+                    \arrow[r,"+"]
+                    \arrow[d,"\mathord{\sup}\times\mathord{\sup}"']
+                    \&
+                    {\mathcal{P}_{0}(\R)}
+                    \arrow[d,"\sup"]
+                    \\
+                    \R\times\R%
+                    \arrow[r,"+"']
+                    \&
+                    \R.%
+                \end{tikzcd}
+            \end{scalemath}
+        \item\label{properties-of-infima-and-suprema-interaction-with-multiplication}\SloganFont{Interaction With Multiplication. }We have equalities
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}_{0}(\R)\times\mathcal{P}_{0}(\R)}
+                    \arrow[r,"\cdot"]
+                    \arrow[d,"\mathord{\inf}\times\mathord{\inf}"']
+                    \&
+                    {\mathcal{P}_{0}(\R)}
+                    \arrow[d,"\inf"]
+                    \\
+                    \R\times\R%
+                    \arrow[r,"\cdot"']
+                    \&
+                    \R,%
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    \inf(UV) &= \inf(U)\inf(V),\\
+                    \sup(UV) &= \sup(U)\sup(V).
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\mathcal{P}_{0}(\R)\times\mathcal{P}_{0}(\R)}
+                    \arrow[r,"\cdot"]
+                    \arrow[d,"\mathord{\sup}\times\mathord{\sup}"']
+                    \&
+                    {\mathcal{P}_{0}(\R)}
+                    \arrow[d,"\sup"]
+                    \\
+                    \R\times\R%
+                    \arrow[r,"\cdot"']
+                    \&
+                    \R.%
+                \end{tikzcd}
+            \end{scalemath}
+        \item\label{properties-of-infima-and-suprema-interaction-with-scalar-products}\SloganFont{Interaction With Scalar Products. }We have equalities
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\R_{\geq0}\times\mathcal{P}(\R)}
+                    \arrow[r,"\cdot"]
+                    \arrow[d,"\id_{\R_{\geq0}}\times\mathord{\inf}"']
+                    \&
+                    {\mathcal{P}(\R)}
+                    \arrow[d,"\inf"]
+                    \\
+                    \R_{\geq0}\times\R%
+                    \arrow[r,"\cdot"']
+                    \&
+                    \R,%
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    \inf(rU) &= r\inf(U),\\
+                    \sup(rU) &= r\sup(U).
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\R_{\geq0}\times\mathcal{P}(\R)}
+                    \arrow[r,"\cdot"]
+                    \arrow[d,"\id_{\R_{\leq0}}\times\mathord{\sup}"']
+                    \&
+                    {\mathcal{P}(\R)}
+                    \arrow[d,"\sup"]
+                    \\
+                    \R_{\geq0}\times\R%
+                    \arrow[r,"\cdot"']
+                    \&
+                    \R%
+                \end{tikzcd}
+            \end{scalemath}
+            and
+            \begin{scalemath}
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\R_{\leq0}\times\mathcal{P}(\R)}
+                    \arrow[r,"\cdot"]
+                    \arrow[d,"\id_{\R_{\leq0}}\times\mathord{\inf}"']
+                    \&
+                    {\mathcal{P}(\R)}
+                    \arrow[d,"\inf"]
+                    \\
+                    \R_{\leq0}\times\R%
+                    \arrow[r,"\cdot"']
+                    \&
+                    \R,%
+                \end{tikzcd}
+                \qquad
+                \begin{aligned}
+                    \inf(rU) &= r\sup(U),\\
+                    \sup(rU) &= r\inf(U).
+                \end{aligned}
+                \qquad
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={7.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\R_{\leq0}\times\mathcal{P}(\R)}
+                    \arrow[r,"\cdot"]
+                    \arrow[d,"\id_{\R_{\leq0}}\times\mathord{\inf}"']
+                    \&
+                    {\mathcal{P}(\R)}
+                    \arrow[d,"\sup"]
+                    \\
+                    \R_{\leq0}\times\R%
+                    \arrow[r,"\cdot"']
+                    \&
+                    \R.%
+                \end{tikzcd}
+            \end{scalemath}
+        \item\label{properties-of-infima-and-suprema-interaction-with-additive-inverses}\SloganFont{Interaction With Additive Inverses. }We have equalities
+            \begin{align*}
+                \inf(-A) &= -\sup(A),\\
+                \sup(-A) &= -\inf(A).
+            \end{align*}
+        \item\label{properties-of-infima-and-suprema-interaction-with-multiplicative-inverses}\SloganFont{Interaction With Multiplicative Inverses. }We have equalities
+            \begin{align*}
+                \inf\pig(A^{-1}\pig) &= \sup(A)^{-1},\\
+                \sup\pig(A^{-1}\pig) &= \inf(A)^{-1}.
+            \end{align*}
+        %\item\label{properties-of-infima-and-suprema-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-infima-and-suprema}}%
+    \FirstProofBox{\cref{properties-of-infima-and-suprema-functoriality}: Functoriality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-infima-and-suprema-interaction-with-monotone-functions}: Interaction With Monotone Functions}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-infima-and-suprema-interaction-with-addition}: Interaction With Addition}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-infima-and-suprema-interaction-with-multiplication}: Interaction With Multiplication}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-infima-and-suprema-interaction-with-scalar-products}: Interaction With Scalar Products}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-infima-and-suprema-interaction-with-additive-inverses}: Interaction With Additive Inverses}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-infima-and-suprema-interaction-with-multiplicative-inverses}: Interaction With Multiplicative Inverses}%
+    Omitted.
+\end{Proof}
 \section{Constructions of the Real Numbers}\label{section-constructions-of-the-real-numbers}
 \subsection{The Dedekind Real Numbers}\label{subsection-the-dedekind-real-numbers}
 \begin{definition}{Dedekind Cuts}{dedekind-cuts}%
@@ -2117,37 +2390,6 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
         \item Is $\gcd(f,g)$ quasilinear? What about $\lcm(f,g)/\gcd(f,g)$?
     \end{itemize}
 \end{remark}
-\section{Characterisations of the Real Numbers}\label{section-characterisations-of-the-real-numbers}
-\subsection{The Real Numbers as the Terminal Archimedean Totally Ordered Field}\label{subsection-the-real-numbers-as-the-terminal-archimedean-totally-ordered-field}
-Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
-\begin{theorem}{The Real Numbers as the Terminal Archimedean Ordered Field}{the-real-numbers-as-the-terminal-archimedean-ordered-field}%
-    The real numbers $\R$ is the terminal object of the full subcategory of $\TOrdFld$ spanned by the Archimedean totally ordered fields.
-\end{theorem}
-\begin{Proof}{Proof of \cref{the-real-numbers-as-the-terminal-archimedean-totally-ordered-field}}%
-    Omitted.
-\end{Proof}
-\subsection{The Real Numbers as the Unique Dedekind Complete Totally Ordered Field}\label{subsection-the-real-numbers-as-the-unique-dedekind-complete-totally-ordered-field}
-\begin{theorem}{The Real Numbers as the Unique Dedekind Complete Totally Ordered Field}{the-real-numbers-as-the-unique-dedekind-complete-totally-ordered-field}%
-    Let $\R$ denote the real numbers.
-    \begin{enumerate}
-        \item\label{the-real-numbers-as-the-unique-dedekind-complete-ordered-field-1}The real numbers $\R$ is Dedekind complete in the sense of \cref{TODO}.
-        \item\label{the-real-numbers-as-the-unique-dedekind-complete-ordered-field-2}Given another Dedekind complete totally ordered field $k$, there exists a unique isomorphism $\R\cong k$.
-    \end{enumerate}
-\end{theorem}
-\begin{Proof}{Proof of \cref{the-real-numbers-as-the-unique-dedekind-complete-totally-ordered-field}}%
-    Omitted.
-\end{Proof}
-\subsection{The Real Numbers as the Unique Cauchy Complete Totally Ordered Field}\label{subsection-the-real-numbers-as-the-unique-cauchy-complete-totally-ordered-field}
-\begin{theorem}{The Real Numbers as the Unique Cauchy Complete Totally Ordered Field}{the-real-numbers-as-the-unique-cauchy-complete-totally-ordered-field}%
-    Let $\R$ denote the real numbers.
-    \begin{enumerate}
-        \item\label{the-real-numbers-as-the-unique-cauchy-complete-ordered-field-1}The real numbers $\R$ is Cauchy complete in the sense of \cref{TODO}.
-        \item\label{the-real-numbers-as-the-unique-cauchy-complete-ordered-field-2}Given another Cauchy complete totally ordered field $k$, there exists a unique isomorphism $\R\cong k$.
-    \end{enumerate}
-\end{theorem}
-\begin{Proof}{Proof of \cref{the-real-numbers-as-the-unique-cauchy-complete-totally-ordered-field}}%
-    Omitted.
-\end{Proof}
 \section{Sequences in $\R$}\label{section-sequences-in-r}
 \subsection{Foundations}\label{subsection-sequences-in-r-foundations}
 \begin{definition}{Sequences in $\R$}{sequences-in-r}%
@@ -2417,9 +2659,6 @@ Let $\TOrdFld$ be the category of totally ordered fields of \cref{TODO}.
     Omitted.
 
     \ProofBox{\cref{properties-of-sequences-in-r-multiplication-2}: Multiplication \rmII}%
-    Omitted.
-
-    \ProofBox{\cref{properties-of-sequences-in-r-the-bolzano-weierstrass-theorem}: The Bolzano--Weierstrass Theorem}%
     Omitted.
 \end{Proof}
 \begin{appendices}

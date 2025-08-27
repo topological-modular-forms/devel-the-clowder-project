@@ -16,6 +16,7 @@ LIJST = introduction \
 		relations \
 		constructions-with-relations \
 		conditions-on-relations \
+		posets \
 		categories \
 		presheaves-and-the-yoneda-lemma \
 		monoidal-categories \

@@ -119,7 +119,6 @@
 \newcommand{\EmptyCategory}{\emptyset_{\FontForCategories{cat}}}
 \newcommand{\Sk}{\FontForCategories{Sk}}
 \newcommand{\inj}{\mathrm{inj}}
-\newcommand{\sfid}{\FontForCategories{id}}
 \newcommand{\eSets}{\FontForEnrichedCategories{Sets}}
 \newcommand{\Sing}{\mathrm{Sing}}
 \newcommand{\SingB}{\mathrm{Sing}_{\bullet}}
@@ -344,6 +343,18 @@
     \mathpunct{}
     \mspace{2mu}
 }
+\newcommand{\TwoSimilarFunctors}[5]{%
+    \begin{array}{ccc}
+        #1\colon\mkern-15mu &#3 \mkern-17.5mu&{}\mathbin{\to}#5,\\
+        #2\colon\mkern-15mu &#4 \mkern-17.5mu&{}\mathbin{\to}#5,
+    \end{array}
+}%
+\newcommand{\TwoSimilarFunctorsPeriod}[5]{%
+    \begin{array}{ccc}
+        #1\colon\mkern-15mu &#3 \mkern-17.5mu&{}\mathbin{\to}#5,\\
+        #2\colon\mkern-15mu &#4 \mkern-17.5mu&{}\mathbin{\to}#5.
+    \end{array}
+}%
 \newcommand{\Bifunctoriality}[7]{%
     \begin{array}{ccc}
         #1\colon\mkern-15mu &#4 \mkern-17.5mu&{}\mathbin{\to}#7,\\
@@ -475,3 +486,18 @@
 \DeclareMathOperator{\ccirc}{\mathbin{\cdot}}
 \DeclareMathOperator{\leftunit}{\operatorname{\textsf{left-unit}}}
 \DeclareMathOperator{\rightunit}{\operatorname{\textsf{right-unit}}}
+\let\inf\relax
+\let\sup\relax
+\DeclareMathOperator{\inf}{\operatorname{\textrm{inf}}}
+\DeclareMathOperator{\sup}{\operatorname{\textrm{sup}}}
+\DeclareMathOperator{\leftinv}{\operatorname{\textsf{left-inv}}}
+\DeclareMathOperator{\rightinv}{\operatorname{\textsf{right-inv}}}
+\DeclareMathOperator{\ap}{\operatorname{\textsf{ap}}}
+\DeclareMathOperator{\apid}{\operatorname{\textsf{ap-id}}}
+\DeclareMathOperator{\apcomp}{\operatorname{\textsf{ap-comp}}}
+\DeclareMathOperator{\aprefl}{\operatorname{\textsf{ap-refl}}}
+\DeclareMathOperator{\apinv}{\operatorname{\textsf{ap-inv}}}
+\DeclareMathOperator{\apconcat}{\operatorname{\textsf{ap-concat}}}
+\DeclareMathOperator{\sftr}{\operatorname{\textsf{tr}}}
+\newcommand{\sfid}{\textsf{id}}
+\DeclareMathOperator{\apd}{\operatorname{\textsf{apd}}}

@@ -1,0 +1,79 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Posets}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material about posets. Notably, we discuss and explore:
+\begin{enumerate}
+    \item Thing
+\end{enumerate}
+TODO copy pasted from email:
+\begin{enumerate}
+    \item \url{https://en.wikipedia.org/wiki/Total_order#Chains}
+    \item \url{https://ncatlab.org/nlab/show/relation#binary_relations_as_a_coalgebra}
+    \item \url{https://ncatlab.org/nlab/show/relation#endorel}
+    \item \url{https://en.wikipedia.org/wiki/Preorder}
+    \item \url{https://en.wikipedia.org/wiki/Binary_relation#Preorder_R}
+    \item \url{https://www.google.com/search?client=firefox-b-d&q=left+residual+relation}
+    \item \url{https://en.wikipedia.org/wiki/Composition_of_relations#Quotients}
+    \item \url{https://en.wikipedia.org/wiki/Composition_of_relations#Schr\%C3\%B6der_rules}
+    \item \url{https://proofwiki.org/wiki/Schr\%C3\%B6der_Rule}
+    \item \url{https://groupprops.subwiki.org/wiki/Left_residual_operator_for_composition}
+    \item \url{https://ncatlab.org/nlab/show/total+relation}
+    \item \url{https://ncatlab.org/nlab/show/extensional+relation}
+    \item \url{https://ncatlab.org/nlab/show/well-founded+relation}
+    \item \url{https://ncatlab.org/nlab/show/apartness+relation}
+    \item \url{https://ncatlab.org/nlab/show/partial+equivalence+relation}
+    \item \url{https://ncatlab.org/nlab/show/order}
+    \item \url{https://ncatlab.org/nlab/show/congruence}
+    \item \url{https://ncatlab.org/nlab/show/allegory}
+    \item \url{https://ncatlab.org/nlab/show/Rel}
+    \item \url{https://en.wikipedia.org/wiki/Demonic_composition}
+    \item \url{https://en.wikipedia.org/wiki/Converse_relation}
+    \item \url{https://en.wikipedia.org/wiki/Binary_relation#Difunctional}
+    \item \url{https://en.wikipedia.org/wiki/Algebraic_logic#Calculus_of_relations}
+    \item \url{https://en.wikipedia.org/wiki/Binary_relation}
+    \item \url{https://ncatlab.org/nlab/show/internal+relation}
+\end{enumerate}
+TODO:
+\begin{enumerate}
+    \item \url{https://mathoverflow.net/q/481011}
+    \item Does the tensor product of suplattices induce something interesting in $\SimplexCategory$?
+    \item Monotone map from $A\times B$ to $X\times Y$ is the same thing as a pair $(f,g)$ with $f\colon A\to X$ and $g\colon B\to Y$ monotone maps
+    \item Example: divisibility poset.
+        \begin{enumerate}
+            \item Minimal elements are prime numbers
+            \item It has meets given by $\gcd$. If we take all natural numbers then it becomes a suplattice with join given by $\lcm$ and meet by $\gcd$.
+            \item Correct the following since $\lcm$ need not be in $D_{n}$: Tensor product of suplattices of $D_{n}\otimes D_{m}$ is given by functions satisfying $f(\lcm(k,\ell))=\gcd(f(k),f(\ell))$, and those are precisely the functions such that if $k\mid\ell$, then $f(\ell)\mid f(k)$.
+                \begin{enumerate}
+                    \item Tensor product of suplattices of $[n]\otimes[m]$ is given by functions satisfying $f(\max(k,\ell))=\min(f(k),f(\ell))$, and those are precisely the functions such that if $k\leq\ell$, then $f(\ell)\leq f(k)$.
+                \end{enumerate}
+        \end{enumerate}
+    \item Example of tensor product of suplattices for linear total orders
+    \item Add \url{https://ncatlab.org/nlab/show/conservative+cocompletion} for posets
+    \item Prove that tensors and cotensors of elements of posets by $\true$ and $\false$ exist
+    \item \url{https://jdh.hamkins.org/the-lattice-of-sets-of-natural-numbers-is-rich/}
+\end{enumerate}
+
+\ChapterTableOfContents
+
+\section{Posets}\label{section-posets}
+\subsection{Foundations}\label{subsection-posets-foundations}
+\section{Limits and Colimits in Posets}\label{section-limits-and-colimits-in-posets}
+\subsection{Joins}\label{subsection-joins-in-posets}
+\subsection{Meets}\label{subsection-meets-in-posets}
+\subsection{Suprema}\label{subsection-suprema-in-posets}
+\subsection{Infima}\label{subsection-infima-in-posets}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

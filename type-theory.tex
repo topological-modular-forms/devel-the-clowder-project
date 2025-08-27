@@ -16,6 +16,11 @@ This chapter contains material on type theory.
 
 \ChapterTableOfContents
 
+TODO:
+\begin{enumerate}
+    \item \url{https://mathoverflow.net/questions/499517/models-of-hott-locally-ccc-vs-quillen}
+\end{enumerate}
+
 \section{Type Theory Basics}\label{section-type-theory-basics}
 \subsection{Inference Rules}\label{subsection-inference-rules}
 \begin{definition}{Inference Rules}{inference-rules}%
@@ -778,7 +783,7 @@ This chapter contains material on type theory.
                             \hypo{\context{\Gamma}{A\type}}%
                             \hypo{\context{\Gamma}{B\type}}%
                             \hypo{\context{\Gamma,\,x\oftype A,\,y\oftype B}{C(x,y)\type}}%
-                            \infer3{\context{\Gamma}{\displaystyle\sigma\circ\sigma\doteq\id_{\scalebox{0.7}{$\displaystyle\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)$}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)\to\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)}}%
+                            \infer3{\context{\Gamma}{\displaystyle\sigma\circ\sigma\doteq\sfid_{\scalebox{0.7}{$\displaystyle\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)$}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)\to\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)}}%
                         \end{prooftree}%
                         .%
                     \end{webprooftree}%
@@ -1162,11 +1167,11 @@ Let $A$ and $B$ be types.
 \subsection{Identity Functions}\label{subsection-martin-löf-type-theory-identity-functions}
 Let $A$ be a type.
 \begin{definition}{Identity Functions}{identity-functions}%
-    The \index[type-theory]{identity function}\textbf{identity function} of $A$ is the term \index[notation]{idA@$\id_{A}$}$\id_{A}\oftype A\to A$ defined by
+    The \index[type-theory]{identity function}\textbf{identity function} of $A$ is the term \index[notation]{idA@$\sfid_{A}$}$\sfid_{A}\oftype A\to A$ defined by
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
-            \infer1[(id-def)]{\context{\Gamma}{\id_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
+            \infer1[(id-def)]{\context{\Gamma}{\sfid_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
         \end{prooftree}%
     \end{webprooftree}%
     via the derivation
@@ -1176,7 +1181,7 @@ Let $A$ be a type.
             \hypo{\context{\Gamma}{A\type}}%
             \infer1[(G)]{\context{\Gamma,\,x\oftype A}{x\oftype A}}%
             \infer2[(λ)]{\context{\Gamma}{\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
-            \infer1{\context{\Gamma}{\id_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
+            \infer1{\context{\Gamma}{\sfid_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
@@ -1188,7 +1193,7 @@ Let $A$ be a type.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
-                    \infer1[(id)]{\context{\Gamma}{\id_{A}\oftype A\to A}}%
+                    \infer1[(id)]{\context{\Gamma}{\sfid_{A}\oftype A\to A}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1196,7 +1201,7 @@ Let $A$ be a type.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
-                    \infer1[(id-ev)]{\context{\Gamma,\,x\oftype A}{\id_{A}(x)\doteq x\oftype A}}%
+                    \infer1[(id-ev)]{\context{\Gamma,\,x\oftype A}{\sfid_{A}(x)\doteq x\oftype A}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1212,13 +1217,13 @@ Let $A$ be a type.
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
-            \infer1[(id-def)]{\context{\Gamma}{\id_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
-            \infer1[(ev-eq)]{\context{\Gamma,\,a\oftype A}{\id_{A}(a)\doteq\llbracket x\mapsto x\rrbracket(a)\oftype A}}%
+            \infer1[(id-def)]{\context{\Gamma}{\sfid_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
+            \infer1[(ev-eq)]{\context{\Gamma,\,a\oftype A}{\sfid_{A}(a)\doteq\llbracket x\mapsto x\rrbracket(a)\oftype A}}%
             \hypo{\context{\Gamma}{A\type}}%
             \hypo{\context{\Gamma}{A\type}}%
             \infer1[(G)]{\context{\Gamma,\,a\oftype A}{a\oftype A}}%
             \infer2[(β)]{\context{\Gamma,\,a\oftype A}{\llbracket x\mapsto x\rrbracket(a)\doteq a\oftype A}}%
-            \infer2[(trans)]{\context{\Gamma,\,a\oftype A}{\id_{A}(a)\doteq a\oftype A}}%
+            \infer2[(trans)]{\context{\Gamma,\,a\oftype A}{\sfid_{A}(a)\doteq a\oftype A}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
@@ -1292,7 +1297,7 @@ Let $A$, $B$, and $C$ be types.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
-                    \infer1[(LU)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+                    \infer1[(LU)]{\context{\Gamma}{\sfid_{B}\circ f\doteq f\oftype A\to B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1300,7 +1305,7 @@ Let $A$, $B$, and $C$ be types.
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
-                    \infer1[(RU)]{\context{\Gamma}{f\circ\id_{A}\doteq f\oftype A\to B}}%
+                    \infer1[(RU)]{\context{\Gamma}{f\circ\sfid_{A}\doteq f\oftype A\to B}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1371,15 +1376,15 @@ Let $A$, $B$, and $C$ be types.
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-composition-of-functions-left-unitality}: Left Unitality}%
-    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{\sfid_{B}(f(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
     \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\evdots}%
-            \infer1{\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}}
-            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto\id_{B}(f(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
+            \infer1{\context{\Gamma,\,x\oftype A}{\sfid_{B}(f(x))\doteq f(x)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto\sfid_{B}(f(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
             \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
-            \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{\sfid_{B}\circ f\doteq f\oftype A\to B}}%
         \end{prooftree}%
         .%
     \end{scalewebprooftree}%
@@ -1390,24 +1395,24 @@ Let $A$, $B$, and $C$ be types.
             \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
             \hypo{\context{\Gamma}{A\type}}%
             \hypo{\context{\Gamma}{B\type}}%
-            \infer1[(id-ev)]{\context{\Gamma,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}%
-            \infer2[(W)]{\context{\Gamma,\,x\oftype A,\,y\oftype B}{\id_{B}(y)\doteq y\oftype B}}
-            \infer2[(S)]{\context{\Gamma,\,x\oftype A}{\id_{B}(f(x))\doteq f(x)\oftype B}}
+            \infer1[(id-ev)]{\context{\Gamma,\,y\oftype B}{\sfid_{B}(y)\doteq y\oftype B}}%
+            \infer2[(W)]{\context{\Gamma,\,x\oftype A,\,y\oftype B}{\sfid_{B}(y)\doteq y\oftype B}}
+            \infer2[(S)]{\context{\Gamma,\,x\oftype A}{\sfid_{B}(f(x))\doteq f(x)\oftype B}}
         \end{prooftree}%
         .%
     \end{webprooftree}%
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-composition-of-functions-right-unitality}: Right Unitality}%
-    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
+    Firstly, note that it suffices to produce a derivation for the judgement $\context{\Gamma,\,x\oftype A}{f(\sfid_{A}(x))\doteq f(x)\oftype B}$, as we can then finish that derivation with
     \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\evdots}%
-            \infer1{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}
-            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto f(\id_{A}(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
+            \infer1{\context{\Gamma,\,x\oftype A}{f(\sfid_{A}(x))\doteq f(x)\oftype B}}
+            \infer1[(λ-eq)]{\context{\Gamma}{\llbracket x\mapsto f(\sfid_{A}(x))\rrbracket\doteq\llbracket x\mapsto f(x)\rrbracket\oftype A\to B}}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
             \infer1[(η)]{\context{\Gamma}{\llbracket x\mapsto f(x)\rrbracket\doteq f\oftype A\to B}}%
-            \infer2[(trans)]{\context{\Gamma}{\id_{B}\circ f\doteq f\oftype A\to B}}%
+            \infer2[(trans)]{\context{\Gamma}{\sfid_{B}\circ f\doteq f\oftype A\to B}}%
         \end{prooftree}%
         .%
     \end{scalewebprooftree}%
@@ -1415,10 +1420,10 @@ Let $A$, $B$, and $C$ be types.
     \begin{webprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
-            \infer1[(id-ev)]{\context{\Gamma,\,x\oftype A}{\id_{A}(x)\doteq x\oftype A}}%
+            \infer1[(id-ev)]{\context{\Gamma,\,x\oftype A}{\sfid_{A}(x)\doteq x\oftype A}}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
             \infer1[(refl)]{\context{\Gamma}{f\doteq f\oftype A\to B}}%
-            \infer2[(ev-eq)]{\context{\Gamma,\,x\oftype A}{f(\id_{A}(x))\doteq f(x)\oftype B}}%
+            \infer2[(ev-eq)]{\context{\Gamma,\,x\oftype A}{f(\sfid_{A}(x))\doteq f(x)\oftype B}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
@@ -2336,6 +2341,30 @@ Let $A$ be a type and let $a\oftype A$.
                 \oftype%
                 y\equals_{A}x.%
             \]%
+        \item\label{properties-of-identity-types-left-invertibility}\SloganFont{Left Invertibility. }There exists a dependent function
+            \[
+                \leftinv%
+                \oftype%
+                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}
+            \]%
+            taking a term $p\oftype x\equals_{A}y$ and producing a term
+            \[
+                \leftinv_{x}(p)%
+                \oftype%
+                p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}.%
+            \]%
+        \item\label{properties-of-identity-types-right-invertibility}\SloganFont{Right Invertibility. }There exists a dependent function
+            \[
+                \rightinv%
+                \oftype%
+                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{x\equals_{A}x}\refl_{x}
+            \]%
+            taking a term $p\oftype x\equals_{A}y$ and producing a term
+            \[
+                \rightinv_{x}(p)%
+                \oftype%
+                p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}.%
+            \]%
         %\item\label{properties-of-identity-types-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -2376,9 +2405,9 @@ Let $A$ be a type and let $a\oftype A$.
         \begin{prooftree}%
             \hypo{\context{\Gamma}{z\oftype A}}%
             \infer1[(id-form')]{\context{\Gamma,\,x\oftype A}{x\equals_{A}z\type}}%
-            \infer1[(id)]{\context{\Gamma,\,x\oftype A}{\id_{x\equals_{A}z}\oftype x\equals_{A}z\to x\equals_{A}z}}%
-            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto\id_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat_{x,z,z}(\refl_{z})\doteq\llbracket x\mapsto\id_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
+            \infer1[(id)]{\context{\Gamma,\,x\oftype A}{\sfid_{x\equals_{A}z}\oftype x\equals_{A}z\to x\equals_{A}z}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto\sfid_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat_{x,z,z}(\refl_{z})\doteq\llbracket x\mapsto\sfid_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
@@ -2535,7 +2564,231 @@ Let $A$ be a type and let $a\oftype A$.
         .%
     \end{webprooftree}%
     This finishes the construction of $\inv$.
+
+    \ProofBox{\cref{properties-of-identity-types-left-invertibility}: Left Invertibility}%
+    First, notice that we have a judgemental equality of the form $\refl^{-1}_{y}\doteq\refl_{y}$, and thus a judgmental equality of the form
+    \[
+        \refl^{-1}_{y}\cdot\refl_{y}%
+        \doteq%
+        \refl_{y}.%
+    \]%
+    This allows us to define
+    \[
+        \leftinv_{y,y}(\refl_{y})%
+        \defeq%
+        \refl_{\refl_{y}}.%
+    \]%
+    By path induction, we then have
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,y\oftype A}{\leftinv_{y,y}\left(\refl_{y}\right)\oftype\refl^{-1}_{y}\ccirc\refl_{y}\equals_{y\equals_{A}y}\refl_{y}}}%
+            \hypo{\context{\Gamma}{y\oftype A}}%
+            \hypo{\context{\Gamma,\,x\oftype A,\,p\oftype x\equals_{A}y}{p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}\type}}%
+            \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{y}\oftype\refl^{-1}_{y}\ccirc\refl_{y}\equals_{y\equals_{A}y}\refl_{y}\to\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer2[(ev2)]{\context{\Gamma,\,y\oftype A}{\displaystyle\indeq{y}\left(\leftinv_{y,y}\left(\refl_{y}\right)\right)\oftype\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\left\llbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\right\rrbracket\oftype\prod_{y\oftype A}\oftype\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer1[(swap)]{\context{\Gamma}{\displaystyle\left\llbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\right\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer1{\context{\Gamma}{\displaystyle\leftinv\doteq\left\llbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\right\rrbracket\oftype\prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    This finishes the construction of $\leftinv$.
+
+    \ProofBox{\cref{properties-of-identity-types-right-invertibility}: Right Invertibility}%
+    First, notice that we have a judgemental equality of the form $\refl^{-1}_{x}\doteq\refl_{x}$, and thus a judgmental equality of the form
+    \[
+        \refl_{x}\cdot\refl^{-1}_{x}%
+        \doteq%
+        \refl_{x}.%
+    \]%
+    This allows us to define
+    \[
+        \rightinv_{x,x}\left(\refl_{x}\right)%
+        \defeq%
+        \refl_{\refl_{x}}.%
+    \]%
+    By path induction, we then have
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,x\oftype A}{\rightinv_{x,x}\left(\refl_{x}\right)\oftype\refl^{-1}_{x}\ccirc\refl_{x}\equals_{x\equals_{A}x}\refl_{x}}}%
+            \hypo{\context{\Gamma}{x\oftype A}}%
+            \hypo{\context{\Gamma,\,y\oftype A,\,p\oftype x\equals_{A}y}{p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}\type}}%
+            \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{x}\oftype\refl^{-1}_{x}\ccirc\refl_{x}\equals_{x\equals_{A}x}\refl_{x}\to\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
+            \infer2[(ev2)]{\context{\Gamma,\,x\oftype A}{\displaystyle\indeq{x}(\rightinv_{x,x}\left(\refl_{x}\right))\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\left\llbracket x\mapsto\indeq{x}(\rightinv_{x,x}\left(\refl_{x}\right))\right\rrbracket\oftype\prod_{x\oftype A}\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
+            \infer1{\context{\Gamma}{\displaystyle\rightinv\doteq\left\llbracket x\mapsto\indeq{x}(\rightinv_{x,x}\left(\refl_{x})\right)\right\rrbracket\oftype\prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+    This finishes the construction of $\rightinv$.
 \end{Proof}
+\subsection{The Action on Identification of Functions}\label{the-action-on-identification-of-functions}
+Let $f\colon A\to B$ be a function.
+\begin{definition}{The Action on Identification of Functions}{action-on-identification-of-functions}%
+    The \index[type-theory]{action on identification of functions}\textbf{action on identifications}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[type-theory]{action on paths}\textbf{action on paths} of $f$.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    of $f$ is the function
+    \[
+        \ap_{f}%
+        \oftype%
+        \prod_{x,y\oftype A}\left((x\equals_{A}y)\to(f(x)\equals_{B}f(y))\right)%
+    \]%
+    defined via pattern-matching by
+    \[
+        \ap_{f}(\refl_{x})%
+        \defeq%
+        \refl_{f(x)}.%
+    \]%
+\end{definition}
+\begin{proposition}{Properties of the Action on Identification of Functions}{properties-of-the-action-on-identification-of-functions}%
+    Let $f\colon A\to B$ and $g\colon B\to C$ be function.
+    \begin{enumerate}
+        \item\label{properties-of-the-action-on-identification-of-functions-interaction-with-identities}\SloganFont{Interaction With Identities. }There exists a dependent function
+            \[
+                \apid_{A}%
+                \oftype%
+                \prod_{x,y\oftype A}%
+                \prod_{p\oftype x\equals_{A}y}%
+                p\equals_{x\equals_{A}y}\ap_{\sfid_{A}}(p)%
+            \]%
+            defined via pattern-matching by
+            \[
+                \apid_{A}(\refl_{x})%
+                \defeq%
+                \refl_{\refl_{x}}.%
+            \]%
+        \item\label{properties-of-the-action-on-identification-of-functions-interaction-with-composition}\SloganFont{Interaction With Composition. }There exists a dependent function
+            \[
+                \apcomp_{g,f}%
+                \oftype%
+                \prod_{x,y\oftype A}%
+                \prod_{p\oftype x\equals_{A}y}%
+                \ap_{g}(\ap_{f}(p))%
+                \equals_{g(f(x))\equals_{A}g(f(y))}%
+                \ap_{g\circ f}(p)%
+            \]%
+            defined via pattern-matching by
+            \[
+                \apcomp_{g,f}(\refl_{x})%
+                \defeq%
+                \ap_{g}(\ap_{f}(\refl_{g(f(x))})).%
+            \]%
+        \item\label{properties-of-the-action-on-identification-of-functions-interaction-with-reflexivity}\SloganFont{Interaction With Reflexivity. }There exists a dependent function
+            \[
+                \aprefl_{f}%
+                \oftype%
+                \prod_{x,y\oftype A}%
+                \prod_{p\oftype x\equals_{A}y}%
+                \ap_{f}(\refl_{x})%
+                \equals_{f(x)\equals_{A}f(y)}%
+                \refl_{f(x)}%
+            \]%
+            defined via pattern-matching by
+            \[
+                \aprefl_{f}(\refl_{x})%
+                \defeq%
+                \refl_{\refl_{f(x)}}.%
+            \]%
+        \item\label{properties-of-the-action-on-identification-of-functions-interaction-with-inversion}\SloganFont{Interaction With Inversion. }There exists a dependent function
+            \[
+                \apinv_{f}%
+                \oftype%
+                \prod_{x,y\oftype A}%
+                \prod_{p\oftype x\equals_{A}y}%
+                \ap_{f}\pig(p^{-1}\pig)%
+                \equals_{f(x)\equals_{A}f(y)}%
+                \ap_{f}(p)^{-1}%
+            \]%
+            defined via path induction by
+            \[
+                \apinv_{f}(\refl_{x})%
+                \defeq%
+                \refl_{\ap_{f}(\refl_{x})}.%
+            \]%
+        \item\label{properties-of-the-action-on-identification-of-functions-interaction-with-concatenation}\SloganFont{Interaction With Concatenation. }There exists a dependent function
+            \[
+                \apconcat_{f}%
+                \oftype%
+                \prod_{x,y,z\oftype A}%
+                \prod_{\substack{p\oftype x\equals_{A}y\\q\oftype y\equals_{A}z}}%
+                \ap_{f}(q,p)%
+                \equals_{f(x)\equals_{A}f(y)}%
+                \ap_{f}(q)\ccirc\ap_{f}(p)%
+            \]%
+            defined via path induction by
+            \[
+                \apconcat_{f}(q,\refl_{x})%
+                \defeq%
+                \refl_{\ap_{f}(q)}.%
+            \]%
+        %\item\label{properties-of-the-action-on-identification-of-functions-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-action-on-identification-of-functions}}%
+    \FirstProofBox{\cref{properties-of-the-action-on-identification-of-functions-interaction-with-identities}: Interaction With Identities}%
+    There is nothing to prove.
+
+    \ProofBox{\cref{properties-of-the-action-on-identification-of-functions-interaction-with-composition}: Interaction With Composition}%
+    There is nothing to prove.
+
+    \ProofBox{\cref{properties-of-the-action-on-identification-of-functions-interaction-with-reflexivity}: Interaction With Reflexivity}%
+    There is nothing to prove.
+
+    \ProofBox{\cref{properties-of-the-action-on-identification-of-functions-interaction-with-inversion}: Interaction With Inversion}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-the-action-on-identification-of-functions-interaction-with-concatenation}: Interaction With Concatenation}%
+    Omitted.
+\end{Proof}
+\subsection{Transport}\label{subsection-martin-löf-type-theory-transport}
+Let $A$ be a type and let $B$ be a type family indexed over $x\oftype A$.
+\begin{definition}{The Transport Operation}{the-transport-operation}%
+    The \index[type-theory]{transport operation}\textbf{transport operation} of $B$ is the function
+    \[
+        \sftr_{B}%
+        \oftype%
+        \prod_{x,y\oftype A}%
+        \left(%
+            (x\equals_{A}y)%
+            \to%
+            (B(x)\to B(y))%
+        \right)%
+    \]%
+    defined via pattern-matching by
+    \[
+        \sftr_{B}(\refl_{x})%
+        \defeq%
+        \sfid_{B(x)}.%
+    \]
+\end{definition}
+\subsection{The Action on Identification of Dependent Functions}\label{the-action-on-identification-of-dependent-functions}
+Let $f\colon\prod_{x\oftype A}B(x)$ be a dependent function.
+\begin{definition}{The Action on Identification of Dependent Functions}{action-on-identification-of-dependent-functions}%
+    The \index[type-theory]{action on identification of dependent functions}\textbf{action on identifications}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }Also called the \index[type-theory]{action on paths}\textbf{action on paths} of $f$.
+        \par\vspace*{\TCBBoxCorrection}
+    } %
+    %---  End Footnote  ---%
+    of $f$ is the function
+    \[
+        \apd_{f}%
+        \oftype%
+        \prod_{x,y\oftype A}\left((x\equals_{A}y)\to(\sftr_{B}(p,f(x))\equals_{B(y)}f(y))\right)%
+    \]%
+    defined via pattern-matching by
+    \[
+        \apd_{f}(\refl_{x})%
+        \defeq%
+        \refl_{f(x)}.%
+    \]%
+\end{definition}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
