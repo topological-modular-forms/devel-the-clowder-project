@@ -306,7 +306,7 @@ This chapter contains some foundational material on pointed sets.
                                 \to%
                                 Y%
                             \]%
-                            defined on $f^{-1}(Y\setminus y_{0})$ and given by
+                            defined on $f^{-1}(Y\setminus y_{0})$ and defined by
                             \[
                                 \xi_{f}(x)%
                                 \defeq%
@@ -548,7 +548,7 @@ This chapter contains some foundational material on pointed sets.
                 K &= \{x\in X\ \middle|\ f(x)\neq y_{0}\}\cup\{x_{0}\}\\
                   &= (X\setminus f^{-1}(y_{0}))\cup\{x_{0}\};
             \end{align*}
-        \item $i\colon X\to K$ is the inert morphism of pointed sets given by
+        \item $i\colon X\to K$ is the inert morphism of pointed sets defined by
             \[
                 i(x)%
                 \defeq%
@@ -558,7 +558,7 @@ This chapter contains some foundational material on pointed sets.
                 \end{cases}
             \]%
             for each $x\in X$;
-        \item $a\colon K\to Y$ is the active morphism of pointed sets given by
+        \item $a\colon K\to Y$ is the active morphism of pointed sets defined by
             \[
                 a(x)%
                 \defeq%
@@ -608,18 +608,18 @@ This chapter contains some foundational material on pointed sets.
     \]%
     Indeed, this diagram commutes, as we have
     \begin{align*}
-        [\phi\circ i](x) &\defeq \phi(i(x))\\
-                         &\defeq f(i^{-1}(i(x)))\\
+        [\phi\circ i](x) &\eqdef \phi(i(x))\\
+                         &\eqdef f(i^{-1}(i(x)))\\
                          &=      f(x)
     \end{align*}
     for each $x\in X$ and
     \begin{align*}
-        [a\circ\phi](y) &\defeq a(\phi(y))\\
-                        &\defeq a(f(i^{-1}(y)))\\
-                        &\defeq [a\circ f](i^{-1}(y))\\
+        [a\circ\phi](y) &\eqdef a(\phi(y))\\
+                        &\eqdef a(f(i^{-1}(y)))\\
+                        &\eqdef [a\circ f](i^{-1}(y))\\
                         &=      [g\circ i](i^{-1}(y))\\
-                        &\defeq g(i(i^{-1}(y)))\\
-                        &\defeq g(y)
+                        &\eqdef g(i(i^{-1}(y)))\\
+                        &\eqdef g(y)
     \end{align*}
     for each $y\in Y$. Moreover, given another morphism $\psi$ such that the diagram
     \[
@@ -641,9 +641,11 @@ This chapter contains some foundational material on pointed sets.
     commutes, it follows that we must have $\psi=\phi$, since, given $y\in Y$, there exists a unique $x\in X$ such that $i(x)=y$, so we have
     \begin{align*}
         \psi(y) &=      \psi(i(x))\\
+                &\eqdef [\psi\circ i](x)\\
                 &=      f(x)\\
                 &=      f(i^{-1}(y))\\
-                &\defeq \phi(y).
+                &\eqdef [f\circ i^{-1}](y)\\
+                &=      \phi(y).
     \end{align*}
     This finishes the proof.
 \end{Proof}
@@ -1153,7 +1155,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(X
                 \uearrow%
                 (X'\times_{Z'}Y',(x'_{0},y'_{0}))%
             \]%
-            given by
+            defined by
             \[
                 \xi(x,y)%
                 \defeq%
@@ -2020,7 +2022,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \to
                 X
             \]%
-            at $X$ is given by
+            at $X$ is defined by
             \[
                 \nabla_{X}(p)%
                 \defeq%
@@ -2301,7 +2303,7 @@ Let $(X,x_{0})$, $(Y,y_{0})$, and $(Z,z_{0})$ be pointed sets and let $f\colon(Z
                 \uearrow%
                 (X'\ipushout{Z'}Y',p'_{0})%
             \]%
-            given by
+            defined by
             \[
                 \xi(p)%
                 \defeq%
@@ -2668,11 +2670,11 @@ Let $f,g\colon(X,x_{0})\rightrightarrows(Y,y_{0})$ be morphisms of pointed sets.
     \]%
     Indeed, we have
     \begin{align*}
-        [\coeq(f,g)\circ f](x) &\defeq [\coeq(f,g)](f(x))\\
-                               &\defeq [f(x)]\\
+        [\coeq(f,g)\circ f](x) &\eqdef [\coeq(f,g)](f(x))\\
+                               &\eqdef [f(x)]\\
                                &=      [g(x)]\\
-                               &\defeq [\coeq(f,g)](g(x))\\
-                               &\defeq [\coeq(f,g)\circ g](x)%
+                               &\eqdef [\coeq(f,g)](g(x))\\
+                               &\eqdef [\coeq(f,g)\circ g](x)%
     \end{align*}
     for each $x\in X$. Next, we prove that $\CoEq(f,g)$ satisfies the universal property of the coequaliser. Suppose we have a diagram of the form
     \[
@@ -2784,7 +2786,7 @@ Let $X$ be a set.
             %---  End Footnote  ---%
             \begin{align*}
                 X^{+} &\defeq X\icoprod\pt\\
-                      &\defeq X\icoprod\{\point\}.
+                      &\eqdef X\icoprod\{\point\}.
             \end{align*}
         \item\SloganFont{The Basepoint. }The element $\point$ of $X^{+}$.
     \end{itemize}
@@ -2894,17 +2896,17 @@ Let $X$ be a set.
             \end{align*}
             we have
             \begin{align*}
-                [g^{+}\circ f^{+}](x) &\defeq g^{+}(f^{+}(x))\\
-                                      &\defeq g^{+}(f(x))\\
-                                      &\defeq g(f(x))\\
-                                      &\defeq [g\circ f]^{+}(x)%
+                [g^{+}\circ f^{+}](x) &\eqdef g^{+}(f^{+}(x))\\
+                                      &\eqdef g^{+}(f(x))\\
+                                      &\eqdef g(f(x))\\
+                                      &\eqdef [g\circ f]^{+}(x)%
             \end{align*}
             for each $x\in X$ and
             \begin{align*}
-                [g^{+}\circ f^{+}](\star_{X}) &\defeq g^{+}(f^{+}(\star_{X}))\\
-                                              &\defeq g^{+}(\star_{Y})\\
-                                              &\defeq \star_{Z}\\
-                                              &\defeq [g\circ f]^{+}(\star_{X}),
+                [g^{+}\circ f^{+}](\star_{X}) &\eqdef g^{+}(f^{+}(\star_{X}))\\
+                                              &\eqdef g^{+}(\star_{Y})\\
+                                              &\eqdef \star_{Z}\\
+                                              &\eqdef [g\circ f]^{+}(\star_{X}),
             \end{align*}
             so $(g\circ f)^{+}=g^{+}\circ f^{+}$.
     \end{itemize}
@@ -2937,7 +2939,7 @@ Let $X$ be a set.
                 \to%
                 Y%
             \]%
-            given by
+            defined by
             \[
                 \xi^{\dagger}(x)%
                 \defeq
@@ -2980,12 +2982,12 @@ Let $X$ be a set.
             \]%
             we have
             \begin{align*}
-                [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
+                [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\eqdef \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
                                                  &=      \Psi_{X,Y}(\xi^{\dagger})\\%
-                                                 &\defeq \leftllbracket x\mapsto{\begin{cases}\xi^{\dagger}(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket\\%
+                                                 &\eqdef \leftllbracket x\mapsto{\begin{cases}\xi^{\dagger}(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket\\%
                                                  &=      \leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket\\%
                                                  &=      \xi\\%
-                                                 &\defeq [\id_{\Sets_{*}(X^{+},Y)}](\xi).%
+                                                 &\eqdef [\id_{\Sets_{*}(X^{+},Y)}](\xi).%
             \end{align*}
             Therefore we have
             \[
@@ -2995,12 +2997,12 @@ Let $X$ be a set.
             \]%
         \item\label{proof-of-properties-of-free-pointed-sets-adjointness-4}\SloganFont{Invertibility \rmII. }Given a map of sets $\xi\colon X\to Y$, we have
             \begin{align*}
-                [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\defeq \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
+                [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\eqdef \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
                                                  &=      \Phi_{X,Y}(\xi^{\dagger})\\%
                                                  &=      \Phi_{X,Y}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X$}\\y_{0}&\text{if $x=\star_{X}$}\end{cases}}\rightrrbracket)\\%
                                                  &=      \llbracket x\mapsto\xi(x)\rrbracket\\%
                                                  &=      \xi\\%
-                                                 &\defeq [\id_{\Sets(X,Y)}](\xi).%
+                                                 &\eqdef [\id_{\Sets(X,Y)}](\xi).%
             \end{align*}
             Therefore we have
             \[
@@ -3134,7 +3136,7 @@ Let $X$ be a set.
             given by
             \[
                 (-)^{+,\icoprod,-1}_{X,Y}(z)%
-                \defeq%
+                =%
                 \begin{cases}
                     [(0,x)] &\text{if $z=[(0,x)]$,}\\
                     [(1,y)] &\text{if $z=[(1,y)]$,}\\
@@ -3185,7 +3187,7 @@ Let $X$ be a set.
             given by
             \[
                 (-)^{+,-1}_{X,Y}(z)%
-                \defeq%
+                =%
                 \begin{cases}
                     x\wedge y                &\text{if $z=(x,y)$ with $(x,y)\in X\times Y$,}\\
                     \star_{X}\wedge\star_{Y} &\text{if $z=\star_{X\times Y}$,}
@@ -3319,10 +3321,10 @@ Let $(X,x_{0})$ be a pointed set.
             \end{align*}
             we have
             \begin{align*}
-                [g^{-}\circ f^{-}](x) &\defeq g^{-}(f^{-}(x))\\
-                                      &\defeq g^{-}(f(x))\\
-                                      &\defeq g(f(x))\\
-                                      &\defeq [g\circ f]^{-}(x)%
+                [g^{-}\circ f^{-}](x) &\eqdef g^{-}(f^{-}(x))\\
+                                      &\eqdef g^{-}(f(x))\\
+                                      &\eqdef g(f(x))\\
+                                      &\eqdef [g\circ f]^{-}(x)%
             \end{align*}
             for each $x\in X$, so $(g\circ f)^{-}=g^{-}\circ f^{-}$.
     \end{itemize}
@@ -3347,7 +3349,7 @@ Let $(X,x_{0})$ be a pointed set.
                 \to%
                 Y^{+}%
             \]%
-            given by
+            defined by
             \[
                 \xi^{\dagger}(x)%
                 \defeq
@@ -3382,8 +3384,8 @@ Let $(X,x_{0})$ be a pointed set.
             for each $x\in X^{-}$, which is indeed well-defined (in that $\xi(x)\in Y$ for all $x\in X^{-}$) since $\xi$ is active.
         \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-3}\SloganFont{Invertibility \rmI. }Given a map of sets $\xi\colon X^{-}\to Y$, we have
             \begin{align*}
-                [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
-                                                 &\defeq \Psi_{X,Y}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket)\\%
+                [\Psi_{X,Y}\circ\Phi_{X,Y}](\xi) &\eqdef \Psi_{X,Y}(\Phi_{X,Y}(\xi))\\%
+                                                 &\eqdef \Psi_{X,Y}(\leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket)\\%
                                                  &=      \llbracket x\mapsto\xi(x)\rrbracket\\
                                                  &=      \xi\\
                                                  &=      [\id_{\Sets(X^{-},Y)}](\xi).
@@ -3404,7 +3406,7 @@ Let $(X,x_{0})$ be a pointed set.
             \]%
             we have
             \begin{align*}
-                [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\defeq \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
+                [\Phi_{X,Y}\circ\Psi_{X,Y}](\xi) &\eqdef \Phi_{X,Y}(\Psi_{X,Y}(\xi))\\%
                                                  &=      \Phi_{X,Y}(\llbracket x\mapsto\xi(x)\rrbracket)\\%
                                                  &=      \leftllbracket x\mapsto{\begin{cases}\xi(x)&\text{if $x\in X^{-}$}\\\star_{Y}&\text{if $x=x_{0}$}\end{cases}}\rightrrbracket\\
                                                  &=      \xi\\
@@ -3525,8 +3527,8 @@ Let $(X,x_{0})$ be a pointed set.
             for each $x\in X$.
         \item\label{proof-of-properties-of-sets-with-deleted-basepoints-adjoint-equivalence-9}\SloganFont{Essential Surjectivity of $(-)^{-}$. }We need to show that, given an object $X\in\Obj(\Sets)$, there exists some $X'\in\Obj(\Sets^{\actv}_{*})$ such that $(X')^{-}\cong X$. Indeed, taking $X'=X^{+}$, we have
             \begin{align*}
-                (X^{+})^{-} &\defeq (X\cup\{\star_{X}\})^{-}\\
-                            &\defeq (X\cup\{\star_{X}\})\setminus\{\star_{X}\}\\
+                (X^{+})^{-} &\eqdef (X\cup\{\star_{X}\})^{-}\\
+                            &\eqdef (X\cup\{\star_{X}\})\setminus\{\star_{X}\}\\
                             &=      X,
             \end{align*}
             and thus we have in fact an \emph{equality} $(X^{+})^{-}=X$, showing $(-)^{-}$ to be essentially surjective.
@@ -3565,7 +3567,7 @@ Let $(X,x_{0})$ be a pointed set.
             given by
             \[
                 (-)^{-,\vee,-1}_{X,Y}(z)%
-                \defeq%
+                =%
                 \begin{cases}
                     (0,x) &\text{if $z=[(0,x)]$,}\\
                     (1,y) &\text{if $z=[(1,y)]$,}
@@ -3612,7 +3614,7 @@ Let $(X,x_{0})$ be a pointed set.
             given by
             \[
                 (-)^{-,-1}_{X,Y}(x\wedge y)%
-                \defeq%
+                =%
                 (x,y)%
             \]%
             for each $x\wedge y\in(X\wedge Y)^{-}$.

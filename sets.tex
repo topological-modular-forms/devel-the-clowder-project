@@ -952,6 +952,7 @@ Let $X$ be a set.
                                         &= \bigvee_{x\in X}(\chi_{U}(x)\odot f(x))\\
                                         &= \left(\bigvee_{x\in U}(\chi_{U}(x)\odot f(x))\right)\vee\left(\bigvee_{x\in U^{\sfc}}(\chi_{U}(x)\odot f(x))\right)\\
                                         &= \left(\bigvee_{x\in U}f(x)\right)\vee\left(\bigvee_{x\in U^{\sfc}}\BottomElement_{Y}\right)\\
+                                        &= \left(\bigvee_{x\in U}f(x)\right)\vee\BottomElement_{Y}\\
                                         &= \bigvee_{x\in U}f(x)
             \end{align*}
             for each $U\in\mathcal{P}(X)$, where:
@@ -2480,7 +2481,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
             \[
                 \bigcup_{U\in{\scriptsize\displaystyle\bigcup_{A\in\mathcal{A}}A}}U%
                 =%
-                \bigcup_{A\in\mathcal{A}}(\bigcup_{U\in A}U)%
+                \bigcup_{A\in\mathcal{A}}\left(\bigcup_{U\in A}U\right)%
             \]%
             for each $\mathcal{A}\in\mathcal{P}(\mathcal{P}(\mathcal{P}(X)))$.
         \item\label{properties-of-unions-of-families-of-subsets-left-unitality}\SloganFont{Left Unitality. }The diagram

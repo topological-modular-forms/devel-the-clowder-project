@@ -91,7 +91,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         X\times(Y\times Z)
     \]%
-    at $(X,Y,Z)$ is given by
+    at $(X,Y,Z)$ is defined by
     \[
         \alpha^{\Sets}_{X,Y,Z}((x,y),z)
         \defeq
@@ -109,20 +109,20 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         (X\times Y)\times Z
     \]%
-    defined by
+    given by
     \[
         \alpha^{\Sets,-1}_{X,Y,Z}(x,(y,z))%
-        \defeq%
+        =%
         ((x,y),z)%
     \]%
     for each $(x,(y,z))\in X\times(Y\times Z)$. Indeed:
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\alpha^{\Sets,-1}_{X,Y,Z}\circ\alpha^{\Sets}_{X,Y,Z}]((x,y),z) &\defeq \alpha^{\Sets,-1}_{X,Y,Z}(\alpha^{\Sets}_{X,Y,Z}((x,y),z))\\
-                                                                                &\defeq \alpha^{\Sets,-1}_{X,Y,Z}(x,(y,z))\\
-                                                                                &\defeq ((x,y),z)\\
-                                                                                &\defeq [\id_{(X\times Y)\times Z}]((x,y),z)
+                [\alpha^{\Sets,-1}_{X,Y,Z}\circ\alpha^{\Sets}_{X,Y,Z}]((x,y),z) &\eqdef \alpha^{\Sets,-1}_{X,Y,Z}(\alpha^{\Sets}_{X,Y,Z}((x,y),z))\\
+                                                                                &\eqdef \alpha^{\Sets,-1}_{X,Y,Z}(x,(y,z))\\
+                                                                                &\eqdef ((x,y),z)\\
+                                                                                &\eqdef [\id_{(X\times Y)\times Z}]((x,y),z)
             \end{align*}
             for each $((x,y),z)\in(X\times Y)\times Z$, and therefore we have
             \[
@@ -132,10 +132,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\alpha^{\Sets}_{X,Y,Z}\circ\alpha^{\Sets,-1}_{X,Y,Z}](x,(y,z)) &\defeq \alpha^{\Sets}_{X,Y,Z}(\alpha^{\Sets,-1}_{X,Y,Z}(x,(y,z)))\\
-                                                                                &\defeq \alpha^{\Sets}_{X,Y,Z}((x,y),z)\\
-                                                                                &\defeq (x,(y,z))\\
-                                                                                &\defeq [\id_{(X\times Y)\times Z}](x,(y,z))
+                [\alpha^{\Sets}_{X,Y,Z}\circ\alpha^{\Sets,-1}_{X,Y,Z}](x,(y,z)) &\eqdef \alpha^{\Sets}_{X,Y,Z}(\alpha^{\Sets,-1}_{X,Y,Z}(x,(y,z)))\\
+                                                                                &\eqdef \alpha^{\Sets}_{X,Y,Z}((x,y),z)\\
+                                                                                &\eqdef (x,(y,z))\\
+                                                                                &\eqdef [\id_{(X\times Y)\times Z}](x,(y,z))
             \end{align*}
             for each $(x,(y,z))\in X\times(Y\times Z)$, and therefore we have
             \[
@@ -230,7 +230,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         X
     \]%
-    at $X\in\Obj(\Sets)$ is given by
+    at $X\in\Obj(\Sets)$ is defined by
     \[
         \LUnitor^{\Sets}_{X}(\point,x)%
         \defeq%
@@ -248,20 +248,20 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow%
         \pt\times X%
     \]%
-    defined by
+    given by
     \[
         \LUnitor^{\Sets,-1}_{X}(x)%
-        \defeq%
+        =%
         (\point,x)
     \]%
     for each $x\in X$. Indeed:
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\LUnitor^{\Sets,-1}_{X}\circ\LUnitor^{\Sets}_{X}](\pt,x) &= \LUnitor^{\Sets,-1}_{X}(\LUnitor^{\Sets}_{X}(\pt,x))\\
-                                                                          &= \LUnitor^{\Sets,-1}_{X}(x)\\
-                                                                          &= (\pt,x)\\
-                                                                          &= [\id_{\pt\times X}](\pt,x)
+                [\LUnitor^{\Sets,-1}_{X}\circ\LUnitor^{\Sets}_{X}](\pt,x) &\eqdef \LUnitor^{\Sets,-1}_{X}(\LUnitor^{\Sets}_{X}(\pt,x))\\
+                                                                          &\eqdef \LUnitor^{\Sets,-1}_{X}(x)\\
+                                                                          &\eqdef (\pt,x)\\
+                                                                          &\eqdef [\id_{\pt\times X}](\pt,x)
             \end{align*}
             for each $(\pt,x)\in\pt\times X$, and therefore we have
             \[
@@ -273,10 +273,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\LUnitor^{\Sets}_{X}\circ\LUnitor^{\Sets,-1}_{X}](x) &= \LUnitor^{\Sets}_{X}(\LUnitor^{\Sets,-1}_{X}(x))\\
-                                                                      &= \LUnitor^{\Sets,-1}_{X}(\pt,x)\\
-                                                                      &= x\\
-                                                                      &= [\id_{X}](x)
+                [\LUnitor^{\Sets}_{X}\circ\LUnitor^{\Sets,-1}_{X}](x) &\eqdef \LUnitor^{\Sets}_{X}(\LUnitor^{\Sets,-1}_{X}(x))\\
+                                                                      &\eqdef \LUnitor^{\Sets,-1}_{X}(\pt,x)\\
+                                                                      &\eqdef x\\
+                                                                      &\eqdef [\id_{X}](x)
             \end{align*}
             for each $x\in X$, and therefore we have
             \[
@@ -385,20 +385,20 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow%
         X\times\pt%
     \]%
-    defined by
+    given by
     \[
         \RUnitor^{\Sets,-1}_{X}(x)%
-        \defeq%
+        =%
         (x,\point)
     \]%
     for each $x\in X$. Indeed:
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\RUnitor^{\Sets,-1}_{X}\circ\RUnitor^{\Sets}_{X}](x,\point) &= \RUnitor^{\Sets,-1}_{X}(\RUnitor^{\Sets}_{X}(x,\point))\\
-                                                                             &= \RUnitor^{\Sets,-1}_{X}(x)\\
-                                                                             &= (x,\point)\\
-                                                                             &= [\id_{X\times\pt}](x,\point)
+                [\RUnitor^{\Sets,-1}_{X}\circ\RUnitor^{\Sets}_{X}](x,\point) &\eqdef \RUnitor^{\Sets,-1}_{X}(\RUnitor^{\Sets}_{X}(x,\point))\\
+                                                                             &\eqdef \RUnitor^{\Sets,-1}_{X}(x)\\
+                                                                             &\eqdef (x,\point)\\
+                                                                             &\eqdef [\id_{X\times\pt}](x,\point)
             \end{align*}
             for each $(x,\point)\in X\times\pt$, and therefore we have
             \[
@@ -410,10 +410,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\RUnitor^{\Sets}_{X}\circ\RUnitor^{\Sets,-1}_{X}](x) &= \RUnitor^{\Sets}_{X}(\RUnitor^{\Sets,-1}_{X}(x))\\
-                                                                      &= \RUnitor^{\Sets,-1}_{X}(x,\point)\\
-                                                                      &= x\\
-                                                                      &= [\id_{X}](x)
+                [\RUnitor^{\Sets}_{X}\circ\RUnitor^{\Sets,-1}_{X}](x) &\eqdef \RUnitor^{\Sets}_{X}(\RUnitor^{\Sets,-1}_{X}(x))\\
+                                                                      &\eqdef \RUnitor^{\Sets,-1}_{X}(x,\point)\\
+                                                                      &\eqdef x\\
+                                                                      &\eqdef [\id_{X}](x)
             \end{align*}
             for each $x\in X$, and therefore we have
             \[
@@ -525,20 +525,20 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         X\times Y
     \]%
-    defined by
+    given by
     \[
         \sigma^{\Sets,-1}_{X,Y}(y,x)%
-        \defeq%
+        =%
         (x,y)
     \]%
     for each $(y,x)\in Y\times X$. Indeed:
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\sigma^{\Sets,-1}_{X,Y}\circ\sigma^{\Sets}_{X,Y}](x,y) &\defeq \sigma^{\Sets,-1}_{X,Y}(\sigma^{\Sets}_{X,Y}(x,y))\\
-                                                                        &\defeq \sigma^{\Sets,-1}_{X,Y}(y,x)\\
-                                                                        &\defeq (x,y)\\
-                                                                        &\defeq [\id_{X\times Y}](x,y)
+                [\sigma^{\Sets,-1}_{X,Y}\circ\sigma^{\Sets}_{X,Y}](x,y) &\eqdef \sigma^{\Sets,-1}_{X,Y}(\sigma^{\Sets}_{X,Y}(x,y))\\
+                                                                        &\eqdef \sigma^{\Sets,-1}_{X,Y}(y,x)\\
+                                                                        &\eqdef (x,y)\\
+                                                                        &\eqdef [\id_{X\times Y}](x,y)
             \end{align*}
             for each $(x,y)\in X\times Y$, and therefore we have
             \[
@@ -548,10 +548,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\sigma^{\Sets}_{X,Y}\circ\sigma^{\Sets,-1}_{X,Y}](y,x) &\defeq \sigma^{\Sets,-1}_{X,Y}(\sigma^{\Sets}_{X,Y}(y,x))\\
-                                                                        &\defeq \sigma^{\Sets,-1}_{X,Y}(x,y)\\
-                                                                        &\defeq (y,x)\\
-                                                                        &\defeq [\id_{Y\times X}](y,x)
+                [\sigma^{\Sets}_{X,Y}\circ\sigma^{\Sets,-1}_{X,Y}](y,x) &\eqdef \sigma^{\Sets,-1}_{X,Y}(\sigma^{\Sets}_{X,Y}(y,x))\\
+                                                                        &\eqdef \sigma^{\Sets,-1}_{X,Y}(x,y)\\
+                                                                        &\eqdef (y,x)\\
+                                                                        &\eqdef [\id_{Y\times X}](y,x)
             \end{align*}
             for each $(y,x)\in Y\times X$, and therefore we have
             \[
@@ -647,7 +647,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \to%
         X\times X%
     \]%
-    at $X\in\Obj(\Sets)$ is given by
+    at $X\in\Obj(\Sets)$ is defined by
     \[
         \Delta_{X}(x)%
         \defeq%
@@ -826,13 +826,13 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             for each $x\in X$, so when $X=\pt$, we have
             \[
                 \LUnitor^{\Sets,-1}_{\pt}(\point)%
-                \defeq%
+                \eqdef%
                 {(\point,\point),}
             \]%
             and also
             \[
                 \Delta^{\Sets}_{\pt}(\point)%
-                \defeq%
+                \eqdef%
                 {(\point,\point),}
             \]%
             so we have $\Delta_{\pt}=\LUnitor^{\Sets,-1}_{\pt}$.
@@ -2705,7 +2705,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         X\icoprod(Y\icoprod Z)
     \]%
-    at $(X,Y,Z)$ is given by
+    at $(X,Y,Z)$ is defined by
     \begin{align*}
         \alpha^{\Sets,\icoprod}_{X,Y,Z}(a)%
         \defeq%
@@ -2721,13 +2721,13 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \FirstProofBox{Unwinding the Definitions of $(X\icoprod Y)\icoprod Z$ and $X\icoprod(Y\icoprod Z)$}%
     Firstly, we unwind the expressions for $(X\icoprod Y)\icoprod Z$ and $X\icoprod(Y\icoprod Z)$. We have
     \begin{align*}
-        (X\icoprod Y)\icoprod Z &\defeq        \{(0,a)\in S\ \middle|\ a\in X\icoprod Y\}\cup\{(1,z)\in S\ \middle|\ z\in Z\}\\
+        (X\icoprod Y)\icoprod Z &\eqdef        \{(0,a)\in S\ \middle|\ a\in X\icoprod Y\}\cup\{(1,z)\in S\ \middle|\ z\in Z\}\\
                                 &=             \{(0,(0,x))\in S\ \middle|\ x\in X\}\cup\{(0,(1,y))\in S\ \middle|\ y\in Y\}\\
                                 &\phantom{={}} \mkern4mu\cup\{(1,z)\in S\ \middle|\ z\in Z\},
     \end{align*}
     where $S=\{0,1\}\times((X\icoprod Y)\cup Z)$ and
     \begin{align*}
-        X\icoprod(Y\icoprod Z)  &\defeq \{(0,x)\in S'\ \middle|\ x\in X\}\cup\{(1,a)\in S'\ \middle|\ a\in Y\icoprod Z\}\\
+        X\icoprod(Y\icoprod Z)  &\eqdef \{(0,x)\in S'\ \middle|\ x\in X\}\cup\{(1,a)\in S'\ \middle|\ a\in Y\icoprod Z\}\\
                                 &=             \{(0,x)\in S'\ \middle|\ x\in X\}\cup\{(1,(0,y))\in S'\ \middle|\ y\in Y\}\\
                                 &\phantom{={}} \mkern4mu\cup\{(1,(1,z))\in S'\ \middle|\ z\in Z\},
     \end{align*}
@@ -2745,7 +2745,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \begin{align*}
         \alpha^{\Sets,\icoprod,-1}_{X,Y,Z}(a)%
-        \defeq%
+        =%
         \begin{cases}
             (0,(0,x)) &\text{if $a=(0,x)$,}\\
             (0,(1,y)) &\text{if $a=(1,(0,y))$,}\\
@@ -2901,7 +2901,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         X
     \]%
-    at $X$ is given by
+    at $X$ is defined by
     \[
         \LUnitor^{\Sets,\icoprod}_{X}((1,x))%
         \defeq%
@@ -2913,9 +2913,9 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \FirstProofBox{Unwinding the Definition of $\emptyset\icoprod X$}%
     Firstly, we unwind the expressions for $\emptyset\icoprod X$. We have
     \begin{align*}
-        \emptyset\icoprod X &\defeq        \{(0,z)\in S\ \middle|\ z\in\emptyset\}\cup\{(1,x)\in S\ \middle|\ x\in X\}\\
-                            &=             \emptyset\cup\{(1,x)\in S\ \middle|\ x\in X\}\\%
-                            &=             \{(1,x)\in S\ \middle|\ x\in X\},%
+        \emptyset\icoprod X &\eqdef \{(0,z)\in S\ \middle|\ z\in\emptyset\}\cup\{(1,x)\in S\ \middle|\ x\in X\}\\
+                            &=      \emptyset\cup\{(1,x)\in S\ \middle|\ x\in X\}\\%
+                            &=      \{(1,x)\in S\ \middle|\ x\in X\},%
     \end{align*}
     where $S=\{0,1\}\times(\emptyset\cup X)$.
 
@@ -2931,17 +2931,17 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \[
         \LUnitor^{\Sets,\icoprod,-1}_{X}(x)%
-        \defeq%
+        =%
         (1,x)%
     \]%
     for each $x\in X$. Indeed:
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\LUnitor^{\Sets,\icoprod,-1}_{X}\circ\LUnitor^{\Sets,\icoprod}_{X}](1,x) &= \LUnitor^{\Sets,\icoprod,-1}_{X}(\LUnitor^{\Sets,\icoprod}_{X}(1,x))\\
-                                                                                          &= \LUnitor^{\Sets,\icoprod,-1}_{X}(x)\\
-                                                                                          &= (1,x)\\
-                                                                                          &= [\id_{\emptyset\icoprod X}](1,x)
+                [\LUnitor^{\Sets,\icoprod,-1}_{X}\circ\LUnitor^{\Sets,\icoprod}_{X}](1,x) &\eqdef \LUnitor^{\Sets,\icoprod,-1}_{X}(\LUnitor^{\Sets,\icoprod}_{X}(1,x))\\
+                                                                                          &\eqdef \LUnitor^{\Sets,\icoprod,-1}_{X}(x)\\
+                                                                                          &\eqdef (1,x)\\
+                                                                                          &\eqdef [\id_{\emptyset\icoprod X}](1,x)
             \end{align*}
             for each $(1,x)\in\emptyset\icoprod X$, and therefore we have
             \[
@@ -2953,10 +2953,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\LUnitor^{\Sets,\icoprod}_{X}\circ\LUnitor^{\Sets,\icoprod,-1}_{X}](x) &= \LUnitor^{\Sets,\icoprod}_{X}(\LUnitor^{\Sets,\icoprod,-1}_{X}(x))\\
-                                                                                        &= \LUnitor^{\Sets,\icoprod,-1}_{X}(1,x)\\
-                                                                                        &= x\\
-                                                                                        &= [\id_{X}](x)
+                [\LUnitor^{\Sets,\icoprod}_{X}\circ\LUnitor^{\Sets,\icoprod,-1}_{X}](x) &\eqdef \LUnitor^{\Sets,\icoprod}_{X}(\LUnitor^{\Sets,\icoprod,-1}_{X}(x))\\
+                                                                                        &\eqdef \LUnitor^{\Sets,\icoprod,-1}_{X}(1,x)\\
+                                                                                        &\eqdef x\\
+                                                                                        &\eqdef [\id_{X}](x)
             \end{align*}
             for each $x\in X$, and therefore we have
             \[
@@ -3047,7 +3047,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow
         X
     \]%
-    at $X$ is given by
+    at $X$ is defined by
     \[
         \RUnitor^{\Sets,\icoprod}_{X}((0,x))%
         \defeq%
@@ -3059,9 +3059,9 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \FirstProofBox{Unwinding the Definition of $X\icoprod\emptyset$}%
     Firstly, we unwind the expression for $X\icoprod\emptyset$. We have
     \begin{align*}
-        X\icoprod\emptyset  &\defeq        \{(0,x)\in S\ \middle|\ x\in X\}\cup\{(1,z)\in S\ \middle|\ z\in\emptyset\}\\
-                            &=             \{(0,x)\in S\ \middle|\ x\in X\}\cup\emptyset\\%
-                            &=             \{(0,x)\in S\ \middle|\ x\in X\},%
+        X\icoprod\emptyset  &\eqdef \{(0,x)\in S\ \middle|\ x\in X\}\cup\{(1,z)\in S\ \middle|\ z\in\emptyset\}\\
+                            &=      \{(0,x)\in S\ \middle|\ x\in X\}\cup\emptyset\\%
+                            &=      \{(0,x)\in S\ \middle|\ x\in X\},%
     \end{align*}
     where $S=\{0,1\}\times(X\cup\emptyset)=\{0,1\}\times(\emptyset\cup X)=S$.
 
@@ -3077,17 +3077,17 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \[
         \RUnitor^{\Sets,\icoprod,-1}_{X}(x)%
-        \defeq%
+        =%
         (0,x)%
     \]%
     for each $x\in X$. Indeed:
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\RUnitor^{\Sets,\icoprod,-1}_{X}\circ\RUnitor^{\Sets,\icoprod}_{X}](0,x) &= \RUnitor^{\Sets,\icoprod,-1}_{X}(\RUnitor^{\Sets,\icoprod}_{X}(0,x))\\
-                                                                                          &= \RUnitor^{\Sets,\icoprod,-1}_{X}(x)\\
-                                                                                          &= (0,x)\\
-                                                                                          &= [\id_{ X\icoprod\emptyset}](0,x)
+                [\RUnitor^{\Sets,\icoprod,-1}_{X}\circ\RUnitor^{\Sets,\icoprod}_{X}](0,x) &\eqdef \RUnitor^{\Sets,\icoprod,-1}_{X}(\RUnitor^{\Sets,\icoprod}_{X}(0,x))\\
+                                                                                          &\eqdef \RUnitor^{\Sets,\icoprod,-1}_{X}(x)\\
+                                                                                          &\eqdef (0,x)\\
+                                                                                          &\eqdef [\id_{ X\icoprod\emptyset}](0,x)
             \end{align*}
             for each $(0,x)\in\emptyset\icoprod X$, and therefore we have
             \[
@@ -3099,10 +3099,10 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\RUnitor^{\Sets,\icoprod}_{X}\circ\RUnitor^{\Sets,\icoprod,-1}_{X}](x) &= \RUnitor^{\Sets,\icoprod}_{X}(\RUnitor^{\Sets,\icoprod,-1}_{X}(x))\\
-                                                                                        &= \RUnitor^{\Sets,\icoprod,-1}_{X}(0,x)\\
-                                                                                        &= x\\
-                                                                                        &= [\id_{X}](x)
+                [\RUnitor^{\Sets,\icoprod}_{X}\circ\RUnitor^{\Sets,\icoprod,-1}_{X}](x) &\eqdef \RUnitor^{\Sets,\icoprod}_{X}(\RUnitor^{\Sets,\icoprod,-1}_{X}(x))\\
+                                                                                        &\eqdef \RUnitor^{\Sets,\icoprod,-1}_{X}(0,x)\\
+                                                                                        &\eqdef x\\
+                                                                                        &\eqdef [\id_{X}](x)
             \end{align*}
             for each $x\in X$, and therefore we have
             \[
@@ -3209,13 +3209,13 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     Firstly, we unwind the expressions for $X\icoprod Y$ and $Y\icoprod X$. We have
     \[
         X\icoprod Y%
-        \defeq%
+        \eqdef%
         \{(0,x)\in S\ \middle|\ x\in X\}\cup\{(1,y)\in S\ \middle|\ y\in Y\},%
     \]%
     where $S=\{0,1\}\times(X\cup Y)$ and
     \[
         Y\icoprod X%
-        \defeq%
+        \eqdef%
         \{(0,y)\in S'\ \middle|\ y\in Y\}\cup\{(1,x)\in S'\ \middle|\ x\in X\},%
     \]%
     where $S'=\{0,1\}\times(Y\cup X)=\{0,1\}\times(X\cup Y)=S$.
@@ -3238,7 +3238,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     and hence given by
     \begin{align*}
         \sigma^{\Sets,\icoprod,-1}_{X,Y}(z)%
-        \defeq%
+        \eqdef%
         \begin{cases}
             (0,x) &\text{if $z=(1,x)$,}\\
             (1,y) &\text{if $z=(0,y)$}
@@ -3248,17 +3248,17 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     \begin{itemize}
         \item\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\sigma^{\Sets,\icoprod,-1}_{X,Y}\circ\sigma^{\Sets,\icoprod}_{X,Y}](0,x) &= \sigma^{\Sets,\icoprod,-1}_{X}(\sigma^{\Sets,\icoprod}_{X}(0,x))\\
-                                                                                          &= \sigma^{\Sets,\icoprod,-1}_{X}(1,x)\\
-                                                                                          &= (0,x)\\
-                                                                                          &= [\id_{X\icoprod Y}](0,x)
+                [\sigma^{\Sets,\icoprod,-1}_{X,Y}\circ\sigma^{\Sets,\icoprod}_{X,Y}](0,x) &\eqdef \sigma^{\Sets,\icoprod,-1}_{X}(\sigma^{\Sets,\icoprod}_{X}(0,x))\\
+                                                                                          &\eqdef \sigma^{\Sets,\icoprod,-1}_{X}(1,x)\\
+                                                                                          &\eqdef (0,x)\\
+                                                                                          &\eqdef [\id_{X\icoprod Y}](0,x)
             \end{align*}
             for each $(0,x)\in X\icoprod Y$ and
             \begin{align*}
-                [\sigma^{\Sets,\icoprod,-1}_{X,Y}\circ\sigma^{\Sets,\icoprod}_{X,Y}](1,y) &= \sigma^{\Sets,\icoprod,-1}_{X}(\sigma^{\Sets,\icoprod}_{X}(1,y))\\
-                                                                                          &= \sigma^{\Sets,\icoprod,-1}_{X}(0,y)\\
-                                                                                          &= (1,y)\\
-                                                                                          &= [\id_{X\icoprod Y}](1,y)
+                [\sigma^{\Sets,\icoprod,-1}_{X,Y}\circ\sigma^{\Sets,\icoprod}_{X,Y}](1,y) &\eqdef \sigma^{\Sets,\icoprod,-1}_{X}(\sigma^{\Sets,\icoprod}_{X}(1,y))\\
+                                                                                          &\eqdef \sigma^{\Sets,\icoprod,-1}_{X}(0,y)\\
+                                                                                          &\eqdef (1,y)\\
+                                                                                          &\eqdef [\id_{X\icoprod Y}](1,y)
             \end{align*}
             for each $(1,y)\in X\icoprod Y$, and therefore we have
             \[
@@ -3270,17 +3270,17 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
             \]%
         \item\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\sigma^{\Sets,\icoprod}_{X,Y}\circ\sigma^{\Sets,\icoprod,-1}_{X,Y}](0,y) &= \sigma^{\Sets,\icoprod}_{X}(\sigma^{\Sets,\icoprod,-1}_{X}(0,y))\\
-                                                                                          &= \sigma^{\Sets,\icoprod,-1}_{X}(1,y)\\
-                                                                                          &= (0,y)\\
-                                                                                          &= [\id_{Y\icoprod X}](0,y)
+                [\sigma^{\Sets,\icoprod}_{X,Y}\circ\sigma^{\Sets,\icoprod,-1}_{X,Y}](0,y) &\eqdef \sigma^{\Sets,\icoprod}_{X}(\sigma^{\Sets,\icoprod,-1}_{X}(0,y))\\
+                                                                                          &\eqdef \sigma^{\Sets,\icoprod,-1}_{X}(1,y)\\
+                                                                                          &\eqdef (0,y)\\
+                                                                                          &\eqdef \left[\id_{Y\icoprod X}\right](0,y)
             \end{align*}
             for each $(0,y)\in Y\icoprod X$ and
             \begin{align*}
-                [\sigma^{\Sets,\icoprod}_{X,Y}\circ\sigma^{\Sets,\icoprod,-1}_{X,Y}](1,x) &= \sigma^{\Sets,\icoprod}_{X}(\sigma^{\Sets,\icoprod,-1}_{X}(1,x))\\
-                                                                                          &= \sigma^{\Sets,\icoprod,-1}_{X}(0,x)\\
-                                                                                          &= (1,x)\\
-                                                                                          &= [\id_{Y\icoprod X}](1,x)
+                [\sigma^{\Sets,\icoprod}_{X,Y}\circ\sigma^{\Sets,\icoprod,-1}_{X,Y}](1,x) &\eqdef \sigma^{\Sets,\icoprod}_{X}(\sigma^{\Sets,\icoprod,-1}_{X}(1,x))\\
+                                                                                          &\eqdef \sigma^{\Sets,\icoprod,-1}_{X}(0,x)\\
+                                                                                          &\eqdef (1,x)\\
+                                                                                          &\eqdef \left[\id_{Y\icoprod X}\right](1,x)
             \end{align*}
             for each $(1,x)\in Y\icoprod X$, and therefore we have
             \[
@@ -4086,7 +4086,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \[%
         \delta^{\Sets,-1}_{\ell|X,Y,Z}(a)%
-        \defeq%
+        =%
         \begin{cases}
             (x,(0,y)) &\text{if $a=(0,(x,y))$,}\\
             (x,(1,z)) &\text{if $a=(1,(x,z))$}\
@@ -4261,7 +4261,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \[%
         \delta^{\Sets,-1}_{r|X,Y,Z}(a)%
-        \defeq%
+        =%
         \begin{cases}
             ((0,x),z) &\text{if $a=(0,(x,z))$,}\\
             ((1,y),z) &\text{if $a=(1,(y,z))$}\
@@ -4412,7 +4412,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow%
         \emptyset%
     \]%
-    given by $\zeta^{\Sets}_{\ell|A}\defeq\pr_{1}$.
+    defined by $\zeta^{\Sets}_{\ell|A}\defeq\pr_{1}$.
 \end{definition}
 \begin{Proof}{Proof of the Claims Made in \cref{the-left-annihilator-of-the-product-of-sets}}%
     \FirstProofBox{Invertibility}%
@@ -4427,7 +4427,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \[%
         \zeta^{\Sets,-1}_{\ell|A}%
-        \defeq%
+        =%
         \iota_{A},%
     \]%
     where $\iota_{A}$ is as defined in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:construction-of-the-initial-set}}{\cref{construction-of-the-initial-set}}:
@@ -4512,7 +4512,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
         \isorightarrow%
         \emptyset%
     \]%
-    given by $\zeta^{\Sets}_{r|A}\defeq\pr_{2}$.%
+    defined by $\zeta^{\Sets}_{r|A}\defeq\pr_{2}$.%
 \end{definition}
 \begin{Proof}{Proof of the Claims Made in \cref{the-right-annihilator-of-the-product-of-sets}}%
     \FirstProofBox{Invertibility}%
@@ -4527,7 +4527,7 @@ See \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:sub
     given by
     \[%
         \zeta^{\Sets,-1}_{r|A}%
-        \defeq%
+        =%
         \iota_{A},%
     \]%
     where $\iota_{A}$ is as defined in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:construction-of-the-initial-set}}{\cref{construction-of-the-initial-set}}:

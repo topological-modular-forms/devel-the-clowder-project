@@ -782,11 +782,37 @@ TODO:
                         \begin{prooftree}%
                             \hypo{\context{\Gamma}{A\type}}%
                             \hypo{\context{\Gamma}{B\type}}%
-                            \hypo{\context{\Gamma,\,x\oftype A,\,y\oftype B}{C(x,y)\type}}%
-                            \infer3{\context{\Gamma}{\displaystyle\sigma\circ\sigma\doteq\sfid_{\scalebox{0.7}{$\displaystyle\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)$}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)\to\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)}}%
+                            \hypo{%
+                                \context{%
+                                    \Gamma,\,%
+                                    x\oftype A,\,%
+                                    y\oftype A%
+                                }{%
+                                    C(x,y)\type%
+                            }}%
+                            \infer3{%
+                                \context{%
+                                    \Gamma%
+                                }{%
+                                    \displaystyle%
+                                    \sigma\circ\sigma%
+                                    \doteq%
+                                    \sfid_{\scriptdisplaystyle{\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)}}%
+                                    \oftype%
+                                    \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)%
+                                    \to%
+                                    \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)%
+                            }}%
                         \end{prooftree}%
                         .%
                     \end{webprooftree}%
+                    \[
+                        \sfid_{\scriptdisplaystyle{\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)}}%
+                        \oftype%
+                        \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)%
+                        \to%
+                        \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right).%
+                    \]%
             \end{enumerate}
         %\item\label{properties-of-function-types-}\SloganFont{. }
     \end{enumerate}
@@ -2049,7 +2075,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
                 \oftype%
                 \left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)%
                 \to%
-                \left(\prod_{\displaystyle{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)\right)%
+                \left(\prod_{\scriptdisplaystyle{\displaystyle z\oftype\sum_{x\oftype A}B(x)}}P(z)\right)%
             \end{webcompile}
             satisfying the computation rule
             \[
@@ -2086,7 +2112,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
                     \hypo{\context{\Gamma}{A\type}}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
                     \hypo{\context{\displaystyle\Gamma,\,z\oftype\sum_{x\oftype A}B(x)}{P(z)\type}}%
-                    \infer3[(Σ-ind)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)\to\left(\prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)\right)}}%
+                    \infer3[(Σ-ind)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)\to\left(\prod_{\scriptdisplaystyle{\displaystyle z\oftype\sum_{x\oftype A}B(x)}}P(z)\right)}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -2096,8 +2122,8 @@ Let $A$ be a type and let $B$ be a type family over $A$.
                     \hypo{\context{\Gamma}{A\type}}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
                     \hypo{\context{\displaystyle\Gamma,\,z\oftype\sum_{x\oftype A}B(x)}{P(z)\type}}%
-                    \hypo{\context{\Gamma}{\displaystyle f\oftype\prod_{\scalebox{0.7}{$z\oftype\sum_{x\oftype A}B(x)$}}P(z)}}%
-                    \infer4[(Σ-comp)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}(f,\pair(x,y))\doteq f(x,y)\oftype\prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)}}%
+                    \hypo{\context{\Gamma}{\displaystyle f\oftype\prod_{\scriptdisplaystyle{z\oftype\sum_{x\oftype A}B(x)}}P(z)}}%
+                    \infer4[(Σ-comp)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}(f,\pair(x,y))\doteq f(x,y)\oftype\prod_{\scriptdisplaystyle{\displaystyle z\oftype\sum_{x\oftype A}B(x)}}P(z)}}%
                 \end{prooftree}%
                 .%
             \end{scalewebprooftree}%
@@ -2124,7 +2150,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
             \begin{webcompile}
                 \pr_{2}%
                 \oftype%
-                \prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}B(\pr_{1}(z))%
+                \prod_{\scriptdisplaystyle{\displaystyle z\oftype\sum_{x\oftype A}B(x)}}B(\pr_{1}(z))%
             \end{webcompile}
             defined via induction by
             \[
@@ -2147,7 +2173,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
             \begin{webcompile}
                 \evpair%
                 \oftype%
-                \left(\prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)\right)
+                \left(\prod_{\scriptdisplaystyle{\displaystyle z\oftype\sum_{x\oftype A}B(x)}}P(z)\right)
                 \to
                 \left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(x,y)\right).%
             \end{webcompile}
@@ -2802,9 +2828,9 @@ Let $A$ be a type and let $a\oftype A$.
             \hypo{\context{\Gamma,\,x\oftype A,\,p\oftype x\equals_{A}y}{p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}\type}}%
             \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{y}\oftype\refl^{-1}_{y}\ccirc\refl_{y}\equals_{y\equals_{A}y}\refl_{y}\to\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
             \infer2[(ev2)]{\context{\Gamma,\,y\oftype A}{\displaystyle\indeq{y}\left(\leftinv_{y,y}\left(\refl_{y}\right)\right)\oftype\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
-            \infer1[(λ)]{\context{\Gamma}{\displaystyle\left\llbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\right\rrbracket\oftype\prod_{y\oftype A}\oftype\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
-            \infer1[(swap)]{\context{\Gamma}{\displaystyle\left\llbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\right\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
-            \infer1{\context{\Gamma}{\displaystyle\leftinv\doteq\left\llbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\right\rrbracket\oftype\prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\leftllbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\rightrrbracket\oftype\prod_{y\oftype A}\oftype\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer1[(swap)]{\context{\Gamma}{\displaystyle\leftllbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\rightrrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
+            \infer1{\context{\Gamma}{\displaystyle\leftinv\doteq\leftllbracket y\mapsto\indeq{y}(\leftinv_{y,y}(\refl_{y}))\rightrrbracket\oftype\prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}}}%
         \end{prooftree}%
         .%
     \end{scalewebprooftree}%
@@ -2831,8 +2857,8 @@ Let $A$ be a type and let $a\oftype A$.
             \hypo{\context{\Gamma,\,y\oftype A,\,p\oftype x\equals_{A}y}{p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}\type}}%
             \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{x}\oftype\refl^{-1}_{x}\ccirc\refl_{x}\equals_{x\equals_{A}x}\refl_{x}\to\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
             \infer2[(ev2)]{\context{\Gamma,\,x\oftype A}{\displaystyle\indeq{x}(\rightinv_{x,x}\left(\refl_{x}\right))\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
-            \infer1[(λ)]{\context{\Gamma}{\displaystyle\left\llbracket x\mapsto\indeq{x}(\rightinv_{x,x}\left(\refl_{x}\right))\right\rrbracket\oftype\prod_{x\oftype A}\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
-            \infer1{\context{\Gamma}{\displaystyle\rightinv\doteq\left\llbracket x\mapsto\indeq{x}(\rightinv_{x,x}\left(\refl_{x})\right)\right\rrbracket\oftype\prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\leftllbracket x\mapsto\indeq{x}(\rightinv_{x,x}\left(\refl_{x}\right))\rightrrbracket\oftype\prod_{x\oftype A}\oftype\prod_{y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
+            \infer1{\context{\Gamma}{\displaystyle\rightinv\doteq\leftllbracket x\mapsto\indeq{x}(\rightinv_{x,x}\left(\refl_{x})\right)\rightrrbracket\oftype\prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}}}%
         \end{prooftree}%
         .%
     \end{scalewebprooftree}%

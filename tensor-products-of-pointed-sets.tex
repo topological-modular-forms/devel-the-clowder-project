@@ -461,8 +461,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             for each $(a,x)\in A\times X$, which indeed lies in $\Sets^{\otimes}_{\E_{0}}(A\times X,K)$, as we have%
             \begin{align*}
-                \xi^{\dagger}(a,x_{0}) &\defeq \xi_{a}(x_{0})\\%
-                                       &\defeq k_{0}%
+                \xi^{\dagger}(a,x_{0}) &\eqdef \xi_{a}(x_{0})\\%
+                                       &\eqdef k_{0}%
             \end{align*}
             for each $a\in A$, where we have used that $\xi_{a}\in\Sets_{*}(X,K)$ is a morphism of pointed sets.
         \item Conversely, a map
@@ -504,8 +504,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             for each $x\in X$, and indeed lies in $\Sets_{*}(X,K)$, as we have%
             \begin{align*}
-                \xi^{\dagger}_{a}(x_{0}) &\defeq \xi(a,x_{0})\\%
-                                         &\defeq k_{0}.%
+                \xi^{\dagger}_{a}(x_{0}) &\eqdef \xi(a,x_{0})\\%
+                                         &\eqdef k_{0}.%
             \end{align*}
     \end{itemize}
     This finishes the proof.
@@ -530,7 +530,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     We write \index[notation]{aodotx@$a\odot x$}$a\odot x$ for the element $[(a,x)]$ of
     \begin{align*}
         A\odot X &\cong  \bigvee_{a\in A}(X,x_{0})\\%
-                 &\defeq (\coprod_{i\in I}X_{i})/\unsim.%
+                 &\eqdef (\coprod_{i\in I}X_{i})/\unsim.%
     \end{align*}
 \end{notation}
 \begin{remark}{Basepoints of Tensors of Pointed Sets by Sets}{basepoints-of-tensors-of-pointed-sets-by-sets}%
@@ -543,7 +543,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
     for each $a,a'\in A$. This is due to the equivalence relation $\unsim$ on
     \[
         \bigvee_{a\in A}(X,x_{0})%
-        \defeq%
+        \eqdef%
         \coprod_{a\in A}X/\unsim%
     \]%
     identifying $(a,x_{0})$ with $(a',x_{0})$, so that the equivalence class $a\odot x_{0}$ is independent from the choice of $a\in A$.
@@ -604,7 +604,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             for each $x\in X$. Note that we have
             \begin{align*}
-                \xi_{a}(x_{0}) &\defeq \xi(a\odot x_{0})\\%
+                \xi_{a}(x_{0}) &\eqdef \xi(a\odot x_{0})\\%
                                &=      k_{0},%
             \end{align*}
             so that $\xi_{a}$ is indeed a morphism of pointed sets, where we have used that $\xi$ is a morphism of pointed sets.
@@ -647,8 +647,8 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             for each $a\odot x\in A\odot X$. Note that $\xi^{\dagger}$ is indeed a morphism of pointed sets, as we have
             \begin{align*}
-                \xi^{\dagger}(a\odot x_{0}) &\defeq \xi_{a}(x_{0})\\%
-                                           &=      k_{0},
+                \xi^{\dagger}(a\odot x_{0}) &\eqdef \xi_{a}(x_{0})\\%
+                                            &=      k_{0},
             \end{align*}
             where we have used that $\xi(a)\in\Sets_{*}(X,K)$ is a morphism of pointed sets.
         \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-3}\SloganFont{Invertibility \rmI. }We claim that
@@ -667,13 +667,13 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             we have
             \begin{align*}
-                [\Psi_{K}\circ\Phi_{K}](\xi) &= \Psi_{K}(\Phi_{K}(\xi))\\%
-                                             &= \Psi_{K}(\llbracket a\mapsto\llbracket x\mapsto\xi(a\odot x)\rrbracket\rrbracket)\\%
-                                             &= \Psi_{K}(\llbracket a'\mapsto\llbracket x'\mapsto\xi(a'\odot x')\rrbracket\rrbracket)\\%
-                                             &= \llbracket a\odot x\mapsto\ev_{x}(\ev_{a}(\llbracket a'\mapsto\llbracket x'\mapsto\xi(a'\odot x')\rrbracket\rrbracket))\rrbracket\\%
-                                             &= \llbracket a\odot x\mapsto\ev_{x}(\llbracket x'\mapsto\xi(a\odot x')\rrbracket)\rrbracket\\%
-                                             &= \llbracket a\odot x\mapsto\xi(a\odot x)\rrbracket\\%
-                                             &= \xi.%
+                [\Psi_{K}\circ\Phi_{K}](\xi) &\eqdef \Psi_{K}(\Phi_{K}(\xi))\\%
+                                             &\eqdef \Psi_{K}(\llbracket a\mapsto\llbracket x\mapsto\xi(a\odot x)\rrbracket\rrbracket)\\%
+                                             &\eqdef \Psi_{K}(\llbracket a'\mapsto\llbracket x'\mapsto\xi(a'\odot x')\rrbracket\rrbracket)\\%
+                                             &\eqdef \llbracket a\odot x\mapsto\ev_{x}(\ev_{a}(\llbracket a'\mapsto\llbracket x'\mapsto\xi(a'\odot x')\rrbracket\rrbracket))\rrbracket\\%
+                                             &\eqdef \llbracket a\odot x\mapsto\ev_{x}(\llbracket x'\mapsto\xi(a\odot x')\rrbracket)\rrbracket\\%
+                                             &\eqdef \llbracket a\odot x\mapsto\xi(a\odot x)\rrbracket\\%
+                                             &\eqdef \xi.%
             \end{align*}
         \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-4}\SloganFont{Invertibility \rmII. }We claim that
             \[
@@ -683,11 +683,11 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             Indeed, given a morphism $\xi\colon A\to\Sets_{*}(X,K)$, we have
             \begin{align*}
-                [\Phi_{K}\circ\Psi_{K}](\xi) &= \Phi_{K}(\Psi_{K}(\xi))\\%
-                                             &= \Phi_{K}(\llbracket a\odot x\mapsto\xi_{a}(x)\rrbracket)\\%
-                                             &= \llbracket a\mapsto\llbracket x\mapsto\xi_{a}(x)\rrbracket\rrbracket\\
-                                             &= \llbracket a\mapsto\xi(a)\rrbracket\\
-                                             &= \xi.%
+                [\Phi_{K}\circ\Psi_{K}](\xi) &\eqdef \Phi_{K}(\Psi_{K}(\xi))\\%
+                                             &\eqdef \Phi_{K}(\llbracket a\odot x\mapsto\xi_{a}(x)\rrbracket)\\%
+                                             &\eqdef \llbracket a\mapsto\llbracket x\mapsto\xi_{a}(x)\rrbracket\rrbracket\\
+                                             &\eqdef \llbracket a\mapsto\xi(a)\rrbracket\\
+                                             &\eqdef \xi.%
             \end{align*}
         \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-5}\SloganFont{Naturality of $\Phi$. }We need to show that, given a morphism of pointed sets
             \[
@@ -723,14 +723,14 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             we have
             \begin{align*}
-                [\Phi_{K'}\circ\phi_{*}](\xi) &= \Phi_{K'}(\phi_{*}(\xi))\\
-                                              &= \Phi_{K'}(\phi\circ\xi)\\
-                                              &= (\phi\circ\xi)^{\dagger}\\
-                                              &= \llbracket a\mapsto\phi\circ\xi(a\odot-)\rrbracket\\
-                                              &= \llbracket a\mapsto\phi_{*}(\xi(a\odot-))\rrbracket\\
-                                              &= (\phi_{*})_{*}(\llbracket a\mapsto\xi(a\odot-\rrbracket))\\
-                                              &= (\phi_{*})_{*}(\Phi_{K}(\xi))\\
-                                              &= [(\phi_{*})_{*}\circ\Phi_{K}](\xi).
+                [\Phi_{K'}\circ\phi_{*}](\xi) &\eqdef \Phi_{K'}(\phi_{*}(\xi))\\
+                                              &\eqdef \Phi_{K'}(\phi\circ\xi)\\
+                                              &\eqdef (\phi\circ\xi)^{\dagger}\\
+                                              &\eqdef \llbracket a\mapsto\phi\circ\xi(a\odot-)\rrbracket\\
+                                              &\eqdef \llbracket a\mapsto\phi_{*}(\xi(a\odot-))\rrbracket\\
+                                              &\eqdef (\phi_{*})_{*}(\llbracket a\mapsto\xi(a\odot-\rrbracket))\\
+                                              &\eqdef (\phi_{*})_{*}(\Phi_{K}(\xi))\\
+                                              &\eqdef [(\phi_{*})_{*}\circ\Phi_{K}](\xi).
             \end{align*}
         \item\label{proof-of-construction-of-tensors-of-pointed-sets-by-sets-6}\SloganFont{Naturality of $\Psi$. }Since $\Phi$ is natural and $\Phi$ is a componentwise inverse to $\Psi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Psi$ is also natural.
     \end{enumerate}
@@ -1058,7 +1058,7 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             for each $k\in K$. Note that $\xi^{\dagger}$ is indeed a morphism of pointed sets, as we have
             \begin{align*}
-                \xi^{\dagger}(k_{0}) &\defeq [(\xi_{a}(k_{0}))_{a\in A}]\\%
+                \xi^{\dagger}(k_{0}) &\eqdef [(\xi_{a}(k_{0}))_{a\in A}]\\%
                                      &=      x_{0},
             \end{align*}
             where we have used that $\xi_{a}\in\Sets_{*}(K,X)$ is a morphism of pointed sets for each $a\in A$.
@@ -1078,27 +1078,27 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             we have
             \begin{align*}
-                [\Psi_{K}\circ\Phi_{K}](\xi) &= \Psi_{K}(\Phi_{K}(\xi))\\%
-                                             &= \Psi_{K}(\llbracket a\mapsto\xi_{a}\rrbracket)\\%
-                                             &= \Psi_{K}(\llbracket a'\mapsto\xi_{a'}\rrbracket)\\%
-                                             &= \llbracket k\mapsto[(\ev_{a}(\llbracket a'\mapsto\xi_{a'}(k)\rrbracket))_{a\in A}]\rrbracket\\%
-                                             &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket.%
+                [\Psi_{K}\circ\Phi_{K}](\xi) &\eqdef \Psi_{K}(\Phi_{K}(\xi))\\%
+                                             &\eqdef \Psi_{K}(\llbracket a\mapsto\xi_{a}\rrbracket)\\%
+                                             &\eqdef \Psi_{K}(\llbracket a'\mapsto\xi_{a'}\rrbracket)\\%
+                                             &\eqdef \llbracket k\mapsto[(\ev_{a}(\llbracket a'\mapsto\xi_{a'}(k)\rrbracket))_{a\in A}]\rrbracket\\%
+                                             &\eqdef \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket.%
             \end{align*}
             Now, we have two cases:
             \begin{enumerate}
                 \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-3a}If $\xi(k)=[(x_{0})_{a\in A}]$, we have
                     \begin{align*}
-                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto[(x_{0})_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto\xi(k)\rrbracket\\%
-                                                     &= \xi.%
+                        [\Psi_{K}\circ\Phi_{K}](\xi) &\eqdef \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
+                                                     &\eqdef \llbracket k\mapsto[(x_{0})_{a\in A}]\rrbracket\\%
+                                                     &\eqdef \llbracket k\mapsto\xi(k)\rrbracket\\%
+                                                     &\eqdef \xi.%
                     \end{align*}
                 \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-3b}If $\xi(k)\neq [(x_{0})_{a\in A}]$ and $\xi(k)=[(x^{k}_{a})_{a\in A}]$ instead, we have
                     \begin{align*}
-                        [\Psi_{K}\circ\Phi_{K}](\xi) &= \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto[(x^{k}_{a})_{a\in A}]\rrbracket\\%
-                                                     &= \llbracket k\mapsto\xi(k)\rrbracket\\%
-                                                     &= \xi.%
+                        [\Psi_{K}\circ\Phi_{K}](\xi) &\eqdef \llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket\\%
+                                                     &\eqdef \llbracket k\mapsto[(x^{k}_{a})_{a\in A}]\rrbracket\\%
+                                                     &\eqdef \llbracket k\mapsto\xi(k)\rrbracket\\%
+                                                     &\eqdef \xi.%
                     \end{align*}
             \end{enumerate}
             In both cases, we have $[\Psi_{K}\circ\Phi_{K}](\xi)=\xi$, and thus we are done.
@@ -1110,10 +1110,10 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \]%
             Indeed, given a morphism $\xi\colon A\to\Sets_{*}(K,X)$, we have
             \begin{align*}
-                [\Phi_{K}\circ\Psi_{K}](\xi) &= \Phi_{K}(\Psi_{K}(\xi))\\%
-                                             &= \Phi_{K}(\llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket)\\%
-                                             &= \llbracket a\mapsto\llbracket k\mapsto\xi_{a}(k)\rrbracket\rrbracket\\%
-                                             &= \xi%
+                [\Phi_{K}\circ\Psi_{K}](\xi) &\eqdef \Phi_{K}(\Psi_{K}(\xi))\\%
+                                             &\eqdef \Phi_{K}(\llbracket k\mapsto[(\xi_{a}(k))_{a\in A}]\rrbracket)\\%
+                                             &\eqdef \llbracket a\mapsto\llbracket k\mapsto\xi_{a}(k)\rrbracket\rrbracket\\%
+                                             &\eqdef \xi%
             \end{align*}
         \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-5}\SloganFont{Naturality of $\Psi$. }We need to show that, given a morphism of pointed sets
             \[
@@ -1156,14 +1156,14 @@ Let $(X,x_{0})$ be a pointed set and let $A$ be a set.%
             \end{webcompile}
             we have
             \begin{align*}
-                [\Psi_{K}\circ(\phi^{*})_{*}](\xi) &= \Psi_{K}((\phi^{*})_{*}(\xi))\\
-                                                   &= \Psi_{K}((\phi^{*})_{*}(\llbracket a\mapsto\xi_{a}\rrbracket))\\
-                                                   &= \Psi_{K}((\llbracket a\mapsto\phi^{*}(\xi_{a})\rrbracket))\\
-                                                   &= \Psi_{K}((\llbracket a\mapsto\llbracket k\mapsto\xi_{a}(\phi(k))\rrbracket\rrbracket))\\
-                                                   &= \llbracket k\mapsto[(\xi_{a}(\phi(k)))_{a\in A}]\rrbracket\\
-                                                   &= \phi^{*}(\llbracket k'\mapsto[(\xi_{a}(k'))_{a\in A}]\rrbracket)\\
-                                                   &= \phi^{*}(\Psi_{K'}(\xi))\\
-                                                   &= [\phi^{*}\circ\Psi_{K'}](\xi).
+                [\Psi_{K}\circ(\phi^{*})_{*}](\xi) &\eqdef \Psi_{K}((\phi^{*})_{*}(\xi))\\
+                                                   &\eqdef \Psi_{K}((\phi^{*})_{*}(\llbracket a\mapsto\xi_{a}\rrbracket))\\
+                                                   &\eqdef \Psi_{K}((\llbracket a\mapsto\phi^{*}(\xi_{a})\rrbracket))\\
+                                                   &\eqdef \Psi_{K}((\llbracket a\mapsto\llbracket k\mapsto\xi_{a}(\phi(k))\rrbracket\rrbracket))\\
+                                                   &\eqdef \llbracket k\mapsto[(\xi_{a}(\phi(k)))_{a\in A}]\rrbracket\\
+                                                   &\eqdef \phi^{*}(\llbracket k'\mapsto[(\xi_{a}(k'))_{a\in A}]\rrbracket)\\
+                                                   &\eqdef \phi^{*}(\Psi_{K'}(\xi))\\
+                                                   &\eqdef [\phi^{*}\circ\Psi_{K'}](\xi).
             \end{align*}
         \item\label{proof-of-construction-of-cotensors-of-pointed-sets-by-sets-6}\SloganFont{Naturality of $\Phi$. }Since $\Psi$ is natural and $\Psi$ is a componentwise inverse to $\Phi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Phi$ is also natural.
     \end{enumerate}
@@ -1560,9 +1560,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     This follows from \cref{properties-of-tensors-of-pointed-sets-by-sets-adjointness-2} of \cref{properties-of-tensors-of-pointed-sets-by-sets}.
 
     \ProofBox{\cref{properties-of-left-tensor-products-of-pointed-sets-adjointness-2}: Adjointness \rmII}%
-    For $X\lhd -$ to admit a right adjoint would require it to preserve colimits by \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-with-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-with-co-limits} of \cref{properties-of-adjunctions}}. However, we have
+    For $X\lhd-$ to admit a right adjoint would require it to preserve colimits by \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-with-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-with-co-limits} of \cref{properties-of-adjunctions}}. However, we have
     \begin{align*}
-        X\lhd\pt &\defeq |\pt|\odot X\\
+        X\lhd\pt &\eqdef \abs{\pt}\odot X\\
                  &\cong  X\\
                  &\ncong \pt,
     \end{align*}
@@ -1794,15 +1794,15 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     at $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$ is given by
     \begin{align*}
-        (X\lhd Y)\lhd Z &\defeq |Z|\odot(X\lhd Y)\\
-                        &\defeq |Z|\odot(|Y|\odot X)\\
+        (X\lhd Y)\lhd Z &\eqdef |Z|\odot(X\lhd Y)\\
+                        &\eqdef |Z|\odot(|Y|\odot X)\\
                         &\cong  \bigvee_{z\in Z}|Y|\odot X\\
                         &\cong  \bigvee_{z\in Z}(\bigvee_{y\in Y}X)\\
                         &\to    \bigvee_{[(z,y)]\in\bigvee_{z\in Z}Y}X\\
                         &\cong  \bigvee_{[(z,y)]\in|Z|\odot Y}X\\
                         &\cong  ||Z|\odot Y|\odot X\\
-                        &\defeq |Y\lhd Z|\odot X\\
-                        &\defeq X\lhd(Y\lhd Z),%
+                        &\eqdef |Y\lhd Z|\odot X\\
+                        &\eqdef X\lhd(Y\lhd Z),%
     \end{align*}
     where the map%
     \[
@@ -1818,18 +1818,18 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{remark}{Unwinding \cref{the-left-skew-associator-of-the-left-tensor-product-of-pointed-sets}}{unwinding-the-left-skew-associator-of-the-left-tensor-product-of-pointed-sets}%
     Unwinding the notation for elements, we have
     \begin{align*}
-        [(z,[(y,x)])] &\defeq [(z,x\lhd y)]\\
-                      &\defeq (x\lhd y)\lhd z
+        [(z,[(y,x)])] &\eqdef [(z,x\lhd y)]\\
+                      &\eqdef (x\lhd y)\lhd z
     \end{align*}
     and
     \begin{align*}
-        [([(z,y)],x)] &\defeq [(y\lhd z,x)]\\
-                      &\defeq x\lhd(y\lhd z).
+        [([(z,y)],x)] &\eqdef [(y\lhd z,x)]\\
+                      &\eqdef x\lhd(y\lhd z).
     \end{align*}
     So, in other words, $\alpha^{\Sets_{*},\lhd}_{X,Y,Z}$ acts on elements via
     \[
         \alpha^{\Sets_{*},\lhd}_{X,Y,Z}((x\lhd y)\lhd z)
-        \defeq
+        \eqdef
         x\lhd(y\lhd z)
     \]%
     for each $(x\lhd y)\lhd z\in(X\lhd Y)\lhd Z$.
@@ -1838,7 +1838,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Taking $y=y_{0}$, we see that the morphism $\smash{\alpha^{\Sets_{*},\lhd}_{X,Y,Z}}$ acts on elements as
     \[
         \alpha^{\Sets_{*},\lhd}_{X,Y,Z}((x\lhd y_{0})\lhd z)%
-        \defeq%
+        \eqdef%
         x\lhd(y_{0}\lhd z).%
     \]%
     However, by the definition of $\lhd$, we have $y_{0}\lhd z=y_{0}\lhd z'$ for all $z,z'\in Z$, preventing $\alpha^{\Sets_{*},\lhd}_{X,Y,Z}$ from being non-invertible.
@@ -1932,7 +1932,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     at $(X,x_{0})\in\Obj(\Sets_{*})$ is given by the composition%
     \begin{align*}
-        S^{0}\lhd X &\cong            |X|\odot S^{0}\\
+        S^{0}\lhd X &\cong            \abs{X}\odot S^{0}\\
                     &\cong            \bigvee_{x\in X}S^{0}\\
                     &\shortrightarrow X,
     \end{align*}
@@ -1949,8 +1949,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{remark}{Unwinding \cref{the-left-skew-left-unitor-of-the-left-tensor-product-of-pointed-sets}}{unwinding-the-left-skew-left-unitor-of-the-left-tensor-product-of-pointed-sets}%
     In other words, $\smash{\LUnitor^{\Sets_{*},\lhd}_{X}}$ acts on elements as
     \begin{align*}
-        \LUnitor^{\Sets_{*},\lhd}_{X}(0\lhd x) &\defeq x_{0},\\%
-        \LUnitor^{\Sets_{*},\lhd}_{X}(1\lhd x) &\defeq x%
+        \LUnitor^{\Sets_{*},\lhd}_{X}(0\lhd x) &\eqdef x_{0},\\%
+        \LUnitor^{\Sets_{*},\lhd}_{X}(1\lhd x) &\eqdef x%
     \end{align*}
     for each $1\lhd x\in S^{0}\lhd X$.
 \end{remark}
@@ -1971,10 +1971,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     for each $x\in X$. Indeed, we have
     \begin{align*}
-        [\LUnitor^{\Sets_{*},\lhd}_{X}\circ\phi](x) &= \LUnitor^{\Sets_{*},\lhd}_{X}(\phi(x))\\
-                                                    &= \LUnitor^{\Sets_{*},\lhd}_{X}(1\lhd x)\\
-                                                    &= x\\
-                                                    &= [\id_{X}](x)
+        [\LUnitor^{\Sets_{*},\lhd}_{X}\circ\phi](x) &\eqdef \LUnitor^{\Sets_{*},\lhd}_{X}(\phi(x))\\
+                                                    &\eqdef \LUnitor^{\Sets_{*},\lhd}_{X}(1\lhd x)\\
+                                                    &\eqdef x\\
+                                                    &\eqdef [\id_{X}](x)
     \end{align*}
     so that
     \[
@@ -1984,16 +1984,16 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     and
     \begin{align*}
-        [\phi\circ\LUnitor^{\Sets_{*},\lhd}_{X}](1\lhd x) &= \phi(\LUnitor^{\Sets_{*},\lhd}_{X}(1\lhd x))\\
-                                                          &= \phi(x)\\
-                                                          &= 1\lhd x\\
-                                                          &= [\id_{S^{0}\lhd X}](1\lhd x),
+        [\phi\circ\LUnitor^{\Sets_{*},\lhd}_{X}](1\lhd x) &\eqdef \phi(\LUnitor^{\Sets_{*},\lhd}_{X}(1\lhd x))\\
+                                                          &\eqdef \phi(x)\\
+                                                          &\eqdef 1\lhd x\\
+                                                          &\eqdef [\id_{S^{0}\lhd X}](1\lhd x),
     \end{align*}
     but
     \begin{align*}
-        [\phi\circ\LUnitor^{\Sets_{*},\lhd}_{X}](0\lhd x) &= \phi(\LUnitor^{\Sets_{*},\lhd}_{X}(0\lhd x))\\
-                                                          &= \phi(x_{0})\\
-                                                          &= 1\lhd x_{0},
+        [\phi\circ\LUnitor^{\Sets_{*},\lhd}_{X}](0\lhd x) &\eqdef \phi(\LUnitor^{\Sets_{*},\lhd}_{X}(0\lhd x))\\
+                                                          &\eqdef \phi(x_{0})\\
+                                                          &\eqdef 1\lhd x_{0},
     \end{align*}
     where $0\lhd x\neq1\lhd x_{0}$. Thus
     \[
@@ -2156,8 +2156,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     is indeed a morphism of pointed sets as we have
     \begin{align*}
-        \RUnitor^{\Sets_{*},\lhd}_{X}(x_{0}) &= x_{0}\lhd1\\%
-                                             &= x_{0}\lhd0.%
+        \RUnitor^{\Sets_{*},\lhd}_{X}(x_{0}) &\eqdef x_{0}\lhd1\\%
+                                             &=      x_{0}\lhd0.%
     \end{align*}
     Next, we claim that $\RUnitor^{\Sets_{*},\lhd}$ is a natural transformation. We need to show that, given a morphism of pointed sets
     \[
@@ -2248,7 +2248,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     We have
     \[
         \Delta^{\lhd}_{X}(x_{0})%
-        \defeq%
+        \eqdef%
         x_{0}\lhd x_{0},%
     \]%
     and thus $\Delta^{\lhd}_{X}$ is a morphism of pointed sets.
@@ -3088,7 +3088,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \Hom^{R}_{\Sets}(\coprod_{x\in X}Y,Z)%
             \defeq%
             \{%
-                f\in\Hom_{\Sets}(\coprod_{x\in X}Y,Z)%
+                f\in\Hom_{\Sets}\left(\coprod_{x\in X}Y,Z\right)%
                 \ \middle|\ %
                 \begin{aligned}
                     &\text{for each $x,y\in X$, if}\\
@@ -3183,7 +3183,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \to%
                 A\rhd B%
             \]%
-            is given by
+            is defined by
             \[
                 [f\rhd g](x\rhd y)%
                 \defeq%
@@ -3218,7 +3218,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \[
                 \Hom_{\Sets_{*}}(X\rhd Y,Z)%
                 \cong
-                \Hom_{\Sets}(|X|,\Sets_{*}(Y,Z))%
+                \Hom_{\Sets}(\abs{X},\Sets_{*}(Y,Z))%
             \]%
             natural in $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$.
         %\item\label{properties-of-right-tensor-products-of-pointed-sets-}\SloganFont{. }%
@@ -3234,7 +3234,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{\cref{properties-of-right-tensor-products-of-pointed-sets-adjointness-2}: Adjointness \rmII}%
     For $-\rhd Y$ to admit a right adjoint would require it to preserve colimits by \ChapterRef{\ChapterAdjunctionsAndTheYonedaLemma, \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions-interaction-with-co-limits} of \cref{adjunctions-and-the-yoneda-lemma:properties-of-adjunctions}}{\cref{properties-of-adjunctions-interaction-with-co-limits} of \cref{properties-of-adjunctions}}. However, we have
     \begin{align*}
-        \pt\rhd X &\defeq |\pt|\odot X\\
+        \pt\rhd X &\eqdef \abs{\pt}\odot X\\
                   &\cong  X\\
                   &\ncong \pt,
     \end{align*}
@@ -3248,7 +3248,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \[
         \Hom_{\Sets_{*}}(X\rhd Y,Z)%
         \cong
-        \Hom_{\Sets}(|X|,\Sets_{*}(Y,Z)),%
+        \Hom_{\Sets}(\abs{X},\Sets_{*}(Y,Z)),%
     \]%
     so it would be reasonable to wonder whether a natural bijection of the form
    \[
@@ -3363,7 +3363,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \to%
                 [X,B]^{\rhd}_{\Sets_{*}}%
             \]%
-            is given by
+            is defined by
             \[
                 [f,g]^{\rhd}_{\Sets_{*}}([(y_{a})_{a\in A}])%
                 \defeq%
@@ -3474,15 +3474,15 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     at $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$ is given by
     \begin{align*}
-        X\rhd(Y\rhd Z) &\defeq |X|\odot(Y\rhd Z)\\
-                       &\defeq |X|\odot(|Y|\odot Z)\\
+        X\rhd(Y\rhd Z) &\eqdef \abs{X}\odot(Y\rhd Z)\\
+                       &\eqdef \abs{X}\odot(|Y|\odot Z)\\
                        &\cong  \bigvee_{x\in X}(|Y|\odot Z)\\
                        &\cong  \bigvee_{x\in X}(\bigvee_{y\in Y}Z)\\
                        &\to    \bigvee_{[(x,y)]\in\bigvee_{x\in X}Y}Z\\
-                       &\cong  \bigvee_{[(x,y)]\in|X|\odot Y}Z\\%
-                       &\cong  ||X|\odot Y|\odot Z\\%
-                       &\defeq |X\rhd Y|\odot Z\\%
-                       &\defeq (X\rhd Y)\rhd Z,%
+                       &\cong  \bigvee_{[(x,y)]\in\abs{X}\odot Y}Z\\%
+                       &\cong  |\abs{X}\odot Y|\odot Z\\%
+                       &\eqdef |X\rhd Y|\odot Z\\%
+                       &\eqdef (X\rhd Y)\rhd Z,%
     \end{align*}
     where the map%
     \[
@@ -3498,18 +3498,18 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{remark}{Unwinding \cref{the-right-skew-associator-of-the-right-tensor-product-of-pointed-sets}}{unwinding-the-right-skew-associator-of-the-right-tensor-product-of-pointed-sets}%
     Unwinding the notation for elements, we have
     \begin{align*}
-        [(x,[(y,z)])] &\defeq [(x,y\rhd z)]\\
-                      &\defeq x\rhd(y\rhd z)
+        [(x,[(y,z)])] &\eqdef [(x,y\rhd z)]\\
+                      &\eqdef x\rhd(y\rhd z)
     \end{align*}
     and
     \begin{align*}
-        [([(x,y)],z)] &\defeq [(x\rhd y,z)]\\
-                      &\defeq (x\rhd y)\rhd z.
+        [([(x,y)],z)] &\eqdef [(x\rhd y,z)]\\
+                      &\eqdef (x\rhd y)\rhd z.
     \end{align*}
     So, in other words, $\alpha^{\Sets_{*},\rhd}_{X,Y,Z}$ acts on elements via
     \[
         \alpha^{\Sets_{*},\rhd}_{X,Y,Z}(x\rhd(y\rhd z))
-        \defeq
+        \eqdef
         (x\rhd y)\rhd z
     \]%
     for each $x\rhd(y\rhd z)\in X\rhd(Y\rhd Z)$.
@@ -3518,7 +3518,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     Taking $y=y_{0}$, we see that the morphism $\smash{\alpha^{\Sets_{*},\rhd}_{X,Y,Z}}$ acts on elements as
     \[
         \alpha^{\Sets_{*},\rhd}_{X,Y,Z}(x\rhd(y_{0}\rhd z))%
-        \defeq%
+        \eqdef%
         (x\rhd y_{0})\rhd z.%
     \]%
     However, by the definition of $\rhd$, we have $x\rhd y_{0}=x'\rhd y_{0}$ for all $x,x'\in X$, preventing $\alpha^{\Sets_{*},\rhd}_{X,Y,Z}$ from being non-invertible.
@@ -3625,13 +3625,13 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     In other words, $\smash{\LUnitor^{\Sets_{*},\rhd}_{X}}$ acts on elements as
     \[%
         \LUnitor^{\Sets_{*},\rhd}_{X}(x)%
-        \defeq%
+        \eqdef%
         [(1,x)]%
     \]%
     i.e.\ by
     \[%
         \LUnitor^{\Sets_{*},\rhd}_{X}(x)%
-        \defeq%
+        \eqdef%
         1\rhd x%
     \]%
     for each $x\in X$.
@@ -3729,7 +3729,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     at $(X,x_{0})\in\Obj(\Sets_{*})$ is given by the composition%
     \begin{align*}
-        X\rhd S^{0} &\cong            |X|\odot S^{0}\\
+        X\rhd S^{0} &\cong            \abs{X}\odot S^{0}\\
                     &\cong            \bigvee_{x\in X}S^{0}\\
                     &\shortrightarrow X,
     \end{align*}
@@ -3746,8 +3746,8 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
 \begin{remark}{Unwinding \cref{the-right-skew-right-unitor-of-the-right-tensor-product-of-pointed-sets}}{unwinding-the-right-skew-right-unitor-of-the-right-tensor-product-of-pointed-sets}%
     In other words, $\smash{\RUnitor^{\Sets_{*},\rhd}_{X}}$ acts on elements as
     \begin{align*}
-        \RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 0) &\defeq x_{0},\\%
-        \RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 1) &\defeq x%
+        \RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 0) &\eqdef x_{0},\\%
+        \RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 1) &\eqdef x%
     \end{align*}
     for each $x\rhd 1\in X\rhd S^{0}$.
 \end{remark}
@@ -3763,15 +3763,15 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     given by
     \[
         \phi_{X}(x)%
-        \defeq%
+        =%
         x\rhd 1
     \]%
     for each $x\in X$. Indeed, we have
     \begin{align*}
-        [\RUnitor^{\Sets_{*},\rhd}_{X}\circ\phi](x) &= \RUnitor^{\Sets_{*},\rhd}_{X}(\phi(x))\\
-                                                    &= \RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 1)\\
-                                                    &= x\\
-                                                    &= [\id_{X}](x)
+        [\RUnitor^{\Sets_{*},\rhd}_{X}\circ\phi](x) &\eqdef \RUnitor^{\Sets_{*},\rhd}_{X}(\phi(x))\\
+                                                    &\eqdef \RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 1)\\
+                                                    &\eqdef x\\
+                                                    &\eqdef [\id_{X}](x)
     \end{align*}
     so that
     \[
@@ -3781,16 +3781,16 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \]%
     and
     \begin{align*}
-        [\phi\circ\RUnitor^{\Sets_{*},\rhd}_{X}](x\rhd 1) &= \phi(\RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 1))\\
-                                                          &= \phi(x)\\
-                                                          &= x\rhd 1\\
-                                                          &= [\id_{X\rhd S^{0}}](x\rhd 1),
+        [\phi\circ\RUnitor^{\Sets_{*},\rhd}_{X}](x\rhd 1) &\eqdef \phi(\RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 1))\\
+                                                          &\eqdef \phi(x)\\
+                                                          &\eqdef x\rhd 1\\
+                                                          &\eqdef [\id_{X\rhd S^{0}}](x\rhd 1),
     \end{align*}
     but
     \begin{align*}
-        [\phi\circ\RUnitor^{\Sets_{*},\rhd}_{X}](x\rhd 0) &= \phi(\RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 0))\\
-                                                          &= \phi(x_{0})\\
-                                                          &= 1\rhd x_{0},
+        [\phi\circ\RUnitor^{\Sets_{*},\rhd}_{X}](x\rhd 0) &\eqdef \phi(\RUnitor^{\Sets_{*},\rhd}_{X}(x\rhd 0))\\
+                                                          &\eqdef \phi(x_{0})\\
+                                                          &\eqdef 1\rhd x_{0},
     \end{align*}
     where $x\rhd 0\neq1\rhd x_{0}$. Thus
     \[
@@ -3928,7 +3928,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     We have
     \[
         \Delta^{\rhd}_{X}(x_{0})%
-        \defeq%
+        \eqdef%
         x_{0}\rhd x_{0},%
     \]%
     and thus $\Delta^{\rhd}_{X}$ is a morphism of pointed sets.
@@ -4819,7 +4819,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     It is also somewhat common to write
     \[
         X\wedge Y%
-        \defeq%
+        \eqdef%
         \frac{X\times Y}{X\vee Y},%
     \]%
     identifying $X\vee Y$ with the subspace $(\{x_{0}\}\times Y)\cup(X\times\{y_{0}\})$ of $X\times Y$, and having the quotient be defined by declaring $(x,y)\sim(x',y')$ \textiff we have $(x,y),(x',y')\in X\vee Y$.
@@ -4893,7 +4893,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \to%
                 A\wedge B%
             \]%
-            is given by
+            is defined by
             \[
                 [f\wedge g](x\wedge y)%
                 \defeq%
@@ -4998,44 +4998,44 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             since $x=x'$ and $y=y'$.
         \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-4}If $x=x_{0}$ and $x'=x_{0}$, we have 
             \begin{align*}
-                [f\wedge g](x_{0},y) &\defeq f(x_{0})\wedge g(y)\\%
+                [f\wedge g](x_{0},y) &\eqdef f(x_{0})\wedge g(y)\\%
                                      &=      a_{0}\wedge g(y)\\%
                                      &=      a_{0}\wedge g(y')\\%
                                      &=      f(x_{0})\wedge g(y')\\%
-                                     &\defeq [f\wedge g](x_{0},y').%
+                                     &\eqdef [f\wedge g](x_{0},y').%
             \end{align*}
         \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-5}If $x=x_{0}$ and $y'=y_{0}$, we have 
             \begin{align*}
-                [f\wedge g](x_{0},y) &\defeq f(x_{0})\wedge g(y)\\%
+                [f\wedge g](x_{0},y) &\eqdef f(x_{0})\wedge g(y)\\%
                                      &=      a_{0}\wedge g(y)\\%
                                      &=      a_{0}\wedge b_{0}\\%
                                      &=      f(x')\wedge b_{0}\\%
                                      &=      f(x')\wedge g(y_{0})\\%
-                                     &\defeq [f\wedge g](x',y_{0}).%
+                                     &\eqdef [f\wedge g](x',y_{0}).%
             \end{align*}
         \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-6}If $y=y_{0}$ and $x'=x_{0}$, we have 
             \begin{align*}
-                [f\wedge g](x,y_{0}) &\defeq f(x)\wedge g(y_{0})\\%
+                [f\wedge g](x,y_{0}) &\eqdef f(x)\wedge g(y_{0})\\%
                                      &=      f(x)\wedge b_{0}\\%
                                      &=      a_{0}\wedge b_{0}\\%
                                      &=      a_{0}\wedge g(y')\\%
                                      &=      f(x_{0})\wedge g(y')\\%
-                                     &\defeq [f\wedge g](x_{0},y').%
+                                     &\eqdef [f\wedge g](x_{0},y').%
             \end{align*}
         \item\label{proof-of-properties-of-smash-products-of-pointed-sets-functoriality-7}If $y=y_{0}$ and $y'=y_{0}$, we have 
             \begin{align*}
-                [f\wedge g](x,y_{0}) &\defeq f(x)\wedge g(y_{0})\\%
+                [f\wedge g](x,y_{0}) &\eqdef f(x)\wedge g(y_{0})\\%
                                      &=      f(x)\wedge b_{0}\\%
                                      &=      f(x')\wedge b_{0}\\%
                                      &=      f(x)\wedge g(y_{0})\\%
-                                     &\defeq [f\wedge g](x',y_{0}).%
+                                     &\eqdef [f\wedge g](x',y_{0}).%
             \end{align*}
     \end{enumerate}
     Thus $f\wedge g$ is well-defined. Next, we claim that $\wedge$ preserves identities and composition:
     \begin{itemize}
         \item\SloganFont{Preservation of Identities. }We have
             \begin{align*}
-                [\id_{X}\wedge\id_{Y}](x\wedge y) &\defeq \id_{X}(x)\wedge\id_{Y}(y)\\
+                [\id_{X}\wedge\id_{Y}](x\wedge y) &\eqdef \id_{X}(x)\wedge\id_{Y}(y)\\
                                                   &=      x\wedge y\\
                                                   &=      [\id_{X\wedge Y}](x\wedge y)
             \end{align*}
@@ -5054,10 +5054,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \end{align*}
             we have
             \begin{align*}
-                [(h\circ f)\wedge(k\circ g)](x\wedge y) &\defeq h(f(x))\wedge k(g(y))\\
-                                                        &\defeq [h\wedge k](f(x)\wedge g(y))\\
-                                                        &\defeq [h\wedge k]([f\wedge g](x\wedge y))\\
-                                                        &\defeq [(h\wedge k)\circ(f\wedge g)](x\wedge y)
+                [(h\circ f)\wedge(k\circ g)](x\wedge y) &\eqdef h(f(x))\wedge k(g(y))\\
+                                                        &\eqdef [h\wedge k](f(x)\wedge g(y))\\
+                                                        &\eqdef [h\wedge k]([f\wedge g](x\wedge y))\\
+                                                        &\eqdef [(h\wedge k)\circ(f\wedge g)](x\wedge y)
             \end{align*}
             for each $x\wedge y\in X\wedge Y$, and thus
             \[
@@ -5122,14 +5122,14 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \begin{itemize}
                 \item The map $\xi^{\dagger}$ is indeed pointed, as we have
                     \begin{align*}
-                        \xi^{\dagger}_{x_{0}}(y) &\defeq \xi(x_{0},y)\\%
-                                                 &\defeq z_{0}%
+                        \xi^{\dagger}_{x_{0}}(y) &\eqdef \xi(x_{0},y)\\%
+                                                 &\eqdef z_{0}%
                     \end{align*}
                     for each $y\in Y$. Thus $\xi^{\dagger}_{x_{0}}=\Delta_{z_{0}}$ and $\xi^{\dagger}$ is pointed.
                 \item The map $\xi^{\dagger}_{x}$ indeed lies in $\eSets_{*}(Y,Z)$, as we have%
                     \begin{align*}
-                        \xi^{\dagger}_{x}(y_{0}) &\defeq \xi(x,y_{0})\\%
-                                                 &\defeq z_{0}.%
+                        \xi^{\dagger}_{x}(y_{0}) &\eqdef \xi(x,y_{0})\\%
+                                                 &\eqdef z_{0}.%
                     \end{align*}
             \end{itemize}
         \item Conversely, a map
@@ -5165,15 +5165,15 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
             \begin{itemize}
                 \item\SloganFont{Left Bilinearity. }We have
                     \begin{align*}
-                        \xi^{\dagger}(x_{0},y) &\defeq \xi_{x_{0}}(y)\\%
-                                               &\defeq \Delta_{z_{0}}(y)\\%
-                                               &\defeq z_{0}%
+                        \xi^{\dagger}(x_{0},y) &\eqdef \xi_{x_{0}}(y)\\%
+                                               &\eqdef \Delta_{z_{0}}(y)\\%
+                                               &\eqdef z_{0}%
                     \end{align*}
                     for each $y\in Y$, since $\xi_{x_{0}}=\Delta_{z_{0}}$ as $\xi$ is assumed to be a pointed map.
                 \item\SloganFont{Right Bilinearity. }We have
                     \begin{align*}
-                        \xi^{\dagger}(x,y_{0}) &\defeq \xi_{x}(y_{0})\\%
-                                               &\defeq z_{0}%
+                        \xi^{\dagger}(x,y_{0}) &\eqdef \xi_{x}(y_{0})\\%
+                                               &\eqdef z_{0}%
                     \end{align*}
                     for each $x\in X$, since $\xi_{x}\in\eSets_{*}(Y,Z)$ is a morphism of pointed sets.
             \end{itemize}
@@ -5234,7 +5234,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \to%
                 (Y,y_{0})%
             \]%
-            of $\Sets_{*}((X,x_{0}),(Y,y_{0}))$ given by
+            of $\Sets_{*}((X,x_{0}),(Y,y_{0}))$ defined by
             \[
                 \Delta_{y_{0}}(x)%
                 \defeq%
@@ -5263,7 +5263,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
                 \to%
                 \eSets_{*}(X,B)%
             \]%
-            is given by
+            is defined by
             \[
                 [\eSets_{*}(f,g)](\phi)%
                 \defeq%
@@ -5383,7 +5383,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \isorightarrow
         X\wedge(Y\wedge Z)
     \]%
-    at $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$ is given by
+    at $(X,x_{0}),(Y,y_{0}),(Z,z_{0})\in\Obj(\Sets_{*})$ is defined by
     \[
         \alpha^{\Sets_{*}}_{X,Y,Z}((x\wedge y)\wedge z)%
         \defeq%
@@ -5408,7 +5408,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     As just mentioned, we have
     \[
         \alpha^{\Sets_{*}}_{X,Y,Z}((x_{0}\wedge y_{0})\wedge z_{0})%
-        \defeq%
+        \eqdef%
         x_{0}\wedge(y_{0}\wedge z_{0}),%
     \]%
     and thus $\alpha^{\Sets_{*}}_{X,Y,Z}$ is a morphism of pointed sets.
@@ -5422,10 +5422,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \isorightarrow
         (X\wedge Y)\wedge Z
     \]%
-    defined by
+    given by
     \[
         \alpha^{\Sets_{*},-1}_{X,Y,Z}(x\wedge(y\wedge z))%
-        \defeq%
+        =%
         (x\wedge y)\wedge z
     \]%
     for each $x\wedge(y\wedge z)\in X\wedge(Y\wedge Z)$.
@@ -5530,7 +5530,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     As just mentioned, we have
     \[
         \LUnitor^{\Sets_{*}}_{X}(0\wedge x_{0})%
-        \defeq%
+        \eqdef%
         x_{0},%
     \]%
     and thus $\LUnitor^{\Sets_{*}}_{X}$ is a morphism of pointed sets.
@@ -5544,10 +5544,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \isorightarrow%
         S^{0}\wedge X%
     \]%
-    defined by
+    given by
     \[
         \LUnitor^{\Sets_{*},-1}_{X}(x)%
-        \defeq%
+        =%
         1\wedge x
     \]%
     for each $x\in X$. Indeed:
@@ -5716,7 +5716,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     As just mentioned, we have
     \[
         \RUnitor^{\Sets_{*}}_{X}(x_{0}\wedge 0)%
-        \defeq%
+        \eqdef%
         x_{0},%
     \]%
     and thus $\RUnitor^{\Sets_{*}}_{X}$ is a morphism of pointed sets.
@@ -5730,10 +5730,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \isorightarrow%
         X\wedge S^{0}%
     \]%
-    defined by
+    given by
     \[
         \RUnitor^{\Sets_{*},-1}_{X}(x)%
-        \defeq%
+        =%
         x\wedge 1
     \]%
     for each $x\in X$. Indeed:
@@ -5906,7 +5906,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     As just mentioned, we have
     \[
         \sigma^{\Sets_{*}}_{X}(x_{0}\wedge y_{0})%
-        \defeq%
+        \eqdef%
         y_{0}\wedge x_{0},%
     \]%
     and thus $\sigma^{\Sets_{*}}_{X}$ is a morphism of pointed sets.
@@ -5920,10 +5920,10 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \isorightarrow
         X\wedge Y
     \]%
-    defined by
+    given by
     \[
         \sigma^{\Sets_{*},-1}_{X,Y}(y\wedge x)%
-        \defeq%
+        =%
         x\wedge y
     \]%
     for each $y\wedge x\in Y\wedge X$.
@@ -6038,7 +6038,7 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     We have
     \[
         \Delta^{\wedge}_{X}(x_{0})%
-        \defeq%
+        \eqdef%
         x_{0}\wedge x_{0},%
     \]%
     and thus $\Delta^{\wedge}_{X}$ is a morphism of pointed sets.
@@ -6200,18 +6200,18 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
         \item\label{proof-of-properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-2}\SloganFont{\cref{properties-of-the-diagonal-of-the-smash-product-of-pointed-sets-monoidality-compatibility-with-strong-unitality-constraints}: Compatibility With Strong Unitality Constraints: }As shown in the proof of \cref{the-left-unitor-of-the-smash-product-of-pointed-sets}, the inverse of the left unitor of $\Sets_{*}$ with respect to to the smash product of pointed sets at $(X,x_{0})\in\Obj(\Sets_{*})$ is given by
             \[
                 \LUnitor^{\Sets_{*},-1}_{X}(x)%
-                \defeq%
+                =%
                 1\wedge x
             \]%
             for each $x\in X$, so when $X=S^{0}$, we have
             \begin{align*}
-                \LUnitor^{\Sets_{*},-1}_{S^{0}}(0) &\defeq 1\wedge0,\\
-                \LUnitor^{\Sets_{*},-1}_{S^{0}}(1) &\defeq 1\wedge1.
+                \LUnitor^{\Sets_{*},-1}_{S^{0}}(0) &\eqdef 1\wedge0,\\
+                \LUnitor^{\Sets_{*},-1}_{S^{0}}(1) &\eqdef 1\wedge1.
             \end{align*}
             But since $1\wedge0=0\wedge0$ and
             \begin{align*}
-                \Delta^{\wedge}_{S^{0}}(0) &\defeq 0\wedge0,\\
-                \Delta^{\wedge}_{S^{0}}(1) &\defeq 1\wedge1,
+                \Delta^{\wedge}_{S^{0}}(0) &\eqdef 0\wedge0,\\
+                \Delta^{\wedge}_{S^{0}}(1) &\eqdef 1\wedge1,
             \end{align*}
             it follows that we indeed have $\Delta^{\wedge}_{S^{0}}=\LUnitor^{\Sets_{*},-1}_{S^{0}}$.
     \end{enumerate}
@@ -8680,9 +8680,9 @@ Let $(X,x_{0})$ and $(Y,y_{0})$ be pointed sets.
     \ProofBox{Faithfulness}%
     Given morphisms $f,g\colon X\to Y$, if $f^{+}=g^{+}$, then we have 
     \begin{align*}
-        f(x) &\defeq f^{+}(x)\\
+        f(x) &\eqdef f^{+}(x)\\
              &=      g^{+}(x)\\
-             &\defeq g(x)
+             &\eqdef g(x)
     \end{align*}
     for each $x\in X^{+}$, and thus $f=g$, showing $(-)^{+}$ to be faithful.
 

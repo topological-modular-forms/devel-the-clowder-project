@@ -111,10 +111,10 @@ Let $\{A_{i}\}_{i\in I}$ be a family of sets.%
 \begin{construction}{Construction of the Product of a Family of Sets}{construction-of-the-product-of-a-family-of-sets}%
     Concretely, the product of $\{A_{i}\}_{i\in I}$ is the pair \index[notation]{prodiiniai@$\prod_{i\in I}A_{i}$}$(\prod_{i\in I}A_{i},\{\pr_{i}\}_{i\in I})$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-the-product-of-a-family-of-sets-the-limit}\SloganFont{The Limit. }The set $\prod_{i\in I}A_{i}$ given by%
+        \item\label{construction-of-the-product-of-a-family-of-sets-the-limit}\SloganFont{The Limit. }The set $\prod_{i\in I}A_{i}$ define%
             \[
-                \prod_{i\in I}A_{i}
-                =%
+                \prod_{i\in I}A_{i}%
+                \defeq%
                 \{%
                     f\in\Sets\left(I,\bigcup_{i\in I}A_{i}\right)%
                     \ \middle|\ %
@@ -278,9 +278,9 @@ Let $A$ and $B$ be sets.%
 \begin{construction}{Construction of Binary Products of Sets}{construction-of-binary-products-of-sets}%
     Concretely, the product of $A$ and $B$ is the pair \index[notation]{AtimesB@$A\times B$}$\smash{(A\times B,\{\pr_{1},\pr_{2}\})}$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-binary-products-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times B$ given by%
+        \item\label{construction-of-binary-products-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times B$ defined by%
             \begin{align*}
-                A\times B &=      \prod_{z\in\{A,B\}}z\\
+                A\times B &\defeq \prod_{z\in\{A,B\}}z\\
                           &\eqdef \{%
                                       f\in\Sets(\{0,1\},A\cup B)%
                                       \ \middle|\ %
@@ -583,7 +583,7 @@ Let $A$ and $B$ be sets.%
                 \to%
                 \Sets(A\times B,C)%
             \]%
-            given by sending a function
+            defined by sending a function
             \begin{webcompile}
                 \phantom{\xi\colon}
                 \begin{tikzcd}[row sep=0.0*\the\DL, column sep=1.0*\the\DL, background color=backgroundColor, ampersand replacement=\&]
@@ -1061,10 +1061,10 @@ Let $A$, $B$, and $C$ be sets and let $f\colon A\to C$ and $g\colon B\to C$ be f
 \begin{construction}{Construction of Pullbacks of Sets}{construction-of-pullbacks-of-sets}%
     Concretely, the pullback of $A$ and $B$ over $C$ along $f$ and $g$ is the pair \index[notation]{AtimesCB@$A\times_{C}B$}$(A\times_{C}B,\{\pr_{1},\pr_{2}\})$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-pullbacks-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times_{C}B$ given by%
+        \item\label{construction-of-pullbacks-of-sets-the-limit}\SloganFont{The Limit. }The set $A\times_{C}B$ defined by%
             \[
                 A\times_{C}B%
-                =%
+                \defeq%
                 \{(a,b)\in A\times B\ \middle|\ f(a)=g(b)\}.
             \]%
         \item\label{construction-of-pullbacks-of-sets-the-cone}\SloganFont{The Cone. }The maps%
@@ -2151,10 +2151,10 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
 \begin{construction}{Construction of Equalisers of Sets}{construction-of-equalisers-of-sets}%
     Concretely, the equaliser of $f$ and $g$ is the pair \index[notation]{Eqfg@$\Eq(f,g)$}\index[notation]{eqfg@$\eq(f,g)$}$(\Eq(f,g),\eq(f,g))$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-equalisers-of-sets-the-limit}\SloganFont{The Limit. }The set $\Eq(f,g)$ given by
+        \item\label{construction-of-equalisers-of-sets-the-limit}\SloganFont{The Limit. }The set $\Eq(f,g)$ defined by
             \[
                 \Eq(f,g)%
-                =%
+                \defeq%
                 \{a\in A\ \middle|\ f(a)=g(a)\}.
             \]%
         \item\label{construction-of-equalisers-of-sets-the-cone}\SloganFont{The Cone. }The inclusion map
@@ -2500,10 +2500,10 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Sets$ 
 \begin{construction}{Construction of Inverse Limits of Sets}{construction-of-inverse-limits-of-sets}%
     Concretely, the inverse limit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{limalphainIXalpha@$\invlim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\invlim_{\alpha\in I}(X_{\alpha})}$, $\smash{\{\pr_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-inverse-limits-of-sets-the-limit}\SloganFont{The Limit. }The set $\displaystyle\invlim_{\alpha\in I}(X_{\alpha})$ given by
+        \item\label{construction-of-inverse-limits-of-sets-the-limit}\SloganFont{The Limit. }The set $\displaystyle\invlim_{\alpha\in I}(X_{\alpha})$ defined by
             \[
                 \invlim_{\alpha\in I}(X_{\alpha})%
-                =%
+                \defeq%
                 \{%
                     (x_{\alpha})_{\alpha\in I}\in\prod_{\alpha\in I}X_{\alpha}%
                     \ \middle|\ %
@@ -2715,10 +2715,10 @@ Let $\{A_{i}\}_{i\in I}$ be a family of sets.%
 \begin{construction}{Construction of the Coproduct of a Family of Sets}{construction-of-the-coproduct-of-a-family-of-sets}%
     Concretely, the disjoint union of $\{A_{i}\}_{i\in I}$ is the pair \index[notation]{coprodiiniAi@$\coprod_{i\in I}A_{i}$}$(\coprod_{i\in I}A_{i},\{\inj_{i}\}_{i\in I})$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-the-coproduct-of-a-family-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\coprod_{i\in I}A_{i}$ given by%
+        \item\label{construction-of-the-coproduct-of-a-family-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\coprod_{i\in I}A_{i}$ defined by%
             \[
                 \coprod_{i\in I}A_{i}%
-                =%
+                \defeq%
                 \{%
                     (i,x)\in I\times\left(\bigcup_{i\in I}A_{i}\right)%
                     \ \middle|\ %
@@ -2858,9 +2858,9 @@ Let $A$ and $B$ be sets.%
 \begin{construction}{Construction of Coproducts of Sets}{construction-of-coproducts-of-sets}%
     Concretely, the coproduct of $A$ and $B$ is the pair \index[notation]{AicoprodB@$A\icoprod B$}$(A\coprod B,\{\inj_{1},\inj_{2}\})$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-coproducts-of-sets-the-colimit}\SloganFont{The Colimit. }The set $A\icoprod B$ given by%
+        \item\label{construction-of-coproducts-of-sets-the-colimit}\SloganFont{The Colimit. }The set $A\icoprod B$ defined by%
             \begin{align*}
-                A\icoprod B &=      \coprod_{z\in\{A,B\}}z\\
+                A\icoprod B &\defeq \coprod_{z\in\{A,B\}}z\\
                             &\eqdef \{(0,a)\in S\ \middle|\ a\in A\}\cup\{(1,b)\in S\ \middle|\ b\in B\},
             \end{align*}
             where $S=\{0,1\}\times(A\cup B)$.
@@ -3047,10 +3047,10 @@ Let $A$, $B$, and $C$ be sets and let $f\colon C\to A$ and $g\colon C\to B$ be f
 \begin{construction}{Construction of Pushouts of Sets}{construction-of-pushouts-of-sets}%
     Concretely, the pushout of $A$ and $B$ over $C$ along $f$ and $g$ is the pair \index[notation]{AicoprodCB@$A\ipushout{C}B$}$(A\ipushout{C}B,\{\inj_{1},\inj_{2}\})$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-pushouts-of-sets-the-colimit}\SloganFont{The Colimit. }The set $A\ipushout{C}B$ given by
+        \item\label{construction-of-pushouts-of-sets-the-colimit}\SloganFont{The Colimit. }The set $A\ipushout{C}B$ defined by
             \[
                 A\ipushout{C}B%
-                =%
+                \defeq%
                 A\icoprod B/\unsim_{C},
             \]%
             where $\unsim_{C}$ is the equivalence relation on $A\icoprod B$ generated by $(0,f(c))\sim_{C}(1,g(c))$.
@@ -3965,10 +3965,10 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
 \begin{construction}{Construction of Coequalisers of Sets}{construction-of-coequalisers-of-sets}%
     Concretely, the coequaliser of $f$ and $g$ is the pair \index[notation]{CoEqfg@$\CoEq(f,g)$}$(\CoEq(f,g),\coeq(f,g))$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-coequalisers-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\CoEq(f,g)$ given by%
+        \item\label{construction-of-coequalisers-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\CoEq(f,g)$ defined by%
             \[
                 \CoEq(f,g)%
-                =%
+                \defeq%
                 B/\unsim,
             \]%
             where $\unsim$ is the equivalence relation on $B$ generated by $f(a)\sim g(a)$.
@@ -4227,10 +4227,10 @@ Let $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}\colon(I,\preceq)\to\Top$ b
 \begin{construction}{Construction of Direct Colimits of Sets}{construction-of-direct-colimits-of-sets}%
     Concretely, the direct colimit of $(X_{\alpha},f_{\alpha\beta})_{\alpha,\beta\in I}$ is the pair \index[notation]{colimalphainIXalpha@$\dircolim_{\alpha\in I}(X_{\alpha})$}$\smash{\Big(\displaystyle\dircolim_{\alpha\in I}(X_{\alpha})}$, $\smash{\{\inj_{\alpha}\}_{\alpha\in I}\Big)}$ consisting of:
     \begin{enumerate}
-        \item\label{construction-of-direct-colimits-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\displaystyle\dircolim_{\alpha\in I}(X_{\alpha})$ given by
+        \item\label{construction-of-direct-colimits-of-sets-the-colimit}\SloganFont{The Colimit. }The set $\displaystyle\dircolim_{\alpha\in I}(X_{\alpha})$ defined by
             \[
                 \dircolim_{\alpha\in I}(X_{\alpha})%
-                =%
+                \defeq%
                 \left.\left(\coprod_{\alpha\in I}X_{\alpha}\right)\middle/\unsim\right.,%
             \]%
             where $\unsim$ is the equivalence relation on $\coprod_{\alpha\in I}X_{\alpha}$ generated by declaring $(\alpha,x)\sim(\beta,y)$ \textiff there exists some $\gamma\in I$ satisfying the following conditions:
