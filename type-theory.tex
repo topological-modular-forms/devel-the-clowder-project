@@ -137,7 +137,7 @@ TODO:
         \end{prooftree}%
     \end{webprooftree}%
     admits the following derivation:
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{B\type}}%
             \infer1[(G)]{\context{\Gamma,\,y\oftype B}{y\oftype B}}%
@@ -149,7 +149,7 @@ TODO:
             \infer2[(S)]{\context{\Gamma,\,y\oftype B,\,x\oftype A,\,\Delta}{\mathcal{J}}}
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
 \end{example}
 \section{Martin-Löf Type Theory}\label{section-martin-löf-type-theory}
 \subsection{Judgements}\label{subsection-the-judgements-of-martin-löf-type-theory}
@@ -768,7 +768,7 @@ TODO:
                         \left(\prod_{y\oftype B}\prod_{x\oftype A}C(x,y)\right)%
                     \]%
                     defined by the swap rule
-                    \begin{webprooftree}%
+                    \begin{scalewebprooftree}%
                         \begin{prooftree}%
                             \hypo{\context{\Gamma}{A\type}}%
                             \hypo{\context{\Gamma}{B\type}}%
@@ -776,9 +776,9 @@ TODO:
                             \infer3[(swap)]{\context{\Gamma}{\displaystyle\sigma\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)\to\left(\prod_{y\oftype B}\prod_{x\oftype A}C(x,y)\right)}}%
                         \end{prooftree}%
                         .%
-                    \end{webprooftree}%
+                    \end{scalewebprooftree}%
                 \item\label{properties-of-function-types-changing-the-order-of-arguments-1}We have
-                    \begin{webprooftree}%
+                    \begin{scalewebprooftree}%
                         \begin{prooftree}%
                             \hypo{\context{\Gamma}{A\type}}%
                             \hypo{\context{\Gamma}{B\type}}%
@@ -805,14 +805,7 @@ TODO:
                             }}%
                         \end{prooftree}%
                         .%
-                    \end{webprooftree}%
-                    \[
-                        \sfid_{\scriptdisplaystyle{\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)}}%
-                        \oftype%
-                        \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right)%
-                        \to%
-                        \left(\prod_{x\oftype A}\prod_{y\oftype B}C(x,y)\right).%
-                    \]%
+                    \end{scalewebprooftree}%
             \end{enumerate}
         %\item\label{properties-of-function-types-}\SloganFont{. }
     \end{enumerate}
@@ -944,7 +937,7 @@ Let $A$ and $B$ be types.
 
     \ProofBox{\cref{constant-functions-evaluation-for-constant-functions}: Evaluation for Constant Functions}%
     We have
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
             \hypo{\context{\Gamma}{B\type}}%
@@ -958,7 +951,7 @@ Let $A$ and $B$ be types.
             \infer2[(trans)]{\context{\Gamma,\,a\oftype A}{\const_{y}(a)\doteq a\oftype A}}%
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     This finishes the proof.%
 
 
@@ -976,7 +969,7 @@ Let $A$ and $B$ be types.
         .%
     \end{scalewebprooftree}%
     Now, for the proof of the judgement, we have
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{f\oftype A\to B}}%
             \infer1[(ev1)]{\context{\Gamma,\,x\oftype A}{f(x)\oftype B}}%
@@ -989,7 +982,7 @@ Let $A$ and $B$ be types.
             \infer2[(S)]{\context{\Gamma,\,x\oftype A}{\const_{z}(f(x))\doteq z\oftype B}}
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     This finishes the proof.
 
     \ProofBox{\cref{constant-functions-precomposition-with-the-constant-function}: Precomposition With the Constant Function}%
@@ -1109,14 +1102,14 @@ Let $A$ and $B$ be types.
                 .%
             \end{webprooftree}%
         \item\label{properties-of-function-types-function-extensionality}\SloganFont{Function Extensionality. }We have
-            \begin{webprooftree}%
+            \begin{scalewebprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{f\oftype A\to B}}%
                     \hypo{\context{\Gamma}{f'\oftype A\to B}}%
                     \hypo{\context{\Gamma,a\oftype A}{f(a)\doteq f'(a)\oftype B}}%
                     \infer3[(FEXT)]{\context{\Gamma}{f\doteq f'\oftype A\to B}}%
                 \end{prooftree}%
-            \end{webprooftree}%
+            \end{scalewebprooftree}%
         %\item\label{properties-of-function-types-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -1240,7 +1233,7 @@ Let $A$ be a type.
 
     \ProofBox{\cref{inference-rules-for-identity-functions-evaluation-for-identity-functions}: Evaluation for Identity Functions}%
     We have
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{A\type}}%
             \infer1[(id-def)]{\context{\Gamma}{\sfid_{A}\doteq\llbracket x\mapsto x\rrbracket\oftype A\to A}}%
@@ -1252,7 +1245,7 @@ Let $A$ be a type.
             \infer2[(trans)]{\context{\Gamma,\,a\oftype A}{\sfid_{A}(a)\doteq a\oftype A}}%
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     This finishes the proof.
 \end{Proof}
 \subsection{Composition of Functions}\label{subsection-martin-löf-type-theory-composition-of-functions}
@@ -1493,7 +1486,6 @@ Let $A$, $B$, and $C$ be types.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Terminology: }The term $p_{0}\oftype P(0_{\N})$ is called the \index[type-theory]{induction principle of N@induction principle of $\N$!base case}\textbf{base case}.
-        \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
     %--- Begin Footnote ---%
@@ -1504,7 +1496,7 @@ Let $A$, $B$, and $C$ be types.
     %---  End Footnote  ---%
     \begin{enumerate}
         \item\label{the-induction-principle-of-n-1}\SloganFont{The Induction Principle of $\N$, \rmI. }We have
-            \begin{webprooftree}%
+            \begin{scalewebprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
                     \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
@@ -1512,7 +1504,7 @@ Let $A$, $B$, and $C$ be types.
                     \infer3[($\N$-ind1)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0},p_{S})\oftype\prod_{n\oftype\N}P(n)}}%
                 \end{prooftree}%
                 .%
-            \end{webprooftree}%
+            \end{scalewebprooftree}%
         \item\label{the-induction-principle-of-n-2}\SloganFont{The Induction Principle of $\N$, \rmII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
@@ -1592,7 +1584,7 @@ Let $A$, $B$, and $C$ be types.
     Martin-Löf type theory has the following \index[type-theory]{natural numbers!computation rules}\textbf{computation rules} about the type of the natural numbers, dictating that induction works as it should:%
     \begin{enumerate}
         \item\label{the-computation-rules-of-n-the-base-case}\SloganFont{The Base Case. }We have
-            \begin{webprooftree}%
+            \begin{scalewebprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
                     \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
@@ -1600,9 +1592,9 @@ Let $A$, $B$, and $C$ be types.
                     \infer3[($\N$-comp1)]{\context{\Gamma}{\displaystyle\ind_{\N}(p_{0},p_{S},0_{\N})\doteq p_{0}\oftype P(0_{\N})}}%
                 \end{prooftree}%
                 .%
-            \end{webprooftree}%
+            \end{scalewebprooftree}%
         \item\label{the-computation-rules-of-n-the-inductive-step}\SloganFont{The Inductive Step. }We have
-            \begin{webprooftree}%
+            \begin{scalewebprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,n\oftype\N}{P(n)\type}}%
                     \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\N})}}%
@@ -1610,7 +1602,7 @@ Let $A$, $B$, and $C$ be types.
                     \infer3[($\N$-comp2)]{\context{\Gamma,\,n\oftype\N}{\displaystyle\ind_{\N}(p_{0},p_{S},\succ_{\N}(n))\doteq p_{S}(n,\ind_{\N}(p_{0},p_{S},n))\oftype P(0_{\N})}}%
                 \end{prooftree}%
                 .%
-            \end{webprooftree}%
+            \end{scalewebprooftree}%
     \end{enumerate}
 \end{definition}
 \subsection{Pattern Matching}\label{subsection-pattern-matching}
@@ -2107,7 +2099,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
                 .%
             \end{webprooftree}%
         \item\label{explicit-inference-rules-for-dependent-pair-types-induction}\SloganFont{Induction. }We have
-            \begin{webprooftree}%
+            \begin{scalewebprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
@@ -2115,7 +2107,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
                     \infer3[(Σ-ind)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)\to\left(\prod_{\scriptdisplaystyle{\displaystyle z\oftype\sum_{x\oftype A}B(x)}}P(z)\right)}}%
                 \end{prooftree}%
                 .%
-            \end{webprooftree}%
+            \end{scalewebprooftree}%
         \item\label{explicit-inference-rules-for-dependent-pair-types-computation}\SloganFont{Computation. }We have
             \begin{scalewebprooftree}%
                 \begin{prooftree}%
@@ -2412,7 +2404,6 @@ Let $A$ be a type and let $a\oftype A$.
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }Also written \index[notation]{IdA@$\Id_{A}$}$\Id_{A}$ or \index[notation]{aequalsx@$a\equals x$}$a\equals X$.%
-        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
     equipped with a term
@@ -2654,7 +2645,7 @@ Let $A$ be a type and let $a\oftype A$.
         .%
     \end{webprooftree}%
     Having $\concat_{x,z,z}(\refl_{z})$ in hand, we may use path induction to obtain $\concat_{z}$:
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{z\oftype A}}%
             \hypo{\context{\Gamma,\,y\oftype A,\,q\oftype y\equals_{A}z}{\displaystyle\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)\type}}%
@@ -2662,7 +2653,7 @@ Let $A$ be a type and let $a\oftype A$.
             \infer1{\context{\Gamma}{\displaystyle\concat_{z}\doteq\indeq{z}\left(\concat_{x,z,z}(\refl_{z})\right)\oftype\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     Finally, we define $\concat$ via λ-abstraction:
     \begin{webprooftree}%
         \begin{prooftree}%
@@ -2785,7 +2776,7 @@ Let $A$ be a type and let $a\oftype A$.
 
     \ProofBox{\cref{properties-of-identity-types-inversion}: Inversion}%
     We have
-    \begin{webprooftree}%
+    \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{x\oftype A}}%
             \infer1[(id-intro)]{\context{\Gamma}{\refl_{x}\oftype x\equals_{A}x}}%
@@ -2795,7 +2786,7 @@ Let $A$ be a type and let $a\oftype A$.
             \infer2[(ev2)]{\context{\Gamma}{\displaystyle\indeq{x}(\refl_{x})\oftype\prod_{y\oftype A}(x\equals_{A}y\to y\equals_{A}x)}}%
         \end{prooftree}%
         .%
-    \end{webprooftree}%
+    \end{scalewebprooftree}%
     We then define $\inv$ via λ-abstraction
     \begin{webprooftree}%
         \begin{prooftree}%
