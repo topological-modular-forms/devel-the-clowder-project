@@ -8,7 +8,7 @@ def regex_env_str():
     for env in list_of_labeled_envs_function():
         envs_str += r"|" + str(env)
     envs_str += r")"
-    # envs_str looks like "(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|warning|oldtag|gap|motivation)"
+    # envs_str looks like "(definition|question|proposition|lemma|corollary|remark|notation|theorem|construction|example|convention|warning|oldtag|gap|motivation)"
     return envs_str
 
 def absolute_path():
@@ -240,6 +240,7 @@ def get_parts(path):
 #    'item' (typically an item does not have a label)
 list_of_labeled_envs = [ \
         'construction', \
+        'convention', \
         'corollary', \
         'definition', \
         'equation', \

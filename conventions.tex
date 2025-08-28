@@ -1,0 +1,149 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Conventions}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains information on a few conventions we employ throughout Clowder.
+
+\ChapterTableOfContents
+
+\section{Global Conventions}\label{section-global-conventions}
+\subsection{On Equality}\label{subsection-on-equality}
+\begin{convention}{Notation for Equality}{notation-for-equality}%
+    Outside of the chapters relating to type theory, we employ the following notational choice:
+    \begin{enumerate}
+        \item\label{notation-for-equality-defeq}Definitions use the symbol $\defeq$, as in e.g.:
+            \[
+                U\boxtimes_{X\times Y}V%
+                \defeq%
+                \{%
+                    (u,v)\in X\times Y%
+                    \ \middle|\ %
+                    \text{$u\in U$ and $v\in V$}%
+                \}.%
+            \]%
+        \item\label{notation-for-equality-doteq}When we unwind definitions inside proofs, we will use the symbol $\eqdef$, to mean that a manipulation in which we have replaced a definition has taken place. For example, we might write
+            \[%
+                \rmInt(f_{!}(S))%
+                \eqdef%
+                \rmInt(\{x\in X\ \middle|\ f(x)\in S\}),%
+            \]%
+            where we have replaced the definition of $f_{!}(S)$, namely
+            \[%
+                f_{!}(S)%
+                \defeq%
+                \{x\in X\ \middle|\ f(x)\in S\}.%
+            \]%
+        \item\label{notation-for-equality-equals}Finally, when two things are equal but not through a direct replacement of a definition, we use the usual symbol $=$ for equality:
+            \[
+                \{%
+                    x\in\R%
+                    \ \middle|\ %
+                    x^{2}-5x+6=0%
+                \}%
+                =%
+                \{2,3\}.%
+            \]%
+    \end{enumerate}
+    Note that our usage of these conventions won't always align with the differentiation between \textit{propositional equalities} and \textit{judgemental equalities} in type theory. Rather, these serve a pedagogical role, as often a logical step using $\doteq$ will be \say{obvious} while a step using $=$ might be a bit involved.
+\end{convention}
+\subsection{Additional Notation for Functions}\label{section-additional-notation-for-functions}
+\begin{notation}{Additional Notation for Functions}{additional-notation-for-functions}%
+    Throughout this work, we will sometimes denote a function $f\colon X\to Y$ by $\llbracket x\mapsto f(x)\rrbracket$, writing
+    \[
+        f%
+        \eqdef%
+        \llbracket x\mapsto f(x)\rrbracket.%
+    \]%
+    \begin{enumerate}
+        \item\label{additional-notation-for-functions-1}For example, given a function%
+            \[
+                \Phi%
+                \colon%
+                \Hom_{\Sets}(X,Y)%
+                \to%
+                K%
+            \]%
+            taking values on a set of functions such as $\Hom_{\Sets}(X,Y)$, we will sometimes write
+            \[
+                \Phi(f)%
+                \eqdef%
+                \Phi(\llbracket x\mapsto f(x)\rrbracket).%
+            \]%
+        \item\label{additional-notation-for-functions-2}This notational choice is based on the lambda notation
+            \[
+                f%
+                \eqdef%
+                (\lambda x\ldotp f(x)),%
+            \]%
+            but uses a \say{$\mathord{\mapsto}$} symbol for better spacing and double brackets instead of either:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-2-a}Square brackets $[x\mapsto f(x)]$;
+                \item\label{additional-notation-for-functions-2-b}Parentheses $(x\mapsto f(x))$.
+            \end{enumerate}
+            In doing this, we hope to improve readability when dealing with e.g.:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-2-c}Equivalence classes, cf.:
+                    \begin{enumerate}
+                        \item\label{additional-notation-for-functions-2-c-i}$\llbracket[x]\mapsto f([x])\rrbracket$%
+                        \item\label{additional-notation-for-functions-2-c-ii}$[[x]\mapsto f([x])]$%
+                        \item\label{additional-notation-for-functions-2-c-iii}$(\lambda[x].\ f([x]))$%
+                    \end{enumerate}
+                \item\label{additional-notation-for-functions-2-d}Function evaluations, cf.:
+                    \begin{enumerate}
+                        \item\label{additional-notation-for-functions-2-d-i}$\Phi(\llbracket x\mapsto f(x)\rrbracket)$%
+                        \item\label{additional-notation-for-functions-2-d-ii}$\Phi((x\mapsto f(x)))$%
+                        \item\label{additional-notation-for-functions-2-d-iii}$\Phi((\lambda x.\ f(x)))$%
+                    \end{enumerate}
+            \end{enumerate}
+        \item\label{additional-notation-for-functions-3}We will also sometimes write $-$, $-_{1}$, $-_{2}$, etc.\ for the arguments of a function. Some examples include:
+            \begin{enumerate}
+                \item\label{additional-notation-for-functions-3-a}Writing $f(-_{1})$ for a function $f\colon A\to B$.
+                \item\label{additional-notation-for-functions-3-b}Writing $f(-_{1},-_{2})$ for a function $f\colon A\times B\to C$.
+                \item\label{additional-notation-for-functions-3-c}Given a function $f\colon A\times B\to C$, writing
+                    \[
+                        f(a,-)%
+                        \colon%
+                        B%
+                        \to%
+                        C%
+                    \]%
+                    for the function $\llbracket b\mapsto f(a,b)\rrbracket$.
+                \item\label{additional-notation-for-functions-3-d}Denoting a composition of the form%
+                    \[
+                        A\times B%
+                        \xlongrightarrow{\phi\times\id_{B}}%
+                        A'\times B%
+                        \xlongrightarrow{f}%
+                        C%
+                    \]%
+                    by $f(\phi(-_{1}),-_{2})$.
+            \end{enumerate}
+        \item\label{additional-notation-for-functions-4}Finally, given a function $f\colon A\to B$, we will sometimes write
+            \[
+                \ev_{a}(f)%
+                \defeq%
+                f(a)%
+            \]%
+            for the value of $f$ at some $a\in A$.
+    \end{enumerate}
+    For an example of the above notations being used in practice, see the proof of the adjunction
+    \begin{webcompile}
+        \AdjunctionShort#A\times -#{\Hom_{\Sets}(A,-)}#\Sets#\Sets,#
+    \end{webcompile}
+    stated in \ChapterRef{\ChapterConstructionsWithSets, \cref{constructions-with-sets:properties-of-products-of-sets-adjointness-1} of \cref{constructions-with-sets:properties-of-products-of-sets}}{\cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets}}.
+\end{notation}
+\section{Local Conventions}\label{section-local-conventions}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

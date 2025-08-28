@@ -595,7 +595,7 @@ TODO:
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
-                    \infer1[(Π)]{\context{\Gamma}{\displaystyle\prod_{x\oftype A}B(x)\type}}%
+                    \infer1[(Π-form)]{\context{\Gamma}{\displaystyle\prod_{x\oftype A}B(x)\type}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -1784,7 +1784,7 @@ Let $A$, $B$, and $C$ be types.
     \ProofBox{\cref{properties-of-multiplication-commutativity}: Commutativity}%
     Omitted.
 \end{Proof}
-\section{More Inductive Types}\label{section-more-inductive-types}
+\section{Constructions With Types}\label{section-constructions-with-types}
 \subsection{The Unit Type}\label{subsection-the-unit-type}
 \begin{definition}{The Unit Type}{the-unit-type}%
     The \index[type-theory]{unit type}\textbf{unit type} is the type $\UnitType$ equipped with a term $\point\oftype\UnitType$ satisfying the following induction principle:
@@ -1946,10 +1946,10 @@ Let $A$ and $B$ be types.
             hold.
     \end{itemize}
 \end{definition}
-\begin{remark}{Explicit Inference Rules for Coproduct Types}{explicit-inference-rules-for-the-coproduct-types}%
+\begin{remark}{Explicit Inference Rules for Coproduct Types}{explicit-inference-rules-for-coproduct-types}%
     Coproduct types have the following inference rules:
     \begin{enumerate}
-        \item\label{explicit-inference-rules-for-the-coproduct-types-formation}\SloganFont{Formation. }We have
+        \item\label{explicit-inference-rules-for-coproduct-types-formation}\SloganFont{Formation. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -1958,7 +1958,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{explicit-inference-rules-for-the-coproduct-types-introduction-1}\SloganFont{Introduction \rmI. }We have
+        \item\label{explicit-inference-rules-for-coproduct-types-introduction-1}\SloganFont{Introduction \rmI. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -1967,7 +1967,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{explicit-inference-rules-for-the-coproduct-types-introduction-2}\SloganFont{Introduction \rmII. }We have
+        \item\label{explicit-inference-rules-for-coproduct-types-introduction-2}\SloganFont{Introduction \rmII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma}{A\type}}%
@@ -1976,7 +1976,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{explicit-inference-rules-for-the-coproduct-types-induction}\SloganFont{Induction. }We have
+        \item\label{explicit-inference-rules-for-coproduct-types-induction}\SloganFont{Induction. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A+B}{P(x)\type}}%
@@ -1984,7 +1984,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{explicit-inference-rules-for-the-coproduct-types-computation-1}\SloganFont{Computation \rmI. }We have
+        \item\label{explicit-inference-rules-for-coproduct-types-computation-1}\SloganFont{Computation \rmI. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A+B}{P(x)\type}}%
@@ -1994,7 +1994,7 @@ Let $A$ and $B$ be types.
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
-        \item\label{explicit-inference-rules-for-the-coproduct-types-computation-2}\SloganFont{Computation \rmII. }We have
+        \item\label{explicit-inference-rules-for-coproduct-types-computation-2}\SloganFont{Computation \rmII. }We have
             \begin{webprooftree}%
                 \begin{prooftree}%
                     \hypo{\context{\Gamma,\,x\oftype A+B}{P(x)\type}}%
@@ -2031,7 +2031,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
     The \index[type-theory]{dependent pair type}\textbf{dependent pair type}%
     %--- Begin Footnote ---%
     \footnote{%
-        Also called the \index[type-theory]{Sigma-type@$\Sigma$-type}\textbf{$\Sigma$-type} of $B(x)$ over $A$.
+        Also called the \index[type-theory]{Σ-type}\textbf{Σ-type} of $B(x)$ over $A$.
         \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
@@ -2039,18 +2039,18 @@ Let $A$ be a type and let $B$ be a type family over $A$.
     \[
         \pair%
         \oftype%
-        \prod_{x\oftype A}\left(B(x)\to\sum_{y\oftype A}B(y)\right)%
+        \left(\prod_{x\oftype A}B(x)\right)\to\left(\sum_{y\oftype A}B(y)\right)%
     \]%
     satisfying the following induction principle:
     \begin{itemize}
         \itemstar Given a family of types $P(x)$ indexed by $p\oftype\sum_{x\oftype A}B(x)$, there exists a function
-            \[
+            \begin{webcompile}
                 \ind_{\Sigma}%
                 \oftype%
                 \left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)%
                 \to%
-                \left(\prod_{z\oftype\sum_{x\oftype A}B(x)}P(z)\right)%
-            \]%
+                \left(\prod_{\displaystyle{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)\right)%
+            \end{webcompile}
             satisfying the computation rule
             \[
                 \ind_{\Sigma}(f,\pair(x,y))%
@@ -2059,10 +2059,54 @@ Let $A$ be a type and let $B$ be a type family over $A$.
             \]%
     \end{itemize}
 \end{definition}
-\begin{definition}{Projection Functions for $\Sigma$-Types}{projection-functions-for-sigma-types}%
+\begin{remark}{Explicit Inference Rules for Dependent Pair Types}{explicit-inference-rules-for-dependent-pair-types}%
+    Dependent pair types have the following inference rules:
+    \begin{enumerate}
+        \item\label{explicit-inference-rules-for-dependent-pair-types-formation}\SloganFont{Formation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
+                    \infer2[(Σ-form)]{\context{\Gamma}{\displaystyle\sum_{x\oftype A}B(x)\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-dependent-pair-types-introduction}\SloganFont{Introduction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
+                    \infer2[(Σ-intro)]{\context{\Gamma}{\displaystyle\pair\oftype\left(\prod_{x\oftype A}B(x)\right)\to\left(\sum_{y\oftype A}B(y)\right)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-dependent-pair-types-induction}\SloganFont{Induction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
+                    \hypo{\context{\displaystyle\Gamma,\,z\oftype\sum_{x\oftype A}B(x)}{P(z)\type}}%
+                    \infer3[(Σ-ind)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(\pair(x,y))\right)\to\left(\prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)\right)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-dependent-pair-types-computation}\SloganFont{Computation. }We have
+            \begin{scalewebprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma,\,x\oftype A}{B(x)\type}}%
+                    \hypo{\context{\displaystyle\Gamma,\,z\oftype\sum_{x\oftype A}B(x)}{P(z)\type}}%
+                    \hypo{\context{\Gamma}{\displaystyle f\oftype\prod_{\scalebox{0.7}{$z\oftype\sum_{x\oftype A}B(x)$}}P(z)}}%
+                    \infer4[(Σ-comp)]{\context{\Gamma}{\displaystyle\ind_{\Sigma}(f,\pair(x,y))\doteq f(x,y)\oftype\prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)}}%
+                \end{prooftree}%
+                .%
+            \end{scalewebprooftree}%
+    \end{enumerate}
+\end{remark}
+\begin{definition}{Projection Functions for Σ-Types}{projection-functions-for-sigma-types}%
     Let $A$ be a type and let $B$ be a type family over $A$.
     \begin{enumerate}
-        \item\label{projection-functions-for-sigma-types-the-first-projection-map}The \index[type-theory]{Sigma-type@$\Sigma$-type@first projection map}\textbf{first projection map} is the function
+        \item\label{projection-functions-for-sigma-types-the-first-projection-map}The \index[type-theory]{Σ-type!first projection map}\textbf{first projection map} is the function
             \[
                 \pr_{1}%
                 \oftype%
@@ -2076,11 +2120,154 @@ Let $A$ be a type and let $B$ be a type family over $A$.
                 \defeq%
                 x.%
             \]%
-        \item\label{projection-functions-for-sigma-types-the-second-projection-map}The \index[type-theory]{Sigma-type@$\Sigma$-type@second projection map}\textbf{second projection map} is the dependent function
+        \item\label{projection-functions-for-sigma-types-the-second-projection-map}The \index[type-theory]{Σ-type!second projection map}\textbf{second projection map} is the dependent function
+            \begin{webcompile}
+                \pr_{2}%
+                \oftype%
+                \prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}B(\pr_{1}(z))%
+            \end{webcompile}
+            defined via induction by
+            \[
+                \pr_{2}(x,y)%
+                \defeq%
+                y.%
+            \]%
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Σ-Types}{properties-of-sigma-types}%
+    Let $A$ be a type, let $B$ be a type family over $A$, and let $P$ be a type family over $B$.
+    \begin{enumerate}
+        \item\label{properties-of-sigma-types-currying}\SloganFont{Currying. }There exists a function\index[type-theory]{currying}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                The function $\evpair$ forms a converse to the induction principle for Σ-types, which is thus also called \index[type-theory]{uncurrying}\textbf{uncurrying}.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \begin{webcompile}
+                \evpair%
+                \oftype%
+                \left(\prod_{\scalebox{0.7}{$\displaystyle z\oftype\sum_{x\oftype A}B(x)$}}P(z)\right)
+                \to
+                \left(\prod_{x\oftype A}\prod_{y\oftype B(x)}P(x,y)\right).%
+            \end{webcompile}
+            defined by
+            \[
+                \evpair(f)%
+                \defeq%
+                \llbracket x\mapsto\llbracket y\mapsto f(\pair(x,y))\rrbracket\rrbracket.%
+            \]%
+        %\item\label{properties-of-sigma-types-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-sigma-types}}%
+    \FirstProofBox{\cref{properties-of-sigma-types-currying}: Currying}%
+    There is nothing to prove.
+\end{Proof}
+\subsection{Product Types}\label{subsection-product-types}
+Let $A$ and $B$ be types.
+\begin{definition}{Product Types}{product-types}%
+    The \index[type-theory]{product type}\textbf{product type of $A$ and $B$} is the type \index[notation]{AtimesB@$A\times B$}$A\times B$ defined by
+    \[
+        A\times B%
+        \defeq%
+        \sum_{x\oftype A}B.%
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{product-types}}{unwinding-product-types}%
+    In detail, product types $A\times B$ come with a term
+    \[
+        \pair%
+        \oftype%
+        (A\to B)%
+        \to%
+        A\times B%
+    \]%
+    satisfying the following induction principle:
+    \begin{itemize}
+        \itemstar Given a family of types $P(z)$ indexed by $z\oftype A\times B$, there exists a function
+            \[
+                \ind_{\mathord{\times}}%
+                \oftype%
+                \left(\prod_{x\oftype A}\prod_{y\oftype B}P(x,y)\right)%
+                \to%
+                \left(\prod_{z\oftype A\times B}P(z)\right)%
+            \]%
+            satisfying the computation rule
+            \[
+                \ind_{\mathord{\times}}(f,\pair(x,y))%
+                \doteq%
+                f(x,y).
+            \]%
+    \end{itemize}
+\end{remark}
+\begin{remark}{Explicit Inference Rules for Product Types}{explicit-inference-rules-for-product-types}%
+    Product types have the following inference rules:
+    \begin{enumerate}
+        \item\label{explicit-inference-rules-for-product-types-formation}\SloganFont{Formation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \infer2[(×-form)]{\context{\Gamma}{A\times B\type}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-product-types-introduction}\SloganFont{Introduction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \infer2[(×-intro)]{\context{\Gamma}{\displaystyle\pair\oftype(A\to B)\to A\times B}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-product-types-induction}\SloganFont{Induction. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \hypo{\context{\Gamma,\,z\oftype A\times B}{P(z)\type}}%
+                    \infer3[(×-ind)]{\context{\Gamma}{\displaystyle\ind_{\mathord{\times}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}P(x,y)\right)\to\left(\prod_{z\oftype A\times B}P(z)\right)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+        \item\label{explicit-inference-rules-for-product-types-computation}\SloganFont{Computation. }We have
+            \begin{webprooftree}%
+                \begin{prooftree}%
+                    \hypo{\context{\Gamma}{A\type}}%
+                    \hypo{\context{\Gamma}{B\type}}%
+                    \hypo{\context{\Gamma,\,z\oftype A\times B}{P(z)\type}}%
+                    \infer3[(×-comp)]{\context{\Gamma}{\displaystyle\ind_{\times}(f,\pair(x,y))\doteq f(x,y)\oftype\prod_{z\oftype A\times B}P(z)}}%
+                \end{prooftree}%
+                .%
+            \end{webprooftree}%
+    \end{enumerate}
+\end{remark}
+\begin{definition}{Projection Functions for Product Types}{projection-functions-for-product-types}%
+    Let $A$ be a type and let $B$ be a type family over $A$.
+    \begin{enumerate}
+        \item\label{projection-functions-for-product-types-the-first-projection-map}The \index[type-theory]{product type!first projection map}\textbf{first projection map} is the function
+            \[
+                \pr_{1}%
+                \oftype%
+                A\times B
+                \to%
+                A%
+            \]%
+            defined via induction by
+            \[
+                \pr_{1}(x,y)%
+                \defeq%
+                x.%
+            \]%
+        \item\label{projection-functions-for-product-types-the-second-projection-map}The \index[type-theory]{product type!second projection map}\textbf{second projection map} is the dependent function
             \[
                 \pr_{2}%
                 \oftype%
-                \prod_{p\oftype\sum_{x\oftype A}B(x)}B(\pr_{1}(p))%
+                A\times B
+                \to%
+                B%
             \]%
             defined via induction by
             \[
@@ -2090,7 +2277,36 @@ Let $A$ be a type and let $B$ be a type family over $A$.
             \]%
     \end{enumerate}
 \end{definition}
-\section{Constructions With Types}\label{section-constructions-with-types}
+\begin{proposition}{Properties of Product Types}{properties-of-product-types}%
+    Let $A$ be a type, let $B$ be a type family over $A$, and let $P$ be a type family over $B$.
+    \begin{enumerate}
+        \item\label{properties-of-product-types-currying}\SloganFont{Currying. }There exists a function\index[type-theory]{currying}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                The function $\evpair_{\times}$ forms a converse to the induction principle for product types, which is thus also called \index[type-theory]{uncurrying}\textbf{uncurrying}.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[%
+                \evpair_{\times}%
+                \oftype%
+                (A\times B\to C)
+                \to
+                (A\to(B\to C))
+            \]%
+            defined by
+            \[
+                \evpair_{\times}(f)%
+                \defeq%
+                \llbracket x\mapsto\llbracket y\mapsto f(\pair(x,y))\rrbracket\rrbracket.%
+            \]%
+        %\item\label{properties-of-sigma-types-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-sigma-types}}%
+    \FirstProofBox{\cref{properties-of-sigma-types-currying}: Currying}%
+    There is nothing to prove.
+\end{Proof}
 \subsection{The Negation of a Type}\label{subsection-the-negation-of-a-type}
 Let $A$ be a type.
 \begin{definition}{The Negation of a Type}{the-negation-of-a-type}%
@@ -2298,7 +2514,7 @@ Let $A$ be a type and let $a\oftype A$.
         \item\label{properties-of-identity-types-left-unitality}\SloganFont{Left Unitality. }We have a dependent function
             \[
                 \leftunit%
-                \colon%
+                \oftype%
                 \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}\refl_{y}\ccirc p\equals_{x\equals_{A}y}p%
             \]%
             taking a term $p\oftype x\equals_{A}y$ and producing a term
@@ -2312,7 +2528,7 @@ Let $A$ be a type and let $a\oftype A$.
         \item\label{properties-of-identity-types-right-unitality}\SloganFont{Right Unitality. }We have a dependent function
             \[
                 \rightunit%
-                \colon%
+                \oftype%
                 \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc\refl_{x}\equals_{x\equals_{A}y}p%
             \]%
             taking a term $p\oftype x\equals_{A}y$ and producing a term
@@ -2623,7 +2839,7 @@ Let $A$ be a type and let $a\oftype A$.
     This finishes the construction of $\rightinv$.
 \end{Proof}
 \subsection{The Action on Identification of Functions}\label{the-action-on-identification-of-functions}
-Let $f\colon A\to B$ be a function.
+Let $f\oftype A\to B$ be a function.
 \begin{definition}{The Action on Identification of Functions}{action-on-identification-of-functions}%
     The \index[type-theory]{action on identification of functions}\textbf{action on identifications}%
     %--- Begin Footnote ---%
@@ -2646,7 +2862,7 @@ Let $f\colon A\to B$ be a function.
     \]%
 \end{definition}
 \begin{proposition}{Properties of the Action on Identification of Functions}{properties-of-the-action-on-identification-of-functions}%
-    Let $f\colon A\to B$ and $g\colon B\to C$ be function.
+    Let $f\oftype A\to B$ and $g\oftype B\to C$ be functions.
     \begin{enumerate}
         \item\label{properties-of-the-action-on-identification-of-functions-interaction-with-identities}\SloganFont{Interaction With Identities. }There exists a dependent function
             \[
@@ -2767,7 +2983,7 @@ Let $A$ be a type and let $B$ be a type family indexed over $x\oftype A$.
     \]
 \end{definition}
 \subsection{The Action on Identification of Dependent Functions}\label{the-action-on-identification-of-dependent-functions}
-Let $f\colon\prod_{x\oftype A}B(x)$ be a dependent function.
+Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
 \begin{definition}{The Action on Identification of Dependent Functions}{action-on-identification-of-dependent-functions}%
     The \index[type-theory]{action on identification of dependent functions}\textbf{action on identifications}%
     %--- Begin Footnote ---%

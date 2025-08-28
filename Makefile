@@ -6,6 +6,7 @@
 # This should be in order.
 LIJST = introduction \
         a-guide-to-the-literature \
+        conventions \
         axiomatic-set-theory \
         type-theory \
         sets \

@@ -590,12 +590,12 @@ Let $X$ be a set.%
     \ProofBox{\cref{elementary-properties-of-powersets-powersets-as-sets-of-relations}: Powersets as Sets of Relations}%
     Indeed, we have
     \begin{align*}
-        \Rel(\pt,X) &\defeq \mathcal{P}(\pt\times X)\\
+        \Rel(\pt,X) &\eqdef \mathcal{P}(\pt\times X)\\
                     &\cong  \mathcal{P}(X)
     \end{align*}
     and
     \begin{align*}
-        \Rel(X,\pt) &\defeq \mathcal{P}(X\times\pt)\\
+        \Rel(X,\pt) &\eqdef \mathcal{P}(X\times\pt)\\
                     &\cong  \mathcal{P}(X),
     \end{align*}
     where we have used \cref{properties-of-products-of-sets-unitality} of  \cref{properties-of-products-of-sets}.
@@ -772,7 +772,7 @@ Let $X$ be a set.%
     \end{webcompile}%
     witnessed by a bijection
     \[
-        \underbrace{\Sets^{\op}(\mathcal{P}(X),Y)}_{\defeq\mkern5mu\Sets(Y,\mathcal{P}(X))}
+        \underbrace{\Sets^{\op}(\mathcal{P}(X),Y)}_{\eqdef\mkern5mu\Sets(Y,\mathcal{P}(X))}
         \cong
         \Sets(X,\mathcal{P}(Y)),
     \]%
@@ -781,7 +781,7 @@ Let $X$ be a set.%
 \begin{Proof}{Proof of \cref{adjointness-of-powersets-1}}%
     We have
     \begin{palign}
-        $\Sets^{\op}(\mathcal{P}(A),B)$ & $\mathord{\defeq}$ & $\Sets(B,\mathcal{P}(A))$  & \\
+        $\Sets^{\op}(\mathcal{P}(A),B)$ & $\mathord{\eqdef}$ & $\Sets(B,\mathcal{P}(A))$  & \\
                                         & $\mathord{\cong}$  & $\Sets(B,\Sets(A,\TTV))$   & {\small(by \cref{properties-of-characteristic-functions-of-subsets-bijectivity} of \cref{properties-of-characteristic-functions-of-subsets})}\\
                                         & $\mathord{\cong}$  & $\Sets(A\times B,\TTV)$    & {\small(by \cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets})}\\
                                         & $\mathord{\cong}$  & $\Sets(A,\Sets(B,\TTV))$   & {\small(by \cref{properties-of-products-of-sets-adjointness-1} of \cref{properties-of-products-of-sets})}\\
@@ -960,10 +960,10 @@ Let $X$ be a set.
                 \item We have used \cref{the-yoneda-lemma-for-sets} for the second equality.
                 \item We have used \cref{TODO12} for the third equality.
                 \item The symbol $\bigvee$ denotes the join in $(Y,\preceq)$.
-                \item The symbol $\odot$ denotes the tensor of an element of $Y$ by a truth value as in \cref{TODO13}. In particular, we have
+                \item The symbol $\odot$ denotes the tensor of an element of $Y$ by a truth value as in \cref{TODO13}. Thus, we have
                     \begin{align*}
-                        \true\odot f(x)  &\defeq f(x),\\
-                        \false\odot f(x) &\defeq \BottomElement_{Y},
+                        \true\odot f(x)  &= f(x),\\
+                        \false\odot f(x) &= \BottomElement_{Y},
                     \end{align*}
                     where $\BottomElement_{Y}$ is the bottom element of $(Y,\preceq)$.
             \end{itemize}
@@ -1034,9 +1034,9 @@ Let $X$ be a set.
     \]%
     We have
     \begin{align*}
-        [\Psi_{X,Y}\circ\Phi_{X,Y}](f) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(f))\\%
-                                       &\defeq \Psi_{X,Y}(f\circ\chi_{X})\\%
-                                       &\defeq \Lan_{\chi_{X}}(f\circ\chi_{X})\\%
+        [\Psi_{X,Y}\circ\Phi_{X,Y}](f) &\eqdef \Psi_{X,Y}(\Phi_{X,Y}(f))\\%
+                                       &\eqdef \Psi_{X,Y}(f\circ\chi_{X})\\%
+                                       &\eqdef \Lan_{\chi_{X}}(f\circ\chi_{X})\\%
     \end{align*}
     for each $f\in\SupLat((\mathcal{P}(X),\subset),(Y,\preceq))$. We now claim that
     \[
@@ -1068,9 +1068,9 @@ Let $X$ be a set.
     \]%
     We have
     \begin{align*}
-        [\Phi_{X,Y}\circ\Psi_{X,Y}](f) &\defeq  \Phi_{X,Y}(\Psi_{X,Y}(f))\\%
-                                       &\defeq  \Phi_{X,Y}(\Lan_{\chi_{X}}(f))\\%
-                                       &\defeq  \Lan_{\chi_{X}}(f)\circ\chi_{X}%
+        [\Phi_{X,Y}\circ\Psi_{X,Y}](f) &\eqdef \Phi_{X,Y}(\Psi_{X,Y}(f))\\%
+                                       &\eqdef \Phi_{X,Y}(\Lan_{\chi_{X}}(f))\\%
+                                       &\eqdef \Lan_{\chi_{X}}(f)\circ\chi_{X}%
     \end{align*}
     for each $f\in\Sets(X,Y)$. We now claim that
     \[
@@ -1110,17 +1110,17 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{!}(f)^{*}(\xi))\\
-                                                     &\defeq  \Phi_{X,Y}(\xi\circ f_{!})\\
-                                                     &\defeq  (\xi\circ f_{!})\circ\chi_{X}\\
+        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\eqdef  \Phi_{X,Y}(\mathcal{P}_{!}(f)^{*}(\xi))\\
+                                                     &\eqdef  \Phi_{X,Y}(\xi\circ f_{!})\\
+                                                     &\eqdef  (\xi\circ f_{!})\circ\chi_{X}\\
                                                      &=       \xi\circ(f_{!}\circ\chi_{X})\\
                                                      &\eqstar \xi\circ(\chi_{X'}\circ f)\\
                                                      &=       (\xi\circ\chi_{X'})\circ f\\
-                                                     &\defeq  \Phi_{X',Y}(\xi)\circ f\\
-                                                     &\defeq  f^{*}(\Phi_{X',Y}(\xi))\\
-                                                     &\defeq  [f^{*}\circ\Phi_{X',Y}](\xi),
+                                                     &\eqdef  \Phi_{X',Y}(\xi)\circ f\\
+                                                     &\eqdef  f^{*}(\Phi_{X',Y}(\xi))\\
+                                                     &\eqdef  [f^{*}\circ\Phi_{X',Y}](\xi),
     \end{align*}
-    for each $\xi\in\SupLat((\mathcal{P}(X'),\subset),(Y,\preceq))$, where we have used \cref{properties-of-characteristic-embeddings-interaction-with-functions} of \cref{properties-of-characteristic-embeddings} for the fifth equality above.
+    for each $\xi\in\SupLat((\mathcal{P}(X'),\subset),(Y,\preceq))$, where we have used \cref{properties-of-characteristic-embeddings-interaction-with-functions} of \cref{properties-of-characteristic-embeddings} for the fifth equality above (the one marked with $\dagger$).
 
     \ProofBox{Naturality for $\Phi$, Part \rmII}%
     We need to show that, given a morphism of suplattices
@@ -1149,13 +1149,13 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{!}(\xi))\\
-                                      &\defeq \Phi_{X,Y'}(g\circ\xi)\\
-                                      &\defeq (g\circ\xi)\circ\chi_{X}\\
+        [\Phi_{X,Y'}\circ g_{!}](\xi) &\eqdef \Phi_{X,Y'}(g_{!}(\xi))\\
+                                      &\eqdef \Phi_{X,Y'}(g\circ\xi)\\
+                                      &\eqdef (g\circ\xi)\circ\chi_{X}\\
                                       &=      g\circ(\xi\circ\chi_{X})\\
-                                      &\defeq g\circ(\Phi_{X,Y}(\xi))\\
-                                      &\defeq g_{!}(\Phi_{X,Y}(\xi))\\
-                                      &\defeq [g_{!}\circ\Phi_{X,Y}](\xi).
+                                      &\eqdef g\circ(\Phi_{X,Y}(\xi))\\
+                                      &\eqdef g_{!}(\Phi_{X,Y}(\xi))\\
+                                      &\eqdef [g_{!}\circ\Phi_{X,Y}](\xi).
     \end{align*}
     for each $\xi\in\SupLat((\mathcal{P}(X),\subset),(Y,\preceq))$.
 
@@ -1290,10 +1290,10 @@ Let $X$ be a set.
                 \item We have used \cref{the-yoneda-lemma-for-sets} for the second equality.
                 \item We have used \cref{TODO16} for the third equality.
                 \item The symbol $\bigwedge$ denotes the meet in $(Y,\preceq)$.
-                \item The symbol $\pitchfork$ denotes the cotensor of an element of $Y$ by a truth value as in \cref{TODO17}. In particular, we have
+                \item The symbol $\pitchfork$ denotes the cotensor of an element of $Y$ by a truth value as in \cref{TODO17}. Thus, we have
                     \begin{align*}
-                        \true\pitchfork f(x)  &\defeq f(x),\\
-                        \false\pitchfork f(x) &\defeq \TopElement_{Y},
+                        \true\pitchfork f(x)  &= f(x),\\
+                        \false\pitchfork f(x) &= \TopElement_{Y},
                     \end{align*}
                     where $\TopElement_{Y}$ is the top element of $(Y,\preceq)$.
             \end{itemize}
@@ -1364,9 +1364,9 @@ Let $X$ be a set.
     \]%
     We have
     \begin{align*}
-        [\Psi_{X,Y}\circ\Phi_{X,Y}](f) &\defeq \Psi_{X,Y}(\Phi_{X,Y}(f))\\%
-                                       &\defeq \Psi_{X,Y}(f\circ\chi_{X})\\%
-                                       &\defeq \Ran_{\chi_{X}}(f\circ\chi_{X})\\%
+        [\Psi_{X,Y}\circ\Phi_{X,Y}](f) &\eqdef \Psi_{X,Y}(\Phi_{X,Y}(f))\\%
+                                       &\eqdef \Psi_{X,Y}(f\circ\chi_{X})\\%
+                                       &\eqdef \Ran_{\chi_{X}}(f\circ\chi_{X})\\%
     \end{align*}
     for each $f\in\InfLat((\mathcal{P}(X),\supset),(Y,\preceq))$. We now claim that
     \[
@@ -1398,9 +1398,9 @@ Let $X$ be a set.
     \]%
     We have
     \begin{align*}
-        [\Phi_{X,Y}\circ\Psi_{X,Y}](f) &\defeq  \Phi_{X,Y}(\Psi_{X,Y}(f))\\%
-                                       &\defeq  \Phi_{X,Y}(\Ran_{\chi_{X}}(f))\\%
-                                       &\defeq  \Ran_{\chi_{X}}(f)\circ\chi_{X}%
+        [\Phi_{X,Y}\circ\Psi_{X,Y}](f) &\eqdef  \Phi_{X,Y}(\Psi_{X,Y}(f))\\%
+                                       &\eqdef  \Phi_{X,Y}(\Ran_{\chi_{X}}(f))\\%
+                                       &\eqdef  \Ran_{\chi_{X}}(f)\circ\chi_{X}%
     \end{align*}
     for each $f\in\Sets(X,Y)$. We now claim that
     \[
@@ -1440,17 +1440,17 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\defeq  \Phi_{X,Y}(\mathcal{P}_{!}(f)^{*}(\xi))\\
-                                                     &\defeq  \Phi_{X,Y}(\xi\circ f_{!})\\
-                                                     &\defeq  (\xi\circ f_{!})\circ\chi_{X}\\
+        [\Phi_{X,Y}\circ\mathcal{P}_{!}(f)^{*}](\xi) &\eqdef  \Phi_{X,Y}(\mathcal{P}_{!}(f)^{*}(\xi))\\
+                                                     &\eqdef  \Phi_{X,Y}(\xi\circ f_{!})\\
+                                                     &\eqdef  (\xi\circ f_{!})\circ\chi_{X}\\
                                                      &=       \xi\circ(f_{!}\circ\chi_{X})\\
                                                      &\eqstar \xi\circ(\chi_{X'}\circ f)\\
                                                      &=       (\xi\circ\chi_{X'})\circ f\\
-                                                     &\defeq  \Phi_{X',Y}(\xi)\circ f\\
-                                                     &\defeq  f^{*}(\Phi_{X',Y}(\xi))\\
-                                                     &\defeq  [f^{*}\circ\Phi_{X',Y}](\xi),
+                                                     &\eqdef  \Phi_{X',Y}(\xi)\circ f\\
+                                                     &\eqdef  f^{*}(\Phi_{X',Y}(\xi))\\
+                                                     &\eqdef  [f^{*}\circ\Phi_{X',Y}](\xi),
     \end{align*}
-    for each $\xi\in\InfLat((\mathcal{P}(X'),\supset),(Y,\preceq))$, where we have used \cref{properties-of-characteristic-embeddings-interaction-with-functions} of \cref{properties-of-characteristic-embeddings} for the fifth equality above.
+    for each $\xi\in\InfLat((\mathcal{P}(X'),\supset),(Y,\preceq))$, where we have used \cref{properties-of-characteristic-embeddings-interaction-with-functions} of \cref{properties-of-characteristic-embeddings} for the fifth equality above (the one marked with $\dagger$).
 
     \ProofBox{Naturality for $\Phi$, Part \rmII}%
     We need to show that, given a cocontinuous morphism of posets
@@ -1479,13 +1479,13 @@ Let $X$ be a set.
     \]%
     commutes. Indeed, we have
     \begin{align*}
-        [\Phi_{X,Y'}\circ g_{!}](\xi) &\defeq \Phi_{X,Y'}(g_{!}(\xi))\\
-                                      &\defeq \Phi_{X,Y'}(g\circ\xi)\\
-                                      &\defeq (g\circ\xi)\circ\chi_{X}\\
+        [\Phi_{X,Y'}\circ g_{!}](\xi) &\eqdef \Phi_{X,Y'}(g_{!}(\xi))\\
+                                      &\eqdef \Phi_{X,Y'}(g\circ\xi)\\
+                                      &\eqdef (g\circ\xi)\circ\chi_{X}\\
                                       &=      g\circ(\xi\circ\chi_{X})\\
-                                      &\defeq g\circ(\Phi_{X,Y}(\xi))\\
-                                      &\defeq g_{!}(\Phi_{X,Y}(\xi))\\
-                                      &\defeq [g_{!}\circ\Phi_{X,Y}](\xi).
+                                      &\eqdef g\circ(\Phi_{X,Y}(\xi))\\
+                                      &\eqdef g_{!}(\Phi_{X,Y}(\xi))\\
+                                      &\eqdef [g_{!}\circ\Phi_{X,Y}](\xi).
     \end{align*}
     for each $\xi\in\InfLat((\mathcal{P}(X),\supset),(Y,\preceq))$.
 
@@ -1516,10 +1516,10 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \FirstProofBox{Proof of the Equality $U^{\sfc}\cup V=(U\setminus V)^{\sfc}$}%
     We have
     \begin{align*}
-        (U\setminus V)^{\sfc} &\defeq X\setminus(U\setminus V)\\%
+        (U\setminus V)^{\sfc} &\eqdef X\setminus(U\setminus V)\\%
                               &=      (X\cap V)\cup(X\setminus U)\\%
                               &=      V\cup(X\setminus U)\\%
-                              &\defeq V\cup U^{\sfc}\\%
+                              &\eqdef V\cup U^{\sfc}\\%
                               &=      U^{\sfc}\cup V,%
     \end{align*}
     where we have used:
@@ -1603,7 +1603,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \]%
             defined by
             \begin{align*}
-                D_{X} &\defeq [-,\emptyset]_{X}\\%
+                D_{X} &\eqdef [-,\emptyset]_{X}\\%
                       &=      (-)^{\sfc}%
             \end{align*}
             is an involutory isomorphism of categories, making $\emptyset$ into a dualising object for $(\mathcal{P}(X),\cap,X,[-,-]_{X})$ in the sense of \cref{TODO19}. In particular:
@@ -1624,7 +1624,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        \underbrace{D_{X}(D_{X}(U))}_{\defeq[[U,\emptyset]_{X},\emptyset]_{X}}%
+                        \underbrace{D_{X}(D_{X}(U))}_{\eqdef[[U,\emptyset]_{X},\emptyset]_{X}}%
                         =%
                         U%
                     \]%
@@ -1653,7 +1653,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        \underbrace{D_{X}(U\cap D_{X}(V))}_{\defeq[U\cap[V,\emptyset]_{X},\emptyset]_{X}}%
+                        \underbrace{D_{X}(U\cap D_{X}(V))}_{\eqdef[U\cap[V,\emptyset]_{X},\emptyset]_{X}}%
                         =%
                         [U,V]_{X}%
                     \]%
@@ -2018,9 +2018,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \begin{enumerate}
         \item\label{proof-of-properties-of-internal-homs-of-powersets-1}\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-1}: }We have
             \begin{align*}
-                [A,V]_{X} &\defeq  A^{\sfc}\cup V\\
+                [A,V]_{X} &\eqdef  A^{\sfc}\cup V\\
                           &\subset U^{\sfc}\cup V\\
-                          &\defeq [U,V]_{X},
+                          &\eqdef [U,V]_{X},
             \end{align*}
             where we have used:
             \begin{enumerate}
@@ -2029,9 +2029,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
             \end{enumerate}
         \item\label{proof-of-properties-of-internal-homs-of-powersets-2}\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-2}: }We have
             \begin{align*}
-                [U,V]_{X} &\defeq  U^{\sfc}\cup V\\
+                [U,V]_{X} &\eqdef  U^{\sfc}\cup V\\
                           &\subset U^{\sfc}\cup B\\
-                          &\defeq [U,B]_{X},
+                          &\eqdef [U,B]_{X},
             \end{align*}
             where we have used \cref{properties-of-binary-unions-functoriality-2} of \cref{properties-of-binary-unions-functoriality} of \cref{properties-of-complements}, which states that if $V\subset B$, then $K\cup V\subset K\cup B$ for any $K\in\mathcal{P}(X)$.
         \item\label{proof-of-properties-of-internal-homs-of-powersets-3}\SloganFont{Proof of \cref{properties-of-internal-homs-of-powersets-functoriality-3}: }We have
@@ -2049,13 +2049,13 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-1}: Interaction With the Empty Set \rmI}%
     We have
     \begin{align*}
-        [U,\emptyset]_{X} &\defeq U^{\sfc}\cup\emptyset\\
+        [U,\emptyset]_{X} &\eqdef U^{\sfc}\cup\emptyset\\
                           &=      U^{\sfc},
     \end{align*}
     where we have used \cref{properties-of-binary-unions-unitality} of \cref{properties-of-binary-unions}, and we have
     \begin{align*}
-        [\emptyset,V]_{X} &\defeq \emptyset^{\sfc}\cup V\\
-                          &\defeq (X\setminus\emptyset)\cup V\\
+        [\emptyset,V]_{X} &\eqdef \emptyset^{\sfc}\cup V\\
+                          &\eqdef (X\setminus\emptyset)\cup V\\
                           &=      X\cup V\\
                           &=      X,
     \end{align*}
@@ -2069,13 +2069,13 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-x}: Interaction With $X$}%
     We have
     \begin{align*}
-        [U,X]_{X} &\defeq U^{\sfc}\cup X\\
+        [U,X]_{X} &\eqdef U^{\sfc}\cup X\\
                   &=      X,
     \end{align*}
     where we have used \cref{properties-of-binary-unions-annihilation-with-x} of \cref{properties-of-binary-unions}, and we have
     \begin{align*}
-        [X,V]_{X} &\defeq X^{\sfc}\cup V\\
-                  &\defeq (X\setminus X)\cup V\\
+        [X,V]_{X} &\eqdef X^{\sfc}\cup V\\
+                  &\eqdef (X\setminus X)\cup V\\
                   &=      \emptyset\cup V\\
                   &=      V,
     \end{align*}
@@ -2084,7 +2084,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2}: Interaction With the Empty Set \rmII}%
     We have
     \begin{align*}
-        D_{X}(D_{X}(U)) &\defeq [[U,\emptyset]_{X},\emptyset]_{X}\\
+        D_{X}(D_{X}(U)) &\eqdef [[U,\emptyset]_{X},\emptyset]_{X}\\
                         &= [U^{\sfc},\emptyset]_{X}\\
                         &= (U^{\sfc})^{\sfc}\\
                         &= U,
@@ -2116,10 +2116,10 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-unions-of-families-of-subsets-2}: Interaction With Unions of Families of Subsets \rmII}%
     We have
     \begin{align*}
-        \left[\bigcup_{U\in\mathcal{U}}U,V\right]_{X} &\defeq \left(\bigcup_{U\in\mathcal{U}}U\right)^{\sfc}\cup V\\
+        \left[\bigcup_{U\in\mathcal{U}}U,V\right]_{X} &\eqdef \left(\bigcup_{U\in\mathcal{U}}U\right)^{\sfc}\cup V\\
                                                       &=      \left(\bigcap_{U\in\mathcal{U}}U^{\sfc}\right)\cup V\\
                                                       &=      \bigcap_{U\in\mathcal{U}}(U^{\sfc}\cup V)\\
-                                                      &\defeq \bigcap_{U\in\mathcal{U}}[U,V]_{X},%
+                                                      &\eqdef \bigcap_{U\in\mathcal{U}}[U,V]_{X},%
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2131,9 +2131,9 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-unions-of-families-of-subsets-3}: Interaction With Unions of Families of Subsets \rmIII}%
     We have
     \begin{align*}
-        \bigcup_{V\in\mathcal{V}}[U,V]_{X} &\defeq \bigcup_{V\in\mathcal{V}}(U^{\sfc}\cup V)\\
+        \bigcup_{V\in\mathcal{V}}[U,V]_{X} &\eqdef \bigcup_{V\in\mathcal{V}}(U^{\sfc}\cup V)\\
                                            &=      U^{\sfc}\cup\left(\bigcup_{V\in\mathcal{V}}V\right)\\
-                                           &\defeq \left[U,\bigcup_{V\in\mathcal{V}}V\right]_{X}.
+                                           &\eqdef \left[U,\bigcup_{V\in\mathcal{V}}V\right]_{X}.
     \end{align*}
     where we have used \cref{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}. This finishes the proof.
 
@@ -2163,10 +2163,10 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-intersections-of-families-of-subsets-2}: Interaction With Intersections of Families of Subsets \rmII}%
     We have
     \begin{align*}
-        \left[\bigcap_{U\in\mathcal{U}}U,V\right]_{X} &\defeq \left(\bigcap_{U\in\mathcal{U}}U\right)^{\sfc}\cup V\\
+        \left[\bigcap_{U\in\mathcal{U}}U,V\right]_{X} &\eqdef \left(\bigcap_{U\in\mathcal{U}}U\right)^{\sfc}\cup V\\
                                                       &=      \left(\bigcup_{U\in\mathcal{U}}U^{\sfc}\right)\cup V\\
                                                       &=      \bigcup_{U\in\mathcal{U}}(U^{\sfc}\cup V)\\
-                                                      &\defeq \bigcup_{U\in\mathcal{U}}[U,V]_{X},%
+                                                      &\eqdef \bigcup_{U\in\mathcal{U}}[U,V]_{X},%
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2178,20 +2178,20 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-intersections-of-families-of-subsets-3}: Interaction With Intersections of Families of Subsets \rmIII}%
     We have
     \begin{align*}
-        \bigcap_{V\in\mathcal{V}}[U,V]_{X} &\defeq \bigcap_{V\in\mathcal{V}}(U^{\sfc}\cup V)\\
+        \bigcap_{V\in\mathcal{V}}[U,V]_{X} &\eqdef \bigcap_{V\in\mathcal{V}}(U^{\sfc}\cup V)\\
                                            &=      U^{\sfc}\cup\left(\bigcap_{V\in\mathcal{V}}V\right)\\
-                                           &\defeq \left[U,\bigcap_{V\in\mathcal{V}}V\right]_{X}.
+                                           &\eqdef \left[U,\bigcap_{V\in\mathcal{V}}V\right]_{X}.
     \end{align*}
     where we have used \cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-2}. This finishes the proof.
 
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-binary-unions}: Interaction With Binary Unions}%
     We have
     \begin{align*}
-        [U\cap V,W]_{X} &\defeq (U\cap V)^{\sfc}\cup W\\
+        [U\cap V,W]_{X} &\eqdef (U\cap V)^{\sfc}\cup W\\
                         &=      (U^{\sfc}\cup V^{\sfc})\cup W\\
                         &=      (U^{\sfc}\cup V^{\sfc})\cup(W\cup W)\\
                         &=      (U^{\sfc}\cup W)\cup(V^{\sfc}\cup W)\\
-                        &\defeq [U,W]_{X}\cup[V,W]_{X},
+                        &\eqdef [U,W]_{X}\cup[V,W]_{X},
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2201,19 +2201,19 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{enumerate}
     For the second equality in the statement, we have
     \begin{align*}
-        [U,V\cap W]_{X} &\defeq U^{\sfc}\cup(V\cap W)\\
+        [U,V\cap W]_{X} &\eqdef U^{\sfc}\cup(V\cap W)\\
                         &=      (U^{\sfc}\cup V)\cap(U^{\sfc}\cap W)\\
-                        &\defeq [U,V]_{X}\cap[U,W]_{X},
+                        &\eqdef [U,V]_{X}\cap[U,W]_{X},
     \end{align*}
     where we have used \cref{properties-of-binary-unions-distributivity-of-unions-over-intersections} of \cref{properties-of-binary-unions} for the second equality.
 
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-binary-intersections}: Interaction With Binary Intersections}%
     We have
     \begin{align*}
-        [U\cup V,W]_{X} &\defeq (U\cup V)^{\sfc}\cup W\\
+        [U\cup V,W]_{X} &\eqdef (U\cup V)^{\sfc}\cup W\\
                         &=      (U^{\sfc}\cap V^{\sfc})\cup W\\
                         &=      (U^{\sfc}\cup W)\cap(V^{\sfc}\cup W)\\
-                        &\defeq [U,W]_{X}\cap[V,W]_{X},
+                        &\eqdef [U,W]_{X}\cap[V,W]_{X},
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2222,10 +2222,10 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{enumerate}
     Now, for the second equality in the statement, we have
     \begin{align*}
-        [U,V\cup W]_{X} &\defeq U^{\sfc}\cup(V\cup W)\\
+        [U,V\cup W]_{X} &\eqdef U^{\sfc}\cup(V\cup W)\\
                         &=      (U^{\sfc}\cup U^{\sfc})\cup(V\cup W)\\
                         &=      (U^{\sfc}\cup V)\cup(U^{\sfc}\cup W)\\
-                        &\defeq [U,V]_{X}\cup[U,W]_{X},
+                        &\eqdef [U,V]_{X}\cup[U,W]_{X},
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2237,14 +2237,14 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-differences}: Interaction With Differences}%
     We have
     \begin{align*}
-        [U\setminus V,W]_{X} &\defeq (U\setminus V)^{\sfc}\cup W\\
-                             &\defeq (X\setminus(U\setminus V))\cup W\\
+        [U\setminus V,W]_{X} &\eqdef (U\setminus V)^{\sfc}\cup W\\
+                             &\eqdef (X\setminus(U\setminus V))\cup W\\
                              &=      ((X\cap V)\cup(X\setminus U))\cup W\\
                              &=      (V\cup(X\setminus U))\cup W\\
-                             &\defeq (V\cup U^{\sfc})\cup W\\
+                             &\eqdef (V\cup U^{\sfc})\cup W\\
                              &=      (V\cup(U^{\sfc}\cup U^{\sfc}))\cup W\\
                              &=      (U^{\sfc}\cup W)\cup(U^{\sfc}\cup V)\\
-                             &\defeq [U,W]_{X}\cup[U,V]_{X},
+                             &\eqdef [U,W]_{X}\cup[U,V]_{X},
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2255,15 +2255,15 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{enumerate}
     We also have
     \begin{align*}
-        [U\setminus V,W]_{X} &\defeq (U\setminus V)^{\sfc}\cup W\\
-                             &\defeq (X\setminus(U\setminus V))\cup W\\
+        [U\setminus V,W]_{X} &\eqdef (U\setminus V)^{\sfc}\cup W\\
+                             &\eqdef (X\setminus(U\setminus V))\cup W\\
                              &=      ((X\cap V)\cup(X\setminus U))\cup W\\
                              &=      (V\cup(X\setminus U))\cup W\\
-                             &\defeq (V\cup U^{\sfc})\cup W\\
+                             &\eqdef (V\cup U^{\sfc})\cup W\\
                              &=      (V\cup U^{\sfc})\cup(W\cup W)\\
                              &=      (U^{\sfc}\cup W)\cup(V\cup W)\\
                              &=      (U^{\sfc}\cup W)\cup((V^{\sfc})^{\sfc}\cup W)\\
-                             &\defeq [U,W]_{X}\cup[V^{\sfc},W]_{X},
+                             &\eqdef [U,W]_{X}\cup[V^{\sfc},W]_{X},
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2275,15 +2275,15 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \end{enumerate}
     Now, for the second equality in the statement, we have
     \begin{align*}
-        [U,V\setminus W]_{X} &\defeq U^{\sfc}\cup(V\setminus W)\\
+        [U,V\setminus W]_{X} &\eqdef U^{\sfc}\cup(V\setminus W)\\
                              &=      (V\setminus W)\cup U^{\sfc}\\
                              &=      (V\cup U^{\sfc})\setminus(W\setminus U^{\sfc})\\
-                             &\defeq (V\cup U^{\sfc})\setminus(W\setminus(X\setminus U))\\
+                             &\eqdef (V\cup U^{\sfc})\setminus(W\setminus(X\setminus U))\\
                              &=      (V\cup U^{\sfc})\setminus((W\cap U)\cup(W\setminus X))\\
                              &=      (V\cup U^{\sfc})\setminus((W\cap U)\cup\emptyset)\\
                              &=      (V\cup U^{\sfc})\setminus(W\cap U)\\
                              &=      (V\cup U^{\sfc})\setminus(U\cap W)\\
-                             &\defeq [U,V]_{X}\setminus(U\cap W)
+                             &\eqdef [U,V]_{X}\setminus(U\cap W)
     \end{align*}
     where we have used:
     \begin{enumerate}
@@ -2299,12 +2299,12 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-complements}: Interaction With Complements}%
     We have
     \begin{align*}
-        [U^{\sfc},V]_{X} &\defeq (U^{\sfc})^{\sfc}\cup V,\\
+        [U^{\sfc},V]_{X} &\eqdef (U^{\sfc})^{\sfc}\cup V,\\
                          &=      U\cup V,
     \end{align*}
     where we have used \cref{properties-of-complements-involutority} of \cref{properties-of-complements}. We also have
     \begin{align*}
-        [U,V^{\sfc}]_{X} &\defeq U^{\sfc}\cup V^{\sfc}\\
+        [U,V^{\sfc}]_{X} &\eqdef U^{\sfc}\cup V^{\sfc}\\
                          &=      U\cap V\\
     \end{align*}
     where we have used \cref{properties-of-complements-de-morgan-s-laws} of \cref{properties-of-complements}. Finally, we have
@@ -2317,7 +2317,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-internal-homs-of-powersets-interaction-with-characteristic-functions}: Interaction With Characteristic Functions}%
     We have
     \begin{align*}
-        \chi_{[U,V]_{\mathcal{P}(X)}}(x) &\defeq \chi_{U^{\sfc}\cup V}(x)\\
+        \chi_{[U,V]_{\mathcal{P}(X)}}(x) &\eqdef \chi_{U^{\sfc}\cup V}(x)\\
                                          &=      \max(\chi_{U^{\sfc}},\chi_{V})\\
                                          &=      \max(1-\chi_{U}\mmod{2},\chi_{V}),
     \end{align*}
@@ -2418,9 +2418,9 @@ Let $X$ be a set.
 \begin{Proof}{Proof of \cref{isbell-duality-for-sets}}%
     We have
     \begin{align*}
-        \IsbellI_{!}(\IsbellI(U)) &\defeq \IsbellI_{!}(\llbracket x\mapsto U^{\sfc}\cup\{x\}\rrbracket)\\
-                                  &\defeq \llbracket x\mapsto\IsbellI(U^{\sfc}\cup\{x\})\rrbracket\\
-                                  &\defeq \llbracket x\mapsto\llbracket y\mapsto(U^{\sfc}\cup\{x\})^{\sfc}\cup\{x\}\rrbracket\rrbracket\\
+        \IsbellI_{!}(\IsbellI(U)) &\eqdef \IsbellI_{!}(\llbracket x\mapsto U^{\sfc}\cup\{x\}\rrbracket)\\
+                                  &\eqdef \llbracket x\mapsto\IsbellI(U^{\sfc}\cup\{x\})\rrbracket\\
+                                  &\eqdef \llbracket x\mapsto\llbracket y\mapsto(U^{\sfc}\cup\{x\})^{\sfc}\cup\{x\}\rrbracket\rrbracket\\
                                   &=      \llbracket x\mapsto\llbracket y\mapsto(U\cap(X\setminus\{x\}))\cup\{x\}\rrbracket\rrbracket\\
                                   &=      \llbracket x\mapsto\llbracket y\mapsto(U\setminus\{x\})\cup\{x\}\rrbracket\rrbracket\\
                                   &=      \llbracket x\mapsto\llbracket y\mapsto U\rrbracket\rrbracket,
@@ -3070,7 +3070,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-associativity}: Associativity}%
     We have
     \begin{align*}
-        \bigcup_{U\in{\scriptsize\displaystyle\bigcup_{A\in\mathcal{A}}A}}U &\defeq \{%
+        \bigcup_{U\in{\scriptsize\displaystyle\bigcup_{A\in\mathcal{A}}A}}U &\eqdef \{%
                                                                                         x\in X%
                                                                                         \ \middle|\ %
                                                                                         \begin{aligned}
@@ -3095,14 +3095,14 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                                             &\text{such that we have $x\in\bigcup_{U\in A}U$}
                                                                                         \end{aligned}
                                                                                     \}\\
-                                                                            &\defeq \bigcup_{A\in\mathcal{A}}\left(\bigcup_{U\in A}U\right).
+                                                                            &\eqdef \bigcup_{A\in\mathcal{A}}\left(\bigcup_{U\in A}U\right).
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-left-unitality}: Left Unitality}%
     We have
     \begin{align*}
-        \bigcup_{V\in\{U\}}V &\defeq \{%
+        \bigcup_{V\in\{U\}}V &\eqdef \{%
                                          x\in X%
                                          \ \middle|\ %
                                          \begin{aligned}
@@ -3122,7 +3122,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-right-unitality}: Right Unitality}%
     We have
     \begin{align*}
-        \bigcup_{\{u\}\in\chi_{X}(U)}\{u\} &\defeq \{%
+        \bigcup_{\{u\}\in\chi_{X}(U)}\{u\} &\eqdef \{%
                                                        x\in X%
                                                        \ \middle|\ %
                                                        \begin{aligned}
@@ -3158,7 +3158,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-unions-1}: Interaction With Unions \rmI}%
     We have
     \begin{align*}
-        \bigcup_{W\in\mathcal{U}\cup\mathcal{V}}W &\defeq \{
+        \bigcup_{W\in\mathcal{U}\cup\mathcal{V}}W &\eqdef \{
                                                               x\in X%
                                                               \ \middle|\ %
                                                               \begin{aligned}
@@ -3174,7 +3174,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                   &\text{$W\in\mathcal{V}$ such that we have $x\in W$}
                                                               \end{aligned}
                                                           \}\\%
-                                                  &\defeq \{
+                                                  &\eqdef \{
                                                               x\in X%
                                                               \ \middle|\ %
                                                               \begin{aligned}
@@ -3191,16 +3191,15 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                   &\text{such that we have $x\in W$}
                                                               \end{aligned}
                                                           \}\\%
-                                                  &\defeq \left(\bigcup_{W\in\mathcal{U}}W\right)\cup\left(\bigcup_{W\in\mathcal{V}}W\right)\\
+                                                  &\eqdef \left(\bigcup_{W\in\mathcal{U}}W\right)\cup\left(\bigcup_{W\in\mathcal{V}}W\right)\\
                                                   &=      \left(\bigcup_{U\in\mathcal{U}}U\right)\cup\left(\bigcup_{V\in\mathcal{V}}V\right).
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-unions-2}: Interaction With Unions \rmII}%
-      Assume $\mathcal V$ is nonempty.
-      We have
+    Assume $\mathcal V$ is nonempty. We have
     \begin{align*}
-        U \cup \bigcup_{V\in\mathcal{V}}V &\defeq \{
+        U \cup \bigcup_{V\in\mathcal{V}}V &\eqdef \{
                                                               x\in X%
                                                               \ \middle|\ %
                                                               \begin{aligned}
@@ -3231,20 +3230,19 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                   &\text{such that $x \in U \cup V$}
                                                               \end{aligned}
                                                     \}\\
-                                                   &\defeq \bigcup_{V\in\mathcal{V}} U \cup V.
+                                                   &\eqdef \bigcup_{V\in\mathcal{V}} U \cup V.
     \end{align*}
-    This concludes the proof of the first statement.
-    For the second statement, use \cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} to rewrite
+    This concludes the proof of the first statement. For the second statement, we use \cref{properties-of-binary-unions-commutativity} of \cref{properties-of-binary-unions} to rewrite
     \begin{align*}
-      \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= V \cup \left(\bigcup_{U\in\mathcal{U}}U\right),\\
-      \bigcup_{U\in\mathcal{U}}(U\cup V) &= \bigcup_{U\in\mathcal{U}}(V\cup U).
+        \left(\bigcup_{U\in\mathcal{U}}U\right)\cup V &= V\cup\left(\bigcup_{U\in\mathcal{U}}U\right),\\
+        \bigcup_{U\in\mathcal{U}}(U\cup V)            &= \bigcup_{U\in\mathcal{U}}(V\cup U).
     \end{align*}
-    But these two sets are equal by the first statement.
+    These two sets are then equal by the first statement.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-1}: Interaction With Intersections \rmI}%
     We have
     \begin{align*}
-        \bigcup_{W\in\mathcal{U}\cap\mathcal{V}}W &\defeq  \{%
+        \bigcup_{W\in\mathcal{U}\cap\mathcal{V}}W &\eqdef  \{%
                                                                x\in X%
                                                                \ \middle|\ %
                                                                \begin{aligned}
@@ -3277,53 +3275,52 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                   &\text{such that we have $x\in V$}
                                                               \end{aligned}
                                                           \}\\%
-                                                  &\defeq \left(\bigcup_{U\in\mathcal{U}}U\right)\cap\left(\bigcup_{V\in\mathcal{V}}V\right).%
+                                                  &\eqdef \left(\bigcup_{U\in\mathcal{U}}U\right)\cap\left(\bigcup_{V\in\mathcal{V}}V\right).%
     \end{align*}
     This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-2}: Interaction With Intersections \rmII}%
     We have
-        \begin{align*}
-        U \cap \bigcup_{V\in\mathcal{V}}V &\defeq \{
-                                                              x\in X%
-                                                              \ \middle|\ %
-                                                              \begin{aligned}
-                                                                  &\text{$x \in U$ and $x \in \bigcup_{V\in\mathcal{V}}V$}
-                                                              \end{aligned}
-                                                          \}\\%
-                                                  &=      \{
-                                                              x\in X%
-                                                              \ \middle|\ %
-                                                              \begin{aligned}
-                                                                  &\text{$x \in U$ and there exists some}\\
-                                                                  &\text{$V\in\mathcal{V}$ such that $x\in V$}
-                                                              \end{aligned}
-                                                          \}\\%
-                                                  &= \{
-                                                              x\in X%
-                                                              \ \middle|\ %
-                                                              \begin{aligned}
-                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
-                                                                  &\text{such that $x \in U$ and $x\in V$}
-                                                              \end{aligned}
-                                                          \}\\%
-                                                  &= \{
-                                                              x\in X%
-                                                              \ \middle|\ %
-                                                              \begin{aligned}
-                                                                  &\text{there exists some $V\in\mathcal{V}$}\\
-                                                                  &\text{such that $x \in U \cap V$}
-                                                              \end{aligned}
-                                                    \}\\
-                                                   &\defeq \bigcup_{V\in\mathcal{V}} U \cap V.
-        \end{align*}
-    This concludes the proof of the first statement.
-    For the second statement, use \cref{properties-of-binary-intersections-commutativity} of \cref{properties-of-binary-intersections} to rewrite
     \begin{align*}
-      \left(\bigcup_{U\in\mathcal{U}}U\right)\cap V &= V \cap \left(\bigcup_{U\in\mathcal{U}}U\right),\\
-      \bigcup_{U\in\mathcal{U}}(U\cap V) &= \bigcup_{U\in\mathcal{U}}(V\cap U).
+        U\cap\bigcup_{V\in\mathcal{V}}V &\eqdef \{
+                                                    x\in X%
+                                                    \ \middle|\ %
+                                                    \begin{aligned}
+                                                        &\text{$x \in U$ and $x \in \bigcup_{V\in\mathcal{V}}V$}
+                                                    \end{aligned}
+                                                \}\\%
+                                        &=      \{
+                                                    x\in X%
+                                                    \ \middle|\ %
+                                                    \begin{aligned}
+                                                        &\text{$x \in U$ and there exists some}\\
+                                                        &\text{$V\in\mathcal{V}$ such that $x\in V$}
+                                                    \end{aligned}
+                                                \}\\%
+                                        &=      \{
+                                                    x\in X%
+                                                    \ \middle|\ %
+                                                    \begin{aligned}
+                                                        &\text{there exists some $V\in\mathcal{V}$}\\
+                                                        &\text{such that $x \in U$ and $x\in V$}
+                                                    \end{aligned}
+                                                \}\\%
+                                        &=      \{
+                                                    x\in X%
+                                                    \ \middle|\ %
+                                                    \begin{aligned}
+                                                        &\text{there exists some $V\in\mathcal{V}$}\\
+                                                        &\text{such that $x \in U \cap V$}
+                                                    \end{aligned}
+                                                \}\\
+                                        &\eqdef \bigcup_{V\in\mathcal{V}} U \cap V.
+        \end{align*}
+    This concludes the proof of the first statement. For the second statement, we use \cref{properties-of-binary-intersections-commutativity} of \cref{properties-of-binary-intersections} to rewrite
+    \begin{align*}
+        \left(\bigcup_{U\in\mathcal{U}}U\right)\cap V &= V \cap \left(\bigcup_{U\in\mathcal{U}}U\right),\\
+        \bigcup_{U\in\mathcal{U}}(U\cap V)            &= \bigcup_{U\in\mathcal{U}}(V\cap U).
     \end{align*}
-    But these two sets are equal by the first statement.
+    These two sets are then equal by the first statement.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-differences}: Interaction With Differences}%
     Let $X=\{0,1\}$, let $\mathcal{U}=\{\{0,1\}\}$, and let $\mathcal{V}=\{\{0\}\}$. We have
@@ -3374,39 +3371,39 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2}: Interaction With Complements \rmII}%
     We have
     \begin{align*}
-      \left( \bigcup_{U \in \mathcal U} U \right)^{\sfc} &\defeq \{%
-            x\in X%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{there exists no $U\in\mathcal{U}$}\\%
-                &\text{such that we have $x\in U$}%
-            \end{aligned}
-                                                      \}
-          \\ &= \{%
-            x\in X%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for all $U\in\mathcal{U}$}\\%
-                &\text{we have $x\nin U$}%
-            \end{aligned}
-               \}
-          \\ &\defeq \{%
-            x\in X%
-            \ \middle|\ %
-            \begin{aligned}
-                &\text{for all $U\in\mathcal{U}$}\\%
-                &\text{we have $x\in U^{\sfc}$}%
-            \end{aligned}
-                                                      \}
-        \\ &\defeq \bigcap_{U \in \mathcal U} U^{\sfc}.
+        \left(\bigcup_{U\in\mathcal U}U\right)^{\sfc} &\eqdef \{%
+                                                                  x\in X%
+                                                                  \ \middle|\ %
+                                                                  \begin{aligned}
+                                                                      &\text{there exists no $U\in\mathcal{U}$}\\%
+                                                                      &\text{such that we have $x\in U$}%
+                                                                  \end{aligned}
+                                                              \}\\
+                                                      &=      \{%
+                                                                  x\in X%
+                                                                  \ \middle|\ %
+                                                                  \begin{aligned}
+                                                                      &\text{for all $U\in\mathcal{U}$}\\%
+                                                                      &\text{we have $x\nin U$}%
+                                                                  \end{aligned}
+                                                              \}\\
+                                                      &\eqdef \{%
+                                                                  x\in X%
+                                                                  \ \middle|\ %
+                                                                  \begin{aligned}
+                                                                      &\text{for all $U\in\mathcal{U}$}\\%
+                                                                      &\text{we have $x\in U^{\sfc}$}%
+                                                                  \end{aligned}
+                                                              \}\\
+                                                      &\eqde\eqdefcap_{U\in\mathcal U}U^{\sfc}.
     \end{align*}
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3}: Interaction With Complements \rmIII}%
     By \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} \cref{properties-of-complements-involutority} of \cref{properties-of-complements}, we have
     \begin{align*}
         \left( \bigcap_{U \in \mathcal U} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal U} (U^{\sfc})^{\sfc} \right)^{\sfc}\\
-        &= \left(\left( \bigcup_{U \in \mathcal U} U^{\sfc} \right)^{\sfc}\right)^{\sfc}\\
-        &= \bigcup_{U \in \mathcal U} U^{\sfc}.
+                                                           &= \left(\left( \bigcup_{U \in \mathcal U} U^{\sfc} \right)^{\sfc}\right)^{\sfc}\\
+                                                           &= \bigcup_{U \in \mathcal U} U^{\sfc}.
     \end{align*}
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%
@@ -3453,7 +3450,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-intersections-of-families-1}: Interaction With Intersections of Families \rmI}%
     We have
     \begin{align*}
-        \bigcap_{U\in{\scriptsize\displaystyle\bigcup_{A\in\mathcal{A}}A}}U &\defeq \{%
+        \bigcap_{U\in{\scriptsize\displaystyle\bigcup_{A\in\mathcal{A}}A}}U &\eqdef \{%
                                                                                         x\in X%
                                                                                         \ \middle|\ %
                                                                                         \begin{aligned}
@@ -3469,7 +3466,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                                             &\text{$U\in A$, we have $x\in U$}
                                                                                         \end{aligned}
                                                                                     \}\\%
-                                                                            &\defeq \bigcap_{A\in\mathcal{A}}\left(\bigcap_{U\in A}U\right).%
+                                                                            &\eqdef \bigcap_{A\in\mathcal{A}}\left(\bigcap_{U\in A}U\right).%
     \end{align*}
     This finishes the proof.
 
@@ -4130,7 +4127,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-oplax-associativity}: Oplax Associativity}%
     We have
     \begin{align*}
-        \bigcap_{A\in\mathcal{A}}\left(\bigcap_{U\in A}U\right) &\defeq  \{%
+        \bigcap_{A\in\mathcal{A}}\left(\bigcap_{U\in A}U\right) &\eqdef  \{%
                                                                              x\in X%
                                                                              \ \middle|\ %
                                                                              \begin{aligned}
@@ -4138,7 +4135,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                                  &\text{we have $x\in\bigcap_{U\in A}U$}
                                                                              \end{aligned}
                                                                          \}\\
-                                                                &\defeq  \{%
+                                                                &\eqdef  \{%
                                                                              x\in X%
                                                                              \ \middle|\ %
                                                                              \begin{aligned}
@@ -4162,14 +4159,14 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                                  &\text{we have $x\in U$}
                                                                              \end{aligned}
                                                                          \}\\
-                                                                &\defeq  \bigcap_{U\in{\scriptsize\displaystyle\bigcap_{A\in\mathcal{A}}A}}U.
+                                                                &\eqdef  \bigcap_{U\in{\scriptsize\displaystyle\bigcap_{A\in\mathcal{A}}A}}U.
     \end{align*}
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
     \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-left-unitality}: Left Unitality}%
     We have
     \begin{align*}
-        \bigcap_{V\in\{U\}}V &\defeq \{%
+        \bigcap_{V\in\{U\}}V &\eqdef \{%
                                          x\in X%
                                          \ \middle|\ %
                                          \begin{aligned}
@@ -4197,7 +4194,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
         \item\label{proof-of-properties-of-intersections-of-families-of-subsets-oplax-right-unitality-1}If $U$ is a singleton, say $U=\{u\}$, we have
             \begin{align*}
                 \bigcap_{\{u\}\in\chi_{X}(U)}\{u\} &=      \{u\}\\%
-                                                   &\defeq U.%
+                                                   &\eqdef U.%
             \end{align*}
         \item\label{proof-of-properties-of-intersections-of-families-of-subsets-oplax-right-unitality-2}If $U$ contains at least two elements, we have
             \begin{align*}
@@ -4210,7 +4207,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-interaction-with-unions-1}: Interaction With Unions \rmI}%
     We have
     \begin{align*}
-        \bigcap_{W\in\mathcal{U}\cup\mathcal{V}}W &\defeq \{
+        \bigcap_{W\in\mathcal{U}\cup\mathcal{V}}W &\eqdef \{
                                                               x\in X%
                                                               \ \middle|\ %
                                                               \begin{aligned}
@@ -4226,7 +4223,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                   &\text{$W\in\mathcal{V}$, we have $x\in W$}
                                                               \end{aligned}
                                                           \}\\%
-                                                  &\defeq \{
+                                                  &\eqdef \{
                                                               x\in X%
                                                               \ \middle|\ %
                                                               \begin{aligned}
@@ -4243,7 +4240,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                   &\text{we have $x\in W$}
                                                               \end{aligned}
                                                           \}\\%
-                                                          &\defeq \left(\bigcap_{W\in\mathcal{U}}W\right)\cap\left(\bigcap_{W\in\mathcal{V}}W\right)\\
+                                                          &\eqdef \left(\bigcap_{W\in\mathcal{U}}W\right)\cap\left(\bigcap_{W\in\mathcal{V}}W\right)\\
                                                           &=      \left(\bigcap_{U\in\mathcal{U}}U\right)\cap\left(\bigcap_{V\in\mathcal{V}}V\right).
     \end{align*}
     This finishes the proof.
@@ -4254,7 +4251,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-intersections-of-families-of-subsets-interaction-with-intersections-1}: Interaction With Intersections \rmI}%
     We have
     \begin{align*}
-        \left(\bigcap_{U\in\mathcal{U}}U\right)\cap\left(\bigcap_{V\in\mathcal{V}}V\right) &\defeq  \{%
+        \left(\bigcap_{U\in\mathcal{U}}U\right)\cap\left(\bigcap_{V\in\mathcal{V}}V\right) &\eqdef  \{%
                                                                                                         x\in X%
                                                                                                         \ \middle|\ %
                                                                                                         \begin{aligned}
@@ -4287,7 +4284,7 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
                                                                                                             &\text{we have $x\in W$}
                                                                                                         \end{aligned}
                                                                                                     \}\\%
-                                                                                           &\defeq \bigcap_{W\in\mathcal{U}\cap\mathcal{V}}W.%
+                                                                                           &\eqdef \bigcap_{W\in\mathcal{U}\cap\mathcal{V}}W.%
     \end{align*}
     Since $\mathcal{P}(X)$ is posetal, naturality is automatic (\ChapterRef{\ChapterCategories, \cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}{\cref{categories:properties-of-posetal-categories-automatic-commutativity-of-diagrams} of \cref{categories:properties-of-posetal-categories}}). This finishes the proof.
 
@@ -4399,7 +4396,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     The \index[set-theory]{union}\textbf{union of $U$ and $V$} is the set \index[notation]{UunionV@$U\cup V$}$U\cup V$ defined by
     \begin{align*}
         U\cup V &\defeq \bigcup_{z\in\{U,V\}}z\\
-                &\defeq \{x\in X\ \middle|\ \text{$x\in U$ or $x\in V$}\}.
+                &\eqdef \{x\in X\ \middle|\ \text{$x\in U$ or $x\in V$}\}.
     \end{align*}
 \end{definition}
 \begin{proposition}{Properties of Binary Unions}{properties-of-binary-unions}%
@@ -4866,13 +4863,13 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.
     \ProofBox{\cref{properties-of-binary-unions-annihilation-with-x}: Annihilation With $X$}%
     We have
     \begin{align*}
-        U\cup X &\defeq \{x\in X\ \middle|\ \text{$x\in U$ or $x\in X$}\}\\
+        U\cup X &\eqdef \{x\in X\ \middle|\ \text{$x\in U$ or $x\in X$}\}\\
                 &=      \{x\in X\ \middle|\ x\in X\},\\
                 &=      X
     \end{align*}
     and
     \begin{align*}
-        X\cup V &\defeq \{x\in X\ \middle|\ \text{$x\in X$ or $x\in V$}\}\\
+        X\cup V &\eqdef \{x\in X\ \middle|\ \text{$x\in X$ or $x\in V$}\}\\
                 &=      \{x\in X\ \middle|\ x\in X\}\\
                 &=      X.
     \end{align*}
@@ -4914,7 +4911,7 @@ Let $X$ be a set and let $U,V\in\mathcal{P}(X)$.%
     The \index[set-theory]{binary intersection}\textbf{intersection of $U$ and $V$} is the set \index[notation]{UintersectionV@$U\cap V$}$U\cap V$ defined by
     \begin{align*}
         U\cap V &\defeq \bigcap_{z\in\{U,V\}}z\\
-                &\defeq \{x\in X\ \middle|\ \text{$x\in U$ or $x\in V$}\}.
+                &\eqdef \{x\in X\ \middle|\ \text{$x\in U$ or $x\in V$}\}.
     \end{align*}
 \end{definition}
 \begin{proposition}{Properties of Binary Intersections}{properties-of-binary-intersections}%
@@ -5639,12 +5636,12 @@ Let $X$ and $Y$ be sets.%
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-2}: Interaction With Unions \rmII}%
     We have
     \begin{align*}
-      (U \setminus V) \cup W &\defeq \{x \in X\ \middle|\ \text{($x \in U$ and $x \nin V$) or $x \in W$}\}\\
-                             &=      \{x \in X\ \middle|\ \text{($x \in U$ or $x \in W$) and ($x \nin V$ or $x \in W$)}\}\\
-                             &=      \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V$ and $x \nin W$)}\}\\
-                             &=      \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V \setminus W$)}\}\\
-                             &=      \{x \in X\ \middle|\ \text{($x \in (U \cup W) \setminus (V \setminus W)$)}\}\\
-                             &=      (U \cup W) \setminus (V \setminus W).
+        (U \setminus V) \cup W &\eqdef \{x \in X\ \middle|\ \text{($x \in U$ and $x \nin V$) or $x \in W$}\}\\
+                               &=      \{x \in X\ \middle|\ \text{($x \in U$ or $x \in W$) and ($x \nin V$ or $x \in W$)}\}\\
+                               &=      \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V$ and $x \nin W$)}\}\\
+                               &=      \{x \in X\ \middle|\ \text{($x \in U \cup W$) and not ($x \in V \setminus W$)}\}\\
+                               &=      \{x \in X\ \middle|\ \text{($x \in (U \cup W) \setminus (V \setminus W)$)}\}\\
+                               &=      (U \cup W) \setminus (V \setminus W).
     \end{align*}
 
     \ProofBox{\cref{properties-of-differences-interaction-with-unions-3}: Interaction With Unions \rmIII}%
@@ -5699,7 +5696,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.%
     The \index[set-theory]{complement of a set}\textbf{complement of $U$} is the set \index[notation]{Uc@$U^{\sfc}$}$U^{\sfc}$ defined by
     \begin{align*}
         U^{\sfc} &\defeq X\setminus U\\
-                 &\defeq \{%
+                 &\eqdef \{%
                              a\in X%
                              \ \middle|\ %
                              a\nin U%
@@ -6593,7 +6590,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
             \begin{align*}
                 \Phi(f) &\defeq U_{f}\\
                         &\defeq f^{-1}(\true)\\
-                        &\defeq \{%
+                        &\eqdef \{%
                                     x\in X%
                                     \ \middle|\ %
                                     f(x)=\true%
@@ -6602,12 +6599,12 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
             for each $f\in\Sets(X,\TTV)$.
         \item\label{proof-of-properties-of-characteristic-functions-of-subsets-bijectivity-2}\SloganFont{Invertibility \rmI. }We have
             \begin{align*}
-                [\Phi\circ\chi_{(-)}](U) &\defeq \Phi(\chi_{U})\\
-                                         &\defeq \chi^{-1}_{U}(\true)\\
-                                         &\defeq \{x\in X\ \middle|\ \chi_{U}(x)=\true\}\\
-                                         &\defeq \{x\in X\ \middle|\ x\in U\}\\
+                [\Phi\circ\chi_{(-)}](U) &\eqdef \Phi(\chi_{U})\\
+                                         &\eqdef \chi^{-1}_{U}(\true)\\
+                                         &\eqdef \{x\in X\ \middle|\ \chi_{U}(x)=\true\}\\
+                                         &\eqdef \{x\in X\ \middle|\ x\in U\}\\
                                          &=      U\\
-                                         &\defeq [\id_{\mathcal{P}(X)}](U)
+                                         &\eqdef [\id_{\mathcal{P}(X)}](U)
             \end{align*}
             for each $U\in\mathcal{P}(X)$. Thus, we have
             \[
@@ -6617,12 +6614,12 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
             \]%
         \item\label{proof-of-properties-of-characteristic-functions-of-subsets-bijectivity-3}\SloganFont{Invertibility \rmII. }We have
             \begin{align*}
-                [\chi_{(-)}\circ\Phi](U) &\defeq \chi_{\Phi(f)}\\
-                                         &\defeq \chi_{f^{-1}(\true)}\\
-                                         &\defeq \llbracket x\mapsto\begin{cases}\true &\text{if $x\in f^{-1}(\true)$}\\\false &\text{otherwise}\end{cases}\rrbracket\\
+                [\chi_{(-)}\circ\Phi](U) &\eqdef \chi_{\Phi(f)}\\
+                                         &\eqdef \chi_{f^{-1}(\true)}\\
+                                         &\eqdef \llbracket x\mapsto\begin{cases}\true &\text{if $x\in f^{-1}(\true)$}\\\false &\text{otherwise}\end{cases}\rrbracket\\
                                          &=      \llbracket x\mapsto f(x)\rrbracket\\
                                          &=      f\\
-                                         &\defeq [\id_{\Sets(X,\TTV)}](f)
+                                         &\eqdef [\id_{\Sets(X,\TTV)}](f)
             \end{align*}
             for each $f\in\Sets(X,\TTV)$. Thus, we have
             \[
@@ -6638,7 +6635,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
     \begin{enumerate}
         \item\label{proof-of-properties-of-characteristic-functions-of-subsets-naturality-1}\SloganFont{Naturality of $\chi_{(-)}$. }We have
             \begin{align*}
-                [\chi_{V}\circ f](v) &\defeq \chi_{V}(f(v))\\%
+                [\chi_{V}\circ f](v) &\eqdef \chi_{V}(f(v))\\%
                                      &=      \begin{cases}
                                                  \true  &\text{if $f(v)\in V$,}\\
                                                  \false &\text{otherwise}
@@ -6647,7 +6644,7 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
                                                  \true  &\text{if $v\in f^{-1}(V)$,}\\
                                                  \false &\text{otherwise}
                                              \end{cases}\\
-                                     &\defeq \chi_{f^{-1}(V)}(v)%
+                                     &\eqdef \chi_{f^{-1}(V)}(v)%
             \end{align*}
             for each $v\in V$.
         \item\label{proof-of-properties-of-characteristic-functions-of-subsets-naturality-2}\SloganFont{Naturality of $\Phi$. }Since $\chi_{(-)}$ is natural and a componentwise inverse to $\Phi$, it follows from \ChapterRef{\ChapterCategories, \cref{categories:properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{categories:properties-of-natural-isomorphisms}}{\cref{properties-of-natural-isomorphisms-componentwise-inverses-of-natural-transformations-assemble-into-natural-transformations} of \cref{properties-of-natural-isomorphisms}} that $\Phi$ is also natural in each argument.
@@ -6692,9 +6689,9 @@ Let $X$ be a set and let $U\in\mathcal{P}(X)$.
     \end{itemize}
     may be viewed as the $(-1)$-categorical version of the 0-categorical un/straightening isomorphism between indexed and fibred sets
     \[
-        \underbrace{\FibSets_{X}}_{\defeq\Sets_{/X}}%
+        \underbrace{\FibSets_{X}}_{\eqdef\Sets_{/X}}%
         \cong%
-        \underbrace{\ISets_{X}}_{\defeq\Fun(X_{\disc},\Sets)}%
+        \underbrace{\ISets_{X}}_{\eqdef\Fun(X_{\disc},\Sets)}%
     \]%
     of \ChapterRef{\ChapterUnStraighteningForIndexedAndFibredSets, \cref{un-straightening-for-indexed-and-fibred-sets:theorem-un-straightening-for-indexed-and-fibred-sets}}{\cref{theorem-un-straightening-for-indexed-and-fibred-sets}}. Here we view:
     \begin{itemize}
@@ -6724,10 +6721,10 @@ Let $X$ be a set and let $x\in X$.
         \defeq
         \chi_{\{x\}},%
     \]%
-    i.e.\ by%
+    so we have%
     \[
         \chi_{x}(y)
-        \defeq
+        \eqdef%
         \begin{cases}
             \true  &\text{if $x=y$,}\\
             \false &\text{if $x\neq y$}
@@ -6872,7 +6869,7 @@ Let $X$ be a set.
     %---  End Footnote  ---%
     \begin{align*}
         \chi_{(-)}(x) &\defeq \chi_{x}\\
-                      &=      \{x\}
+                      &\eqdef \{x\}
     \end{align*}
     for each $x\in X$.
 \end{definition}
@@ -6925,11 +6922,11 @@ Let $X$ be a set.
     \FirstProofBox{\cref{properties-of-characteristic-embeddings-interaction-with-functions}: Interaction With Functions}%
     Indeed, we have
     \begin{align*}
-        [f_{!}\circ\chi_{X}](x) &\defeq f_{!}(\chi_{X}(x))\\%
-                                &\defeq f_{!}(\{x\})\\%
+        [f_{!}\circ\chi_{X}](x) &\eqdef f_{!}(\chi_{X}(x))\\%
+                                &\eqdef f_{!}(\{x\})\\%
                                 &=      \{f(x)\}\\%
-                                &\defeq \chi_{X'}(f(x))\\%
-                                &\defeq [\chi_{X'}\circ f](x),%
+                                &\eqdef \chi_{X'}(f(x))\\%
+                                &\eqdef [\chi_{X'}\circ f](x),%
     \end{align*}
     for each $x\in X$, showing the desired equality.
 \end{Proof}
@@ -6961,7 +6958,7 @@ Let $X$ be a set and let $U\subset X$ be a subset of $X$.%
 \begin{Proof}{Proof of \cref{the-yoneda-lemma-for-sets}}%
     We have
     \begin{align*}
-        \chi_{\mathcal{P}(X)}(\chi_{x},\chi_{U}) &\defeq \begin{cases}
+        \chi_{\mathcal{P}(X)}(\chi_{x},\chi_{U}) &\eqdef \begin{cases}
                                                              \true  &\text{if $\{x\}\subset U$,}\\
                                                              \false &\text{otherwise}
                                                          \end{cases}\\
@@ -6969,7 +6966,7 @@ Let $X$ be a set and let $U\subset X$ be a subset of $X$.%
                                                              \true  &\text{if $x\in U$}\\
                                                              \false &\text{otherwise}
                                                          \end{cases}\\
-                                                 &\defeq \chi_{U}(x).
+                                                 &\eqdef \chi_{U}(x).
     \end{align*}
     This finishes the proof.
 \end{Proof}
@@ -6986,7 +6983,7 @@ Let $X$ be a set and let $U\subset X$ be a subset of $X$.%
     We have
     \begin{align*}
         \chi_{\mathcal{P}(X)}(\chi_{x},\chi_{y}) &=      \chi_{y}(x)\\
-                                                 &\defeq \begin{cases}
+                                                 &\eqdef \begin{cases}
                                                              \true  &\text{if $x\in\{y\}$}\\
                                                              \false &\text{otherwise}
                                                          \end{cases}\\
@@ -6994,7 +6991,7 @@ Let $X$ be a set and let $U\subset X$ be a subset of $X$.%
                                                              \true  &\text{if $x=y$}\\
                                                              \false &\text{otherwise}
                                                          \end{cases}\\
-                                                 &\defeq \chi_{X}(x,y).
+                                                 &\eqdef \chi_{X}(x,y).
     \end{align*}
     where we have used \cref{the-yoneda-lemma-for-sets} for the first equality.
 \end{Proof}
@@ -7113,7 +7110,7 @@ Let $f\colon X\to Y$ be a function.
         \to%
         \mathcal{P}(Y)%
     \]%
-    defined by
+    alternatively defined by
     \begin{align*}
         f_{!}(\chi_{U}) &\defeq \Lan_{f}(\chi_{U})\\%
                         &=      \colim((f\comma\underline{(-_{1})})\xlongtwoheadsrightarrow{\pr}A\xlongrightarrow{\chi_{U}}\TTV)\\%
@@ -7498,7 +7495,7 @@ Let $f\colon X\to Y$ be a function.
         \item\label{properties-of-direct-images-i-relation-to-codirect-images}\SloganFont{Relation to Codirect Images. }We have
             \begin{align*}
                 f_{!}(U) &=      f_{*}(U^{\sfc})^{\sfc}\\%
-                         &\defeq Y\setminus f_{*}(X\setminus U)%
+                         &\eqdef Y\setminus f_{*}(X\setminus U)%
             \end{align*}
             for each $U\in\mathcal{P}(X)$.
         %\item\label{properties-of-direct-images-i-}\SloganFont{. }
@@ -7719,7 +7716,7 @@ Let $f\colon X\to Y$ be a function.
         \to%
         \mathcal{P}(X)%
     \]%
-    defined by
+    alternatively defined by
     \[
         f^{*}(\chi_{V})%
         \defeq%
@@ -8266,7 +8263,7 @@ Let $f\colon X\to Y$ be a function.
         We also have
         \begin{align*}
             f_{*}(U) &=      f_{!}(U^{\sfc})^{\sfc}\\%
-                     &\defeq Y\setminus f_{!}(X\setminus U);%
+                     &\eqdef Y\setminus f_{!}(X\setminus U);%
         \end{align*}
         see \cref{properties-of-codirect-images-i-relation-to-direct-images} of \cref{properties-of-codirect-images-i}.
         \par\vspace*{\TCBBoxCorrection}
@@ -8319,7 +8316,7 @@ Let $f\colon X\to Y$ be a function.
         \to%
         \mathcal{P}(Y)%
     \]%
-    defined by
+    alternatively defined by
     \begin{align*}
         f_{*}(\chi_{U}) &\defeq \Ran_{f}(\chi_{U})\\%
                         &=      \lim((\underline{(-_{1})}\comma f)\xlongtwoheadsrightarrow{\pr}X\xlongrightarrow{\chi_{U}}\TV)\\%
@@ -8358,7 +8355,7 @@ Let $f\colon X\to Y$ be a function.
             f_{*}(U) &= f_{*}(U)\cap Y\\
                      &=      f_{*}(U)\cap(\Im(f)\cup(Y\setminus\Im(f)))\\
                      &=      (f_{*}(U)\cap\Im(f))\cup(f_{*}(U)\cap(Y\setminus\Im(f)))\\
-                     &\defeq f^{\rmim}_{*}(U)\cup f^{\rmcp}_{*}(U).
+                     &\eqdef f^{\rmim}_{*}(U)\cup f^{\rmcp}_{*}(U).
         \end{align*}
         for each $U\in\mathcal{P}(X)$.
     }%
@@ -8379,28 +8376,28 @@ Let $f\colon X\to Y$ be a function.
         \item\label{image-and-complement-parts-of-codirect-images-image-part}The \index[set-theory]{function!associated codirect image function, image      part}\textbf{image      part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarimU@$f^{\rmim}_{*}(U)$}$f^{\rmim}_{*}(U)$ defined by
             \begin{align*}
                 f^{\rmim}_{*}(U) &\defeq f_{*}(U)\cap\Im(f)\\
-                               &=      \{%
-                                           y\in Y%
-                                           \ \middle|\ %
-                                           \begin{aligned}%
-                                               &\text{we have $f^{-1}(y)\subset U$}\\
-                                               &\text{and $f^{-1}(y)\neq\emptyset$.}
-                                           \end{aligned}%
-                                       \}.%
+                                 &=      \{%
+                                             y\in Y%
+                                             \ \middle|\ %
+                                             \begin{aligned}%
+                                                 &\text{we have $f^{-1}(y)\subset U$}\\
+                                                 &\text{and $f^{-1}(y)\neq\emptyset$.}
+                                             \end{aligned}%
+                                         \}.%
             \end{align*}
         \item\label{image-and-complement-parts-of-codirect-images-complement-part}The \index[set-theory]{function!associated codirect image function, complement part}\textbf{complement part of the codirect image $f_{*}(U)$ of $U$} is the set \index[notation]{fstarcpU@$f^{\rmcp}_{*}(U)$}$f^{\rmcp}_{*}(U)$ defined by
             \begin{align*}
                 f^{\rmcp}_{*}(U) &\defeq f_{*}(U)\cap(Y\setminus\Im(f))\\
-                               &=      Y\setminus\Im(f)\\
-                               &=      \{%
-                                           y\in Y%
-                                           \ \middle|\ %
-                                           \begin{aligned}%
-                                               &\text{we have $f^{-1}(y)\subset U$}\\
-                                               &\text{and $f^{-1}(y)=\emptyset$.}
-                                           \end{aligned}%
-                                       \}\\%
-                               &=      \{y\in Y\ \middle|\ f^{-1}(y)=\emptyset\}.%
+                                 &=      Y\setminus\Im(f)\\
+                                 &=      \{%
+                                             y\in Y%
+                                             \ \middle|\ %
+                                             \begin{aligned}%
+                                                 &\text{we have $f^{-1}(y)\subset U$}\\
+                                                 &\text{and $f^{-1}(y)=\emptyset$.}
+                                             \end{aligned}%
+                                         \}\\%
+                                 &=      \{y\in Y\ \middle|\ f^{-1}(y)=\emptyset\}.%
             \end{align*}
     \end{enumerate}
 \end{definition}
@@ -8965,7 +8962,7 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{properties-of-codirect-images-i-interaction-with-surjections}: Interaction With Surjections}%
     Indeed, we have
     \begin{align*}
-        f^{\rmcp}_{*}(U) &\defeq Y\setminus\Im(f)\\%
+        f^{\rmcp}_{*}(U) &\eqdef Y\setminus\Im(f)\\%
                          &=      Y\setminus Y\\
                          &=      \emptyset.
     \end{align*}
@@ -9344,7 +9341,7 @@ Let $f\colon X\to Y$ be a function.
             given by
             \begin{align*}
                 D_{X}(U) &\defeq [U,\emptyset]_{X}\\
-                         &\defeq U^{\sfc}
+                         &\eqdef U^{\sfc}
             \end{align*}
             for each $U\in\mathcal{P}(X)$, as in \cref{properties-of-internal-homs-of-powersets-interaction-with-the-empty-set-2} of \cref{properties-of-internal-homs-of-powersets}, satisfying the following conditions:
             \begin{enumerate}
@@ -9390,7 +9387,7 @@ Let $f\colon X\to Y$ be a function.
                     \]%
                     commutes, i.e.\ we have
                     \[
-                        \underbrace{D_{X}(U\cap D_{X}(V))}_{\defeq[U\cap[V,\emptyset]_{X},\emptyset]_{X}}%
+                        \underbrace{D_{X}(U\cap D_{X}(V))}_{\eqdef[U\cap[V,\emptyset]_{X},\emptyset]_{X}}%
                         =%
                         [U,V]_{X}%
                     \]%
@@ -9472,16 +9469,16 @@ Let $f\colon X\to Y$ be a function.
     \FirstProofBox{\cref{a-six-functor-formalism-for-sets-the-beck-chevalley-condition}: The Beck--Chevalley Condition}%
     We have
     \begin{align*}
-        [g^{-1}\circ f_{!}](U) &\defeq g^{-1}(f_{!}(U))\\
-                               &\defeq \{y\in Y\ \middle|\ g(y)\in f_{!}(U)\}\\
+        [g^{-1}\circ f_{!}](U) &\eqdef g^{-1}(f_{!}(U))\\
+                               &\eqdef \{y\in Y\ \middle|\ g(y)\in f_{!}(U)\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some $x\in U$}\\&\text{such that $f(x)=g(y)$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\\&\text{such that $y=y$}\end{aligned}\}\\
                                &=      \{y\in Y\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\}$}\\&\text{such that $\pr_{2}(x,y)=y$}\end{aligned}\}\\
-                               &\defeq (\pr_{2})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\})\\
+                               &\eqdef (\pr_{2})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ x\in U\})\\
                                &=      (\pr_{2})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ \pr_{1}(x,y)\in U\})\\
-                               &\defeq (\pr_{2})_{!}(\pr^{-1}_{1}(U))\\
-                               &\defeq [(\pr_{2})_{!}\circ\pr^{-1}_{1}](U)
+                               &\eqdef (\pr_{2})_{!}(\pr^{-1}_{1}(U))\\
+                               &\eqdef [(\pr_{2})_{!}\circ\pr^{-1}_{1}](U)
     \end{align*}
     for each $U\in\mathcal{P}(X)$. Therefore, we have
     \[
@@ -9491,16 +9488,16 @@ Let $f\colon X\to Y$ be a function.
     \]%
     For the second equality, we have
     \begin{align*}
-        [f^{-1}\circ g_{!}](U) &\defeq f^{-1}(g_{!}(U))\\
-                               &\defeq \{x\in X\ \middle|\ f(x)\in g_{!}(V)\}\\
+        [f^{-1}\circ g_{!}](U) &\eqdef f^{-1}(g_{!}(U))\\
+                               &\eqdef \{x\in X\ \middle|\ f(x)\in g_{!}(V)\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some $y\in V$}\\&\text{such that $f(x)=g(y)$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\\&\text{such that $x=x$}\end{aligned}\}\\
                                &=      \{x\in X\ \middle|\ \begin{aligned}&\text{there exists some}\\&\text{$(x,y)\in\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\}$}\\&\text{such that $\pr_{1}(x,y)=x$}\end{aligned}\}\\
-                               &\defeq (\pr_{1})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\})\\
+                               &\eqdef (\pr_{1})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ y\in V\})\\
                                &=      (\pr_{1})_{!}(\{(x,y)\in X\times_{Z}Y\ \middle|\ \pr_{2}(x,y)\in V\})\\
-                               &\defeq (\pr_{1})_{!}(\pr^{-1}_{2}(V))\\
-                               &\defeq [(\pr_{1})_{!}\circ\pr^{-1}_{2}](V)
+                               &\eqdef (\pr_{1})_{!}(\pr^{-1}_{2}(V))\\
+                               &\eqdef [(\pr_{1})_{!}\circ\pr^{-1}_{2}](V)
     \end{align*}
     for each $V\in\mathcal{P}(Y)$. Therefore, we have
     \[
@@ -9564,13 +9561,13 @@ Let $f\colon X\to Y$ be a function.
     \ProofBox{\cref{a-six-functor-formalism-for-sets-the-external-tensor-product}: The External Tensor Product}%
     We have
     \begin{align*}
-        U\boxtimes_{X\times Y}V &\defeq        \pr^{-1}_{1}(U)\cap\pr^{-1}_{2}(V)\\
-                                &\defeq        \{(x,y)\in X\times Y\ \middle|\ \pr_{1}(x,y)\in U\}\\
+        U\boxtimes_{X\times Y}V &\eqdef        \pr^{-1}_{1}(U)\cap\pr^{-1}_{2}(V)\\
+                                &\eqdef        \{(x,y)\in X\times Y\ \middle|\ \pr_{1}(x,y)\in U\}\\
                                 &\phantom{={}} \mkern4mu\cup\{(x,y)\in X\times Y\ \middle|\ \pr_{2}(x,y)\in V\}\\
                                 &=             \{(x,y)\in X\times Y\ \middle|\ x\in U\}\\
                                 &\phantom{={}} \mkern4mu\cup\{(x,y)\in X\times Y\ \middle|\ y\in V\}\\
                                 &=             \{(x,y)\in X\times Y\ \middle|\ \text{$x\in U$ and $y\in V$}\}\\
-                                &\defeq        U\times V.
+                                &\eqdef        U\times V.
     \end{align*}
     Next, we claim that \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-direct-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-inverse-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-codirect-images,a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals} are indeed true:
     \begin{enumerate}
@@ -9580,7 +9577,7 @@ Let $f\colon X\to Y$ be a function.
         \item\label{proof-of-a-six-functor-formalism-for-sets-the-external-tensor-product-4}\SloganFont{Proof of \cref{a-six-functor-formalism-for-sets-the-external-tensor-product-interaction-with-diagonals}: }We have
             \begin{envsmallsize}
                 \begin{align*}
-                    \Delta^{-1}_{X}(U\boxtimes_{X\times X}V) &\defeq \{x\in X\ \middle|\ (x,x)\in U\boxtimes_{X\times X}V\}\\%
+                    \Delta^{-1}_{X}(U\boxtimes_{X\times X}V) &\eqdef \{x\in X\ \middle|\ (x,x)\in U\boxtimes_{X\times X}V\}\\%
                                                              &=      \{x\in X\ \middle|\ (x,x)\in\{(u,v)\in X\times X\ \middle|\ \text{$u\in U$ and $v\in V$}\}\}\\%
                                                              &=      U\cap V.%
                 \end{align*}
@@ -9912,11 +9909,11 @@ Let $A$ and $B$ be sets.
     \begin{itemize}
         \item\SloganFont{\cref{properties-of-injective-functions-characterisations-12}$\implies$\cref{properties-of-injective-functions-characterisations-13}: }We have
             \begin{align*}
-                [f^{-1}\circ f_{!}](U) &\defeq f^{-1}(f_{!}(U))\\
+                [f^{-1}\circ f_{!}](U) &\eqdef f^{-1}(f_{!}(U))\\
                                        &=      f^{-1}\left(f_{!}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
                                        &=      f^{-1}\left(\bigcup_{u\in U}f_{!}(\{u\})\right)\\
                                        &=      \bigcup_{u\in U}f^{-1}(f_{!}(\{u\}))\\
-                                       &=      \bigcup_{u\in U}f^{-1}(f_{!}(u))\\
+                                       &\eqdef \bigcup_{u\in U}f^{-1}(f_{!}(u))\\
                                        &=      \bigcup_{u\in U}\{u\}\\
                                        &=      U
             \end{align*}
@@ -9993,9 +9990,9 @@ Let $A$ and $B$ be sets.
         \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-a}: }Suppose $f$ and $g$ injective and let $a,a'\in A$ such that $[g\circ f](a)=[g\circ f](a')$. Then $g(f(a)) = g(f(a'))$, so by injectivity of $g$, we have $f(a) = f(a')$, and by injectivity of $f$, we have $a = a'$. Thus $g \circ f$ is injective.
         \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-b}: }Suppose $g\circ f$ is injective and let $a,a'\in A$ such that $f(a) = f(a')$. We have
             \begin{align*}
-                [g\circ f](a) &\defeq g(f(a))\\
+                [g\circ f](a) &\eqdef g(f(a))\\
                               &=      g(f(a'))\\
-                              &\defeq [g\circ f](a'),
+                              &\eqdef [g\circ f](a'),
             \end{align*}
             so by the injectivity of $g\circ f$, we have $a = a'$. Thus $f$ must be injective.
         \item\SloganFont{\cref{properties-of-injective-functions-interaction-with-composition-c}: }Let:
@@ -10014,9 +10011,9 @@ Let $A$ and $B$ be sets.
     \ProofBox{\cref{properties-of-injective-functions-interaction-with-identities}: Interaction With Identities}%
     Let $a,a'\in A$ such that $\id_{A}(a)=\id_{A'}(a')$. We have
     \begin{align*}
-        a &\defeq \id_{A}(a)\\
+        a &\eqdef \id_{A}(a)\\
           &=      \id_{A'}(a')\\
-          &\defeq a'
+          &\eqdef a'
     \end{align*}
     so $\id_{A}$ is injective.
 \end{Proof}
@@ -10341,11 +10338,11 @@ Let $A$ and $B$ be sets.
     \begin{itemize}
         \item\SloganFont{\cref{properties-of-surjective-functions-characterisations-11}$\implies$\cref{properties-of-surjective-functions-characterisations-12}: }We have
             \begin{align*}
-                [f_{!}\circ f^{-1}](U) &\defeq f_{!}(f^{-1}(U))\\
+                [f_{!}\circ f^{-1}](U) &\eqdef f_{!}(f^{-1}(U))\\
                                        &=      f_{!}\left(f^{-1}\left(\bigcup_{u\in U}\{u\}\right)\right)\\
                                        &=      f_{!}\left(\bigcup_{u\in U}f^{-1}(\{u\})\right)\\
                                        &=      \bigcup_{u\in U}f_{!}(f^{-1}(\{u\}))\\
-                                       &=      \bigcup_{u\in U}f_{!}(f^{-1}(u))\\
+                                       &\eqdef \bigcup_{u\in U}f_{!}(f^{-1}(u))\\
                                        &=      \bigcup_{u\in U}\{u\}\\
                                        &=      U
             \end{align*}
