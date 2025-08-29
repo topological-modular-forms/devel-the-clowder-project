@@ -3372,39 +3372,40 @@ Let $X$ be a set and let $\mathcal{U}\in\mathcal{P}(\mathcal{P}(X))$.
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2}: Interaction With Complements \rmII}%
     We have
     \begin{align*}
-        \left(\bigcup_{U\in\mathcal U}U\right)^{\sfc} &\eqdef \{%
-                                                                  x\in X%
-                                                                  \ \middle|\ %
-                                                                  \begin{aligned}
-                                                                      &\text{there exists no $U\in\mathcal{U}$}\\%
-                                                                      &\text{such that we have $x\in U$}%
-                                                                  \end{aligned}
-                                                              \}\\
-                                                      &=      \{%
-                                                                  x\in X%
-                                                                  \ \middle|\ %
-                                                                  \begin{aligned}
-                                                                      &\text{for all $U\in\mathcal{U}$}\\%
-                                                                      &\text{we have $x\nin U$}%
-                                                                  \end{aligned}
-                                                              \}\\
-                                                      &\eqdef \{%
-                                                                  x\in X%
-                                                                  \ \middle|\ %
-                                                                  \begin{aligned}
-                                                                      &\text{for all $U\in\mathcal{U}$}\\%
-                                                                      &\text{we have $x\in U^{\sfc}$}%
-                                                                  \end{aligned}
-                                                              \}\\
-                                                      &\eqde\eqdefcap_{U\in\mathcal U}U^{\sfc}.
+        \left(\bigcup_{U\in\mathcal{U}}U\right)^{\sfc} &\eqdef \{%
+                                                                   x\in X%
+                                                                   \ \middle|\ %
+                                                                   \begin{aligned}
+                                                                       &\text{there exists no $U\in\mathcal{U}$}\\%
+                                                                       &\text{such that we have $x\in U$}%
+                                                                   \end{aligned}
+                                                               \}\\
+                                                       &=      \{%
+                                                                   x\in X%
+                                                                   \ \middle|\ %
+                                                                   \begin{aligned}
+                                                                       &\text{for all $U\in\mathcal{U}$}\\%
+                                                                       &\text{we have $x\nin U$}%
+                                                                   \end{aligned}
+                                                               \}\\
+                                                       &\eqdef \{%
+                                                                   x\in X%
+                                                                   \ \middle|\ %
+                                                                   \begin{aligned}
+                                                                       &\text{for all $U\in\mathcal{U}$}\\%
+                                                                       &\text{we have $x\in U^{\sfc}$}%
+                                                                   \end{aligned}
+                                                               \}\\
+                                                       &\eqdef \bigcap_{U\in\mathcal{U}}U^{\sfc}.
     \end{align*}
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-3}: Interaction With Complements \rmIII}%
     By \cref{properties-of-unions-of-families-of-subsets-interaction-with-complements-2} \cref{properties-of-complements-involutority} of \cref{properties-of-complements}, we have
     \begin{align*}
-        \left( \bigcap_{U \in \mathcal U} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal U} (U^{\sfc})^{\sfc} \right)^{\sfc}\\
-                                                           &= \left(\left( \bigcup_{U \in \mathcal U} U^{\sfc} \right)^{\sfc}\right)^{\sfc}\\
-                                                           &= \bigcup_{U \in \mathcal U} U^{\sfc}.
+        \left( \bigcap_{U \in \mathcal{U}} U \right)^{\sfc} &= \left( \bigcap_{U \in \mathcal{U}} (U^{\sfc})^{\sfc} \right)^{\sfc}\\
+        &= \left(\left( \bigcup_{U \in \mathcal{U}} U^{\sfc} \right)^{\sfc}\right)^{\sfc}\\
+        &= \bigcup_{U \in \mathcal{U}} U^{\sfc}.
     \end{align*}
 
     \ProofBox{\cref{properties-of-unions-of-families-of-subsets-interaction-with-symmetric-differences}: Interaction With Symmetric Differences}%

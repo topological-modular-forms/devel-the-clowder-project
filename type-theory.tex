@@ -1633,9 +1633,9 @@ Let $A$, $B$, and $C$ be types.
         \add'_{\N}(\succ_{\N}(n),\succ_{\N}(m)) &\defeq \succ_{\N}(\succ_{\N}(\add'_{\N}(n,m))).%
     \end{align*}
 \end{example}
-\subsection{Addition of Natural Numbers}\label{subsection-addition-of-natural-numbers}
+\subsection{Addition of Natural Numbers}\label{subsection-martin-löf-type-theory-addition-of-natural-numbers}
 \begin{definition}{Addition of Natural Numbers}{addition-of-natural-numbers}%
-    The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function%
+    The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function\index[notation]{addN@$\add_{\N}$}%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }We write \index[notation]{nplusm@$n+m$}$n+m$ for $\add_{\N}(n,m)$.
@@ -1759,9 +1759,9 @@ Let $A$, $B$, and $C$ be types.
     \ProofBox{\cref{properties-of-addition-successors-via-addition}: Successors via Addition}%
     Omitted.
 \end{Proof}
-\subsection{Multiplication of Natural Numbers}\label{subsection-multiplication-of-natural-numbers}
+\subsection{Multiplication of Natural Numbers}\label{subsection-martin-löf-type-theory-multiplication-of-natural-numbers}
 \begin{definition}{Multiplication of Natural Numbers}{multiplication-of-natural-numbers}%
-    The \index[type-theory]{natural numbers!multiplication}\index[type-theory]{multiplication of natural numbers}\textbf{multiplication} of natural numbers is the function%
+    The \index[type-theory]{natural numbers!multiplication}\index[type-theory]{multiplication of natural numbers}\textbf{multiplication} of natural numbers is the function\index[notation]{multN@$\mult_{\N}$}%
     %--- Begin Footnote ---%
     \footnote{%
         \SloganFont{Further Notation: }We write \index[notation]{ntimesm@$n\cdot m$}$n\cdot m$ for $\mult_{\N}(n,m)$.
@@ -1777,9 +1777,7 @@ Let $A$, $B$, and $C$ be types.
     \]%
     defined via pattern matching with the following specifications:%
     \begin{align*}
-        \mult_{\N}(0_{\N},m)        &\defeq 0_{\N},\\
         \mult_{\N}(n,0_{\N})        &\defeq 0_{\N},\\
-        \mult_{\N}(\succ_{\N}(n),m) &\defeq m+\succ_{\N}(\mult_{\N}(n,m)),\\%
         \mult_{\N}(n,\succ_{\N}(m)) &\defeq n+\succ_{\N}(\mult_{\N}(n,m)).%
     \end{align*}
 \end{definition}
@@ -1802,12 +1800,133 @@ Let $A$, $B$, and $C$ be types.
     \ProofBox{\cref{properties-of-multiplication-commutativity}: Commutativity}%
     Omitted.
 \end{Proof}
+\subsection{Exponentiation of Natural Numbers}\label{subsection-martin-löf-type-theory-exponentiation-of-natural-numbers}
+\begin{definition}{Exponentiation of Natural Numbers}{exponentiation-of-natural-numbers}%
+    The \index[type-theory]{natural numbers!exponentiation}\index[type-theory]{exponentiation of natural numbers}\textbf{exponentiation} of natural numbers is the function%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }We write \index[notation]{ntothem@$n^{m}$}$n^{m}$ for $\sfexp_{\N}(n,m)$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \exp_{\N}%
+        \oftype%
+        \N%
+        \to%
+        [\N,\N]%
+    \]%
+    defined via pattern matching with the following specifications:%
+    \begin{align*}
+        \exp_{\N}(n,0_{\N})        &\defeq 1_{\N},\\
+        \exp_{\N}(n,\succ_{\N}(m)) &\defeq n\succ_{\N}(\mult_{\N}(n,m)).%
+    \end{align*}
+\end{definition}
+\begin{proposition}{Properties of Exponentiation}{properties-of-exponentiation}%
+    Let $n\oftype\N$ and $m\oftype\N$.
+    \begin{enumerate}
+        \item\label{properties-of-exponentiation-unitality}\SloganFont{Unitality. }
+        \item\label{properties-of-exponentiation-associativity}\SloganFont{Associativity. }
+        \item\label{properties-of-exponentiation-commutativity}\SloganFont{Commutativity. }
+        %\item\label{properties-of-exponentiation-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-exponentiation}}%
+    \FirstProofBox{\cref{properties-of-exponentiation-unitality}: Unitality}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-exponentiation-associativity}: Associativity}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-exponentiation-commutativity}: Commutativity}%
+    Omitted.
+\end{Proof}
+\section{The Integers}\label{section-martin-löf-type-theory-the-integers}
+\subsection{Foundations}\label{subsection-martin-löf-type-theory-the-integers-foundations}
+\begin{definition}{The Type of Integers}{the-type-of-integers}%
+    The \index[type-theory]{type of integers}\textbf{type of integers} is the type \index[notation]{Z@$\Z$}$\Z$ defined by
+    \[
+        \Z%
+        \defeq%
+        \N+(\UnitType+\N).%
+    \]%
+\end{definition}
+\begin{remark}{Unwinding \cref{the-type-of-integers}}{unwinding-the-type-of-integers}%
+    The type of integers $\Z$ comes with:
+    \begin{enumerate}
+        \item\label{unwinding-the-type-of-integers-1}Functions
+            \begin{align*}
+                \iota^{\sfpos}_{\Z} &\oftype\N\to\Z,\\%
+                \iota^{\sfneg}_{\Z} &\oftype\N\to\Z
+            \end{align*}
+            defined by
+            \begin{align*}
+                \iota^{\sfpos}_{\Z} &\defeq \iota^{\rmR}_{\N+(\UnitType+\N)}\circ\iota^{\rmR}_{\UnitType+\N},\\
+                \iota^{\sfneg}_{\Z} &\defeq \iota^{\rmL}_{\N+(\UnitType+\N)}.
+            \end{align*}
+        \item\label{unwinding-the-type-of-integers-2}Constants
+            \begin{align*}
+                -1_{\Z} &\defeq \iota^{\sfneg}_{\Z}(1_{\N}),\\%
+                0_{\Z}  &\defeq \iota^{\rmR}_{\N+(\UnitType+\N)}\left(\iota^{\rmL}_{\UnitType+\N}(\point)\right),\\%
+                1_{\Z}  &\defeq \iota^{\sfpos}_{\Z}(1_{\N}).%
+            \end{align*}
+    \end{enumerate}
+    We may picture the definition of $\Z$ as the coproduct type $\N+(\UnitType+\N)$ as follows:
+    \[
+        \begin{tikzcd}[row sep={3.5*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            \UnitType
+            \&
+            \&
+            \N
+            \\
+            \N
+            \&
+            \&
+            \UnitType+\N%
+            \&
+            \\
+            \&
+            \Z
+            \&
+            \&
+            % 1-Arrows
+            \arrow[from=1-2,to=2-3,hook]%
+            \arrow[from=1-4,to=2-3,hook']%
+            %
+            \arrow[from=2-1,to=3-2,hook]%
+            \arrow[from=2-3,to=3-2,hook']%
+        \end{tikzcd}
+    \]%
+    The type of integers $\Z$ also comes with the following induction principle (derived from the ones from $\N$ and those from coproduct types):
+    \begin{scalewebprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma,\,k\oftype\Z}{P(k)\type}}%
+            \hypo{\context{\Gamma}{p_{-1}\oftype P(-1_{\Z})}}%
+            \hypo{\context{\Gamma}{p_{0}\oftype P(0_{\Z})}}%
+            \hypo{\context{\Gamma}{p_{1}\oftype P(1_{\Z})}}%
+            \hypo{\context{\Gamma}{\displaystyle p_{-S}\oftype\prod_{n\oftype\N}P(n)\to P\left(\iota^{\sfneg}_{\Z}(\succ_{\N}(n))\right)}}%
+            \hypo{\context{\Gamma}{\displaystyle p_{S} \oftype\prod_{n\oftype\N}P(n)\to P\left(\iota^{\sfpos}_{\Z}(\succ_{\N}(n))\right)}}%
+            \infer6[($\Z$-ind)]{\context{\Gamma}{\displaystyle\ind_{\Z}(p_{-1},p_{0},p_{1},p_{-S},p_{S})\oftype\prod_{k\oftype\Z}P(k)}}%
+        \end{prooftree}%
+        .%
+    \end{scalewebprooftree}%
+\end{remark}
+\subsection{Addition of Integers}\label{subsection-martin-löf-type-theory-addition-of-integers}
+TODO:
+\begin{itemize}
+    \item predecessor function
+    \item negation function $k\mapsto-k$
+    \item 
+\end{itemize}
+\subsection{Multiplication of Integers}\label{subsection-martin-löf-type-theory-multiplication-of-integers}
+\subsection{Exponentiation of Integers}\label{subsection-martin-löf-type-theory-exponentiation-of-integers}
 \section{Constructions With Types}\label{section-constructions-with-types}
 \subsection{The Unit Type}\label{subsection-the-unit-type}
 \begin{definition}{The Unit Type}{the-unit-type}%
     The \index[type-theory]{unit type}\textbf{unit type} is the type $\UnitType$ equipped with a term $\point\oftype\UnitType$ satisfying the following induction principle:
     \begin{itemize}
-        \itemstar Given a family of types $P(x)$ indexed by $x\oftype\UnitType$, there exists a function
+        \itemstar Given a type family $P$ indexed over $x\oftype\UnitType$, there exists a function
             \[
                 \ind_{\UnitType}%
                 \oftype%
@@ -1882,7 +2001,7 @@ Let $A$, $B$, and $C$ be types.
 \begin{definition}{The Empty Type}{the-empty-type}%
     The \index[type-theory]{empty type}\textbf{empty type} is the type $\EmptyType$ satisfying the following induction principle:
     \begin{itemize}
-        \itemstar Given a family of types $P(x)$ indexed by $x\oftype\EmptyType$, there exists a function
+        \itemstar Given a type family $P$ indexed over $x\oftype\EmptyType$, there exists a function
             \[
                 \ind_{\EmptyType}%
                 \oftype%
@@ -1948,7 +2067,7 @@ Let $A$ and $B$ be types.
     \end{align*}
     satisfying the following induction principle:
     \begin{itemize}
-        \itemstar Given a family of types $P(x)$ indexed by $x\oftype A+B$, there exists a function
+        \itemstar Given a type family $P$ indexed over $x\oftype A+B$, there exists a function
             \[
                 \ind_{+}%
                 \oftype%
@@ -2050,10 +2169,15 @@ Let $A$ be a type and let $B$ be a type family over $A$.
     %--- Begin Footnote ---%
     \footnote{%
         Also called the \index[type-theory]{Σ-type}\textbf{Σ-type} of $B(x)$ over $A$.
-        \par\vspace*{\TCBBoxCorrection}
     } %
     %---  End Footnote  ---%
-    of $B(x)$ over $A$ is the type \index[notation]{sumxoftypeABx@$\sum_{x\oftype A}B(x)$}$\sum_{x\oftype A}B(x)$ equipped with a \index[type-theory]{pairing function}\textbf{pairing function}
+    of $B(x)$ over $A$ is the type \index[notation]{sumxoftypeABx@$\sum_{x\oftype A}B(x)$}$\sum_{x\oftype A}B(x)$ equipped with a \index[type-theory]{pairing function}\textbf{pairing function}%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }We also write simply $(x,y)$ for $\pair(x,y)$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
     \[
         \pair%
         \oftype%
@@ -2061,7 +2185,7 @@ Let $A$ be a type and let $B$ be a type family over $A$.
     \]%
     satisfying the following induction principle:
     \begin{itemize}
-        \itemstar Given a family of types $P(x)$ indexed by $p\oftype\sum_{x\oftype A}B(x)$, there exists a function
+        \itemstar Given a type family $P$ indexed over $p\oftype\sum_{x\oftype A}B(x)$, there exists a function
             \begin{webcompile}
                 \ind_{\Sigma}%
                 \oftype%
@@ -2203,7 +2327,7 @@ Let $A$ and $B$ be types.
     \]%
     satisfying the following induction principle:
     \begin{itemize}
-        \itemstar Given a family of types $P(z)$ indexed by $z\oftype A\times B$, there exists a function
+        \itemstar Given a type family $P$ indexed over $z\oftype A\times B$, there exists a function
             \[
                 \ind_{\mathord{\times}}%
                 \oftype%
@@ -2396,6 +2520,8 @@ Let $A$ be a type.
     \end{scalewebprooftree}%
     where we have omitted a few weakening steps. This finishes the proof.
 \end{Proof}
+\subsection{The Type of Boolean Values}\label{subsection-the-type-of-boolean-values}
+Page 36 (52)
 \section{Identity Types}\label{section-martin-löf-type-theory-identity-types}
 \subsection{Foundations}\label{subsection-martin-löf-type-theory-identity-types-foundations}
 Let $A$ be a type and let $a\oftype A$.
@@ -2425,7 +2551,7 @@ Let $A$ be a type and let $a\oftype A$.
     }%
     %---  End Footnote  ---%
     \begin{itemize}
-        \itemstar Given a family of types $P(x,p)$ indexed by $x\oftype A$ and $p\oftype a\equals_{A}x$, there exists a function
+        \itemstar Given a type family $P$ indexed over $x\oftype A$ and $p\oftype a\equals_{A}x$, there exists a function
             \[
                 \indeq{a}%
                 \oftype%
@@ -2598,6 +2724,16 @@ Let $A$ be a type and let $a\oftype A$.
                 \oftype%
                 p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}.%
             \]%
+        \item\label{properties-of-identity-types-uniqueness-of-refl}\SloganFont{Uniqueness of $\refl$. }The type
+            \[
+                \sum_{x\oftype A}a\equals_{A}x%
+            \]%
+            whose terms may be thought as pairs $(x,p)$ with:
+            \begin{itemize}
+                \item $x\oftype A$;
+                \item $p\oftype a\equals_{A}x$;
+            \end{itemize}
+            is contractible, being generated by $(a,\refl_{a})$.
         %\item\label{properties-of-identity-types-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -2854,6 +2990,27 @@ Let $A$ be a type and let $a\oftype A$.
         .%
     \end{scalewebprooftree}%
     This finishes the construction of $\rightinv$.
+
+    \ProofBox{\cref{properties-of-identity-types-uniqueness-of-refl}: Uniqueness of $\refl$}%
+    We need to show that, for each $y\oftype\sum_{x\oftype A}a\equals_{A}x$, the type
+    \[
+        (a,\refl_{a})%
+        \tequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        y%
+    \]%
+    is inhabited. By $\Sigma$-induction, it suffices to construct a term of type
+    \[
+        (a,\refl_{a})%
+        \tequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        (x,p)%
+    \]%
+    for each $x\oftype A$ and each $p\oftype a\equals_{A}x$. By path induction, it then suffices to construct a term of type
+    \[
+        (a,\refl_{a})%
+        \tequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        (a,\refl_{a}).%
+    \]%
+    For this, we use $\refl_{(a,\refl_{a})}$.
 \end{Proof}
 \subsection{The Action on Identification of Functions}\label{the-action-on-identification-of-functions}
 Let $f\oftype A\to B$ be a function.
