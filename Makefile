@@ -4180,7 +4180,7 @@ pictures:
 		$(LUALATEX) Venn0001.tex; \
 		$(LUALATEX) Venn0110.tex; \
 		$(LUALATEX) Venn0111.tex; \
-		cd ../liminf-limsup/; \
+		cd ../../liminf-limsup/; \
 		python liminf-limsup.py; \
 		cd ../../../dark-mode/; \
 		luaotfload-tool --cache=erase; \
@@ -4202,7 +4202,7 @@ pictures:
 		$(LUALATEX) Venn0001.tex; \
 		$(LUALATEX) Venn0110.tex; \
 		$(LUALATEX) Venn0111.tex; \
-		cd ../liminf-limsup/; \
+		cd ../../liminf-limsup/; \
 		python liminf-limsup.py; \
 	fi
 
