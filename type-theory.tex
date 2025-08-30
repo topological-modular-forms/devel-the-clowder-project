@@ -1736,6 +1736,71 @@ Let $A$, $B$, and $C$ be types.
     \ProofBox{\cref{addition-of-natural-numbers-the-base-case,addition-of-natural-numbers-the-inductive-step}}%
     This follows from the computation rules of $\N$.
 \end{Proof}
+\begin{lemma}{First Properties of Addition}{first-properties-of-addition}%
+    Let $n\oftype\N$ and $m\oftype\N$.
+    \begin{enumerate}
+        \item\label{first-properties-of-addition-adding-zero}\SloganFont{Adding Zero. }There exists terms
+            \begin{align*}
+                \zeroadd_{\N}\oftype 0_{\N}+n\equals_{\N}n,\\
+                \addzero_{\N}\oftype n+0_{\N}\equals_{\N}n.
+            \end{align*}
+        \item\label{first-properties-of-addition-interaction-with-successors}\SloganFont{Interaction With Successors. }There exists terms
+            \begin{align*}
+                \succadd_{\N}\oftype \succ_{\N}(n)+m\equals_{\N}\succ_{\N}(n+m),\\
+                \addsucc_{\N}\oftype n+\succ_{\N}(m)\equals_{\N}\succ_{\N}(n+m).
+            \end{align*}
+        %\item\label{first-properties-of-addition-}\SloganFont{. }
+    \end{enumerate}
+\end{lemma}
+\begin{Proof}{Proof of \cref{first-properties-of-addition}}%
+    \FirstProofBox{\cref{first-properties-of-addition-adding-zero}: Adding Zero}%
+    Since the computation rules for addition guarantee that $n+0_{\N}\doteq n$, we may define
+    \[
+        \addzero_{\N}%
+        \defeq%
+        \refl_{n}.%
+    \]%
+    To define $\zeroadd$, we proceed by induction on $n$.
+    \begin{itemize}
+        \item\SloganFont{The Base Case. }We have to produce a term of type $0_{\N}+0_{\N}\equals_{\N}0_{\N}$, for which we use $\refl_{0_{\N}}$.
+        \item\SloganFont{The Induction Step. }Assume we have a term $p\oftype 0_{\N}+n\equals_{\N}n$. We have to produce a term of type
+            \[
+                0_{\N}+\succ_{\N}(n)%
+                \equals_{\N}%
+                \succ_{\N}(n).%
+            \]%
+            By the computation rules for addition, we have $0_{\N}+\succ_{\N}(n)\doteq\succ_{\N}(0_{\N}+n)$, so this is the same as producing a term of type
+            \[
+                \succ_{\N}(0_{\N}+n)%
+                \equals_{\N}%
+                \succ_{\N}(n).%
+            \]%
+            Applying the action on identifications
+            \[
+                \ap_{\succ_{\N}}(p)%
+                \oftype%
+                \prod_{{\color{OIblue}k,\ell\oftype\N}}{\color{OIblue}k\equals_{\N}\ell}\mathbin{\color{OIvermillion}{\to}}{\color{OIblue}\succ_{\N}(k)\equals_{\N}\succ_{\N}(\ell)}%
+            \]%
+            of $\succ_{\N}\oftype\N\to\N$ to $p$, we obtain a term
+            \[
+                \ap_{\succ_{\N}}(p)%
+                \oftype%
+                \succ_{\N}(0_{\N}+n)%
+                \equals_{\N}%
+                \succ_{\N}(n).%
+            \]%
+    \end{itemize}
+    We then define
+    \[
+        \zeroadd_{\N}%
+        \defeq%
+        \ind_{\N}(\refl_{0},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket)%
+    \]%
+    This finishes the proof.
+
+    \ProofBox{\cref{first-properties-of-addition-interaction-with-successors}: Interaction With Successors}%
+    Omitted.
+\end{Proof}
 \begin{proposition}{Properties of Addition}{properties-of-addition}%
     Let $n\oftype\N$ and $m\oftype\N$.
     \begin{enumerate}
@@ -2432,9 +2497,9 @@ Let $A$ and $B$ be types.
             \[%
                 \evpair_{\times}%
                 \oftype%
-                (A\times B\to C)
+                [A\times B,C]%
                 \to
-                (A\to(B\to C))
+                [A,[B,C]]%
             \]%
             defined by
             \[
@@ -2529,7 +2594,7 @@ Let $A$ be a type and let $a\oftype A$.
     The \index[type-theory]{identity type}\textbf{identity type} of $A$ at $a$ is the inductive family of types \index[notation]{aequalsAx@$a\equals_{A}x$}$a\equals_{A}x$%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Notation: }Also written \index[notation]{IdA@$\Id_{A}$}$\Id_{A}$ or \index[notation]{aequalsx@$a\equals x$}$a\equals X$.%
+        \SloganFont{Further Notation: }Also written \index[notation]{IdA@$\Id_{A}$}$\Id_{A}$ or \index[notation]{aequalsx@$a\equals x$}$a\equals x$.%
     } %
     %---  End Footnote  ---%
     equipped with a term
@@ -2627,8 +2692,8 @@ Let $A$ be a type and let $a\oftype A$.
             \[
                 \concat%
                 \oftype%
-                \prod_{x,y,z\oftype A}%
-                \left((y\equals_{A}z)\to(x\equals_{A}y\to x\equals_{A}z)\right)%
+                \prod_{x,y,z\oftype A}[(y\equals_{A}z)\times(x\equals_{A}y),x\equals_{A}z]%
+                %\left((y\equals_{A}z)\to(x\equals_{A}y\to x\equals_{A}z)\right)%
             \]%
             taking terms $p\oftype x\equals_{A}y$ and $q\oftype y\equals_{A}z$ and producing a term
             \[
@@ -2644,44 +2709,20 @@ Let $A$ be a type and let $a\oftype A$.
                 \prod_{\substack{p\oftype w\equals_{A}x\\q\oftype x\equals_{A}y\\r\oftype y\equals_{A}z}}%
                 (r\ccirc q)\ccirc p%
                 \equals_{w\equals_{a}z}%
-                r\ccirc(q\ccirc p)%
-            \]%
-            taking terms $p\oftype w\equals_{A}x$, $q\oftype x\equals_{A}y$, and $r\oftype y\equals_{A}z$ and producing a term
-            \[
-                \assoc_{w,x,y,z}(r,q,p)%
-                \oftype%
-                (r\ccirc q)\ccirc p%
-                \equals_{w\equals_{a}z}%
                 r\ccirc(q\ccirc p).%
             \]%
         \item\label{properties-of-identity-types-left-unitality}\SloganFont{Left Unitality. }We have a dependent function
             \[
                 \leftunit%
                 \oftype%
-                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}\refl_{y}\ccirc p\equals_{x\equals_{A}y}p%
+                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}\refl_{y}\ccirc p\equals_{x\equals_{A}y}p.%
             \]%
-            taking a term $p\oftype x\equals_{A}y$ and producing a term
-            \[
-                \leftunit_{x,y}(p)%
-                \oftype%
-                \refl_{y}\ccirc p%
-                \equals_{x\equals_{A}y}%
-                p.%
-            \]
         \item\label{properties-of-identity-types-right-unitality}\SloganFont{Right Unitality. }We have a dependent function
             \[
                 \rightunit%
                 \oftype%
-                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc\refl_{x}\equals_{x\equals_{A}y}p%
+                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p\ccirc\refl_{x}\equals_{x\equals_{A}y}p.%
             \]%
-            taking a term $p\oftype x\equals_{A}y$ and producing a term
-            \[
-                \rightunit_{x,y}(p)%
-                \oftype%
-                p\ccirc\refl_{x}%
-                \equals_{x\equals_{A}y}%
-                p.%
-            \]
         \item\label{properties-of-identity-types-inversion}\SloganFont{Inversion. }There exists a dependent function\index[notation]{inv@$\inv$}%
             %--- Begin Footnote ---%
             \footnote{%
@@ -2692,47 +2733,30 @@ Let $A$ be a type and let $a\oftype A$.
             \[
                 \inv%
                 \oftype%
-                \prod_{x,y\oftype A}(x\equals_{A}y\to y\equals_{A}x)%
-            \]%
-            taking a term $p\oftype x\equals_{A}y$ and producing a term
-            \[
-                \inv_{x,y}(p)%
-                \oftype%
-                y\equals_{A}x.%
+                \prod_{x,y\oftype A}(x\equals_{A}y\to y\equals_{A}x).%
             \]%
         \item\label{properties-of-identity-types-left-invertibility}\SloganFont{Left Invertibility. }There exists a dependent function
             \[
                 \leftinv%
                 \oftype%
-                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}
-            \]%
-            taking a term $p\oftype x\equals_{A}y$ and producing a term
-            \[
-                \leftinv_{x}(p)%
-                \oftype%
-                p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}.%
+                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{y\equals_{A}y}\refl_{y}.%
             \]%
         \item\label{properties-of-identity-types-right-invertibility}\SloganFont{Right Invertibility. }There exists a dependent function
             \[
                 \rightinv%
                 \oftype%
-                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{x\equals_{A}x}\refl_{x}
+                \prod_{x,y\oftype A}\prod_{p\oftype x\equals_{A}y}p^{-1}\ccirc p\equals_{x\equals_{A}x}\refl_{x}.%
             \]%
-            taking a term $p\oftype x\equals_{A}y$ and producing a term
-            \[
-                \rightinv_{x}(p)%
-                \oftype%
-                p\ccirc p^{-1}\equals_{x\equals_{A}x}\refl_{x}.%
-            \]%
-        \item\label{properties-of-identity-types-uniqueness-of-refl}\SloganFont{Uniqueness of $\refl$. }The type
+        \item\label{properties-of-identity-types-uniqueness-of-refl}\SloganFont{Uniqueness of $\refl$. }The type%
+            %--- Begin Footnote ---%
+            \footnote{%
+                The terms of $\sum_{x\oftype A}a\equals_{A}x$ may be thought as pairs $(x,p)$ with $x\oftype A$ and $p\oftype a\equals_{A}x$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
             \[
                 \sum_{x\oftype A}a\equals_{A}x%
             \]%
-            whose terms may be thought as pairs $(x,p)$ with:
-            \begin{itemize}
-                \item $x\oftype A$;
-                \item $p\oftype a\equals_{A}x$;
-            \end{itemize}
             is contractible, being generated by $(a,\refl_{a})$.
         %\item\label{properties-of-identity-types-}\SloganFont{. }
     \end{enumerate}
@@ -2757,7 +2781,7 @@ Let $A$ be a type and let $a\oftype A$.
     \ProofBox{\cref{properties-of-identity-types-concatenation}: Concatenation}%
     We start by first constructing a function
     \[
-        \concat_{z}%
+        \concat'_{z}%
         \oftype%
         \prod_{y\oftype A}y\equals_{A}z%
         \to%
@@ -2765,7 +2789,7 @@ Let $A$ be a type and let $a\oftype A$.
     \]%
     given $z\oftype A$. For this, we first construct a dependent function
     \[
-        \concat_{x,z,z}(\refl_{z})%
+        \concat'_{x,z,z}(\refl_{z})%
         \oftype%
         \prod_{z\oftype A}(x\equals_{A}z\to x\equals_{A}z).%
     \]%
@@ -2776,33 +2800,33 @@ Let $A$ be a type and let $a\oftype A$.
             \infer1[(id-form')]{\context{\Gamma,\,x\oftype A}{x\equals_{A}z\type}}%
             \infer1[(id)]{\context{\Gamma,\,x\oftype A}{\sfid_{x\equals_{A}z}\oftype x\equals_{A}z\to x\equals_{A}z}}%
             \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket x\mapsto\sfid_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat_{x,z,z}(\refl_{z})\doteq\llbracket x\mapsto\sfid_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat'_{x,z,z}(\refl_{z})\doteq\llbracket x\mapsto\sfid_{x\equals_{A}z}\rrbracket\oftype\prod_{x\oftype A}x\equals_{A}z\to x\equals_{A}z}}%
         \end{prooftree}%
         .%
     \end{webprooftree}%
-    Having $\concat_{x,z,z}(\refl_{z})$ in hand, we may use path induction to obtain $\concat_{z}$:
+    Having $\concat'_{x,z,z}(\refl_{z})$ in hand, we may use path induction to obtain $\concat'_{z}$:
     \begin{scalewebprooftree}%
         \begin{prooftree}%
             \hypo{\context{\Gamma}{z\oftype A}}%
             \hypo{\context{\Gamma,\,y\oftype A,\,q\oftype y\equals_{A}z}{\displaystyle\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)\type}}%
             \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{z}\oftype\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)\to\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat_{z}\doteq\indeq{z}\left(\concat_{x,z,z}(\refl_{z})\right)\oftype\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat'_{z}\doteq\indeq{z}\left(\concat'_{x,z,z}(\refl_{z})\right)\oftype\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
         \end{prooftree}%
         .%
     \end{scalewebprooftree}%
-    Finally, we define $\concat$ via λ-abstraction:
+    We then define a function $\concat'$ via λ-abstraction:
     \begin{webprooftree}%
         \begin{prooftree}%
-            \hypo{\context{\Gamma,\,z\oftype A}{\displaystyle\concat_{z}\oftype\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
-            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket z\mapsto\concat_{z}\rrbracket\oftype\prod_{z\oftype A}\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
-            \infer1{\context{\Gamma}{\displaystyle\llbracket z\mapsto\concat_{z}\rrbracket\oftype\prod_{z\oftype A}\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}x\equals_{A}z}}%
-            \infer1[(swap)]{\context{\Gamma}{\displaystyle\llbracket z\mapsto\concat_{z}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{z\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{p\oftype x\equals_{A}y}x\equals_{A}z}}%
-            \infer1{\context{\Gamma}{\displaystyle\llbracket z\mapsto\sigma\circ\concat_{x}\rrbracket\oftype\prod_{x,y,z\oftype A}(y\equals_{A}z)\to(x\equals_{A}y\to x\equals_{A}z)}}%
-            \infer1{\context{\Gamma}{\displaystyle\concat\doteq\llbracket z\mapsto\sigma\circ\concat_{x}\rrbracket\oftype\prod_{x,y,z\oftype A}(y\equals_{A}z)\to(x\equals_{A}y\to x\equals_{A}z)}}%
+            \hypo{\context{\Gamma,\,z\oftype A}{\displaystyle\concat'_{z}\oftype\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
+            \infer1[(λ)]{\context{\Gamma}{\displaystyle\llbracket z\mapsto\concat'_{z}\rrbracket\oftype\prod_{z\oftype A}\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}(x\equals_{A}y\to x\equals_{A}z)}}%
+            \infer1{\context{\Gamma}{\displaystyle\llbracket z\mapsto\concat'_{z}\rrbracket\oftype\prod_{z\oftype A}\prod_{y\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{x\oftype A}\prod_{p\oftype x\equals_{A}y}x\equals_{A}z}}%
+            \infer1[(swap)]{\context{\Gamma}{\displaystyle\llbracket z\mapsto\concat'_{z}\rrbracket\oftype\prod_{x\oftype A}\prod_{y\oftype A}\prod_{z\oftype A}\prod_{q\oftype y\equals_{A}z}\prod_{p\oftype x\equals_{A}y}x\equals_{A}z}}%
+            \infer1{\context{\Gamma}{\displaystyle\llbracket z\mapsto\sigma\circ\concat'_{x}\rrbracket\oftype\prod_{x,y,z\oftype A}(y\equals_{A}z)\to(x\equals_{A}y\to x\equals_{A}z)}}%
+            \infer1{\context{\Gamma}{\displaystyle\concat'\doteq\llbracket z\mapsto\sigma\circ\concat'_{x}\rrbracket\oftype\prod_{x,y,z\oftype A}(y\equals_{A}z)\to(x\equals_{A}y\to x\equals_{A}z)}}%
         \end{prooftree}%
         .
     \end{webprooftree}%
-    This finishes the construction of $\concat$.
+    Finally, we may obtain $\concat$ from $\concat'$ via \cref{properties-of-product-types-currying} of \cref{properties-of-product-types}.
 
     \ProofBox{\cref{properties-of-identity-types-associativity}: Associativity}%
     We start by first constructing the term
@@ -3026,7 +3050,7 @@ Let $f\oftype A\to B$ be a function.
     \[
         \ap_{f}%
         \oftype%
-        \prod_{x,y\oftype A}\left((x\equals_{A}y)\to(f(x)\equals_{B}f(y))\right)%
+        \prod_{{\color{OIblue}x,y\oftype A}}{\color{OIblue}x\equals_{A}y}\mathbin{\color{OIvermillion}{\to}}{\color{OIblue}f(x)\equals_{B}f(y)}%
     \]%
     defined via pattern-matching by
     \[

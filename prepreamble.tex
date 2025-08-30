@@ -40,7 +40,8 @@
 \usepackage{amssymb}
 \usepackage{minitoc}
 \setcounter{minitocdepth}{2}
-\newcommand{\Minitoc}{{\hypersetup{hidelinks}\minitoc}}
+%\newcommand{\Minitoc}{\begingroup{\hypersetup{hidelinks}\minitoc}\endgroup}
+\newcommand{\Minitoc}{}% Only until we figure how to make these work with LaTeX past 2025/08
 %%%% MATH DEFINITIONS %%%%
 \usepackage{centernot}
 \newcommand{\nin}{\centernot{\in}}
