@@ -29,6 +29,7 @@ jobs:
           pdf2svg \
           inkscape \
           imagemagick
+        pip install -r python_requirements.txt
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v3
       with:

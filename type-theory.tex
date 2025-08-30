@@ -1777,7 +1777,7 @@ Let $A$, $B$, and $C$ be types.
             \]%
             Applying the action on identifications
             \[
-                \ap_{\succ_{\N}}(p)%
+                \ap_{\succ_{\N}}%
                 \oftype%
                 \prod_{{\color{OIblue}k,\ell\oftype\N}}{\color{OIblue}k\equals_{\N}\ell}\mathbin{\color{OIvermillion}{\to}}{\color{OIblue}\succ_{\N}(k)\equals_{\N}\succ_{\N}(\ell)}%
             \]%
@@ -1789,17 +1789,94 @@ Let $A$, $B$, and $C$ be types.
                 \equals_{\N}%
                 \succ_{\N}(n).%
             \]%
+            This finishes the inductive step.
     \end{itemize}
     We then define
     \[
         \zeroadd_{\N}%
         \defeq%
-        \ind_{\N}(\refl_{0},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket)%
+        \ind_{\N}(\refl_{0_{\N}},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket)%
     \]%
     This finishes the proof.
 
     \ProofBox{\cref{first-properties-of-addition-interaction-with-successors}: Interaction With Successors}%
-    Omitted.
+    Since the computation rules for addition give us a judgmental equality
+    \[
+        n+\succ_{\N}(m)%
+        \doteq%
+        \succ_{\N}(n+m),%
+    \]%
+    we may define
+    \[
+        \addsucc_{\N}%
+        \defeq%
+        \refl_{n+m}.%
+    \]%
+    To define $\succadd$, we proceed by induction on $n$.
+    \begin{itemize}
+        \item\SloganFont{The Base Case. }We have to produce a term of type
+            \[
+                \succ_{\N}(n)+0_{\N}%
+                \equals_{\N}%
+                \succ_{\N}(n+0_{\N}).%
+            \]%
+            Since $n+0_{\N}\doteq n$, we may use $\refl_{n}$.
+        \item\SloganFont{The Induction Step. }Assume we have a term
+            \[
+                p%
+                \oftype%
+                \succ_{\N}(n)+m%
+                \equals_{\N}%
+                \succ_{\N}(n+m).%
+            \]%
+            We have to produce a term of type
+            \[
+                \succ_{\N}(n)+\succ_{\N}(m)%
+                \equals_{\N}%
+                \succ_{\N}(n+\succ_{\N}(m))%
+            \]%
+            By the computation rules for addition, we have judgemental equalities
+            \[
+                \underbrace{\succ_{\N}(n)+\succ_{\N}(m)}_{{}\doteq\succ_{\N}(\succ_{\N}(n)+m)}%
+                \equals_{\N}%
+                \underbrace{\succ_{\N}(n+\succ_{\N}(m))}_{{}\doteq\succ_{\N}(\succ_{\N}(n+m))},%
+            \]%
+            so it suffices to construct a term of type
+            \[
+                \succ_{\N}(\succ_{\N}(n)+m)%
+                \equals_{\N}%
+                \succ_{\N}(\succ_{\N}(n+m)).%
+            \]%
+            Applying the action on identifications
+            \[
+                \ap_{\succ_{\N}}%
+                \oftype%
+                \prod_{{\color{OIblue}k,\ell\oftype\N}}{\color{OIblue}k\equals_{\N}\ell}\mathbin{\color{OIvermillion}{\to}}{\color{OIblue}\succ_{\N}(k)\equals_{\N}\succ_{\N}(\ell)}%
+            \]%
+            of $\succ_{\N}\oftype\N\to\N$ to $p$, we obtain a term
+            \[
+                \ap_{\succ_{\N}}(p)%
+                \oftype%
+                \succ_{\N}(\succ_{\N}(n)+m)%
+                \equals_{\N}%
+                \succ_{\N}(\succ_{\N}(n+m)).%
+            \]%
+            \[
+                \ap_{\succ_{\N}}(p)%
+                \oftype%
+                \succ_{\N}(\succ_{\N}(n)+m)%
+                \subequals_{\N}%
+                \succ_{\N}(\succ_{\N}(n+m)).%
+            \]%
+            This finishes the inductive step.
+    \end{itemize}
+    We then define
+    \[
+        \succadd_{\N}%
+        \defeq%
+        \ind_{\N}(\refl_{n},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket)%
+    \]%
+    This finishes the proof.
 \end{Proof}
 \begin{proposition}{Properties of Addition}{properties-of-addition}%
     Let $n\oftype\N$ and $m\oftype\N$.
@@ -3019,19 +3096,19 @@ Let $A$ be a type and let $a\oftype A$.
     We need to show that, for each $y\oftype\sum_{x\oftype A}a\equals_{A}x$, the type
     \[
         (a,\refl_{a})%
-        \tequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        \subequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
         y%
     \]%
     is inhabited. By $\Sigma$-induction, it suffices to construct a term of type
     \[
         (a,\refl_{a})%
-        \tequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        \subequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
         (x,p)%
     \]%
     for each $x\oftype A$ and each $p\oftype a\equals_{A}x$. By path induction, it then suffices to construct a term of type
     \[
         (a,\refl_{a})%
-        \tequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        \subequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
         (a,\refl_{a}).%
     \]%
     For this, we use $\refl_{(a,\refl_{a})}$.
