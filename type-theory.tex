@@ -1639,7 +1639,14 @@ Let $A$, $B$, and $C$ be types.
     The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function\index[notation]{addN@$\add_{\N}$}%
     %--- Begin Footnote ---%
     \footnote{%
-        \SloganFont{Further Notation: }We write \index[notation]{nplusm@$n+m$}$n+m$ for $\add_{\N}(n,m)$.
+        \SloganFont{Further Notation: }We write \index[notation]{nplusm@$n+m$}$n+m$ for $\add_{\N}(n,m)$. The computation rules for addition then look like
+        \[
+            \begin{gathered}
+                n+0_{\N}        \doteq n,\\
+                n+\succ_{\N}(m) \doteq \succ_{\N}(n+m)
+            \end{gathered}
+        \]%
+        for each $n,m\oftype\N$.
         \par\vspace*{\TCBBoxCorrection}
     }%
     %---  End Footnote  ---%
@@ -1737,24 +1744,48 @@ Let $A$, $B$, and $C$ be types.
     \ProofBox{\cref{addition-of-natural-numbers-the-base-case,addition-of-natural-numbers-the-inductive-step}}%
     This follows from the computation rules of $\N$.
 \end{Proof}
-\begin{lemma}{First Properties of Addition}{first-properties-of-addition}%
+\begin{proposition}{Properties of Addition}{properties-of-addition}%
     Let $n\oftype\N$ and $m\oftype\N$.
     \begin{enumerate}
-        \item\label{first-properties-of-addition-adding-zero}\SloganFont{Adding Zero. }There exists terms
+        \item\label{properties-of-addition-unitality}\SloganFont{Unitality. }There exists terms
             \begin{align*}
                 \zeroadd_{\N}\oftype 0_{\N}+n\equals_{\N}n,\\
                 \addzero_{\N}\oftype n+0_{\N}\equals_{\N}n.
             \end{align*}
-        \item\label{first-properties-of-addition-interaction-with-successors}\SloganFont{Interaction With Successors. }There exists terms
+        \item\label{properties-of-addition-interaction-with-successors}\SloganFont{Interaction With Successors. }There exists terms
             \begin{align*}
                 \succadd_{\N}\oftype \succ_{\N}(n)+m\equals_{\N}\succ_{\N}(n+m),\\
                 \addsucc_{\N}\oftype n+\succ_{\N}(m)\equals_{\N}\succ_{\N}(n+m).
             \end{align*}
-        %\item\label{first-properties-of-addition-}\SloganFont{. }
+        \item\label{properties-of-addition-associativity}\SloganFont{Associativity. }There exists a term
+            \[
+                \assoc^{+}_{\N}%
+                \oftype%
+                (n+m)+k%
+                \equals_{\N}
+                n+(m+k).%
+            \]%
+        \item\label{properties-of-addition-commutativity}\SloganFont{Commutativity. }There exists a term
+            \[
+                \comm^{+}_{\N}%
+                \oftype%
+                n+m%
+                \equals_{\N}%
+                m+n.%
+            \]%
+        \item\label{properties-of-addition-successors-via-addition}\SloganFont{Successors via Addition. }There exists a term
+            \[
+                \succasadd_{\N}%
+                \oftype%
+                \succ_{\N}(n)%
+                \equals_{\N}%
+                n+1_{\N}.%
+            \]%
+        %\item\label{properties-of-addition-}\SloganFont{. }
     \end{enumerate}
-\end{lemma}
-\begin{Proof}{Proof of \cref{first-properties-of-addition}}%
-    \FirstProofBox{\cref{first-properties-of-addition-adding-zero}: Adding Zero}%
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-addition}}%
+    \FirstProofBox{\cref{properties-of-addition-unitality}: Unitality}%
     Since the computation rules for addition guarantee that $n+0_{\N}\doteq n$, we may define
     \[
         \addzero_{\N}%
@@ -1796,12 +1827,12 @@ Let $A$, $B$, and $C$ be types.
     \[
         \zeroadd_{\N}%
         \defeq%
-        \ind_{\N}(\refl_{0_{\N}},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket)%
+        \ind_{\N}(\refl_{0_{\N}},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket).%
     \]%
     This finishes the proof.
 
-    \ProofBox{\cref{first-properties-of-addition-interaction-with-successors}: Interaction With Successors}%
-    Since the computation rules for addition give us a judgmental equality
+    \ProofBox{\cref{properties-of-addition-interaction-with-successors}: Interaction With Successors}%
+    Since the computation rules for addition give us a judgemental equality
     \[
         n+\succ_{\N}(m)%
         \doteq%
@@ -1868,29 +1899,111 @@ Let $A$, $B$, and $C$ be types.
     \[
         \succadd_{\N}%
         \defeq%
-        \ind_{\N}(\refl_{n},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket)%
+        \ind_{\N}(\refl_{n},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket).%
     \]%
     This finishes the proof.
-\end{Proof}
-\begin{proposition}{Properties of Addition}{properties-of-addition}%
-    Let $n\oftype\N$ and $m\oftype\N$.
-    \begin{enumerate}
-        \item\label{properties-of-addition-unitality}\SloganFont{Unitality. }
-        \item\label{properties-of-addition-associativity}\SloganFont{Associativity. }
-        \item\label{properties-of-addition-commutativity}\SloganFont{Commutativity. }
-        \item\label{properties-of-addition-successors-via-addition}\SloganFont{Successors via Addition. }
-        %\item\label{properties-of-addition-}\SloganFont{. }
-    \end{enumerate}
-\end{proposition}
-\begin{Proof}{Proof of \cref{properties-of-addition}}%
-    \FirstProofBox{\cref{properties-of-addition-unitality}: Unitality}%
-    Omitted.
 
     \ProofBox{\cref{properties-of-addition-associativity}: Associativity}%
-    Omitted.
+    We proceed by induction on $k$.
+    \begin{itemize}
+        \item\SloganFont{The Base Case. }We have to produce a term of type
+            \[
+                (n+m)+0_{\N}%
+                \equals_{\N}%
+                n+(m+0_{\N}).%
+            \]%
+            Since $n+0_{\N}\doteq n$ for all $n\oftype\N$, we may use $\refl_{n+m}$.
+        \item\SloganFont{The Induction Step. }Assume we have a term
+            \[
+                p%
+                \oftype%
+                (n+m)+k%
+                \equals_{\N}%
+                n+(m+k).%
+            \]%
+            We have to produce a term of type
+            \[
+                (n+m)+\succ_{\N}(k)%
+                \equals_{\N}%
+                n+(m+\succ_{\N}(k)).%
+            \]%
+            By the computation rules for addition, we have judgemental equalities
+            \[
+                \underbrace{(n+m)+\succ_{\N}(k)}_{{}\doteq\succ_{\N}((n+m)+k)}%
+                \equals_{\N}%
+                \underbrace{n+(m+\succ_{\N}(k))}_{{}\doteq\succ_{\N}(n+(m+k))},%
+            \]%
+            so it suffices to construct a term of type
+            \[
+                \succ_{\N}((n+m)+k)%
+                \equals_{\N}%
+                \succ_{\N}(n+(m+k)).%
+            \]%
+            Applying the action on identifications
+            \[
+                \ap_{\succ_{\N}}%
+                \oftype%
+                \prod_{{\color{OIblue}k,\ell\oftype\N}}{\color{OIblue}k\equals_{\N}\ell}\mathbin{\color{OIvermillion}{\to}}{\color{OIblue}\succ_{\N}(k)\equals_{\N}\succ_{\N}(\ell)}%
+            \]%
+            of $\succ_{\N}\oftype\N\to\N$ to $p$, we obtain a term
+            \[
+                \ap_{\succ_{\N}}(p)%
+                \oftype%
+                \succ_{\N}((n+m)+k)%
+                \equals_{\N}%
+                \succ_{\N}(n+(m+k)).%
+            \]%
+            This finishes the inductive step.
+    \end{itemize}
+    We then define
+    \[
+        \assoc^{+}_{\N}%
+        \defeq%
+        \ind_{\N}(\refl_{n+m},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\rrbracket).%
+    \]%
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-addition-commutativity}: Commutativity}%
-    Omitted.
+    We proceed by induction on $n$.
+    \begin{itemize}
+        \item\SloganFont{The Base Case. }We have to produce a term of type
+            \[
+                0_{\N}+m%
+                \equals_{\N}%
+                m+0_{\N}.%
+            \]%
+            Since $m+0_{\N}\doteq m$, we may use $\zeroadd_{\N}$.
+        \item\SloganFont{The Induction Step. }Assume we have a term
+            \[
+                p%
+                \oftype%
+                n+m%
+                \equals_{\N}%
+                m+n.%
+            \]%
+            We have to produce a term of type
+            \[
+                \succ_{\N}(n)+m%
+                \equals_{\N}%
+                m+\succ_{\N}(n).%
+            \]%
+            By the computation rules for addition, we have $m+\succ_{\N}(n)\doteq\succ_{\N}(m+n)$ and $\succadd_{\N}$ gives us a term
+            \[
+                \succadd_{\N}(n,m)%
+                \oftype%
+                \succ_{\N}(n)+m%
+                \equals_{\N}%
+                \succ_{\N}(n+m),%
+            \]%
+            so it only remains to construct a term of type $\succ_{\N}(n+m)\equals_{\N}\succ_{\N}(m+n)$. Again $\ap_{\succ_{\N}}$ fits the bill. This finishes the inductive step.
+    \end{itemize}
+    We then define
+    \[
+        \comm^{+}_{\N}%
+        \defeq%
+        \ind_{\N}(\zeroadd_{\N},\llbracket p\mapsto\ap_{\succ_{\N}}(p)\ccirc\succadd_{\N}\rrbracket).%
+    \]%
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-addition-successors-via-addition}: Successors via Addition}%
     Omitted.
@@ -3030,7 +3143,7 @@ Let $A$ be a type and let $a\oftype A$.
     This finishes the construction of $\inv$.
 
     \ProofBox{\cref{properties-of-identity-types-left-invertibility}: Left Invertibility}%
-    First, notice that we have a judgemental equality of the form $\refl^{-1}_{y}\doteq\refl_{y}$, and thus a judgmental equality of the form
+    First, notice that we have a judgemental equality of the form $\refl^{-1}_{y}\doteq\refl_{y}$, and thus a judgemental equality of the form
     \[
         \refl^{-1}_{y}\cdot\refl_{y}%
         \doteq%
@@ -3059,7 +3172,7 @@ Let $A$ be a type and let $a\oftype A$.
     This finishes the construction of $\leftinv$.
 
     \ProofBox{\cref{properties-of-identity-types-right-invertibility}: Right Invertibility}%
-    First, notice that we have a judgemental equality of the form $\refl^{-1}_{x}\doteq\refl_{x}$, and thus a judgmental equality of the form
+    First, notice that we have a judgemental equality of the form $\refl^{-1}_{x}\doteq\refl_{x}$, and thus a judgemental equality of the form
     \[
         \refl_{x}\cdot\refl^{-1}_{x}%
         \doteq%
