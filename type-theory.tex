@@ -1687,6 +1687,57 @@ Let $A$, $B$, and $C$ be types.
     \end{align*}
     This finishes the construction of $\sfEq_{\N}$.
 \end{Proof}
+\begin{proposition}{Properties of Observational Equality of Natural Numbers}{properties-of-observational-equality-of-natural-numbers}%
+    Let $n\oftype\N$.
+    \begin{enumerate}
+        \item\label{properties-of-observational-equality-of-natural-numbers-reflexivity}\SloganFont{Reflexivity. }There exists a term
+            \[
+                \reflEq_{\N}%
+                \oftype%
+                \prod_{n\oftype\N}\sfEq_{\N}(n,n)%
+            \]%
+            defined via pattern matching by
+            \begin{align*}
+                \reflEq_{\N}(0_{\N})        &\defeq \UnitType,\\%
+                \reflEq_{\N}(\succ_{\N}(n)) &\defeq \reflEq_{\N}(n).%
+            \end{align*}
+        \item\label{properties-of-observational-equality-of-natural-numbers-relation-to-identity-types}\SloganFont{Relation to Identity Types. }The type
+            \[
+                (n\equals_{\N}m)%
+                \biimplications%
+                \sfEq_{\N}(n,m)%
+            \]%
+            is inhabited.
+        %\item\label{properties-of-observational-equality-of-natural-numbers-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-observational-equality-of-natural-numbers}}%
+    \FirstProofBox{\cref{properties-of-observational-equality-of-natural-numbers-reflexivity}: Reflexivity}%
+    There is nothing to prove.
+
+    \ProofBox{\cref{properties-of-observational-equality-of-natural-numbers-relation-to-identity-types}: Relation to Identity Types}%
+    We define a function
+    \[
+        (n\equals_{\N}m)%
+        \to%
+        \sfEq_{\N}(n,m)%
+    \]%
+    via path induction, using $\reflEq_{\N}$:
+    \begin{webprooftree}%
+        \begin{prooftree}%
+            \hypo{\context{\Gamma}{n\oftype\N}}%
+            \hypo{\context{\Gamma,\,m\oftype\N,\,p\oftype n\equals_{\N}m}{\sfEq_{\N}(n,m)\type}}%
+            \infer2[(id-ind)]{\context{\Gamma}{\displaystyle\indeq{n}\oftype\sfEq_{\N}(n,n)\to\prod_{m\oftype\N}\prod_{p\oftype n\equals_{\N}m}\sfEq_{\N}(n,m)}}%
+            \infer1{\context{\Gamma}{\displaystyle\indeq{n}(\reflEq_{\N}(n))\oftype\prod_{m\oftype\N}\prod_{p\oftype n\equals_{\N}m}\sfEq_{\N}(n,m)}}
+            \infer1{\context{\Gamma}{\displaystyle[\indeq{n}(\reflEq_{\N}(n))](m)\oftype\prod_{p\oftype n\equals_{\N}m}\sfEq_{\N}(n,m)}}%
+            \infer1{\context{\Gamma}{\displaystyle[\indeq{n}(\reflEq_{\N}(n))](m)\oftype(n\equals_{\N}m)\to\sfEq_{\N}(n,m)}}%
+        \end{prooftree}%
+        .%
+    \end{webprooftree}%
+    To define a function $\sfEq_{\N}(n,m)\to(n\equals_{\N}m)$, we proceed by induction on $n$ and $m$.
+
+    TODO
+\end{Proof}
 \subsection{Addition of Natural Numbers}\label{subsection-martin-löf-type-theory-addition-of-natural-numbers}
 \begin{definition}{Addition of Natural Numbers}{addition-of-natural-numbers}%
     The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function\index[notation]{addN@$\add_{\N}$}%
@@ -2822,6 +2873,16 @@ Let $A$ be a type.
     \end{scalewebprooftree}%
     where we have omitted a few weakening steps. This finishes the proof.
 \end{Proof}
+\subsection{The Type of Bi-Implications}\label{subsection-the-type-of-bi-implications}
+Let $P$ and $Q$ be types.
+\begin{definition}{The Type of Bi-Implications}{the-type-of-bi-implications}%
+    The \index[type-theory]{type of bi-implications}\textbf{type of bi-implications} is the type \index[notation]{PiffQ@$P\biimplications Q$}$P\biimplications Q$ defined by
+    \[
+        P\biimplications Q%
+        \defeq%
+        (P\to Q)\times(Q\to P).%
+    \]%
+\end{definition}
 \subsection{The Type of Boolean Values}\label{subsection-the-type-of-boolean-values}
 Page 36 (52)
 \section{Identity Types}\label{section-martin-löf-type-theory-identity-types}
