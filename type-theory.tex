@@ -1634,6 +1634,7 @@ Let $A$, $B$, and $C$ be types.
         \add'_{\N}(\succ_{\N}(n),\succ_{\N}(m)) &\defeq \succ_{\N}(\succ_{\N}(\add'_{\N}(n,m))).%
     \end{align*}
 \end{example}
+\subsection{Observation Equality of Natural Numbers}\label{subsection-observation-equality-of-natural-numbers}
 \subsection{Addition of Natural Numbers}\label{subsection-martin-löf-type-theory-addition-of-natural-numbers}
 \begin{definition}{Addition of Natural Numbers}{addition-of-natural-numbers}%
     The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function\index[notation]{addN@$\add_{\N}$}%
@@ -3387,6 +3388,143 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
         \refl_{f(x)}.%
     \]%
 \end{definition}
+\section{Universes}\label{section-universes}
+\subsection{Foundations}\label{subsection-foundations}
+\begin{definition}{Universes}{universes}%
+    A \index[type-theory]{universe}\textbf{universe} is a pair $(\CatFont{U},\CatFont{T})$ consisting of:
+    \begin{itemize}
+        \item\SloganFont{The Universe. }A type $\CatFont{U}$;
+        \item\SloganFont{The Universal Type Family. }A type family $\CatFont{T}$ over $\CatFont{U}$;
+    \end{itemize}
+    satisfying the following conditions:%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }We say that $\CatFont{U}$ \index[type-theory]{universe!containment of terms}\textbf{contains} a type $A$ if $\CatFont{U}$ has a term $\widecheck{A}$ such that the judgement
+        \[
+            \CatFont{T}\pig(\widecheck{A}\pig)%
+            \doteq%
+            A%
+            \type
+        \]%
+        holds.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \begin{enumerate}
+        \item\label{universes-closure-under-dependent-products}\SloganFont{Closure Under Dependent Products. }There exists a function
+            \[
+                \widecheck{\Pi}%
+                \oftype%
+                {\color{OIblue}\prod_{X\oftype\CatFont{U}}(\CatFont{T}(X)\to\CatFont{U})}%
+                \mathbin{\color{OIvermillion}\to}%
+                {\color{OIblue}\CatFont{U}}%
+            \]%
+            satisfying the judgemental equality
+            \[
+                \CatFont{T}\pig(\widecheck{\Pi}(X,Y)\pig)%
+                \doteq%
+                \prod_{x\oftype\CatFont{T}(X)}\CatFont{T}(Y(x))%
+            \]%
+            for each $X\oftype\CatFont{U}$ and each $Y\oftype\CatFont{T}(X)\to\CatFont{U}$.
+        \item\label{universes-closure-under-dependent-pairs}\SloganFont{Closure Under Dependent Pairs. }There exists a function
+            \[
+                \widecheck{\Sigma}%
+                \oftype%
+                {\color{OIblue}\prod_{X\oftype\CatFont{U}}(\CatFont{T}(X)\to\CatFont{U})}%
+                \mathbin{\color{OIvermillion}\to}%
+                {\color{OIblue}\CatFont{U}}%
+            \]%
+            satisfying the judgemental equality
+            \[
+                \CatFont{T}\pig(\widecheck{\Sigma}(X,Y)\pig)%
+                \doteq%
+                \sum_{x\oftype\CatFont{T}(X)}\CatFont{T}(Y(x))%
+            \]%
+            for each $X\oftype\CatFont{U}$ and each $Y\oftype\CatFont{T}(X)\to\CatFont{U}$.
+        \item\label{universes-closure-under-identity-types}\SloganFont{Closure Under Identity Types. }There exists a function
+            \[
+                \widecheck{\mrmI}%
+                \oftype%
+                {\color{OIblue}\prod_{X\oftype\CatFont{U}}\CatFont{T}(X)\times\CatFont{T}(X)}%
+                \mathbin{\color{OIvermillion}\to}%
+                {\color{OIblue}\CatFont{U}}%
+            \]%
+            satisfying the judgemental equality
+            \[
+                \CatFont{T}\pig(\widecheck{\mrmI}(X,x,y)\pig)%
+                \doteq%
+                (x\equals_{\CatFont{T}(X)}y)%
+            \]%
+            for each $X\oftype\CatFont{U}$ and each $x,y\oftype\CatFont{T}(X)$.
+        \item\label{universes-closure-under-coproducts}\SloganFont{Closure Under Coproducts. }There exists a function
+            \[
+                \widecheck{\mathord{+}}%
+                \oftype%
+                \CatFont{U}\times\CatFont{U}%
+                \to%
+                \CatFont{U}%
+            \]%
+            satisfying the judgemental equality
+            \[
+                \CatFont{T}\pig(X\mathbin{\widecheck{\mathord{+}}}Y\pig)%
+                \doteq%
+                \CatFont{T}(X)+\CatFont{T}(Y)%
+            \]%
+            for each $X,Y\oftype\CatFont{U}$.
+        \item\label{universes-closure-under-coproducts-existence-of-empty-types}\SloganFont{Existence of Empty Types. }The type $\CatFont{U}$ has a term $\widecheck{\EmptyType}$ satisfying the judgemental equality
+            \[
+                \CatFont{T}(\widecheck{\EmptyType})%
+                \doteq%
+                \EmptyType.%
+            \]%
+        \item\label{universes-closure-under-coproducts-existence-of-unit-types}\SloganFont{Existence of Unit Types. }The type $\CatFont{U}$ has a term $\widecheck{\UnitType}$ satisfying the judgemental equality
+            \[
+                \CatFont{T}(\widecheck{\UnitType})%
+                \doteq%
+                \UnitType.%
+            \]%
+        \item\label{universes-closure-under-coproducts-existence-of-natural-numbers}\SloganFont{Existence of Natural Numbers. }The type $\CatFont{U}$ has a term $\widecheck{\N}$ satisfying the judgemental equality
+            \[
+                \CatFont{T}(\widecheck{\N})%
+                \doteq%
+                \N.%
+            \]%
+    \end{enumerate}
+\end{definition}
+\begin{remark}{Assumption of Enough Universes}{assumption-of-enough-universes}%
+    We assume that there exist \index[type-theory]{universe!assumption of enough universes}\textbf{enough universes} in the sense that given a finite list of types in context
+    \begin{gather*}
+        \Gamma_{1}\vdash A_{1}\type\\%
+        \vdots\\%
+        \Gamma_{n}\vdash A_{n}\type,%
+    \end{gather*}
+    there exists some universe $\CatFont{U}$ containing each $A_{i}$. In particular:
+    \begin{enumerate}
+        \item\label{assumption-of-enough-universes-the-base-universe}\SloganFont{The Base Universe. }The \index[type-theory]{base universe}\textbf{base universe} \index[notation]{Uzero@$\CatFont{U}_{0}$}$\CatFont{U}_{0}$ is the universe obtained via assuming enough universes for the empty context.
+        \item\label{assumption-of-enough-universes-successor-universes}\SloganFont{Successor Universes. }The \index[type-theory]{successor universe}\textbf{successor universe} of a universe $\CatFont{U}$ is the universe \index[notation]{Uplus@$\CatFont{U}^{+}$}$\CatFont{U}^{+}$ obtained via assuming enough universes for the finite list
+            \begin{align*}
+                {\color{OIvermillion}}                    &\mathbin{\vdash} {\color{OIblue}\CatFont{U}\type}\\
+                {\color{OIvermillion}X\oftype\CatFont{U}} &\mathbin{\vdash} {\color{OIblue}\CatFont{T}(X)\type}.
+            \end{align*}
+            The successor universe $\CatFont{U}^{+}$ of $\CatFont{U}$ contains $\CatFont{U}$ as well as every term of $\CatFont{U}$.
+        \item\label{assumption-of-enough-universes-joins}\SloganFont{Joins. }The \index[type-theory]{universe!join of}\textbf{join} of universes $\CatFont{U}$ and $\CatFont{V}$ is the universe \index[notation]{UcoprodV@$\CatFont{U}\coprod\CatFont{V}$}$\CatFont{U}\coprod\CatFont{V}$ obtained via assuming enough universes for the finite list%
+            %--- Begin Footnote ---%
+            \footnote{%
+                Since we don't postulate relations between universes, it may be the case that $(\CatFont{U}\coprod\CatFont{V})\coprod\CatFont{W}$ and $\CatFont{U}\coprod(\CatFont{V}\coprod\CatFont{W})$ are unrelated.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \begin{align*}
+                {\color{OIvermillion}X\oftype\CatFont{U}} &\mathbin{\vdash} {\color{OIblue}\CatFont{T}_{\CatFont{U}}(X)\type}\\
+                {\color{OIvermillion}Y\oftype\CatFont{V}} &\mathbin{\vdash} {\color{OIblue}\CatFont{T}_{\CatFont{V}}(Y)\type},
+            \end{align*}
+            coming with maps
+            \begin{align*}
+                \iota_{\CatFont{U}} &\oftype \CatFont{U}\to\CatFont{U}\coprod\CatFont{V}\\
+                \iota_{\CatFont{V}} &\oftype \CatFont{V}\to\CatFont{U}\coprod\CatFont{V}.
+            \end{align*}
+    \end{enumerate}
+\end{remark}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
