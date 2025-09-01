@@ -1634,7 +1634,59 @@ Let $A$, $B$, and $C$ be types.
         \add'_{\N}(\succ_{\N}(n),\succ_{\N}(m)) &\defeq \succ_{\N}(\succ_{\N}(\add'_{\N}(n,m))).%
     \end{align*}
 \end{example}
-\subsection{Observation Equality of Natural Numbers}\label{subsection-observation-equality-of-natural-numbers}
+\subsection{Observational Equality of Natural Numbers}\label{subsection-observational-equality-of-natural-numbers}
+\begin{definition}{Observational Equality of Natural Numbers}{observational-equality-of-natural-numbers}%
+    The \index[type-theory]{natural numbers!observational equality}\index[type-theory]{observational equality of natural numbers}\textbf{observational equality} of natural numbers is the function\index[notation]{EqN@$\sfEq_{\N}$}$\sfEq_{\N}\oftype\N\times\N\to\CatFont{U}_{0}$ satisfying the following conditions:
+    \begin{enumerate}
+        \item\label{observational-equality-of-natural-numbers-zero-is-observationally-equal-to-zero}\SloganFont{Zero Is Observationally Equal to Zero. }We have%$\sfEq_{\N}(0_{\N},0_{\N})\doteq\UnitType$.
+            \[
+                \sfEq_{\N}(0_{\N},0_{\N})%
+                \doteq%
+                \UnitType.%
+            \]%
+        \item\label{observational-equality-of-natural-numbers-zero-is-not-a-sucessor}\SloganFont{Zero Is Not a Successor. }We have%$\sfEq_{\N}(0_{\N},\succ_{\N}(n))\doteq\EmptyType$.
+            \[
+                \sfEq_{\N}(0_{\N},\succ_{\N}(n))%
+                \doteq%
+                \EmptyType.%
+            \]%
+        \item\label{observational-equality-of-natural-numbers-successor-is-not-zero}\SloganFont{Successor Is Not Zero. }We have%$\sfEq_{\N}(\succ_{\N}(n),0_{\N})\doteq\EmptyType$.
+            \[
+                \sfEq_{\N}(\succ_{\N}(n),0_{\N})%
+                \doteq%
+                \EmptyType.%
+            \]%
+        \item\label{observational-equality-of-natural-numbers-when-successors-are-observationally-equal}\SloganFont{When Successors Are Observationally Equal. }We have%$\sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))\doteq\sfEq_{\N}(n,m)$.
+            \[
+                \sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))%
+                \doteq%
+                \sfEq_{\N}(n,m).%
+            \]%
+    \end{enumerate}
+\end{definition}
+\begin{Proof}{Construction of $\sfEq_{\N}$}%
+    We proceed by double induction on $n$ and $m$, first constructing terms
+    \begin{gather*}
+        E_{0} \oftype \N\to\CatFont{U}_{0},\\
+        E_{S} \oftype \N\to((\N\to\CatFont{U}_{0})\to(\N\to\CatFont{U}_{0})).%
+    \end{gather*}
+    We define $E_{0}$ via induction, taking $E_{0}(0_{\N})\defeq\UnitType$ and $E_{0S}(n,X,m)\defeq\EmptyType$. Thus $E_{0}$ satisfies the judgemental equalities
+    \begin{align*}
+        E_{0}(0_{\N})     &\doteq \UnitType,\\%
+        E_{0}(\succ_{\N}) &\doteq \EmptyType.%
+    \end{align*}
+    We also define $E_{S}$ via induction, taking $E_{S0}(0_{\N})\defeq\EmptyType$ and $E_{SS}(n,X,m)\doteq X(m)$. Thus $E_{S}$ satisfies the judgemental equalities
+    \begin{align*}
+        E_{S}(n,X,0_{\N})     &\doteq \EmptyType,\\%
+        E_{S}(n,X,\succ_{\N}) &\doteq X(m).%
+    \end{align*}
+    The computation rules for induction then give
+    \begin{align*}
+        \sfEq_{\N}(0_{\N},m)        &\doteq E_{0}(m),\\%
+        \sfEq_{\N}(\succ_{\N}(n),m) &\doteq E_{S}(n,\Eq_{\N}(n),m).%
+    \end{align*}
+    This finishes the construction of $\sfEq_{\N}$.
+\end{Proof}
 \subsection{Addition of Natural Numbers}\label{subsection-martin-löf-type-theory-addition-of-natural-numbers}
 \begin{definition}{Addition of Natural Numbers}{addition-of-natural-numbers}%
     The \index[type-theory]{natural numbers!addition}\index[type-theory]{addition of natural numbers}\textbf{addition} of natural numbers is the function\index[notation]{addN@$\add_{\N}$}%
