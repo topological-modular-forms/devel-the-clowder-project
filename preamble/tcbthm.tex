@@ -208,21 +208,24 @@ separator sign={\ $\blacktriangleright$}%
 \makeatother
 \newenvironment{dnote}[1]{%
     $\mlp{\smash{\shiftbox{-1.0cm}{\raisebox{-0.625cm}{\huge\textdbend}}}}$%
-    \begin{tikzpicture}[opacity=0.1, overlay, anchor=base]
-        \node[inner sep=0pt] (go) at (+0.00cm,-0.75cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
-        \node[inner sep=0pt] (go) at (+0.75cm,-0.60cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
-        \node[inner sep=0pt] (go) at (+1.50cm,-0.45cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
-        \node[inner sep=0pt] (go) at (+2.25cm,-0.30cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
-        \node[inner sep=0pt] (go) at (+3.00cm,-0.15cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
-        \node[inner sep=0pt] (go) at (+3.75cm,-0.00cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
-    \end{tikzpicture}
+    $\smash{\mlp{%
+        \shiftbox{-4.5cm}{%
+            \raisebox{1.5cm}{%
+                \begin{tikzpicture}[opacity=0.1, overlay, anchor=base]
+                    \node[inner sep=0pt] (go) at (+0.00cm,-0.75cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+                    \node[inner sep=0pt] (go) at (+0.75cm,-0.60cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+                    \node[inner sep=0pt] (go) at (+1.50cm,-0.45cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+                    %\node[inner sep=0pt] (go) at (+2.25cm,-0.30cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+                    %\node[inner sep=0pt] (go) at (+3.00cm,-0.15cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+                    %\node[inner sep=0pt] (go) at (+3.75cm,-0.00cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
+                \end{tikzpicture}
+            }%
+        }%
+    }}$%
 }
 {
-    $\mathclap{\smash{\phantom{a}}}$%
-    \newline%
-    $\mathclap{\smash{\phantom{a}}}$%
-    \newline%
-    $\mlp{%
+    \hfill%$\mrp{\smash{\phantom{a}}}$\newline\hfill
+    $\mrp{\smash{\shiftbox{5.0cm}{\raisebox{-0.5cm}{$\mlp{%
         \begin{tikzpicture}[opacity=0.1, overlay, anchor=base]
             \node[inner sep=0pt] (go) at (\textwidth-4.00cm,+0.15cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
             \node[inner sep=0pt] (go) at (\textwidth-3.25cm,+0.30cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
@@ -231,8 +234,8 @@ separator sign={\ $\blacktriangleright$}%
             \node[inner sep=0pt] (go) at (\textwidth-1.00cm,+0.75cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
             \node[inner sep=0pt] (go) at (\textwidth-0.25cm,+0.90cm) {\LARGE\textcolor{purpleGOGOGO}{\Japanese{ゴ}}};
         \end{tikzpicture}%
-    }$%
-    \vspace{-2.0\baselineskip}
+    }$}}}}$%
+    %\vspace{-1.0\baselineskip}
 }
 \newenvironment{warning}[2]{
     \begin{tcbwarning}[label={#2}]{{\fontsize{10}{12}\selectfont\hyperwhite\textsc{\bfseries#1}}}{}\hyperred

@@ -73,6 +73,82 @@ TODO:
 \subsection{Meets}\label{subsection-meets-in-posets}
 \subsection{Suprema}\label{subsection-suprema-in-posets}
 \subsection{Infima}\label{subsection-infima-in-posets}
+\section{Totally Ordered Sets}\label{section-totally-ordered-sets}
+\subsection{Maxima and Minima}\label{subsection-maxima-and-minima}
+\begin{definition}{Maxima and Minima}{maxima-and-minima}%
+    Let $(X,\leq_{X})$ be a totally ordered set.
+    \begin{enumerate}
+        \item\label{maxima-and-minima-minima}The \index[posets]{minimum}\textbf{minimum operation} is the function $\min\colon X\times X\to X$ defined by
+            \[
+                \min(x,y)%
+                \defeq%
+                \begin{cases}%
+                    x &\text{if $x\leq_{X}y$,}\\
+                    y &\text{otherwise}%
+                \end{cases}%
+            \]%
+            for each $x,y\in X$.
+        \item\label{maxima-and-minima-maxima}The \index[posets]{maximum}\textbf{maximum operation} is the function $\max\colon X\times X\to X$ defined by
+            \[
+                \max(x,y)%
+                \defeq%
+                \begin{cases}%
+                    x &\text{if $y\leq_{X}x$,}\\
+                    y &\text{otherwise}%
+                \end{cases}%
+            \]%
+            for each $x,y\in X$.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Maxima and Minima}{properties-of-maxima-and-minima}%
+    Let $(X,\leq_{X})$ be a totally ordered set.
+    \begin{enumerate}
+        \item\label{properties-of-maxima-and-minima-unitality}\SloganFont{Unitality. }
+        \item\label{properties-of-maxima-and-minima-associativity}\SloganFont{Associativity. }
+            % https://proofwiki.org/wiki/Max_Operation_is_Associativehttps://proofwiki.org/wiki/Max_of_Subfamily_of_Operands_Less_or_Equal_to_Max
+        \item\label{properties-of-maxima-and-minima-commutativity}\SloganFont{Commutativity. }
+            % https://proofwiki.org/wiki/Max_Operation_is_Commutative
+        \item\label{properties-of-maxima-and-minima-idempotency}\SloganFont{Idempotency. }
+            % https://proofwiki.org/wiki/Max_Operation_is_Idempotent
+        \item\label{properties-of-maxima-and-minima-distributivity-of-maxima-over-minima}\SloganFont{Distributivity of Maxima Over Minima. }The diagrams
+            \[
+                \cdots%
+            \]%
+            commute, i.e.\ we have
+            \begin{align*}
+                \max(x,\min(y,z)) &= \min(\max(x,y),\max(x,z)),\\
+                \max(\min(x,y),z) &= \min(\max(x,z),\max(y,z))%
+            \end{align*}
+            for each $x,y,z\in X$.
+        \item\label{properties-of-maxima-and-minima-distributivity-of-minima-over-maxima}\SloganFont{Distributivity of Minima Over Maxima. }The diagrams
+            \[
+                \cdots%
+            \]%
+            commute, i.e.\ we have
+            \begin{align*}
+                \min(x,\max(y,z)) &= \max(\min(x,y),\min(x,z)),\\
+                \min(\max(x,y),z) &= \max(\min(x,z),\min(y,z))%
+            \end{align*}
+            for each $x,y,z\in X$.
+            % https://proofwiki.org/wiki/Max_and_Min_Operations_are_Distributive_over_Each_Other
+            %
+            %MORE:
+            % https://proofwiki.org/wiki/Mapping_on_Integers_is_Endomorphism_of_Max_or_Min_Operation_iff_Increasing
+            % https://proofwiki.org/wiki/Condition_for_Equivalence_Relation_for_Max_Operation_on_Natural_Numbers_to_be_Congruence
+            % https://proofwiki.org/wiki/Mapping_on_Integers_is_Homomorphism_between_Max_or_Min_Operation_iff_Decreasing
+            % For fields: https://proofwiki.org/wiki/Max_is_Half_of_Sum_Plus_Absolute_Difference
+            % https://proofwiki.org/wiki/Max_Operation_on_Continuous_Real_Functions_is_Continuous
+            % https://proofwiki.org/wiki/Max_Operation_on_Natural_Numbers_forms_Monoid
+            % https://proofwiki.org/wiki/Max_Operation_on_Toset_forms_Semigroup
+            % https://proofwiki.org/wiki/Max_Operation_on_Woset_is_Monoid
+            % https://proofwiki.org/wiki/Max_Operation_Preserves_Total_Ordering
+            % https://proofwiki.org/wiki/Max_Operation_Representation_on_Real_Numbers
+            % https://proofwiki.org/wiki/Max_Semigroup_on_Toset_forms_Semilattice
+        %\item\label{properties-of-maxima-and-minima-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-maxima-and-minima}}%
+\end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}

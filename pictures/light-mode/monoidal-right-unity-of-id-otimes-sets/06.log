@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.3.11)  12 JUL 2025 16:58
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.8.29)  2 SEP 2025 17:12
  restricted system commands enabled.
 **06.tex
 (./06.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-08-13>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
@@ -62,32 +62,32 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@tempa@toks=\toks18
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/xkeyval/keyval.tex))
-\XKV@depth=\count194
+\XKV@depth=\count273
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\sa@internal=\count195
-\c@sapage=\count196
+\sa@internal=\count274
+\c@sapage=\count275
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/standalone/standalone.cfg
 File: standalone.cfg 2025/02/22 v1.5a Default configuration file for 'standalon
 e' class
 ) (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 luaotfload | db : Font names database loaded from /home/emily/.local/texlive/202
 5/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
-\c@part=\count197
-\c@section=\count198
-\c@subsection=\count199
-\c@subsubsection=\count266
-\c@paragraph=\count267
-\c@subparagraph=\count268
-\c@figure=\count269
-\c@table=\count270
+\c@part=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
-\bibindent=\dimen140
+\bibindent=\dimen147
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/luatex85/luatex85.sty
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
@@ -108,14 +108,14 @@ Package pdftexcmds Info: \pdfdraftmode found.
 \pdftexcmds@toks=\toks19
 ) (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box52
-\sift@deathcycles=\count271
-\@vwid@loff=\dimen141
-\@vwid@roff=\dimen142
+\@vwid@box=\box53
+\sift@deathcycles=\count284
+\@vwid@loff=\dimen148
+\@vwid@roff=\dimen149
 )
-\sa@box=\box53
-)
-(../../../preamble/compiled/preamble-tikzcd.tex
+==> First Aid for varwidth.sty applied!
+\sa@box=\box54
+) (../../../preamble/compiled/preamble-tikzcd.tex
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks20
@@ -123,30 +123,29 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read2
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
-\c@tracingmulticols=\count272
-\mult@box=\box54
-\multicol@leftmargin=\dimen143
-\c@unbalance=\count273
-\c@collectmore=\count274
-\doublecol@number=\count275
-\multicoltolerance=\count276
-\multicolpretolerance=\count277
-\full@width=\dimen144
-\page@free=\dimen145
-\premulticols=\dimen146
-\postmulticols=\dimen147
+Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
+\c@tracingmulticols=\count285
+\mult@box=\box55
+\multicol@leftmargin=\dimen150
+\c@unbalance=\count286
+\c@collectmore=\count287
+\doublecol@number=\count288
+\multicoltolerance=\count289
+\multicolpretolerance=\count290
+\full@width=\dimen151
+\page@free=\dimen152
+\premulticols=\dimen153
+\postmulticols=\dimen154
 \multicolsep=\skip51
 \multicolbaselineskip=\skip52
-\partial@page=\box55
-\last@line=\box56
-\mc@boxedresult=\box57
-\maxbalancingoverflow=\dimen148
-\mult@rightbox=\box58
-\mult@grightbox=\box59
-\mult@firstbox=\box60
-\mult@gfirstbox=\box61
-\@tempa=\box62
+\partial@page=\box56
+\last@line=\box57
+\mc@boxedresult=\box58
+\maxbalancingoverflow=\dimen155
+\mult@rightbox=\box59
+\mult@grightbox=\box60
+\mult@firstbox=\box61
+\mult@gfirstbox=\box62
 \@tempa=\box63
 \@tempa=\box64
 \@tempa=\box65
@@ -182,15 +181,17 @@ Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \@tempa=\box95
 \@tempa=\box96
 \@tempa=\box97
-\c@minrows=\count278
-\c@columnbadness=\count279
-\c@finalcolumnbadness=\count280
-\last@try=\dimen149
-\multicolovershoot=\dimen150
-\multicolundershoot=\dimen151
-\mult@nat@firstbox=\box98
-\colbreak@box=\box99
-\mc@col@check@num=\count281
+\@tempa=\box98
+\c@minrows=\count291
+\c@columnbadness=\count292
+\c@finalcolumnbadness=\count293
+\last@try=\dimen156
+\multicolovershoot=\dimen157
+\multicolundershoot=\dimen158
+\mult@nat@firstbox=\box99
+\colbreak@box=\box100
+\mc@col@check@num=\count294
+\g__mc_curr_col_int=\count295
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
@@ -215,25 +216,25 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
-Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
-\col@sep=\dimen152
-\ar@mcellbox=\box100
-\extrarowheight=\dimen153
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+\col@sep=\dimen159
+\ar@mcellbox=\box101
+\extrarowheight=\dimen160
 \NC@list=\toks22
 \extratabsurround=\skip53
 \backup@length=\skip54
-\ar@cellbox=\box101
+\ar@cellbox=\box102
 )
 \everycr=\toks23
 \minrowclearance=\skip55
-\rownum=\count282
+\rownum=\count296
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaT
-eX and XeLaTeX
+Package: babel 2025/08/03 v25.12 The multilingual framework for LuaLaTeX, pdfLa
+TeX and XeLaTeX
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/babel/luababel.def
 \bbl@readstream=\read3
@@ -330,8 +331,22 @@ Package babel Info: Non-standard hyphenation setup on input line 118.
 \babelcatcodetablenum=\catcodetable14
 \bbl@pattcodes=\catcodetable15
 )
-\babel@savecnt=\count283
-\U@D=\dimen154
+\babel@savecnt=\count297
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2045.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2047.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2049.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2050.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2051.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2053.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2078.
+\U@D=\dimen161
 \l@unhyphenated=\language91
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/babel/luababel.def
@@ -340,6 +355,12 @@ Package babel Info: Non-standard hyphenation setup on input line 118.
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/babel-english/english.l
 df
 Language: english 2017/06/06 v3.3r English support from the babel system
+
+(/home/emily/.local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-e
+nglish.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 12.
+)
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
@@ -347,36 +368,31 @@ Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language23). Reported on input line 108.
 ))
-(/home/emily/.local/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-e
-nglish.tex
-Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 11.
-)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count284
+\etb@tempcnta=\count298
 )
 \MT@toks=\toks24
-\MT@tempbox=\box102
-\MT@count=\count285
+\MT@tempbox=\box103
+\MT@count=\count299
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
 \MT@prot@toks=\toks25
 LaTeX Info: Redefining \rightprotrusion on input line 1107.
 LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen155
+\MT@outer@kern=\dimen162
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count286
+\MT@listname@count=\count300
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/microtype/microtype-luate
 x.def
-File: microtype-luatex.def 2025/02/11 v3.2a Definitions specific to luatex (RS)
+File: microtype-luatex.def 2025/07/09 v3.2b Definitions specific to luatex (RS)
 
-Lua module: microtype 2025/02/11 v3.2a microtype module.
+Lua module: microtype 2025/07/09 v3.2b microtype module.
 Module microtype Info: overwriting function `keepligature' on input line 63
 LaTeX Info: Redefining \lsstyle on input line 779.
 LaTeX Info: Redefining \lslig on input line 779.
@@ -385,11 +401,11 @@ LaTeX Info: Redefining \lslig on input line 779.
 Package microtype Info: Loading configuration file microtype.cfg.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
 ) (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -404,12 +420,12 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )))
-\c@section@level=\count287
+\c@section@level=\count301
 ) (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/zref/zref-xr.sty
-Package: zref-xr 2023-09-14 v2.35 Module xr for zref (HO)
+Package: zref-xr 2025-06-08 v2.36 Module xr for zref (HO)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/zref/zref-base.sty
-Package: zref-base 2023-09-14 v2.35 Module base for zref (HO)
+Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefineke
 ys.sty
@@ -428,7 +444,7 @@ Package zref Info: New property: page on input line 769.
 Package zref Info: New property: url on input line 58.
 Package zref Info: New property: urluse on input line 59.
 Package zref Info: New property: externaldocument on input line 60.
-\ZREF@xr@URL=\count288
+\ZREF@xr@URL=\count302
 )
 Package zref Info: New property: anchor on input line 52.
 Package zref Info: New property: title on input line 52.
@@ -443,276 +459,284 @@ y,
 (zref-xr)                labels not imported on input line 55.
 
 
+Package zref-xr Warning: File `axiomatic-set-theory.aux' not found or empty,
+(zref-xr)                labels not imported on input line 57.
+
+
+Package zref-xr Warning: File `type-theory.aux' not found or empty,
+(zref-xr)                labels not imported on input line 59.
+
+
 Package zref-xr Warning: File `sets.aux' not found or empty,
-(zref-xr)                labels not imported on input line 56.
+(zref-xr)                labels not imported on input line 60.
 
 
 Package zref-xr Warning: File `constructions-with-sets.aux' not found or empty,
 
-(zref-xr)                labels not imported on input line 57.
+(zref-xr)                labels not imported on input line 61.
 
 
 Package zref-xr Warning: File `monoidal-structures-on-the-category-of-sets.aux'
  not found or empty,
-(zref-xr)                labels not imported on input line 58.
+(zref-xr)                labels not imported on input line 62.
 
 
 Package zref-xr Warning: File `pointed-sets.aux' not found or empty,
-(zref-xr)                labels not imported on input line 59.
+(zref-xr)                labels not imported on input line 63.
 
 
 Package zref-xr Warning: File `tensor-products-of-pointed-sets.aux' not found o
 r empty,
-(zref-xr)                labels not imported on input line 61.
+(zref-xr)                labels not imported on input line 65.
 
 
 Package zref-xr Warning: File `relations.aux' not found or empty,
-(zref-xr)                labels not imported on input line 62.
+(zref-xr)                labels not imported on input line 66.
 
 
 Package zref-xr Warning: File `constructions-with-relations.aux' not found or e
 mpty,
-(zref-xr)                labels not imported on input line 63.
+(zref-xr)                labels not imported on input line 67.
 
 
 Package zref-xr Warning: File `conditions-on-relations.aux' not found or empty,
 
-(zref-xr)                labels not imported on input line 65.
+(zref-xr)                labels not imported on input line 69.
 
 
 Package zref-xr Warning: File `preorders.aux' not found or empty,
-(zref-xr)                labels not imported on input line 66.
-
-
-Package zref-xr Warning: File `posets.aux' not found or empty,
-(zref-xr)                labels not imported on input line 68.
-
-
-Package zref-xr Warning: File `graphs.aux' not found or empty,
 (zref-xr)                labels not imported on input line 70.
 
 
+Package zref-xr Warning: File `posets.aux' not found or empty,
+(zref-xr)                labels not imported on input line 72.
+
+
+Package zref-xr Warning: File `graphs.aux' not found or empty,
+(zref-xr)                labels not imported on input line 74.
+
+
 Package zref-xr Warning: File `indexed-sets.aux' not found or empty,
-(zref-xr)                labels not imported on input line 71.
+(zref-xr)                labels not imported on input line 75.
 
 
 Package zref-xr Warning: File `fibred-sets.aux' not found or empty,
-(zref-xr)                labels not imported on input line 72.
+(zref-xr)                labels not imported on input line 76.
 
 
 Package zref-xr Warning: File `un-straightening-for-indexed-and-fibred-sets.aux
 ' not found or empty,
-(zref-xr)                labels not imported on input line 74.
+(zref-xr)                labels not imported on input line 78.
 
 
 Package zref-xr Warning: File `categories.aux' not found or empty,
-(zref-xr)                labels not imported on input line 75.
+(zref-xr)                labels not imported on input line 79.
 
 
 Package zref-xr Warning: File `constructions-with-categories.aux' not found or 
 empty,
-(zref-xr)                labels not imported on input line 76.
+(zref-xr)                labels not imported on input line 80.
 
 
 Package zref-xr Warning: File `presheaves-and-the-yoneda-lemma.aux' not found o
 r empty,
-(zref-xr)                labels not imported on input line 77.
+(zref-xr)                labels not imported on input line 81.
 
 
 Package zref-xr Warning: File `adjunctions.aux' not found or empty,
-(zref-xr)                labels not imported on input line 78.
+(zref-xr)                labels not imported on input line 82.
 
 
 Package zref-xr Warning: File `limits-and-colimits.aux' not found or empty,
-(zref-xr)                labels not imported on input line 79.
+(zref-xr)                labels not imported on input line 83.
 
 
 Package zref-xr Warning: File `weighted-limits-and-colimits.aux' not found or e
 mpty,
-(zref-xr)                labels not imported on input line 80.
+(zref-xr)                labels not imported on input line 84.
 
 
 Package zref-xr Warning: File `ends-and-coends.aux' not found or empty,
-(zref-xr)                labels not imported on input line 81.
+(zref-xr)                labels not imported on input line 85.
 
 
 Package zref-xr Warning: File `kan-extensions.aux' not found or empty,
-(zref-xr)                labels not imported on input line 82.
+(zref-xr)                labels not imported on input line 86.
 
 
 Package zref-xr Warning: File `centres-and-traces-of-categories.aux' not found 
 or empty,
-(zref-xr)                labels not imported on input line 84.
+(zref-xr)                labels not imported on input line 88.
 
 
 Package zref-xr Warning: File `monoidal-categories.aux' not found or empty,
-(zref-xr)                labels not imported on input line 85.
+(zref-xr)                labels not imported on input line 89.
 
 
 Package zref-xr Warning: File `constructions-with-monoidal-categories.aux' not 
 found or empty,
-(zref-xr)                labels not imported on input line 87.
+(zref-xr)                labels not imported on input line 91.
 
 
 Package zref-xr Warning: File `types-of-morphisms-in-bicategories.aux' not foun
 d or empty,
-(zref-xr)                labels not imported on input line 88.
-
-
-Package zref-xr Warning: File `internal-adjunctions.aux' not found or empty,
-(zref-xr)                labels not imported on input line 90.
-
-
-Package zref-xr Warning: File `monoid-actions.aux' not found or empty,
 (zref-xr)                labels not imported on input line 92.
 
 
-Package zref-xr Warning: File `groups.aux' not found or empty,
+Package zref-xr Warning: File `internal-adjunctions.aux' not found or empty,
 (zref-xr)                labels not imported on input line 94.
 
 
-Package zref-xr Warning: File `preordered-monoids.aux' not found or empty,
-(zref-xr)                labels not imported on input line 95.
-
-
-Package zref-xr Warning: File `preordered-groups.aux' not found or empty,
+Package zref-xr Warning: File `monoid-actions.aux' not found or empty,
 (zref-xr)                labels not imported on input line 96.
 
 
+Package zref-xr Warning: File `groups.aux' not found or empty,
+(zref-xr)                labels not imported on input line 98.
+
+
+Package zref-xr Warning: File `preordered-monoids.aux' not found or empty,
+(zref-xr)                labels not imported on input line 99.
+
+
+Package zref-xr Warning: File `preordered-groups.aux' not found or empty,
+(zref-xr)                labels not imported on input line 100.
+
+
 Package zref-xr Warning: File `preordered-rings.aux' not found or empty,
-(zref-xr)                labels not imported on input line 97.
+(zref-xr)                labels not imported on input line 101.
 
 
 Package zref-xr Warning: File `preordered-vector-spaces.aux' not found or empty
 ,
-(zref-xr)                labels not imported on input line 99.
+(zref-xr)                labels not imported on input line 103.
 
 
 Package zref-xr Warning: File `star-rings.aux' not found or empty,
-(zref-xr)                labels not imported on input line 100.
+(zref-xr)                labels not imported on input line 104.
 
 
 Package zref-xr Warning: File `star-modules.aux' not found or empty,
-(zref-xr)                labels not imported on input line 101.
+(zref-xr)                labels not imported on input line 105.
 
 
 Package zref-xr Warning: File `star-algebras.aux' not found or empty,
-(zref-xr)                labels not imported on input line 103.
+(zref-xr)                labels not imported on input line 107.
 
 
 Package zref-xr Warning: File `representation-theory-of-groups.aux' not found o
 r empty,
-(zref-xr)                labels not imported on input line 105.
+(zref-xr)                labels not imported on input line 109.
 
 
 Package zref-xr Warning: File `topological-spaces.aux' not found or empty,
-(zref-xr)                labels not imported on input line 106.
+(zref-xr)                labels not imported on input line 110.
 
 
 Package zref-xr Warning: File `constructions-with-topological-spaces.aux' not f
 ound or empty,
-(zref-xr)                labels not imported on input line 107.
+(zref-xr)                labels not imported on input line 111.
 
 
 Package zref-xr Warning: File `topologies-on-powersets.aux' not found or empty,
 
-(zref-xr)                labels not imported on input line 108.
+(zref-xr)                labels not imported on input line 112.
 
 
 Package zref-xr Warning: File `conditions-on-topological-spaces.aux' not found 
 or empty,
-(zref-xr)                labels not imported on input line 109.
+(zref-xr)                labels not imported on input line 113.
 
 
 Package zref-xr Warning: File `sheaves-on-topological-spaces.aux' not found or 
 empty,
-(zref-xr)                labels not imported on input line 110.
+(zref-xr)                labels not imported on input line 114.
 
 
 Package zref-xr Warning: File `topological-stacks.aux' not found or empty,
-(zref-xr)                labels not imported on input line 111.
-
-
-Package zref-xr Warning: File `locales.aux' not found or empty,
-(zref-xr)                labels not imported on input line 112.
-
-
-Package zref-xr Warning: File `uniform-spaces.aux' not found or empty,
-(zref-xr)                labels not imported on input line 113.
-
-
-Package zref-xr Warning: File `metric-spaces.aux' not found or empty,
 (zref-xr)                labels not imported on input line 115.
 
 
-Package zref-xr Warning: File `topological-monoids.aux' not found or empty,
+Package zref-xr Warning: File `locales.aux' not found or empty,
 (zref-xr)                labels not imported on input line 116.
 
 
-Package zref-xr Warning: File `topological-groups.aux' not found or empty,
-(zref-xr)                labels not imported on input line 118.
+Package zref-xr Warning: File `uniform-spaces.aux' not found or empty,
+(zref-xr)                labels not imported on input line 117.
 
 
-Package zref-xr Warning: File `real-analysis.aux' not found or empty,
+Package zref-xr Warning: File `metric-spaces.aux' not found or empty,
+(zref-xr)                labels not imported on input line 119.
+
+
+Package zref-xr Warning: File `topological-monoids.aux' not found or empty,
 (zref-xr)                labels not imported on input line 120.
 
 
+Package zref-xr Warning: File `topological-groups.aux' not found or empty,
+(zref-xr)                labels not imported on input line 122.
+
+
+Package zref-xr Warning: File `real-analysis.aux' not found or empty,
+(zref-xr)                labels not imported on input line 124.
+
+
 Package zref-xr Warning: File `measurable-spaces.aux' not found or empty,
-(zref-xr)                labels not imported on input line 121.
+(zref-xr)                labels not imported on input line 125.
 
 
 Package zref-xr Warning: File `measures-and-integration.aux' not found or empty
 ,
-(zref-xr)                labels not imported on input line 123.
+(zref-xr)                labels not imported on input line 127.
 
 
 Package zref-xr Warning: File `topological-vector-spaces.aux' not found or empt
 y,
-(zref-xr)                labels not imported on input line 124.
-
-
-Package zref-xr Warning: File `c-star-algebras.aux' not found or empty,
-(zref-xr)                labels not imported on input line 125.
-
-
-Package zref-xr Warning: File `distributions.aux' not found or empty,
-(zref-xr)                labels not imported on input line 127.
-
-
-Package zref-xr Warning: File `topological-manifolds.aux' not found or empty,
 (zref-xr)                labels not imported on input line 128.
 
 
-Package zref-xr Warning: File `smooth-manifolds.aux' not found or empty,
-(zref-xr)                labels not imported on input line 130.
+Package zref-xr Warning: File `c-star-algebras.aux' not found or empty,
+(zref-xr)                labels not imported on input line 129.
 
 
-Package zref-xr Warning: File `the-simplex-category.aux' not found or empty,
+Package zref-xr Warning: File `distributions.aux' not found or empty,
+(zref-xr)                labels not imported on input line 131.
+
+
+Package zref-xr Warning: File `topological-manifolds.aux' not found or empty,
 (zref-xr)                labels not imported on input line 132.
 
 
-Package zref-xr Warning: File `the-cycle-category.aux' not found or empty,
+Package zref-xr Warning: File `smooth-manifolds.aux' not found or empty,
 (zref-xr)                labels not imported on input line 134.
 
 
-Package zref-xr Warning: File `the-cube-category.aux' not found or empty,
+Package zref-xr Warning: File `the-simplex-category.aux' not found or empty,
 (zref-xr)                labels not imported on input line 136.
 
 
-Package zref-xr Warning: File `the-cell-category.aux' not found or empty,
+Package zref-xr Warning: File `the-cycle-category.aux' not found or empty,
 (zref-xr)                labels not imported on input line 138.
 
 
-Package zref-xr Warning: File `the-globe-category.aux' not found or empty,
+Package zref-xr Warning: File `the-cube-category.aux' not found or empty,
 (zref-xr)                labels not imported on input line 140.
 
 
+Package zref-xr Warning: File `the-cell-category.aux' not found or empty,
+(zref-xr)                labels not imported on input line 142.
+
+
+Package zref-xr Warning: File `the-globe-category.aux' not found or empty,
+(zref-xr)                labels not imported on input line 144.
+
+
 Package zref-xr Warning: File `research-sandbox.aux' not found or empty,
-(zref-xr)                labels not imported on input line 141.
+(zref-xr)                labels not imported on input line 145.
 
 
 Package zref-xr Warning: File `notes.aux' not found or empty,
-(zref-xr)                labels not imported on input line 142.
+(zref-xr)                labels not imported on input line 146.
 
 \HexagonLength=\skip57
 \OctagonLength=\skip58
@@ -735,16 +759,18 @@ Package zref-xr Warning: File `notes.aux' not found or empty,
 \ThreeCmPlusHalf=\skip75
 \FourCmPlusHalf=\skip76
 \FiveCmPlusHalf=\skip77
-\SixCmPlusHalf=\skip78
-\TwoCmPlusAQuarter=\skip79
-\TwoCmPlusThreeQuarters=\skip80
-\ThreeCmPlusAQuarter=\skip81
-\FourCmPlusAQuarter=\skip82
-\FourCmPlusOneEighth=\skip83
-\FourCmPlusThreeQuarters=\skip84
-\TCBBoxCorrection=\skip85
+\FiveCmPlusAQuarter=\skip78
+\FiveCmPlusOneEighth=\skip79
+\SixCmPlusHalf=\skip80
+\TwoCmPlusAQuarter=\skip81
+\TwoCmPlusThreeQuarters=\skip82
+\ThreeCmPlusAQuarter=\skip83
+\FourCmPlusAQuarter=\skip84
+\FourCmPlusOneEighth=\skip85
+\FourCmPlusThreeQuarters=\skip86
+\TCBBoxCorrection=\skip87
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
@@ -755,36 +781,36 @@ Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen156
-\Hy@linkcounter=\count289
-\Hy@pagecounter=\count290
+\@linkdim=\dimen163
+\Hy@linkcounter=\count303
+\Hy@pagecounter=\count304
  (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count291
+\Hy@SavedSpaceFactor=\count305
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 )
-\pdfmajorversion=\count292
-Package hyperref Info: Hyper figures OFF on input line 4157.
-Package hyperref Info: Link nesting OFF on input line 4162.
-Package hyperref Info: Hyper index ON on input line 4165.
-Package hyperref Info: Plain pages OFF on input line 4172.
-Package hyperref Info: Backreferencing OFF on input line 4177.
+\pdfmajorversion=\count306
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count293
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count307
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen157
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen164
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -794,52 +820,41 @@ ty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count294
-\Field@Width=\dimen158
-\Fld@charsize=\dimen159
-Package hyperref Info: Hyper figures OFF on input line 6042.
-Package hyperref Info: Link nesting OFF on input line 6047.
-Package hyperref Info: Hyper index ON on input line 6050.
-Package hyperref Info: backreferencing OFF on input line 6057.
-Package hyperref Info: Link coloring OFF on input line 6062.
-Package hyperref Info: Link coloring with OCG OFF on input line 6067.
-Package hyperref Info: PDF/A mode OFF on input line 6072.
-
-(/home/emily/.local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
-)
-\Hy@abspage=\count295
-\c@Item=\count296
-\c@Hfootnote=\count297
+\Fld@menulength=\count308
+\Field@Width=\dimen165
+\Fld@charsize=\dimen166
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count309
+\c@Item=\count310
+\c@Hfootnote=\count311
 )
 Package hyperref Info: Driver (autodetected): hluatex.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-11-05 v7.01l Hyperref driver for luaTeX
-
-(/home/emily/.local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
-kage
-with kernel methods
-)
-\Fld@listcount=\count298
-\c@bookmark@seq@number=\count299
+File: hluatex.def 2025-07-12 v7.01o Hyperref driver for luaTeX
+\Fld@listcount=\count312
+\c@bookmark@seq@number=\count313
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilec
 heck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecou
 nter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-85.
+84.
 )
-\Hy@SectionHShift=\skip86
+\Hy@SectionHShift=\skip88
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 331.
+Package hyperref Info: Option `colorlinks' set `true' on input line 343.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -862,8 +877,8 @@ Package: mtcmess 2006/03/14
 Package minitoc Info: I0001
 (minitoc)             *** minitoc package, version 62 ***.
 \tf@mtc=\write3
-\mtcindent=\skip87
-\mtcskipamount=\skip88
+\mtcindent=\skip89
+\mtcskipamount=\skip90
 Package minitoc Info: I0005
 (minitoc)             compatible with hyperref.
 Package minitoc Info: I0023
@@ -873,8 +888,8 @@ Package minitoc Info: I0004
 Package minitoc Info: I0028
 (minitoc)             section level macros available.
 \mtc@toks=\toks27
-\mtc@strutbox=\box103
-\mtc@hstrutbox=\box104
+\mtc@strutbox=\box104
+\mtc@hstrutbox=\box105
 Package minitoc Info: I0002
 (minitoc)             Autoconfiguration of extensions.
 
@@ -892,12 +907,12 @@ Package minitoc Info: I0031
 \openout3 = 06.mtc
 
 \openout3 = 06.mtc0
-\c@ptc=\count300
-\c@parttocdepth=\count301
-\ptcindent=\skip89
-\c@stc=\count302
-\c@secttocdepth=\count303
-\stcindent=\skip90
+\c@ptc=\count314
+\c@parttocdepth=\count315
+\ptcindent=\skip91
+\c@stc=\count316
+\c@secttocdepth=\count317
+\stcindent=\skip92
 Package minitoc Info: I0010
 (minitoc)             The english language is selected.
 (minitoc)              on input line 4910.
@@ -915,100 +930,100 @@ Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count304
-\calc@Bcount=\count305
-\calc@Adimen=\dimen160
-\calc@Bdimen=\dimen161
-\calc@Askip=\skip91
-\calc@Bskip=\skip92
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count306
-\calc@Cskip=\skip93
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count318
+\calc@Bcount=\count319
+\calc@Adimen=\dimen167
+\calc@Bdimen=\dimen168
+\calc@Askip=\skip93
+\calc@Bskip=\skip94
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count320
+\calc@Cskip=\skip95
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2024/11/05 v2.17t AMS math features
-\@mathmargin=\skip94
+Package: amsmath 2025/06/16 v2.17y AMS math features
+\@mathmargin=\skip96
 
 For additional information on amsmath, use the `?' option.
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
+Package: amstext 2024/11/17 v2.01 AMS text
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks28
-\ex@=\dimen162
+\ex@=\dimen169
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen163
+\pmbraise@=\dimen170
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count307
+\inf@bad=\count321
 LaTeX Info: Redefining \frac on input line 235.
-\uproot@=\count308
-\leftroot@=\count309
+\uproot@=\count322
+\leftroot@=\count323
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count310
-\DOTSCASE@=\count311
+\classnum@=\count324
+\DOTSCASE@=\count325
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box105
-\strutbox@=\box106
+\Mathstrutbox@=\box106
+\strutbox@=\box107
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen164
+\big@size=\dimen171
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count312
+\macc@depth=\count326
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count313
+\c@MaxMatrixCols=\count327
 \dotsspace@=\muskip18
-\c@parentequation=\count314
-\dspbrk@lvl=\count315
+\c@parentequation=\count328
+\dspbrk@lvl=\count329
 \tag@help=\toks29
-\row@=\count316
-\column@=\count317
-\maxfields@=\count318
+\row@=\count330
+\column@=\count331
+\maxfields@=\count332
 \andhelp@=\toks30
-\eqnshift@=\dimen165
-\alignsep@=\dimen166
-\tagshift@=\dimen167
-\tagwidth@=\dimen168
-\totwidth@=\dimen169
-\lineht@=\dimen170
+\eqnshift@=\dimen172
+\alignsep@=\dimen173
+\tagshift@=\dimen174
+\tagwidth@=\dimen175
+\totwidth@=\dimen176
+\lineht@=\dimen177
 \@envbody=\toks31
-\multlinegap=\skip95
-\multlinetaggap=\skip96
+\multlinegap=\skip97
+\multlinetaggap=\skip98
 \mathdisplay@stack=\toks32
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
 )
-\g_MT_multlinerow_int=\count319
-\l_MT_multwidth_dim=\dimen171
-\origjot=\skip97
-\l_MT_shortvdotswithinadjustabove_dim=\dimen172
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen173
-\l_MT_above_intertext_sep=\dimen174
-\l_MT_below_intertext_sep=\dimen175
-\l_MT_above_shortintertext_sep=\dimen176
-\l_MT_below_shortintertext_sep=\dimen177
-\xmathstrut@box=\box107
-\xmathstrut@dim=\dimen178
+\g_MT_multlinerow_int=\count333
+\l_MT_multwidth_dim=\dimen178
+\origjot=\skip99
+\l_MT_shortvdotswithinadjustabove_dim=\dimen179
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen180
+\l_MT_above_intertext_sep=\dimen181
+\l_MT_below_intertext_sep=\dimen182
+\l_MT_above_shortintertext_sep=\dimen183
+\l_MT_below_shortintertext_sep=\dimen184
+\xmathstrut@box=\box108
+\xmathstrut@dim=\dimen185
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
@@ -1017,9 +1032,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks35
 \thm@notefont=\toks36
 \thm@headpunct=\toks37
-\thm@preskip=\skip98
-\thm@postskip=\skip99
-\thm@headsep=\skip100
+\thm@preskip=\skip100
+\thm@postskip=\skip101
+\thm@headsep=\skip102
 \dth@everypar=\toks38
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty
@@ -1046,10 +1061,11 @@ Package cleveref Info: include cross-reference names in hyperlinks on input lin
 e 7852.
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
+==> First Aid for cleveref.sty applied!
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@definition=\count320
+\c@definition=\count334
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.st
 y (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -1057,23 +1073,23 @@ y (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-c
 ommon.tex
 \pgfutil@everybye=\toks39
-\pgfutil@tempdima=\dimen179
-\pgfutil@tempdimb=\dimen180
+\pgfutil@tempdima=\dimen186
+\pgfutil@tempdimb=\dimen187
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-l
 atex.def
-\pgfutil@abb=\box108
+\pgfutil@abb=\box109
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.co
 de.tex
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+Package: pgfrcs 2025-08-14 v3.1.11 (3.1.11)
 ))
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+Package: pgf 2025-08-14 v3.1.11 (3.1.11)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.st
 y (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
@@ -1086,14 +1102,14 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 106.
 )
-\Gin@req@height=\dimen181
-\Gin@req@width=\dimen182
+\Gin@req@height=\dimen188
+\Gin@req@width=\dimen189
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.st
 y
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.
 code.tex
-Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+Package: pgfsys 2025-08-14 v3.1.11 (3.1.11)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.c
 ode.tex
@@ -1104,53 +1120,53 @@ ode.tex
 braryfiltered.code.tex
 \pgfkeys@tmptoks=\toks42
 ))
-\pgf@x=\dimen183
-\pgf@y=\dimen184
-\pgf@xa=\dimen185
-\pgf@ya=\dimen186
-\pgf@xb=\dimen187
-\pgf@yb=\dimen188
-\pgf@xc=\dimen189
-\pgf@yc=\dimen190
-\pgf@xd=\dimen191
-\pgf@yd=\dimen192
+\pgf@x=\dimen190
+\pgf@y=\dimen191
+\pgf@xa=\dimen192
+\pgf@ya=\dimen193
+\pgf@xb=\dimen194
+\pgf@yb=\dimen195
+\pgf@xc=\dimen196
+\pgf@yc=\dimen197
+\pgf@xd=\dimen198
+\pgf@yd=\dimen199
 \w@pgf@writea=\write4
 \r@pgf@reada=\read4
-\c@pgf@counta=\count321
-\c@pgf@countb=\count322
-\c@pgf@countc=\count323
-\c@pgf@countd=\count324
+\c@pgf@counta=\count335
+\c@pgf@countb=\count336
+\c@pgf@countc=\count337
+\c@pgf@countd=\count338
 \t@pgf@toka=\toks43
 \t@pgf@tokb=\toks44
 \t@pgf@tokc=\toks45
-\pgf@sys@id@count=\count325
+\pgf@sys@id@count=\count339
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+File: pgf.cfg 2025-08-14 v3.1.11 (3.1.11)
 )
 Driver file for pgf: pgfsys-luatex.def
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-
 luatex.def
-File: pgfsys-luatex.def 2023-01-15 v3.1.10 (3.1.10)
+File: pgfsys-luatex.def 2025-08-14 v3.1.11 (3.1.11)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-
 common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+File: pgfsys-common-pdf.def 2025-08-14 v3.1.11 (3.1.11)
 )))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyss
 oftpath.code.tex
-File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count326
-\pgfsyssoftpath@bigbuffer@items=\count327
+File: pgfsyssoftpath.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfsyssoftpath@smallbuffer@items=\count340
+\pgfsyssoftpath@bigbuffer@items=\count341
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysp
 rotocol.code.tex
-File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfsysprotocol.code.tex 2025-08-14 v3.1.11 (3.1.11)
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.
 code.tex
-Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+Package: pgfcore 2025-08-14 v3.1.11 (3.1.11)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.t
 ex
@@ -1158,9 +1174,9 @@ ex
 de.tex)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.
 code.tex
-\pgfmath@dimen=\dimen193
-\pgfmath@count=\count328
-\pgfmath@box=\box109
+\pgfmath@dimen=\dimen256
+\pgfmath@count=\count342
+\pgfmath@box=\box110
 \pgfmath@toks=\toks46
 \pgfmath@stack@operand=\toks47
 \pgfmath@stack@operation=\toks48
@@ -1187,127 +1203,127 @@ ns.integerarithmetics.code.tex)
 de.tex)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.c
 ode.tex
-\c@pgfmathroundto@lastzeros=\count329
+\c@pgfmathroundto@lastzeros=\count343
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.te
 x)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorep
 oints.code.tex
-File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen194
-\pgf@picmaxx=\dimen195
-\pgf@picminy=\dimen196
-\pgf@picmaxy=\dimen197
-\pgf@pathminx=\dimen198
-\pgf@pathmaxx=\dimen199
-\pgf@pathminy=\dimen256
-\pgf@pathmaxy=\dimen257
-\pgf@xx=\dimen258
-\pgf@xy=\dimen259
-\pgf@yx=\dimen260
-\pgf@yy=\dimen261
-\pgf@zx=\dimen262
-\pgf@zy=\dimen263
+File: pgfcorepoints.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@picminx=\dimen257
+\pgf@picmaxx=\dimen258
+\pgf@picminy=\dimen259
+\pgf@picmaxy=\dimen260
+\pgf@pathminx=\dimen261
+\pgf@pathmaxx=\dimen262
+\pgf@pathminy=\dimen263
+\pgf@pathmaxy=\dimen264
+\pgf@xx=\dimen265
+\pgf@xy=\dimen266
+\pgf@yx=\dimen267
+\pgf@yy=\dimen268
+\pgf@zx=\dimen269
+\pgf@zy=\dimen270
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorep
 athconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen264
-\pgf@path@lasty=\dimen265
+File: pgfcorepathconstruct.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@path@lastx=\dimen271
+\pgf@path@lasty=\dimen272
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorep
 athusage.code.tex
-File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen266
-\pgf@shorten@start@additional=\dimen267
+File: pgfcorepathusage.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@shorten@end@additional=\dimen273
+\pgf@shorten@start@additional=\dimen274
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcores
 copes.code.tex
-File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box110
-\pgf@hbox=\box111
-\pgf@layerbox@main=\box112
-\pgf@picture@serial@count=\count330
+File: pgfcorescopes.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfpic=\box111
+\pgf@hbox=\box112
+\pgf@layerbox@main=\box113
+\pgf@picture@serial@count=\count344
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreg
 raphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen268
+File: pgfcoregraphicstate.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgflinewidth=\dimen275
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoret
 ransformations.code.tex
-File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen269
-\pgf@pt@y=\dimen270
-\pgf@pt@temp=\dimen271
+File: pgfcoretransformations.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@pt@x=\dimen276
+\pgf@pt@y=\dimen277
+\pgf@pt@temp=\dimen278
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreq
 uick.code.tex
-File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcorequick.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreo
 bjects.code.tex
-File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcoreobjects.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorep
 athprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcorepathprocessing.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorea
 rrows.code.tex
-File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen272
+File: pgfcorearrows.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfarrowsep=\dimen279
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcores
 hade.code.tex
-File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen273
-\pgf@sys@shading@range@num=\count331
-\pgf@shadingcount=\count332
+File: pgfcoreshade.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@max=\dimen280
+\pgf@sys@shading@range@num=\count345
+\pgf@shadingcount=\count346
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorei
 mage.code.tex
-File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcoreimage.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoree
 xternal.code.tex
-File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box113
+File: pgfcoreexternal.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfexternal@startupbox=\box114
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorel
 ayers.code.tex
-File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcorelayers.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoret
 ransparency.code.tex
-File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcoretransparency.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorep
 atterns.code.tex
-File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcorepatterns.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorer
 df.code.tex
-File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfcorerdf.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulesh
 apes.code.tex
-File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box114
+File: pgfmoduleshapes.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfnodeparttextbox=\box115
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulepl
 ot.code.tex
-File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgfmoduleplot.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp
 -version-0-65.sty
-Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen274
-\pgf@nodesepend=\dimen275
+Package: pgfcomp-version-0-65 2025-08-14 v3.1.11 (3.1.11)
+\pgf@nodesepstart=\dimen281
+\pgf@nodesepend=\dimen282
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp
 -version-1-18.sty
-Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+Package: pgfcomp-version-1-18 2025-08-14 v3.1.11 (3.1.11)
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
@@ -1319,67 +1335,67 @@ ode.tex))
 ex))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.co
 de.tex
-Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen276
-\pgffor@skip=\dimen277
+Package: pgffor 2025-08-14 v3.1.11 (3.1.11)
+\pgffor@iter=\dimen283
+\pgffor@skip=\dimen284
 \pgffor@stack=\toks49
 \pgffor@toks=\toks50
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 tikz.code.tex
-Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+Package: tikz 2025-08-14 v3.1.11 (3.1.11)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrar
 yplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count333
-\pgfplotmarksize=\dimen278
+File: pgflibraryplothandlers.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@plot@mark@count=\count347
+\pgfplotmarksize=\dimen285
 )
-\tikz@lastx=\dimen279
-\tikz@lasty=\dimen280
-\tikz@lastxsaved=\dimen281
-\tikz@lastysaved=\dimen282
-\tikz@lastmovetox=\dimen283
-\tikz@lastmovetoy=\dimen284
-\tikzleveldistance=\dimen285
-\tikzsiblingdistance=\dimen286
-\tikz@figbox=\box115
-\tikz@figbox@bg=\box116
-\tikz@tempbox=\box117
-\tikz@tempbox@bg=\box118
-\tikztreelevel=\count334
-\tikznumberofchildren=\count335
-\tikznumberofcurrentchild=\count336
-\tikz@fig@count=\count337
+\tikz@lastx=\dimen286
+\tikz@lasty=\dimen287
+\tikz@lastxsaved=\dimen288
+\tikz@lastysaved=\dimen289
+\tikz@lastmovetox=\dimen290
+\tikz@lastmovetoy=\dimen291
+\tikzleveldistance=\dimen292
+\tikzsiblingdistance=\dimen293
+\tikz@figbox=\box116
+\tikz@figbox@bg=\box117
+\tikz@tempbox=\box118
+\tikz@tempbox@bg=\box119
+\tikztreelevel=\count348
+\tikznumberofchildren=\count349
+\tikznumberofcurrentchild=\count350
+\tikz@fig@count=\count351
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulema
 trix.code.tex
-File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count338
-\pgfmatrixcurrentcolumn=\count339
-\pgf@matrix@numberofcolumns=\count340
+File: pgfmodulematrix.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfmatrixcurrentrow=\count352
+\pgfmatrixcurrentcolumn=\count353
+\pgf@matrix@numberofcolumns=\count354
 )
-\tikz@expandcount=\count341
+\tikz@expandcount=\count355
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibrarytopaths.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrar
 yarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen287
-\pgfarrowlength=\dimen288
-\pgfarrowwidth=\dimen289
-\pgfarrowlinewidth=\dimen290
+File: pgflibraryarrows.meta.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfarrowinset=\dimen294
+\pgfarrowlength=\dimen295
+\pgfarrowwidth=\dimen296
+\pgfarrowlinewidth=\dimen297
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibrarycalc.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibrarypositioning.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarydecorations.markings.code.tex
@@ -1387,30 +1403,30 @@ libraries/tikzlibrarydecorations.markings.code.tex
 libraries/tikzlibrarydecorations.code.tex
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulede
 corations.code.tex
-\pgfdecoratedcompleteddistance=\dimen291
-\pgfdecoratedremainingdistance=\dimen292
-\pgfdecoratedinputsegmentcompleteddistance=\dimen293
-\pgfdecoratedinputsegmentremainingdistance=\dimen294
-\pgf@decorate@distancetomove=\dimen295
-\pgf@decorate@repeatstate=\count342
-\pgfdecorationsegmentamplitude=\dimen296
-\pgfdecorationsegmentlength=\dimen297
+\pgfdecoratedcompleteddistance=\dimen298
+\pgfdecoratedremainingdistance=\dimen299
+\pgfdecoratedinputsegmentcompleteddistance=\dimen300
+\pgfdecoratedinputsegmentremainingdistance=\dimen301
+\pgf@decorate@distancetomove=\dimen302
+\pgf@decorate@repeatstate=\count356
+\pgfdecorationsegmentamplitude=\dimen303
+\pgfdecorationsegmentlength=\dimen304
 )
-\tikz@lib@dec@box=\box119
+\tikz@lib@dec@box=\box120
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decoratio
 ns/pgflibrarydecorations.markings.code.tex))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibraryfit.code.tex
-File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibraryfit.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarypatterns.code.tex
-File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibrarypatterns.code.tex 2025-08-14 v3.1.11 (3.1.11)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrar
 ypatterns.code.tex
-File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: pgflibrarypatterns.code.tex 2025-08-14 v3.1.11 (3.1.11)
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarydecorations.pathreplacing.code.tex
@@ -1418,7 +1434,7 @@ libraries/tikzlibrarydecorations.pathreplacing.code.tex
 ns/pgflibrarydecorations.pathreplacing.code.tex))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrary3d.code.tex
-File: tikzlibrary3d.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibrary3d.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarydecorations.pathmorphing.code.tex
@@ -1430,10 +1446,10 @@ libraries/tikzlibraryintersections.code.tex
 yintersections.code.tex
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrar
 yfpu.code.tex)
-\pgf@intersect@solutions=\count343
+\pgf@intersect@solutions=\count357
 ))
-\pgf@layerbox@background=\box120
-\pgf@layerboxsaved@background=\box121
+\pgf@layerbox@background=\box121
+\pgf@layerboxsaved@background=\box122
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
@@ -1442,13 +1458,13 @@ Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
 ode.tex
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibrarymatrix.code.tex
-File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibrarymatrix.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/
 libraries/tikzlibraryquotes.code.tex
-File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+File: tikzlibraryquotes.code.tex 2025-08-14 v3.1.11 (3.1.11)
 )))
-\DL=\skip101
+\DL=\skip103
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/mathalpha/mathalfa.sty)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/mathalpha/mathalpha.sty
@@ -1462,15 +1478,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `bold'
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.
 sty (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-01-18 L3 programming layer (loader) 
+Package: expl3 2025-08-13 L3 programming layer (loader) 
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-luate
 x.def
-File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count344
-Inserting `l3color' in `luaotfload.parse_color'.
-\l__pdf_internal_box=\box122
-))
+File: l3backend-luatex.def 2025-06-09 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count358
+Inserting `l3color' in `luaotfload.parse_color'.))
 Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
@@ -1479,22 +1493,22 @@ Lua module: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 sty
 Package: fontspec-luatex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaT
 eX
-\l__fontspec_script_int=\count345
-\l__fontspec_language_int=\count346
-\l__fontspec_strnum_int=\count347
-\l__fontspec_tmp_int=\count348
-\l__fontspec_tmpa_int=\count349
-\l__fontspec_tmpb_int=\count350
-\l__fontspec_tmpc_int=\count351
-\l__fontspec_em_int=\count352
-\l__fontspec_emdef_int=\count353
-\l__fontspec_strong_int=\count354
-\l__fontspec_strongdef_int=\count355
-\l__fontspec_tmpa_dim=\dimen298
-\l__fontspec_tmpb_dim=\dimen299
-\l__fontspec_tmpc_dim=\dimen300
+\l__fontspec_script_int=\count359
+\l__fontspec_language_int=\count360
+\l__fontspec_strnum_int=\count361
+\l__fontspec_tmp_int=\count362
+\l__fontspec_tmpa_int=\count363
+\l__fontspec_tmpb_int=\count364
+\l__fontspec_tmpc_int=\count365
+\l__fontspec_em_int=\count366
+\l__fontspec_emdef_int=\count367
+\l__fontspec_strong_int=\count368
+\l__fontspec_strongdef_int=\count369
+\l__fontspec_tmpa_dim=\dimen305
+\l__fontspec_tmpb_dim=\dimen306
+\l__fontspec_tmpc_dim=\dimen307
  (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 
@@ -1502,55 +1516,59 @@ Package fontspec Info:
 (fontspec)             Font family 'NotoSansJP-VF.otf(0)' created for font
 (fontspec)             'NotoSansJP-VF.otf' with options
 (fontspec)             [RawFeature={+axis={wght=400}},Path=/home/emily/clowder-
-project/the-clowder-project/fonts/,Features={RawFeature={+axis={wght=400}}},Ext
-ension
+project/devel-the-clowder-project/fonts/,Features={RawFeature={+axis={wght=400}
+}},Extension
 (fontspec)             = {.otf}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[/home/emily/clowder-project/the-clowder-project/fon
-ts/NotoSansJP-VF.otf]:mode=node;script=latn;language=dflt;+axis={wght=400};"
+(fontspec)             <->"[/home/emily/clowder-project/devel-the-clowder-proje
+ct/fonts/NotoSansJP-VF.otf]:mode=node;script=latn;language=dflt;+axis={wght=400
+};"
 
 
 Package fontspec Info: 
 (fontspec)             Font family 'NotoSansSC-VF.otf(0)' created for font
 (fontspec)             'NotoSansSC-VF.otf' with options
 (fontspec)             [RawFeature={+axis={wght=400}},Path=/home/emily/clowder-
-project/the-clowder-project/fonts/,Features={RawFeature={+axis={wght=400}}},Ext
-ension
+project/devel-the-clowder-project/fonts/,Features={RawFeature={+axis={wght=400}
+}},Extension
 (fontspec)             = {.otf}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[/home/emily/clowder-project/the-clowder-project/fon
-ts/NotoSansSC-VF.otf]:mode=node;script=latn;language=dflt;+axis={wght=400};"
+(fontspec)             <->"[/home/emily/clowder-project/devel-the-clowder-proje
+ct/fonts/NotoSansSC-VF.otf]:mode=node;script=latn;language=dflt;+axis={wght=400
+};"
 
 
 Package fontspec Info: 
 (fontspec)             Font family 'NotoSansTC-VF.otf(0)' created for font
 (fontspec)             'NotoSansTC-VF.otf' with options
 (fontspec)             [RawFeature={+axis={wght=400}},Path=/home/emily/clowder-
-project/the-clowder-project/fonts/,Features={RawFeature={+axis={wght=400}}}].
+project/devel-the-clowder-project/fonts/,Features={RawFeature={+axis={wght=400}
+}}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[/home/emily/clowder-project/the-clowder-project/fon
-ts/NotoSansTC-VF.otf]:mode=node;script=latn;language=dflt;+axis={wght=400};"
+(fontspec)             <->"[/home/emily/clowder-project/devel-the-clowder-proje
+ct/fonts/NotoSansTC-VF.otf]:mode=node;script=latn;language=dflt;+axis={wght=400
+};"
 
 LaTeX Font Info:    Overwriting math alphabet `\dutchcal' in version `bold'
-(Font)                  U/dutchcal/m/n --> U/dutchcal/b/n on input line 593.
+(Font)                  U/dutchcal/m/n --> U/dutchcal/b/n on input line 635.
 LaTeX Font Info:    Overwriting math alphabet `\CatFont' in version `bold'
-(Font)                  U/tx-cal/m/n --> U/tx-cal/b/n on input line 595.
+(Font)                  U/tx-cal/m/n --> U/tx-cal/b/n on input line 637.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/manfnt/manfnt.sty
 Package: manfnt 1999/07/010.2LaTeX2e manfnt package
-\dbend@height=\skip102
+\dbend@height=\skip104
 )
 \symbbold=\mathgroup6
 
@@ -1558,11 +1576,11 @@ Package: manfnt 1999/07/010.2LaTeX2e manfnt package
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count356
+\lrq@indent=\count370
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -1570,155 +1588,155 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count357
-\c@listtotal=\count358
-\c@listcount=\count359
-\c@liststart=\count360
-\c@liststop=\count361
-\c@citecount=\count362
-\c@citetotal=\count363
-\c@multicitecount=\count364
-\c@multicitetotal=\count365
-\c@instcount=\count366
-\c@maxnames=\count367
-\c@minnames=\count368
-\c@maxitems=\count369
-\c@minitems=\count370
-\c@citecounter=\count371
-\c@maxcitecounter=\count372
-\c@savedcitecounter=\count373
-\c@uniquelist=\count374
-\c@uniquename=\count375
-\c@refsection=\count376
-\c@refsegment=\count377
-\c@maxextratitle=\count378
-\c@maxextratitleyear=\count379
-\c@maxextraname=\count380
-\c@maxextradate=\count381
-\c@maxextraalpha=\count382
-\c@abbrvpenalty=\count383
-\c@highnamepenalty=\count384
-\c@lownamepenalty=\count385
-\c@maxparens=\count386
-\c@parenlevel=\count387
-\blx@tempcnta=\count388
-\blx@tempcntb=\count389
-\blx@tempcntc=\count390
-\c@blx@maxsection=\count391
-\blx@maxsegment@0=\count392
-\blx@notetype=\count393
-\blx@parenlevel@text=\count394
-\blx@parenlevel@foot=\count395
-\blx@sectionciteorder@0=\count396
-\blx@sectionciteorderinternal@0=\count397
-\blx@entrysetcounter=\count398
-\blx@biblioinstance=\count399
-\labelnumberwidth=\skip103
-\labelalphawidth=\skip104
-\biblabelsep=\skip105
-\bibitemsep=\skip106
-\bibnamesep=\skip107
-\bibinitsep=\skip108
-\bibparsep=\skip109
-\bibhang=\skip110
+\c@tabx@nest=\count371
+\c@listtotal=\count372
+\c@listcount=\count373
+\c@liststart=\count374
+\c@liststop=\count375
+\c@citecount=\count376
+\c@citetotal=\count377
+\c@multicitecount=\count378
+\c@multicitetotal=\count379
+\c@instcount=\count380
+\c@maxnames=\count381
+\c@minnames=\count382
+\c@maxitems=\count383
+\c@minitems=\count384
+\c@citecounter=\count385
+\c@maxcitecounter=\count386
+\c@savedcitecounter=\count387
+\c@uniquelist=\count388
+\c@uniquename=\count389
+\c@refsection=\count390
+\c@refsegment=\count391
+\c@maxextratitle=\count392
+\c@maxextratitleyear=\count393
+\c@maxextraname=\count394
+\c@maxextradate=\count395
+\c@maxextraalpha=\count396
+\c@abbrvpenalty=\count397
+\c@highnamepenalty=\count398
+\c@lownamepenalty=\count399
+\c@maxparens=\count400
+\c@parenlevel=\count401
+\blx@tempcnta=\count402
+\blx@tempcntb=\count403
+\blx@tempcntc=\count404
+\c@blx@maxsection=\count405
+\blx@maxsegment@0=\count406
+\blx@notetype=\count407
+\blx@parenlevel@text=\count408
+\blx@parenlevel@foot=\count409
+\blx@sectionciteorder@0=\count410
+\blx@sectionciteorderinternal@0=\count411
+\blx@entrysetcounter=\count412
+\blx@biblioinstance=\count413
+\labelnumberwidth=\skip105
+\labelalphawidth=\skip106
+\biblabelsep=\skip107
+\bibitemsep=\skip108
+\bibnamesep=\skip109
+\bibinitsep=\skip110
+\bibparsep=\skip111
+\bibhang=\skip112
 \blx@bcfin=\read5
 \blx@bcfout=\write5
 \blx@langwohyphens=\language92
-\c@mincomprange=\count400
-\c@maxcomprange=\count401
-\c@mincompwidth=\count402
+\c@mincomprange=\count414
+\c@maxcomprange=\count415
+\c@mincompwidth=\count416
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2024/03/21 v3.20 biblatex datamodel (PK/MW)
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'alphabetic.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count403
-\c@savedafterword=\count404
-\c@annotator=\count405
-\c@savedannotator=\count406
-\c@author=\count407
-\c@savedauthor=\count408
-\c@bookauthor=\count409
-\c@savedbookauthor=\count410
-\c@commentator=\count411
-\c@savedcommentator=\count412
-\c@editor=\count413
-\c@savededitor=\count414
-\c@editora=\count415
-\c@savededitora=\count416
-\c@editorb=\count417
-\c@savededitorb=\count418
-\c@editorc=\count419
-\c@savededitorc=\count420
-\c@foreword=\count421
-\c@savedforeword=\count422
-\c@holder=\count423
-\c@savedholder=\count424
-\c@introduction=\count425
-\c@savedintroduction=\count426
-\c@namea=\count427
-\c@savednamea=\count428
-\c@nameb=\count429
-\c@savednameb=\count430
-\c@namec=\count431
-\c@savednamec=\count432
-\c@translator=\count433
-\c@savedtranslator=\count434
-\c@shortauthor=\count435
-\c@savedshortauthor=\count436
-\c@shorteditor=\count437
-\c@savedshorteditor=\count438
-\c@labelname=\count439
-\c@savedlabelname=\count440
-\c@institution=\count441
-\c@savedinstitution=\count442
-\c@lista=\count443
-\c@savedlista=\count444
-\c@listb=\count445
-\c@savedlistb=\count446
-\c@listc=\count447
-\c@savedlistc=\count448
-\c@listd=\count449
-\c@savedlistd=\count450
-\c@liste=\count451
-\c@savedliste=\count452
-\c@listf=\count453
-\c@savedlistf=\count454
-\c@location=\count455
-\c@savedlocation=\count456
-\c@organization=\count457
-\c@savedorganization=\count458
-\c@origlocation=\count459
-\c@savedoriglocation=\count460
-\c@origpublisher=\count461
-\c@savedorigpublisher=\count462
-\c@publisher=\count463
-\c@savedpublisher=\count464
-\c@language=\count465
-\c@savedlanguage=\count466
-\c@origlanguage=\count467
-\c@savedoriglanguage=\count468
-\c@pageref=\count469
-\c@savedpageref=\count470
-\shorthandwidth=\skip111
-\shortjournalwidth=\skip112
-\shortserieswidth=\skip113
-\shorttitlewidth=\skip114
-\shortauthorwidth=\skip115
-\shorteditorwidth=\skip116
-\locallabelnumberwidth=\skip117
-\locallabelalphawidth=\skip118
-\localshorthandwidth=\skip119
-\localshortjournalwidth=\skip120
-\localshortserieswidth=\skip121
-\localshorttitlewidth=\skip122
-\localshortauthorwidth=\skip123
-\localshorteditorwidth=\skip124
+\c@afterword=\count417
+\c@savedafterword=\count418
+\c@annotator=\count419
+\c@savedannotator=\count420
+\c@author=\count421
+\c@savedauthor=\count422
+\c@bookauthor=\count423
+\c@savedbookauthor=\count424
+\c@commentator=\count425
+\c@savedcommentator=\count426
+\c@editor=\count427
+\c@savededitor=\count428
+\c@editora=\count429
+\c@savededitora=\count430
+\c@editorb=\count431
+\c@savededitorb=\count432
+\c@editorc=\count433
+\c@savededitorc=\count434
+\c@foreword=\count435
+\c@savedforeword=\count436
+\c@holder=\count437
+\c@savedholder=\count438
+\c@introduction=\count439
+\c@savedintroduction=\count440
+\c@namea=\count441
+\c@savednamea=\count442
+\c@nameb=\count443
+\c@savednameb=\count444
+\c@namec=\count445
+\c@savednamec=\count446
+\c@translator=\count447
+\c@savedtranslator=\count448
+\c@shortauthor=\count449
+\c@savedshortauthor=\count450
+\c@shorteditor=\count451
+\c@savedshorteditor=\count452
+\c@labelname=\count453
+\c@savedlabelname=\count454
+\c@institution=\count455
+\c@savedinstitution=\count456
+\c@lista=\count457
+\c@savedlista=\count458
+\c@listb=\count459
+\c@savedlistb=\count460
+\c@listc=\count461
+\c@savedlistc=\count462
+\c@listd=\count463
+\c@savedlistd=\count464
+\c@liste=\count465
+\c@savedliste=\count466
+\c@listf=\count467
+\c@savedlistf=\count468
+\c@location=\count469
+\c@savedlocation=\count470
+\c@organization=\count471
+\c@savedorganization=\count472
+\c@origlocation=\count473
+\c@savedoriglocation=\count474
+\c@origpublisher=\count475
+\c@savedorigpublisher=\count476
+\c@publisher=\count477
+\c@savedpublisher=\count478
+\c@language=\count479
+\c@savedlanguage=\count480
+\c@origlanguage=\count481
+\c@savedoriglanguage=\count482
+\c@pageref=\count483
+\c@savedpageref=\count484
+\shorthandwidth=\skip113
+\shortjournalwidth=\skip114
+\shortserieswidth=\skip115
+\shorttitlewidth=\skip116
+\shortauthorwidth=\skip117
+\shorteditorwidth=\skip118
+\locallabelnumberwidth=\skip119
+\locallabelalphawidth=\skip120
+\localshorthandwidth=\skip121
+\localshortjournalwidth=\skip122
+\localshortserieswidth=\skip123
+\localshorttitlewidth=\skip124
+\localshortauthorwidth=\skip125
+\localshorteditorwidth=\skip126
 Package biblatex Info: Trying to load enhanced support for Unicode engines...
 Package biblatex Info: ... file 'blx-unicode.def' found.
 
@@ -1726,47 +1744,47 @@ Package biblatex Info: ... file 'blx-unicode.def' found.
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count471
-\c@textcitetotal=\count472
-\c@textcitemaxnames=\count473
-\c@biburlbigbreakpenalty=\count474
-\c@biburlbreakpenalty=\count475
-\c@biburlnumpenalty=\count476
-\c@biburlucpenalty=\count477
-\c@biburllcpenalty=\count478
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count485
+\c@textcitetotal=\count486
+\c@textcitemaxnames=\count487
+\c@biburlbigbreakpenalty=\count488
+\c@biburlbreakpenalty=\count489
+\c@biburlnumpenalty=\count490
+\c@biburlucpenalty=\count491
+\c@biburllcpenalty=\count492
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count479
+\c@smartand=\count493
 )
 Package biblatex Info: Trying to load bibliography style 'alphabetic'...
 Package biblatex Info: ... file 'alphabetic.bbx' found.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/alphabetic.b
 bx
-File: alphabetic.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
+File: alphabetic.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count480
-\c@bbx:relatedtotal=\count481
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count494
+\c@bbx:relatedtotal=\count495
 ))
 Package biblatex Info: Trying to load citation style 'alphabetic'...
 Package biblatex Info: ... file 'alphabetic.cbx' found.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/alphabetic.c
 bx
-File: alphabetic.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
+File: alphabetic.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -1787,13 +1805,13 @@ Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
-(biblatex)             2025-01-18 L3 programming layer (loader) 
+(biblatex)             2025-08-13 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.s
 ty
-Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/imakeidx/imakeidx.sty
 Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchro
@@ -1808,34 +1826,34 @@ File: lettrine.sty 2025-01-30 v2.80 (Daniel Flipo)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
 Package: xfp 2024-08-16 L3 Floating point unit
 )
-\c@DefaultLines=\count482
-\c@DefaultDepth=\count483
-\DefaultFindent=\dimen301
-\DefaultNindent=\dimen302
-\DefaultSlope=\dimen303
-\DiscardVskip=\dimen304
+\c@DefaultLines=\count496
+\c@DefaultDepth=\count497
+\DefaultFindent=\dimen308
+\DefaultNindent=\dimen309
+\DefaultSlope=\dimen310
+\DiscardVskip=\dimen311
 \L@lettrine=\box123
 \L@lbox=\box124
 \L@tbox=\box125
-\c@L@lines=\count484
-\c@L@depth=\count485
-\L@Pindent=\dimen305
-\L@Findent=\dimen306
-\L@Nindent=\dimen307
-\L@lraise=\dimen308
-\L@first=\dimen309
-\L@next=\dimen310
-\L@slope=\dimen311
-\L@height=\dimen312
-\L@novskip=\dimen313
-\L@target@ht=\dimen314
-\L@target@dp=\dimen315
-\L@target@tht=\dimen316
-\LettrineWidth=\dimen317
-\LettrineHeight=\dimen318
-\LettrineDepth=\dimen319
-\L@finalht=\dimen320
-\L@finaldp=\dimen321
+\c@L@lines=\count498
+\c@L@depth=\count499
+\L@Pindent=\dimen312
+\L@Findent=\dimen313
+\L@Nindent=\dimen314
+\L@lraise=\dimen315
+\L@first=\dimen316
+\L@next=\dimen317
+\L@slope=\dimen318
+\L@height=\dimen319
+\L@novskip=\dimen320
+\L@target@ht=\dimen321
+\L@target@dp=\dimen322
+\L@target@tht=\dimen323
+\LettrineWidth=\dimen324
+\LettrineHeight=\dimen325
+\LettrineDepth=\dimen326
+\L@finalht=\dimen327
+\L@finaldp=\dimen328
 
 Loading lettrine.cfg
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/lettrine/lettrine.cfg)
@@ -1856,51 +1874,51 @@ Started index file set-theory
 er.sty
 Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
 \FNH@notes=\box126
-\FNH@width=\dimen322
+\FNH@width=\dimen329
 \FNH@toks=\toks53
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-Package: pdfpages 2025/01/30 v0.6e Insert pages of external PDF documents (AM)
+Package: pdfpages 2025/07/23 v0.6g Insert pages of external PDF documents (AM)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
-\ESO@tempdima=\dimen323
-\ESO@tempdimb=\dimen324
+\ESO@tempdima=\dimen330
+\ESO@tempdimb=\dimen331
 )
-\AM@pagewidth=\dimen325
-\AM@pageheight=\dimen326
-\AM@fboxrule=\dimen327
+\AM@pagewidth=\dimen332
+\AM@pageheight=\dimen333
+\AM@fboxrule=\dimen334
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pdfpages/ppluatex.def
-File: ppluatex.def 2025/01/30 v0.6e Pdfpages driver for LuaTeX (AM)
+File: ppluatex.def 2025/07/23 v0.6g Pdfpages driver for LuaTeX (AM)
 )
-\pdfpages@includegraphics@status=\count486
+\pdfpages@includegraphics@status=\count500
 \AM@pagebox=\box127
 \AM@global@opts=\toks54
-\AM@pagecnt=\count487
+\AM@pagecnt=\count501
 \AM@toc@title=\toks55
 \AM@lof@heading=\toks56
-\c@AM@survey=\count488
+\c@AM@survey=\count502
 \AM@templatesizebox=\box128
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count489
-\c@@ppsavesec=\count490
-\c@@ppsaveapp=\count491
+\c@@pps=\count503
+\c@@ppsavesec=\count504
+\c@@ppsaveapp=\count505
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen328
-\c@nlinenum=\count492
+\rotheadsize=\dimen335
+\c@nlinenum=\count506
 \TeXr@lab=\toks57
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/cellspace/cellspace.sty
 Package: cellspace 2022/01/04 v1.9.0 Spacing table cells (JN)
-\cellspacetoplimit=\dimen329
-\cellspacebottomlimit=\dimen330
-\cellspace@firstht=\dimen331
-\cellspace@lastdp=\dimen332
+\cellspacetoplimit=\dimen336
+\cellspacebottomlimit=\dimen337
+\cellspace@firstht=\dimen338
+\cellspace@lastdp=\dimen339
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/stackengine/stackengine.s
 ty
@@ -1911,35 +1929,35 @@ ways
 .sty
 (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/listofitems/listofitems
 .tex
-\loi_cnt_foreach_nest=\count493
-\loi_nestcnt=\count494
+\loi_cnt_foreach_nest=\count507
+\loi_nestcnt=\count508
 )
 Package: listofitems 2024/03/09 v1.65 Grab items in lists using user-specified 
 sep char (CT)
 )
-\c@@stackindex=\count495
-\@boxshift=\skip125
-\stack@tmplength=\skip126
-\temp@stkl=\skip127
-\@stackedboxwidth=\skip128
+\c@@stackindex=\count509
+\@boxshift=\skip127
+\stack@tmplength=\skip128
+\temp@stkl=\skip129
+\@stackedboxwidth=\skip130
 \@addedbox=\box129
 \@anchorbox=\box130
 \@insetbox=\box131
 \se@backgroundbox=\box132
 \stackedbox=\box133
 \@centerbox=\box134
-\c@ROWcellindex@=\count496
+\c@ROWcellindex@=\count510
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/scalerel/scalerel.sty
 Package: scalerel 2016/12/29 v1.8 Routines for constrained scaling and stretchi
 ng of objects, relative to a reference object or in absolute terms
-\thesrwidth=\skip129
-\thesrheight=\skip130
-\srblobheight=\skip131
-\srblobdepth=\skip132
-\mnxsrwidth=\skip133
-\LMex=\skip134
-\LMpt=\skip135
+\thesrwidth=\skip131
+\thesrheight=\skip132
+\srblobheight=\skip133
+\srblobdepth=\skip134
+\mnxsrwidth=\skip135
+\LMex=\skip136
+\LMpt=\skip137
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/epigraph/epigraph.sty
 Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
@@ -1947,10 +1965,10 @@ Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/nextpage/nextpage.sty
 Package: nextpage 2009/09/03 v1.1a additional page commands
 )
-\beforeepigraphskip=\skip136
-\afterepigraphskip=\skip137
-\epigraphwidth=\skip138
-\epigraphrule=\skip139
+\beforeepigraphskip=\skip138
+\afterepigraphskip=\skip139
+\epigraphwidth=\skip140
+\epigraphrule=\skip141
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/xpatch/xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
@@ -1961,19 +1979,19 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count497
+\actioncount=\count511
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count498
-\FP@xia=\count499
-\FP@xib=\count500
-\FP@xfa=\count501
-\FP@xfb=\count502
-\FP@rega=\count503
-\FP@regb=\count504
-\FP@regs=\count505
-\FP@times=\count506
+\FP@xs=\count512
+\FP@xia=\count513
+\FP@xib=\count514
+\FP@xfa=\count515
+\FP@xfb=\count516
+\FP@rega=\count517
+\FP@regb=\count518
+\FP@regs=\count519
+\FP@times=\count520
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -1992,7 +2010,7 @@ Package: fp-pas 1994/08/29
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count507
+\FPseed=\count521
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -2026,19 +2044,19 @@ Package fontspec Info:
 (fontspec)             Font family 'Brill-Roman.ttf(0)' created for font
 (fontspec)             'Brill-Roman.ttf' with options
 (fontspec)             [RawFeature={+axis={wght=400}},Path=/home/emily/clowder-
-project/the-clowder-project/fonts/brill/,Scale=1.0].
+project/devel-the-clowder-project/fonts/brill/,Scale=1.0].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1.0]"[/home/emily/clowder-project/the-clowder-proj
-ect/fonts/brill/Brill-Roman.ttf]:mode=node;script=latn;language=dflt;+axis={wgh
-t=400};"
+(fontspec)             <->s*[1.0]"[/home/emily/clowder-project/devel-the-clowde
+r-project/fonts/brill/Brill-Roman.ttf]:mode=node;script=latn;language=dflt;+axi
+s={wght=400};"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1.0]"[/home/emily/clowder-project/the-clowder-proj
-ect/fonts/brill/Brill-Roman.ttf]:mode=node;script=latn;language=dflt;+axis={wgh
-t=400};+smcp;"
+(fontspec)             <->s*[1.0]"[/home/emily/clowder-project/devel-the-clowde
+r-project/fonts/brill/Brill-Roman.ttf]:mode=node;script=latn;language=dflt;+axi
+s={wght=400};+smcp;"
 
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/amsfonts/eucal.sty
@@ -2047,7 +2065,26 @@ LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 (Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/needspace/needspace.sty
-Package: needspace 2010/09/12 v1.3d reserve vertical space
+Package: needspace 2025/03/13 v1.3e reserve vertical space
+)
+(/home/emily/.local/texlive/2025/texmf-dist/tex/latex/ebproof/ebproof.sty
+Package: ebproof 2021/01/28 v2.1.1 EB's proof trees
+\l__ebproof_separation_dim=\dimen340
+\l__ebproof_rule_margin_dim=\dimen341
+\l__ebproof_rule_thickness_dim=\dimen342
+\l__ebproof_rule_separation_dim=\dimen343
+\l__ebproof_rule_dash_length_dim=\dimen344
+\l__ebproof_rule_dash_space_dim=\dimen345
+\l__ebproof_label_separation_dim=\dimen346
+\l__ebproof_label_axis_dim=\dimen347
+\g__ebproof_register_int=\count522
+\l__ebproof_transit_dim=\dimen348
+\g__ebproof_level_int=\count523
+\g__ebproof_stack_box=\box135
+\l__ebproof_1_box=\box136
+\l__ebproof_2_box=\box137
+\l__ebproof_3_box=\box138
+\l__ebproof_4_box=\box139
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/bigfoot/bigfoot.sty
 Package: bigfoot 2015/08/30 2.1 makes footnotes work
@@ -2062,60 +2099,60 @@ Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/ncctools/nccfoots.sty
 Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 )
-\MFL@columnwidth=\dimen333
+\MFL@columnwidth=\dimen349
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/bigfoot/suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/bigfoot/perpage.sty
 Package: perpage 2014/10/25 2.0 Reset/sort counters per page
-\c@abspage=\count508
+\c@abspage=\count524
 )
-\footnotewidowpenalty=\count509
-\footnoteclubpenalty=\count510
-\finalfootnotewidowpenalty=\count511
-\c@FN@totalid=\count512
-\c@pp@a@FN@totalid=\count513
-\FN@id=\count514
+\footnotewidowpenalty=\count525
+\footnoteclubpenalty=\count526
+\finalfootnotewidowpenalty=\count527
+\c@FN@totalid=\count528
+\c@pp@a@FN@totalid=\count529
+\FN@id=\count530
 \FN@master=\marks4
 \FN@slave=\marks5
 \FN@color=\marks6
-\FN@outervsize=\dimen334
-\FN@vsize=\skip140
-\FN@insertions=\box135
+\FN@outervsize=\dimen350
+\FN@vsize=\skip142
+\FN@insertions=\box140
 \FN@output=\toks58
-\FN@tempbox=\box136
+\FN@tempbox=\box141
 \FN@savebox=\insert252
-\FN@topmarkbox=\box137
-\FN@outputflag=\count515
-\FN@myvsize=\dimen335
-\bigfoottolerance=\count516
+\FN@topmarkbox=\box142
+\FN@outputflag=\count531
+\FN@myvsize=\dimen351
+\bigfoottolerance=\count532
 )
 \footinsdefault=\insert251
-\c@footnotedefault=\count517
+\c@footnotedefault=\count533
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count518
-\lst@gtempboxa=\box138
+\lst@mode=\count534
+\lst@gtempboxa=\box143
 \lst@token=\toks59
-\lst@length=\count519
-\lst@currlwidth=\dimen336
-\lst@column=\count520
-\lst@pos=\count521
-\lst@lostspace=\dimen337
-\lst@width=\dimen338
-\lst@newlines=\count522
-\lst@lineno=\count523
-\lst@maxwidth=\dimen339
+\lst@length=\count535
+\lst@currlwidth=\dimen352
+\lst@column=\count536
+\lst@pos=\count537
+\lst@lostspace=\dimen353
+\lst@width=\dimen354
+\lst@newlines=\count538
+\lst@lineno=\count539
+\lst@maxwidth=\dimen355
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count524
-\lst@skipnumbers=\count525
-\lst@framebox=\box139
+\c@lstnumber=\count540
+\lst@skipnumbers=\count541
+\lst@framebox=\box144
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
@@ -2127,10 +2164,10 @@ Package: newtxmath 2024/09/22 v1.754
 
 `newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe
 )
-\tx@cntz=\count526
+\tx@cntz=\count542
  (/home/emily/.local/texlive/2025/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count527
-\tx@IsAlNum=\count528
+\tx@Isdigit=\count543
+\tx@IsAlNum=\count544
 \tx@tA=\toks60
 \tx@tB=\toks61
 \tx@su=\read6
@@ -2283,8 +2320,8 @@ c.otf]:mode=node;script=latn;language=dflt;+axis={wght=400};+tlig;+smcp;"
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count529
-\@quotereset=\count530
+\@quotelevel=\count545
+\@quotereset=\count546
 (./06.aux)
 \openout1 = 06.aux
 
@@ -2339,16 +2376,16 @@ LaTeX Font Info:    ... okay on input line 6.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count531
-\scratchdimen=\dimen340
-\scratchbox=\box140
-\nofMPsegments=\count532
-\nofMParguments=\count533
+\scratchcounter=\count547
+\scratchdimen=\dimen356
+\scratchbox=\box145
+\nofMPsegments=\count548
+\nofMParguments=\count549
 \everyMPshowfont=\toks63
-\MPscratchCnt=\count534
-\MPscratchDim=\dimen341
-\MPnumerator=\count535
-\makeMPintoPDFobject=\count536
+\MPscratchCnt=\count550
+\MPscratchDim=\dimen357
+\MPnumerator=\count551
+\makeMPintoPDFobject=\count552
 \everyMPtoPDFconversion=\toks64
 )
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-bas
@@ -2370,8 +2407,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package microtype Info: Patching varwidth to enable character protrusion.
-\MT@vwid@leftmargin=\dimen342
-\MT@vwid@rightmargin=\dimen343
+\MT@vwid@leftmargin=\dimen358
+\MT@vwid@rightmargin=\dimen359
 LaTeX Info: Redefining \microtypecontext on input line 6.
 Package microtype Info: Applying patch `item' on input line 6.
 Package microtype Info: Applying patch `toc' on input line 6.
@@ -2385,7 +2422,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 6.
+Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: Tracking enabled.
 Package microtype Info: Using default tracking set `smallcaps'.
 Package microtype Info: No adjustment of spacing.
@@ -2413,7 +2450,7 @@ Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
 Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
@@ -2432,11 +2469,11 @@ Package footnotehyper Info: Using the \@makefntext{} approach (see doc).
 (footnotehyper)    To turn off this message, add \footnotehyperwarnfalse
 (footnotehyper)    to the preamble.
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
-Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+Package: pdflscape 2025-06-23 v0.14 Display of landscape pages in PDF
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nomet
 adata.sty
-Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+Package: pdflscape-nometadata 2025-06-23 v0.14 Display of landscape pages in PD
 F (HO)
 
 (/home/emily/.local/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty
@@ -2444,8 +2481,8 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-\FN@cache251=\box141
-\c@lstlisting=\count537
+\FN@cache251=\box146
+\c@lstlisting=\count553
 LaTeX Font Info:    Trying to load font information for OT1+minlibertine on inp
 ut line 8.
 
@@ -2590,7 +2627,7 @@ Package minitoc(hints) Warning: W0024
 
 (./06.aux)
  ***********
-LaTeX2e <2024-11-01> patch level 2
+LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 
@@ -2606,14 +2643,14 @@ Package logreq Info: Writing requests to '06.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 49582 strings out of 475506
- 125060,1977958 words of node,token memory allocated
- 23781 words of node memory still in use:
-   480 hlist, 16 vlist, 8 rule, 7 mark, 2 local_par, 354 math, 619 glue, 80 kern
-, 4 penalty, 206 glyph, 2739 attribute, 111 glue_spec, 1372 attribute_list, 2 wr
+ 49961 strings out of 470117
+ 125165,1977958 words of node,token memory allocated
+ 23546 words of node memory still in use:
+   461 hlist, 16 vlist, 8 rule, 7 mark, 2 local_par, 354 math, 619 glue, 80 kern
+, 4 penalty, 206 glyph, 2714 attribute, 113 glue_spec, 1360 attribute_list, 2 wr
 ite, 534 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:2,2:83,3:1626,4:87,5:288,6:9,7:3588,8:29,9:1530,10:3,11:1
- 71114 multiletter control sequences out of 65536+600000
+   avail lists: 1:2,2:86,3:1626,4:87,5:288,6:9,7:3588,8:29,9:1470,10:3
+ 76881 multiletter control sequences out of 65536+600000
  113 fonts using 45860519 bytes
  107i,19n,104p,998b,1846s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/home/emily/.local/texlive/2025/texmf-dist/fonts/enc/dvips/base/7t.enc}{/home/e

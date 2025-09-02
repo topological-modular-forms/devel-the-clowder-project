@@ -80,7 +80,7 @@
       <file>06.bcf</file>
     </requires>
     <requires type="editable">
-      <file>/home/emily/clowder-project/the-clowder-project/bibliography.bib</file>
+      <file>/home/emily/clowder-project/devel-the-clowder-project/bibliography.bib</file>
     </requires>
   </external>
 </requests>

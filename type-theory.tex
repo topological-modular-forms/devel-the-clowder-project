@@ -1735,8 +1735,40 @@ Let $A$, $B$, and $C$ be types.
         .%
     \end{webprooftree}%
     To define a function $\sfEq_{\N}(n,m)\to(n\equals_{\N}m)$, we proceed by induction on $n$ and $m$.
-
-    TODO
+    \begin{itemize}
+        \item If $n=m=0_{\N}$, we have $\refl_{0_{\N}}\oftype0_{\N}\to0_{\N}$.
+        \item If $n=0_{\N}$ and $m=\succ_{\N}(k)$ for some $k\oftype\N$ or the other way around, we have a function $\EmptyType\to(n\equals_{\N}m)$.
+        \item If $n$ and $m$ are successors and we assume we have a function $f\oftype\Eq_{\N}(n,m)\to(n\equals_{\N}m)$ for induction, then we define
+            \[
+                \Eq_{\N}(\succ_{\N}(n),\succ_{\N}(m))%
+                \to%
+                (\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))%
+            \]%
+            as the composition
+            \[
+                \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    {\Eq_{\N}(\succ_{\N}(n),\succ_{\N}(m))}
+                    \&[0.5\ThreeCm]
+                    \&[0.9\ThreeCm]
+                    \&[0.5\ThreeCm]
+                    {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))}
+                    \\[0.5\ThreeCm]
+                    \&[0.5\ThreeCm]
+                    {\Eq_{\N}(n,m)}
+                    \&[0.9\ThreeCm]
+                    {(n\equals_{\N}m)\mrp{,}}
+                    \&[0.5\ThreeCm]
+                    % 1-Arrows
+                    \arrow[from=1-1,to=1-4,dashed]%
+                    %
+                    \arrow[from=1-1,to=2-2,"\sfid"',pos=0.325]%
+                    \arrow[from=2-2,to=2-3,"f"']%
+                    \arrow[from=2-3,to=1-4,"\ap_{\succ_{\N}}"',pos=0.525]%
+                \end{tikzcd}
+            \]%
+            where $\sfid$ is the identity function, as we have a judgemental equality $\sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))\doteq\sfEq_{\N}(n,m)$.
+    \end{itemize}
+    This finishes the proof.
 \end{Proof}
 \subsection{Addition of Natural Numbers}\label{subsection-martin-löf-type-theory-addition-of-natural-numbers}
 \begin{definition}{Addition of Natural Numbers}{addition-of-natural-numbers}%
