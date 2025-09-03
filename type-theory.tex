@@ -3638,7 +3638,7 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
     \]%
 \end{definition}
 \section{Universes}\label{section-universes}
-\subsection{Foundations}\label{subsection-foundations}
+\subsection{Foundations}\label{subsection-universes-foundations}
 \begin{definition}{Universes}{universes}%
     A \index[type-theory]{universe}\textbf{universe} is a pair $(\CatFont{U},\CatFont{T})$ consisting of:
     \begin{itemize}
@@ -3774,6 +3774,24 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
             \end{align*}
     \end{enumerate}
 \end{remark}
+\section{The Curry--Howard Correspondence}\label{section-the-curry-howard-correspondence}
+\subsection{Foundations}\label{subsection-the-curry-howard-correspondence-foundations}
+\begin{definition}{The Curry--Howard Correspondence}{the-curry-howard-correspondence}%
+    The \index[type-theory]{Curry--Howard correspondence}\textbf{Curry--Howard correspondence} is the observation that one may think of:
+    \begin{enumerate}
+        \item\label{the-curry-howard-correspondence-types}Types as propositions (and vice-versa).
+        \item\label{the-curry-howard-correspondence-terms}Terms as proofs (and vice-versa).
+    \end{enumerate}
+\end{definition}
+\begin{example}{Divisibility}{divisibility-curry-howard-correspondence}%
+    To express the statement that a natural number $d$ divides a natural number $n$, we define a \textit{type}
+    \[
+        d\mid n%
+        \defeq%
+        \sum_{k\oftype\N}dk\equals_{\N}n%
+    \]%
+    whose terms may then be thought of as \textit{witnesses} to the statement \say{$d$ divides $n$}.
+\end{example}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}

@@ -2309,15 +2309,13 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
-            \begin{envsmallsize}
-                \[
-                    \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
-                    \cong
-                    \Eq(f,g,h)
-                    \cong
-                    \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
-                \]%
-            \end{envsmallsize}
+            \[
+                \underbrace{\Eq(f\circ\eq(g,h),g\circ\eq(g,h))}_{{}=\Eq(f\circ\eq(g,h),h\circ\eq(g,h))}%
+                \cong
+                \Eq(f,g,h)
+                \cong
+                \underbrace{\Eq(f\circ\eq(f,g),h\circ\eq(f,g))}_{{}=\Eq(g\circ\eq(f,g),h\circ\eq(f,g))},%
+            \]%
             where $\Eq(f,g,h)$ is the limit of the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
@@ -4091,7 +4089,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                 \begin{enumerate}
                     \item\label{footnote-properties-of-coequalisers-of-sets-associativity-1}Take the coequaliser of $(f,g,h)$, i.e.\ the colimit of the diagram
                         \[
-                            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={3.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={3.75*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                                 A%
                                 \arrow[r,"f",shift left=2.25]%
                                 \arrow[r,"g"description]%
@@ -4155,7 +4153,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                 \par\vspace*{\TCBBoxCorrection}
             }%
             %---  End Footnote  ---%
-            \begin{envscriptsize}
+            \begin{envsmallsize}
                 \[
                     \underbrace{\CoEq(\coeq(f,g)\circ f,\coeq(f,g)\circ h)}_{{}=\CoEq(\coeq(f,g)\circ g,\coeq(f,g)\circ h)}%
                     \cong
@@ -4163,7 +4161,7 @@ Let $A$ and $B$ be sets and let $f,g\colon A\rightrightarrows B$ be functions.
                     \cong
                     \underbrace{\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ g)}_{{}=\CoEq(\coeq(g,h)\circ f,\coeq(g,h)\circ h)},%
                 \]%
-            \end{envscriptsize}
+            \end{envsmallsize}
             where $\CoEq(f,g,h)$ is the colimit of the diagram
             \[
                 \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
