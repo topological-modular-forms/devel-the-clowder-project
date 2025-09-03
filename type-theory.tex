@@ -19,7 +19,21 @@ This chapter contains material on type theory.
 TODO:
 \begin{enumerate}
     \item \url{https://mathoverflow.net/questions/499517/models-of-hott-locally-ccc-vs-quillen}
+    \item Multiplication
+    \item Exponentiation
     \item Min and max functions
+    \item Maybe: Factorials
+    \item Maybe: Binomial coefficients
+    \item Maybe: Predecessor function
+    \item $\mathsf{neg}_{\Z}\oftype\Z\to\Z$ (antipode)
+    \item Distributive-inv-concat, $(q\ccirc p)^{-1}=p^{-1}\ccirc q^{-1}$.
+    \item inv-con and con-inv $(q\ccirc p\equals r)\to(q\equals p^{-1}\ccirc r)$
+    \item lift $\mathsf{lift}_{B}(p,b)\oftype (a,b)=(x,\sftr_{B}(p,b))$
+    \item mac lane pentagon
+    \item multiplication distributes over addition
+    \item $\leq$ (6.3)
+    \item maybe: absolute value
+    \item maybe: distance
 \end{enumerate}
 
 \section{Type Theory Basics}\label{section-type-theory-basics}
@@ -1609,11 +1623,82 @@ Let $A$, $B$, and $C$ be types.
 \begin{proposition}{Properties of the Natural Numbers}{properties-of-the-natural-numbers}%
     Let $n\oftype\N$.
     \begin{enumerate}
-        \item\label{properties-of-the-natural-numbers-}\SloganFont{Peano's Seventh Axiom. }CHANGE THIS NAME MAYBE
+        \item\label{properties-of-the-natural-numbers-successors-and-equality}\SloganFont{Successors and Equality. }The type
+            \[
+                (n\equals_{\N}m)%
+                \biimplications%
+                (\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))%
+            \]%
+            is inhabited.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This is Peano's seventh axiom in his work \cite{peano-book} describing what is now known as the \index[type-theory]{Peano axioms}\textbf{Peano axioms} for the natural numbers.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+        \item\label{properties-of-the-natural-numbers-zero-is-not-a-successor}\SloganFont{Zero Is Not a Successor. }For each $n\oftype\N$, the type
+            \[
+                0_{\N}%
+                \nequals_{N}%
+                \succ_{\N}(n)%
+            \]%
+            is inhabited.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                This is Peano's eighth axiom in \cite{peano-book}.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
         %\item\label{properties-of-the-natural-numbers-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-the-natural-numbers}}%
+    \FirstProofBox{\cref{properties-of-the-natural-numbers-successors-and-equality}: Successors and Equality}%
+    For the forward implication, we may use the action on paths of the successor function
+    \[
+        \ap_{\succ_{\N}}%
+        \oftype%
+        (n\equals_{\N}m)%
+        \to%
+        (\succ_{\N}(n)\equals_{\N}\succ_{\N}(m)).%
+    \]%
+    For the converse, we use \cref{properties-of-observational-equality-of-natural-numbers-relation-to-identity-types} of \cref{properties-of-observational-equality-of-natural-numbers}, constructing the backwards implication as the composition
+    \[
+        \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))}
+            \&[0.5\FourCm]
+            \&[0.9\FourCm]
+            \&[0.5\FourCm]
+            {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))\mrp{.}}
+            \\[0.5\FourCm]
+            \&[0.5\FourCm]
+            {\Eq_{\N}(\succ_{\N}(n),\succ_{\N}(m))}
+            \&[0.9\FourCm]
+            {\Eq_{\N}(n,m)}
+            \&[0.5\FourCm]
+            % 1-Arrows
+            \arrow[from=1-1,to=1-4,dashed]%
+            %
+            \arrow[from=1-1,to=2-2,"\dagger"',pos=0.325]%
+            \arrow[from=2-2,to=2-3,"\sfid"']%
+            \arrow[from=2-3,to=1-4,"\dagger"',pos=0.525]%
+        \end{tikzcd}
+    \]%
+    where:
+    \begin{itemize}
+        \item The maps marked with $\dagger$ come from \cref{properties-of-observational-equality-of-natural-numbers-relation-to-identity-types} of \cref{properties-of-observational-equality-of-natural-numbers}.
+        \item $\sfid$ is the identity function, as we have a judgemental equality $\sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))\doteq\sfEq_{\N}(n,m)$.
+    \end{itemize}
+    This finishes the proof.
+
+    \ProofBox{\cref{properties-of-the-natural-numbers-zero-is-not-a-successor}: Zero Is Not a Successor}%
+    By \cref{properties-of-observational-equality-of-natural-numbers-relation-to-identity-types} of \cref{properties-of-observational-equality-of-natural-numbers}, we have a family of maps
+    \[
+        (0_{\N}\equals_{\N}\succ_{\N}(n))%
+        \to
+        \sfEq_{\N}(0_{\N},\succ_{\N}(n)).%
+    \]%
+    Since $\sfEq_{\N}(0_{\N},\succ_{\N}(n))\doteq\EmptyType$, we are done.
 \end{Proof}
 \subsection{Pattern Matching}\label{subsection-pattern-matching}
 \begin{definition}{Pattern Matching}{pattern-matching}%
@@ -1760,12 +1845,12 @@ Let $A$, $B$, and $C$ be types.
                     \&[0.5\ThreeCm]
                     \&[0.9\ThreeCm]
                     \&[0.5\ThreeCm]
-                    {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))}
+                    {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))\mrp{,}}
                     \\[0.5\ThreeCm]
                     \&[0.5\ThreeCm]
                     {\Eq_{\N}(n,m)}
                     \&[0.9\ThreeCm]
-                    {(n\equals_{\N}m)\mrp{,}}
+                    {(n\equals_{\N}m)}
                     \&[0.5\ThreeCm]
                     % 1-Arrows
                     \arrow[from=1-1,to=1-4,dashed]%
@@ -3011,6 +3096,16 @@ Let $A$ be a type and let $a\oftype A$.
         %\item\label{explicit-inference-rules-for-identity-types-}\SloganFont{. }
     \end{enumerate}
 \end{remark}
+\begin{notation}{\say{Inequality} Types}{inequality-types}%
+    We write \index[notation]{xnotequalsAy@$x\nequals_{A}y$}$x\nequals_{A}y$ for the type defined by
+    \[
+        x\nequals_{A}y%
+        \defeq%
+        (x\equals_{A}y)%
+        \to%
+        \EmptyType.%
+    \]%
+\end{notation}
 \begin{proposition}{Properties of Identity Types}{properties-of-identity-types}%
     Let $A$ be a type and let $a\oftype A$.
     \begin{enumerate}
