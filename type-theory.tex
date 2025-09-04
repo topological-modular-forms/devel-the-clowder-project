@@ -2263,7 +2263,7 @@ Let $A$, $B$, and $C$ be types.
 \begin{proposition}{Properties of Multiplication}{properties-of-multiplication}%
     Let $n\oftype\N$ and $m\oftype\N$.
     \begin{enumerate}
-        \item\label{properties-of-multiplication-unitality}\SloganFont{Unitality. }
+        \item\label{properties-of-multiplication-unitality}\SloganFont{Unitality. }name stuff onemult and multone
         \item\label{properties-of-multiplication-associativity}\SloganFont{Associativity. }
         \item\label{properties-of-multiplication-commutativity}\SloganFont{Commutativity. }
         %\item\label{properties-of-multiplication-}\SloganFont{. }
@@ -3784,14 +3784,44 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
     \end{enumerate}
 \end{definition}
 \begin{example}{Divisibility}{divisibility-curry-howard-correspondence}%
-    To express the statement that a natural number $d$ divides a natural number $n$, we define a \textit{type}
-    \[
-        d\mid n%
-        \defeq%
-        \sum_{k\oftype\N}dk\equals_{\N}n%
-    \]%
-    whose terms may then be thought of as \textit{witnesses} to the statement \say{$d$ divides $n$}.
+    Let $d,n\oftype\N$.
+    \begin{enumerate}
+        \item\label{divisibility-curry-howard-correspondence-1}To express the statement that $d$ divides $n$, we define a \textit{type}
+            \[
+                d\mid n%
+                \defeq%
+                \sum_{k\oftype\N}(dk\equals_{\N}n)%
+            \]%
+            whose terms may then be thought of as \textit{witnesses} to the statement \say{$d$ divides $n$}.
+        \item\label{divisibility-curry-howard-correspondence-2}To express the statement that $1_{\N}$ divides every natural number (universal quantification), we use Π-types:
+            \[
+                \prod_{x\oftype\N}(1_{\N}\mid x).%
+            \]%
+            To prove this statement, we must construct a term of this type, such as $\llbracket x\mapsto(x,\onemult_{\N}(x))\rrbracket$.
+    \end{enumerate}
 \end{example}
+\begin{remark}{Table of Analogies in The Curry--Howard Correspondence}{}%
+    The Curry--Howard correspondence between logic and type theory is summarised in the following table:
+    \begingroup%
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{Logic}}            & \textcolor{white}{\textbf{Type Theory}} \\\hline\rowcolor{backgroundColor}
+            Propositions $P$                             & Types $A$                               \\\rowcolor{black!05!backgroundColor}
+            Proofs       $p$                             & Terms $a\oftype A$                      \\\rowcolor{backgroundColor}
+            $\top$                                       & $\UnitType$                             \\\rowcolor{black!05!backgroundColor}
+            $\bot$                                       & $\EmptyType$                            \\\rowcolor{backgroundColor}
+            Disjunction $P\lor Q$                        & Coproduct types $A+B$                   \\\rowcolor{black!05!backgroundColor}
+            Conjunction $P\land Q$                       & Product types $A\times B$               \\\rowcolor{backgroundColor}
+            Implication $P\implies Q$                    & Function type $A\to B$                  \\\rowcolor{black!05!backgroundColor}
+            Negation $\neg P$                            & Negation type $A\to\EmptyType$          \\\rowcolor{backgroundColor}
+            Existential quantification $\exists_{x}P(x)$ & Σ-types $\sum_{x\oftype A}B(x)$         \\\rowcolor{black!05!backgroundColor}
+            Universal quantification $\forall_{x}P(x)$   & Π-types $\prod_{x\oftype A}B(x)$        \\\rowcolor{backgroundColor}
+            Equality $x=y$                               & Identity types $x\equals_{A}y$          \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{remark}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
