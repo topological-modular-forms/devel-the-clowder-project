@@ -26,7 +26,8 @@ LIJST = introduction \
 		topological-spaces \
 		notes \
 		real-analysis \
-		complex-analysis
+		complex-analysis \
+		haskell
 
 # Add book to get all stems of tex files needed for tags
 LIJST_TAGS = $(LIJST_FDL) book

@@ -3822,6 +3822,49 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
     \end{center}
     \endgroup
 \end{remark}
+\section{Decidability}\label{section-decidability}
+\subsection{Foundations}\label{subsection-decidability-foundations}
+\begin{definition}{Decidable Types}{decidable-types}%
+    Let $A$ be a type and let $P$ be a type family indexed over $A$.
+    \begin{enumerate}
+        \item\label{decidable-types-decidable-types}The type $A$ is \index[type-theory]{decidable type}\textbf{decidable} if there is a term of type $A+\neg A$.%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Notation: }We write \index[notation]{isdecidableA@$\isdecidable(A)$}$\isdecidable(A)$ for $A+\neg A$.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+        \item\label{decidable-types-decidable-type-families}The type family $P$ is \index[type-theory]{decidable type family}\textbf{decidable} if, for each $x\oftype A$, the type $P(x)$ is decidable.
+    \end{enumerate}
+\end{definition}
+\begin{definition}{Examples of Decidable Types}{examples-of-decidable-types}%
+    Here are some examples of decidable types.
+    \begin{enumerate}
+        \item\label{examples-of-decidable-types-the-empty-type}The empty type $\EmptyType$ is decidable, as we may use $\id_{\EmptyType}$ to construct a term $\iota^{\rmR}_{\EmptyType+\neg\EmptyType}(\id_{\EmptyType})$ of type $\isdecidable(\EmptyType)$.
+        \item\label{examples-of-decidable-types-the-unit-type}The unit type $\UnitType$ is decidable, as we may use $\point$ to construct a term $\iota^{\rmL}_{\UnitType+\neg\UnitType}(\point)$ of type $\isdecidable(\UnitType)$.
+        \item\label{examples-of-decidable-types-the-natural-numbers}The type of natural numbers $\N$ is decidable, as we may use $0_{\N}$ to construct a term $\iota^{\rmL}_{\N+\neg\N}(0_{\N})$ of type $\isdecidable(\N)$.
+        \item\label{examples-of-decidable-types-types-equipped-with-terms}More generally, any type that comes equipped with a term $a$ is decidable, as we may construct a term $\iota^{\rmL}_{A+\neg A}(a)$ of type $\isdecidable(A)$.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}{Properties of Decidable Types}{properties-of-decidable-types}%
+    Let $A$ and $B$ be types.
+    \begin{enumerate}
+        \item\label{properties-of-decidable-types-decidability-of-dependent-pairs}\SloganFont{Decidability of Dependent Pairs. }If $A$ and $B$ are decidable, then so is $A+B$.
+        \item\label{properties-of-decidable-types-decidability-of-products}\SloganFont{Decidability of Products. }If $A$ and $B$ are decidable, then so is $A\times B$.
+        \item\label{properties-of-decidable-types-decidability-of-function-types}\SloganFont{Decidability of Function Types. }If $A$ and $B$ are decidable, then so is $A\to B$.
+        %\item\label{properties-of-decidable-types-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-decidable-types}}%
+    \FirstProofBox{\cref{properties-of-decidable-types-decidability-of-dependent-pairs}: Decidability of Dependent Pairs}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-decidable-types-decidability-of-products}: Decidability of Products}%
+    Omitted.
+
+    \ProofBox{\cref{properties-of-decidable-types-decidability-of-function-types}: Decidability of Function Types}%
+    Omitted.
+\end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
