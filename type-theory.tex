@@ -3828,16 +3828,18 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
     Let $A$ be a type and let $P$ be a type family indexed over $A$.
     \begin{enumerate}
         \item\label{decidable-types-decidable-types}The type $A$ is \index[type-theory]{decidable type}\textbf{decidable} if there is a term of type $A+\neg A$.%
-            %--- Begin Footnote ---%
-            \footnote{%
-                \SloganFont{Further Notation: }We write \index[notation]{isdecidableA@$\isdecidable(A)$}$\isdecidable(A)$ for $A+\neg A$.
-                \par\vspace*{\TCBBoxCorrection}
-            }%
-            %---  End Footnote  ---%
         \item\label{decidable-types-decidable-type-families}The type family $P$ is \index[type-theory]{decidable type family}\textbf{decidable} if, for each $x\oftype A$, the type $P(x)$ is decidable.
     \end{enumerate}
 \end{definition}
-\begin{definition}{Examples of Decidable Types}{examples-of-decidable-types}%
+\begin{notation}{$\isdecidable(A)$}{is-decidable-A}%
+    We write \index[notation]{isdecidableA@$\isdecidable(A)$}$\isdecidable(A)$ for the type defined by
+    \[
+        \isdecidable(A)%
+        \defeq%
+        A+\neg A.%
+    \]%
+\end{notation}
+\begin{example}{Examples of Decidable Types}{examples-of-decidable-types}%
     Here are some examples of decidable types.
     \begin{enumerate}
         \item\label{examples-of-decidable-types-the-empty-type}The empty type $\EmptyType$ is decidable, as we may use $\id_{\EmptyType}$ to construct a term $\iota^{\rmR}_{\EmptyType+\neg\EmptyType}(\id_{\EmptyType})$ of type $\isdecidable(\EmptyType)$.
@@ -3845,7 +3847,7 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
         \item\label{examples-of-decidable-types-the-natural-numbers}The type of natural numbers $\N$ is decidable, as we may use $0_{\N}$ to construct a term $\iota^{\rmL}_{\N+\neg\N}(0_{\N})$ of type $\isdecidable(\N)$.
         \item\label{examples-of-decidable-types-types-equipped-with-terms}More generally, any type that comes equipped with a term $a$ is decidable, as we may construct a term $\iota^{\rmL}_{A+\neg A}(a)$ of type $\isdecidable(A)$.
     \end{enumerate}
-\end{definition}
+\end{example}
 \begin{proposition}{Properties of Decidable Types}{properties-of-decidable-types}%
     Let $A$ and $B$ be types.
     \begin{enumerate}
@@ -3858,17 +3860,68 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
 \end{proposition}
 \begin{Proof}{Proof of \cref{properties-of-decidable-types}}%
     \FirstProofBox{\cref{properties-of-decidable-types-decidability-of-dependent-pairs}: Decidability of Dependent Pairs}%
-    Omitted.
+    Given a term $a\oftype A$ or $f\oftype A\to\EmptyType$ and a term $b\oftype B$ or $g\oftype B\to\EmptyType$, we construct a term of type $\isdecidable(A+B)$ as follows:
+    \begingroup%
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            $\isdecidable(A)$            & $\isdecidable(B)$            & $\isdecidable(A+B)$                                         \\\hline\rowcolor{backgroundColor}
+            $\iota^{\rmL}_{A+\neg A}(a)$ & $\iota^{\rmL}_{B+\neg B}(b)$ & $\iota^{rmL}_{(A+B)+\neg(A+B)}(\iota^{\rmL}_{A+\neg A}(a))$ \\\rowcolor{black!05!backgroundColor}
+            $\iota^{\rmL}_{A+\neg A}(a)$ & $\iota^{\rmR}_{B+\neg B}(g)$ & $\iota^{rmR}_{(A+B)+\neg(A+B)}(\iota^{\rmL}_{A+\neg A}(a))$ \\\rowcolor{backgroundColor}
+            $\iota^{\rmR}_{A+\neg A}(f)$ & $\iota^{\rmL}_{B+\neg B}(b)$ & $\iota^{rmL}_{(A+B)+\neg(A+B)}(\iota^{\rmR}_{B+\neg B}(g))$ \\\rowcolor{black!05!backgroundColor}
+            $\iota^{\rmR}_{A+\neg A}(f)$ & $\iota^{\rmR}_{B+\neg B}(g)$ & $\iota^{rmR}_{(A+B)+\neg(A+B)}([f,g])$                      \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-decidable-types-decidability-of-products}: Decidability of Products}%
-    Omitted.
+    Given a term $a\oftype A$ or $f\oftype A\to\EmptyType$ and a term $b\oftype B$ or $g\oftype B\to\EmptyType$, we construct a term of type $\isdecidable(A\times B)$ as follows:
+    \begingroup%
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            $\isdecidable(A)$            & $\isdecidable(B)$            & $\isdecidable(A\times B)$                                              \\\hline\rowcolor{backgroundColor}
+            $\iota^{\rmL}_{A+\neg A}(a)$ & $\iota^{\rmL}_{B+\neg B}(b)$ & $\iota^{rmL}_{(A\times B)+\neg(A\times B)}(a,b)$                       \\\rowcolor{black!05!backgroundColor}
+            $\iota^{\rmL}_{A+\neg A}(a)$ & $\iota^{\rmR}_{B+\neg B}(g)$ & $\iota^{rmR}_{(A\times B)+\neg(A\times B)}(g\circ\pr^{A\times B}_{2})$ \\\rowcolor{backgroundColor}
+            $\iota^{\rmR}_{A+\neg A}(f)$ & $\iota^{\rmL}_{B+\neg B}(b)$ & $\iota^{rmL}_{(A\times B)+\neg(A\times B)}(f\circ\pr^{A\times B}_{1})$ \\\rowcolor{black!05!backgroundColor}
+            $\iota^{\rmR}_{A+\neg A}(f)$ & $\iota^{\rmR}_{B+\neg B}(g)$ & $\iota^{rmR}_{(A\times B)+\neg(A\times B)}(f\circ\pr^{A\times B}_{1})$ \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-decidable-types-decidability-of-function-types}: Decidability of Function Types}%
-    Omitted.
+    Given a term $a\oftype A$ or $f\oftype A\to\EmptyType$ and a term $b\oftype B$ or $g\oftype B\to\EmptyType$, we construct a term of type $\isdecidable(A+B)$ as follows:
+    \begingroup%
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            $\isdecidable(A)$            & $\isdecidable(B)$            & $\isdecidable(A\to B)$                                                                                  \\\hline\rowcolor{backgroundColor}
+            $\iota^{\rmL}_{A+\neg A}(a)$ & $\iota^{\rmL}_{B+\neg B}(b)$ & $\iota^{rmL}_{(A\to B)+\neg(A\to B)}(\llbracket x\mapsto b\rrbracket)$                                  \\\rowcolor{black!05!backgroundColor}
+            $\iota^{\rmL}_{A+\neg A}(a)$ & $\iota^{\rmR}_{B+\neg B}(g)$ & $\iota^{rmR}_{(A\to B)+\neg(A\to B)}(\llbracket[A\xlongrightarrow{\phi}B]\mapsto g(\phi(a))\rrbracket)$ \\\rowcolor{backgroundColor}
+            $\iota^{\rmR}_{A+\neg A}(f)$ & $\iota^{\rmL}_{B+\neg B}(b)$ & $\iota^{rmL}_{(A\to B)+\neg(A\to B)}(\exfalso\circ f)$                                                  \\\rowcolor{black!05!backgroundColor}
+            $\iota^{\rmR}_{A+\neg A}(f)$ & $\iota^{\rmR}_{B+\neg B}(g)$ & $\iota^{rmR}_{(A\to B)+\neg(A\to B)}(\exfalso\circ f)$                                                  \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+    This finishes the proof.
 
     \ProofBox{\cref{properties-of-decidable-types-decidability-of-negations-of-types}: Decidability of Negations of Types}%
-    Omitted.
+    This follows from \cref{properties-of-decidable-types-decidability-of-function-types} and the fact that $\EmptyType$ is decidable.
 \end{Proof}
+\subsection{Decidable Equality}\label{subsection-decidable-equality}
+\begin{definition}{Decidable Equality}{decidable-equality}%
+    A type $A$ \index[type-theory]{decidable equality}\textbf{has decidable equality} if the identity type $x\equals_{A}y$ is decidable for each $x,y\oftype A$.
+\end{definition}
+\begin{notation}{$\hasdecidableeq(A)$}{has-decidable-eq-A}%
+    We write \index[notation]{hasdecidableeqA@$\hasdecidableeq(A)$}$\hasdecidableeq(A)$ for the type defined by
+    \[
+        \hasdecidableeq(A)%
+        \defeq%
+        \prod_{x,y\oftype A}\isdecidable(x\equals_{A}y).%
+    \]%
+\end{notation}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
