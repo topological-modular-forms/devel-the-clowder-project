@@ -3939,8 +3939,10 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
     \end{align*}
     We may then build functions
     \begin{align*}
-        f+\widetilde{g}
+        f+\widetilde{g} &\oftype (A+\neg A)\to(B+\neg B),\\
+        g+\widetilde{f} &\oftype (B+\neg B)\to(A+\neg A).
     \end{align*}
+    This finishes the proof.
 \end{Proof}
 \subsection{Decidable Equality}\label{subsection-decidable-equality}
 \begin{definition}{Decidable Equality}{decidable-equality}%
