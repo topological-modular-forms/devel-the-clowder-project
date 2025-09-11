@@ -1,0 +1,668 @@
+\input{preamble}
+
+% OK, start here.
+%
+\input{chapter_modifications.tex}
+\begin{document}
+
+\title{Centres and Traces of Categories}
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+This chapter contains some material about centres and traces of categories. Notably, we discuss and explore:
+\begin{enumerate}
+    \item \url{https://arxiv.org/abs/2109.02144} --- this one is very important!!
+    \item Centre and trace of the core of the category of finite $\F_{q}$-vector spaces and isomorphisms
+    \item Centre and trace of divisibility posets $D_{n}=\{k\in\N\ \middle|\ k\mid n\}$.
+    \item Centre and trace of divisibility posets $D_{n}=\{k\in\N\ \middle|\ k\leq n\}$.
+    \item $\pi_{0}(\Fun(\B\N,\CatFont{C}))$ and $\K_{0}(\Fun(\B\N,\CatFont{C}))$ for all categories $\CatFont{C}$ below.
+    \item centre and trace of full subcategory of $\Grp$ spanned by the cyclic   groups
+    \item centre and trace of full subcategory of $\Grp$ spanned by the dihedral groups
+    \item centre and trace of $\FinSets_{G}$, $\Rep(G)$, orbit category of $G$, etc.
+        \begin{enumerate}
+            \item centre of $\Sets_{A}$ is $A$
+        \end{enumerate}
+    \item centre of $\GrMod{G}{R}$: morphisms $G\to R$
+    \item centre of $\LMod{R}$: elements of $\rmZ(R)$
+    \item centre of $\GrLMod{G}{R}$: morphisms $G\to\rmZ(R)$
+    \item \url{https://math.stackexchange.com/questions/3085187/a-coend-in-the-category-of-vector-spaces}
+    \item Idea: decomposing the trace in a spectrum of different classes, like we do with operators, decomposing them into a point spectrum, a continuous spectrum, and a residual spectrum.
+    \item \say{Idempotent spectrum of the trace}: If $f\sim g$ with $f$ and $g$ idempotent endomorphisms in $\CatFont{C}$, then $\Im(f)\cong\Im(g)$.
+    \item Split idempotents get identified with the identity
+    \item Sending a morphism to its fixed points can often be used to show that $\tr(\id_{A})\neq\tr(\id_{B})$. (Can we generalise this using points like $\pt\to A$?). E.g.\ If $f\sim g$, then $\#\mathrm{Fix}(f)=\#\mathrm{Fix}(g)$.
+    \item What is the trace of the category of divisibility posets?
+    \item What is the trace of the full subcategory of $\Pos$ spanned by the posets of the form $[n]\times[m]$?
+    \item Be careful with adding the above to Clowder if the relevant problem gets accepted by Epoch AI and uses the stuff above.
+    \item Every endomorphism is equivalent to its eventual image in $\Tr(\CatFont{C})$, since the diagram
+        \[
+            \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \Im_{\infty}(f)
+                \arrow[r,hook']
+                \arrow[d,"\restriction{f}{\Im_{\infty}(f)}"']
+                \&
+                X
+                \arrow[d,"f"]
+                \arrow[ld,"f"description]
+                \\
+                \Im_{\infty}(f)
+                \arrow[r,hook]
+                \&
+                X
+            \end{tikzcd}
+        \]%
+        commutes.
+    \item Eventual image:
+        \begin{enumerate}
+            \item \url{https://golem.ph.utexas.edu/category/2011/12/the_eventual_image_part_2.html}
+            \item \url{https://golem.ph.utexas.edu/category/2011/12/the_eventual_image.html}
+            \item \url{https://golem.ph.utexas.edu/category/2011/10/can_you_describe_this_idempote.html}
+            \item \url{https://golem.ph.utexas.edu/category/2022/10/the_eventual_image_eventually.html}
+            \item \url{https://ncatlab.org/nlab/show/eventual+image}
+                \url{https://arxiv.org/abs/2210.00302}
+            \item Left and right adjoints of the functor $\Fun(\B\bbB,\CatFont{C})\hookrightarrow\Fun(\B\N,\CatFont{C})$?
+            \item Is there a condition for when $\Tr(\CatFont{C})\cong\pi_{0}(\B\N,\Core(\CatFont{C}))$? This happens for finite sets via the eventual image, and maybe it happens for finite abelian groups as well.
+        \end{enumerate}
+    \item $\Tr(\IrrRep_{\C}(G))\cong\C^{n}$ for $n$ the number of irreducible representations of $G$.
+    \item Karoubi completion
+\end{enumerate}
+
+\ChapterTableOfContents
+
+\section{Centres, Isomorphism Classes and Traces}\label{section-centres-isomorphism-classes-and-traces}
+\subsection{The Centre of a Category}\label{subsection-the-centre-of-a-category}
+Let $\CatFont{C}$ be a category.
+\begin{definition}{The Centre of a Category}{the-centre-of-a-category}%
+    The \index[categories]{centre of a category}\index[categories]{category!centre of}\textbf{centre} of $\CatFont{C}$ is the monoid \index[notation]{ZC@$\rmZ(\CatFont{C})$}$\rmZ(\CatFont{C})$ consisting of
+    \begin{itemize}
+        \item\SloganFont{The Underlying Set. }The set $\rmZ(\CatFont{C})$ defined by
+            \begin{align*}
+                \rmZ(\CatFont{C}) &\defeq \int_{A\in\CatFont{C}}\Hom_{\CatFont{C}}(A,A)\\
+                                  &\cong  \Nat(\id_{\CatFont{C}},\id_{\CatFont{C}}),
+            \end{align*}
+            where we have invoked \ChapterRef{\ChapterEndsAndCoends, \cref{ends-and-coends:properties-of-co-ends-natural-transformations-via-ends} of \cref{ends-and-coends:properties-of-co-ends}}{\cref{properties-of-co-ends-natural-transformations-via-ends} of \cref{properties-of-co-ends}}.
+        \item\SloganFont{The Multiplication Map. }The map
+            \[
+                \mu_{\rmZ(\CatFont{C})}%
+                \colon%
+                \rmZ(\CatFont{C})\times\rmZ(\CatFont{C})%
+                \to%
+                \rmZ(\CatFont{C})%
+            \]%
+            defined by
+            \[
+                \beta\cdot_{\rmZ(\CatFont{C})}\alpha%
+                \defeq%
+                \beta\circ\alpha%
+            \]%
+            for each $\alpha,\beta\in\rmZ(\CatFont{C})$, where $\beta\circ\alpha$ is the vertical composition of $\alpha$ and $\beta$ of \ChapterRef{\ChapterCategories, \cref{categories:vertical-composition-of-natural-transformations}}{\cref{vertical-composition-of-natural-transformations}}.
+        \item\SloganFont{The Unit Map. }The map
+            \[
+                \eta_{\rmZ(\CatFont{C})}%
+                \colon%
+                \pt%
+                \to%
+                \rmZ(\CatFont{C})%
+            \]%
+            picking the identity natural transformation
+            \[
+                \id_{\id_{\CatFont{C}}}%
+                \colon%
+                \id_{\CatFont{C}}%
+                \Rightarrow%
+                \id_{\CatFont{C}}%
+            \]%
+            of \ChapterRef{\ChapterCategories, \cref{categories:identity-natural-transformations}}{\cref{identity-natural-transformations}}.
+    \end{itemize}
+\end{definition}
+\begin{remark}{Unwinding \cref{the-centre-of-a-category}}{unwinding-the-centre-of-a-category}%
+    The elements of $\rmZ(\CatFont{C})$ are natural transformation from $\id_{\CatFont{C}}$ to itself. These consist of collections
+    \[
+        \{%
+            \alpha_{A}%
+            \colon%
+            A%
+            \to%
+            A%
+        \}_{A\in\Obj(\CatFont{C})}%
+    \]%
+    of morphisms of $\CatFont{C}$ such that, for each morphism $f\colon A\to B$ of $\CatFont{C}$, the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A
+            \arrow[r,"f"]
+            \arrow[d,"\alpha_{A}"']
+            \&
+            B
+            \arrow[d,"\alpha_{B}"]
+            \\
+            A
+            \arrow[r,"f"']
+            \&
+            B
+        \end{tikzcd}
+    \]%
+    commutes.
+\end{remark}
+\begin{example}{Examples of Centres of Categories}{examples-of-centres-of-categories}%
+    Here are some examples of centres of categories.
+    \begin{enumerate}
+        \item\label{examples-of-centres-of-categories-the-centre-of-a-monoid}\SloganFont{The Centre of a Monoid. }Let $A$ be a monoid. We have
+            \begin{align*}
+                \rmZ(\B{A}) &\cong  \rmZ(A)\\
+                            &\defeq \{a\in A\ \middle|\ \text{for each $b\in A$, we have $ab=ba$}\}.
+            \end{align*}
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-simplex-category}\SloganFont{The Centre of the Simplex Category. }We have
+            \[
+                \rmZ(\SimplexCategory)%
+                \cong%
+                \pt.%
+            \]%
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-cube-category}\SloganFont{The Centre of the Cube Category. }We have
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-cube-category-with-connections}\SloganFont{The Centre of the Cube Category With Connections. }We have
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-category-of-finite-sets}\SloganFont{The Centre of $\FinSets$. }We have
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-category-of-sets}\SloganFont{The Centre of $\Sets$. }We have
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-category-of-groups}\SloganFont{The Centre of $\Grp$. }
+        \item\label{examples-of-centres-of-categories-the-centre-of-the-category-of-abelian-groups}\SloganFont{The Centre of $\Ab$. }
+    \end{enumerate}
+\end{example}
+\begin{Proof}{Proof of \cref{examples-of-centres-of-categories}}%
+    \FirstProofBox{\cref{examples-of-centres-of-categories-the-centre-of-a-monoid}: The Centre of a Monoid}%
+
+    \ProofBox{\cref{examples-of-centres-of-categories-the-centre-of-the-simplex-category}: The Centre of the Simplex Category}%
+\end{Proof}
+\begin{proposition}{Properties of the Centre of a Category}{properties-of-the-centre-of-a-category}%
+    Let $\CatFont{C}$ be a category.
+    \begin{enumerate}
+        \item\label{properties-of-the-centre-of-a-category-interaction-with-monoidal-categories}\SloganFont{Interaction With Monoidal Categories. }
+        %\item\label{properties-of-the-centre-of-a-category-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{properties-of-the-centre-of-a-category}}%
+    \FirstProofBox{\cref{properties-of-the-centre-of-a-category-interaction-with-monoidal-categories}: Interaction With Monoidal Categories}%
+    Omitted.
+\end{Proof}
+\subsection{The Set of Isomorphism Classes of a Category}\label{subsection-the-set-of-isomorphism-classes-of-a-category}
+\subsection{The Trace of a Category}\label{subsection-the-trace-of-a-category}
+\begin{definition}{The Trace of a Category}{the-trace-of-a-category}%
+    Let $\CatFont{C}$ be a small category.
+    \begin{enumerate}
+        \item\label{the-trace-of-a-category-the-trace-of-a-category}The \index[categories]{trace!of a category}\textbf{trace of $\CatFont{C}$} is the set \index[notation]{TrC@$\Tr(\CatFont{C})$}$\Tr(\CatFont{C})$ defined by%
+            \begin{align*}%
+                \Tr(\CatFont{C}) &\defeq \int^{A\in\CatFont{C}}\Hom_{\CatFont{C}}(A,A)\\%
+                                 &\cong  \rmEnd(\CatFont{C})/\unsim,%
+            \end{align*}%
+            where $\unsim$ is the equivalence relation on $\rmEnd(\CatFont{C})$ generated by $f\circ g\sim g\circ f$.%
+        \item\label{the-trace-of-a-category-the-trace-map}The \index[categories]{trace map!of a category}\textbf{trace map of $\CatFont{C}$} is the map\index[notation]{trC@$\tr_{\CatFont{C}}$}%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Further Notation: }Also written simply \index[notation]{tr@$\tr$}$\tr$.
+                \par\vspace*{-1.75\baselineskip}
+            }%
+            %---  End Footnote  ---%
+            \[
+                \tr_{\CatFont{C}}%
+                \colon%
+                \rmEnd(\CatFont{C})%
+                \to%
+                \Tr(\CatFont{C})%
+            \]%
+            given by the quotient map $\rmEnd(\CatFont{C})\twoheadsrightarrow\rmEnd(\CatFont{C})/\unsim\cong\Tr(\CatFont{C})$.
+    \end{enumerate}
+\end{definition}
+\begin{remark}{On the Name \say{Trace}}{on-the-name-trace}%
+    The name \say{trace} comes from the fact that the \emph{trace} of a matrix is the unique (up to scaling) linear map
+    \[
+        \Tr
+        \colon
+        \Mat_{n\times n}(V)
+        \longrightarrow
+        k
+    \]%
+    satisfying
+    \[
+        \Tr(\mathbf{A}\mathbf{B})%
+        =%
+        \Tr(\mathbf{B}\mathbf{A})%
+    \]%
+    for each $\mathbf{A},\mathbf{B}\in\Mat_{n\times n}(V)$; see \cite[Exercise 2]{trace-as-an-alternative-decategorification-functor}. In other words, it is the unique (up to scaling) linear map
+    \[
+        \Tr
+        \colon
+        \rmEnd_{k}(V)
+        \longrightarrow
+        k
+    \]%
+    satisfying
+    \[
+        \Tr(f\circ g)
+        =
+        \Tr(g\circ f)
+    \]%
+    for each $f,g\in\rmEnd_{k}(V)$.
+\end{remark}
+\begin{remark}{Unwinding \cref{the-trace-of-a-category}}{unwinding-the-trace-of-a-category}%
+    In detail, the \textbf{trace of $\CatFont{C}$} is the set $\Tr(\CatFont{C})$ given by
+    \begin{webcompile}
+        \begin{aligned}
+            \Tr(\CatFont{C}) &\defeq \int^{A\in\CatFont{C}}\Hom_{\CatFont{C}}(A,A)\\
+                             &\cong  \CoEq\mspace{3.0mu}(%
+                                                            \begin{tikzcd}[row sep={10.0*\the\DL,between origins}, column sep={10.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&,cramped]
+                                                                \displaystyle\coprod_{\substack{A,B\in\Obj(\CatFont{C})\\f\in\Hom_{\CatFont{C}}(A,B)}}h^{B}_{A}
+                                                                \arrow[r,"{g\,\,\mapsto\,\,g\circ f}", shift left =1.0]
+                                                                \arrow[r,"{g\,\,\mapsto\,\,f\circ g}"',shift right=1.0]
+                                                                \&
+                                                                \displaystyle\coprod_{A\in\Obj(\CatFont{C})}h^{A}_{A}
+                                                            \end{tikzcd}
+                                                        )\\
+                             &\cong  \left.\coprod_{A\in\Obj(\CatFont{C})}\Hom_{\CatFont{C}}(A,A)\middle/\unsim\right.\\
+                             &\cong  \rmEnd(\CatFont{C})/\unsim,
+        \end{aligned}
+    \end{webcompile}
+    where $\unsim$ is the equivalence relation on $\rmEnd(\CatFont{C})$ generated by $g\circ f\mathbin{\unsim'}f\circ g$.%
+    % BEGIN RAW HTML %
+    <br>
+    % BEGIN LATEX HTML %
+    \vspace{0.5\baselineskip}
+    % END RAW HTML %
+    Invoking \ChapterRef{\ChapterEquivalenceRelationsAndApartnessRelations, \cref{equivalence-relations-and-apartness-relations:construction-of-the-equivalence-closure-of-a-relation}}{\cref{construction-of-the-equivalence-closure-of-a-relation}}, we see that $f\sim^{\rmeq}g$ for two endomorphisms $f$ and $g$ of $\CatFont{C}$ \textiff there exists a diagram in $\CatFont{C}$ of the form%
+    \[%
+        \begin{tikzcd}[row sep={6.0*\the\DL,between origins}, column sep={6.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            A_{1}
+            \arrow[r,"p_{1}"]
+            \arrow[d,"f=f_{1}"']
+            \&
+            A_{2}
+            \arrow[d,"f_{2}"description]
+            \arrow[r,"p_{2}"]
+            \&[0.5em]
+            \cdots
+            \arrow[d, shift left=2.125]
+            \arrow[d,"\scriptstyle\cdots",phantom]
+            \arrow[d,shift right=2.125]
+            \arrow[r,"p_{n-2}"]
+            \&[0.625em]
+            A_{n-1}
+            \arrow[r,"p_{n-1}"]
+            \arrow[d,"f_{n-1}"description]
+            \&
+            A_{n}
+            \arrow[d,"f_{n}=g"]
+            \\
+            A_{1}
+            \arrow[r,"p_{1}"']
+            \arrow[from=ru,"q_{1}"description]
+            \&
+            A_{2}
+            \arrow[r,"p_{2}"']
+            \arrow[from=ru,"q_{2}"description,end anchor={[xshift=-0.5em]}]
+            \&[0.5em]
+            \cdots
+            \arrow[r,"p_{n-2}"']
+            \arrow[from=ru,"q_{n-2}"description,start anchor={[xshift=+0.625em]}]
+            \&[0.625em]
+            A_{n-1}
+            \arrow[r,"p_{n-1}"']
+            \arrow[from=ru,"q_{n-1}"description]
+            \&
+            A_{n}\mrp{.}
+        \end{tikzcd}%
+    \]%
+\end{remark}
+\begin{example}{Examples of Traces of Categories}{examples-of-traces-of-categories}%
+    Here we explicitly work out some examples of traces of categories. First, here's a quick summary, where $A$ is a monoid and $G$ is a group in the following table:
+    % BEGIN RAW HTML %
+    <br>
+    <div class="trace-table">
+      <table>
+        <tr>
+          <th style="text-align: center; background-color: #803300; color: white;"><b>Category</b></th>
+          <th style="text-align: center; background-color: #803300; color: white;"><b>Trace</b></th>
+          <th style="text-align: center; background-color: #803300; color: white;"><b>Trace map</b></th>
+        </tr>
+        <tr>
+          <td>$\B{A}$</td>
+          <td>$A/\{ab\sim ba\}$</td>
+          <td>$a\mapsto[a]$</td>
+        </tr>
+        <tr>
+          <td>$\B{G}$</td>
+          <td>$\Cl(G)$</td>
+          <td>$a\mapsto\cl(a)$</td>
+        </tr>
+        <tr>
+          <td>$\SimplexCategory$</td>
+          <td>$\N_{\geq1}$</td>
+          <td>$\sigma\mapsto\Card{\Fix(\sigma)}$</td>
+        </tr>
+        <tr>
+          <td>$\AugmentedSimplexCategory$</td>
+          <td>$\N$</td>
+          <td>$\sigma\mapsto\Card{\Fix(\sigma)}$</td>
+        </tr>
+        <tr>
+          <td>$\GlobeCategory$</td>
+          <td>$\N$</td>
+          <td>$([n]\xrightarrow{\sigma}[n])\mapsto n$</td>
+        </tr>
+        <tr>
+          <td>$\CubeCategory$</td>
+          <td>$\N_{\geq1}$</td>
+          <td>$\sigma\mapsto\Card{\Fix(\sigma)}$</td>
+        </tr>
+        <tr>
+          <td>$\FinSets$</td>
+          <td>$\displaystyle\coprod^{\infty}_{n=0}\Cl(\Sigma_{n})$</td>
+          <td>$f\mapsto\cl(\restriction{f}{\Im^{\infty}(f)})\in\Cl(\Sigma_{\Card{\Im^{\infty}(f)}})$</td>
+        </tr>
+        <tr>
+          <td>$\GammaCategory$</td>
+          <td>$\displaystyle\coprod^{\infty}_{n=0}\Cl(\Sigma_{n})$</td>
+          <td>$f\mapsto\cl(\restriction{f}{\Im^{\infty}(f)})\in\Cl(\Sigma_{\Card{\Im^{\infty}(f)}})$</td>
+        </tr>
+        <tr>
+          <td>$\CycleCategory$</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td>$\ParacycleCategory$</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td>$\TreeCategory$</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td>$\ThetaCategory_{n}$</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td>$\Orb_{G}$</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    % BEGIN LATEX HTML %
+    % END RAW HTML %
+    Next, we describe each example in detail:
+    \begin{enumerate}
+        \item\label{examples-of-traces-of-categories-the-trace-of-a-monoid}\SloganFont{The Trace of a Monoid. }Let $A$ be a monoid. We have
+            \[
+                \Tr(\B{A})%
+                \cong%
+                A/\unsim,%
+            \]%
+            where $\unsim$ is the equivalence relation generated by $ab\sim ba$.
+            \begin{enumerate}
+                \item When $A$ is a group, this recovers the set of conjugacy classes of $A$ (\cref{TODO}).
+                \item When $A$ is a general monoid, this forms one among a few different important notions of conjugacy class for monoids; see \cite{four-notions-of-conjugacy-for-abstract-semigroups}.
+            \end{enumerate}
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-fundamental-groupoid-of-a-topological-space}\SloganFont{The Trace of the Fundamental Groupoid of a Topological Space. }If $X$ is path-connected, then we have
+            \begin{align*}
+                \Tr(\Pi_{\leq1}(X)) &\cong \Cl(\pi_{0}(X;x_{0}))\\%
+                                    &\cong [S^{1},X],%
+            \end{align*}
+            where $x_{0}$ denotes any point of $X$.
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-simplex-category}\SloganFont{The Trace of the Simplex Category. }Let $\SimplexCategory$ be the simplex category of \cref{TODO}. We have
+            \[
+                \Tr(\SimplexCategory)%
+                \cong%
+                \N_{\geq1}%
+            \]%
+            and the trace map
+            \[
+                \tr%
+                \colon%
+                \rmEnd(\SimplexCategory)%
+                \to%
+                \Tr(\SimplexCategory)%
+            \]%
+            is given (under the identification $\Tr(\SimplexCategory)\cong\N_{\geq1}$) by
+            \[
+                \tr(\sigma)%
+                \defeq%
+                \Card{\Fix(\sigma)}%
+            \]%
+            for each $\sigma\in\rmEnd(\SimplexCategory)$, i.e.\ by sending an endomorphism $\sigma\colon[n]\to[n]$ of $\SimplexCategory$ to the cardinality of its set of fixed points.
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-augmented-simplex-category}\SloganFont{The Trace of the Augmented Simplex Category. }Let $\AugmentedSimplexCategory$ be the augmented simplex category of \cref{TODO}. We have
+            \[
+                \Tr(\AugmentedSimplexCategory)%
+                \cong%
+                \N%
+            \]%
+            and the trace map
+            \[
+                \tr%
+                \colon%
+                \rmEnd(\AugmentedSimplexCategory)%
+                \to%
+                \Tr(\AugmentedSimplexCategory)%
+            \]%
+            is given (under the identification $\Tr(\AugmentedSimplexCategory)\cong\N$) by
+            \[
+                \tr(\sigma)%
+                \defeq%
+                \Card{\Fix(\sigma)}%
+            \]%
+            for each $\sigma\in\rmEnd(\AugmentedSimplexCategory)$.
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-cube-category}\SloganFont{The Trace of the Globe Category. }We have
+            \[
+                \Tr(\GlobeCategory)%
+                \cong%
+                \N%
+            \]%
+            and the trace map
+            \[
+                \tr%
+                \colon%
+                \rmEnd(\GlobeCategory)%
+                \to%
+                \Tr(\GlobeCategory)%
+            \]%
+            is given (under the identification $\Tr(\GlobeCategory)\cong\N$) by
+            \[
+                \tr([n]\xrightarrow{\sigma}[n])%
+                \defeq%
+                n%
+            \]%
+            for each $\sigma\in\rmEnd(\GlobeCategory)$.
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-cube-category}\SloganFont{The Trace of the Cube Category. }We have
+            \[
+                \Tr(\CubeCategory)%
+                \cong%
+                \N_{\geq1}%
+            \]%
+            and the trace map
+            \[
+                \tr%
+                \colon%
+                \rmEnd(\CubeCategory)%
+                \to%
+                \Tr(\CubeCategory)%
+            \]%
+            is given (under the identification $\Tr(\CubeCategory)\cong\N_{\geq1}$) by
+            \[
+                \tr(\sigma)%
+                \defeq%
+                \Card{\Fix(\sigma)}%
+            \]%
+            for each $\sigma\in\rmEnd(\CubeCategory)$.
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-cube-category-with-connections}\SloganFont{The Trace of the Cube Category With Connections. }We have
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-category-of-sets}\SloganFont{The Trace of $\FinSets$. }We have
+            \begin{align*}
+                \Tr(\FinSets) &\cong \Tr(\FinSets^{\simeq})\\%
+                              &\cong \Tr(\coprod^{\infty}_{n=0}\B{\Sigma_{n}})\\%
+                              &\cong \coprod^{\infty}_{n=0}\Cl(\Sigma_{n})\\%
+                              &\cong \{%
+                                         (a_{n})_{n\in\N}\in\N^{\N}%
+                                         \ \middle|\ %
+                                         \begin{aligned}
+                                             &\text{we have $a_{n}=0$ for all but}\\%
+                                             &\text{finitely many $n\in\N$}%
+                                         \end{aligned}
+                                     \},%
+            \end{align*}
+            where:
+            \begin{itemize}
+                \item $\FinSets^{\simeq}$ is the wide subcategory of $\FinSets$ spanned by the bijections, i.e.\ the category of finite sets and bijections between them.
+                \item $\Sigma_{n}$ is the $n$th symmetric group of \ChapterRef{\ChapterGroups, \cref{TODO}}{\cref{TODO}}.
+                \item $\Cl(\Sigma_{n})$ is the set of conjugacy classes of $\Sigma_{n}$, given by Young diagrams of weight $n$.
+            \end{itemize}
+            The trace map
+            \[
+                \tr%
+                \colon%
+                \rmEnd(\FinSets)%
+                \to%
+                \Tr(\FinSets)%
+            \]%
+            is defined as follows:
+            \begin{itemize}
+                \item Start with an endomorphism $f\colon X\to X$ of a finite set $X$;
+                \item Form the \textit{eventual image} $\Im^{\infty}(f)$ of $f$ by
+                    \[
+                        \Im^{\infty}(f)%
+                        \defeq%
+                        \bigcap^{\infty}_{n=1}f^{\circ n}(X),%
+                    \]%
+                    which will be a finite set of size $n$.
+                \item Consider the map of finite sets
+                    \[
+                        \restriction{f}{\Im^{\infty}(f)}%
+                        \colon%
+                        \Im^{\infty}(f)%
+                        \to%
+                        \Im^{\infty}(f),%
+                    \]%
+                    which is a bijection.
+                \item Take the conjugacy class $\sigma$ of $\restriction{f}{\Im^{\infty}(f)}$ in $\Sigma_{n}$.
+                \item The pair $(n,\sigma)$ then gives an element of $\Tr(\FinSets)$ (under the identification $\Tr(\FinSets)\cong\coprod^{\infty}_{n=0}\Cl(\Sigma_{n})$).
+            \end{itemize}
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-category-of-sets}\SloganFont{The Trace of $\FinSets^{\rmL}_{A}$. }
+            \begin{enumerate}
+                \item Does the isomorphism $\FinSets_{G}\cong\Fun(\B{G},\FinSets)$ make this easier to compute?
+                \item Does $G\mapsto\Tr(\FinSets_{G})$ form a monad?
+            \end{enumerate}
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-category-of-sets}\SloganFont{The Trace of $\Sets$. }We have
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-category-of-groups}\SloganFont{The Trace of $\Grp$. }
+        \item\label{examples-of-traces-of-categories-the-trace-of-the-category-of-abelian-groups}\SloganFont{The Trace of $\Ab$. }
+    \end{enumerate}
+\end{example}
+\begin{example}{The Trace of the Category of Finite $G$-Sets \rmI}{the-trace-of-the-category-of-finite-g-sets-1}%
+    Let $\mathcal{G}_{n}$ be the full subgroupoid of $\FinSets^{\simeq}_{G}$ spanned by the $G$-sets whose underlying set is given by $[n]=\{1,\ldots,n\}$. We have
+    \[
+        \Tr(\mathcal{G}_{n})%
+        \cong%
+        \coprod_{\alpha\in\Hom_{\Grp}(G,\Sigma_{n})_{\Sigma_{n}}}\Stab_{\Sigma_{n}}(\alpha),%
+    \]%
+    where:
+    \begin{itemize}
+        \item $\Hom_{\Grp}(G,\Sigma_{n})_{\Sigma_{n}}$ denotes the space of orbits of $\Hom_{\Grp}(G,\Sigma_{n})$ under the conjugaction action $\alpha\mapsto\sigma^{-1}\alpha\sigma$ of $\Sigma_{n}$.
+        \item $\Stab_{\Sigma_{n}}(\alpha)$ is the stabilizer subgroup of $\Sigma_{n}$ under the conjugation action $\alpha\mapsto\sigma^{-1}\alpha\sigma$ of $\Sigma_{n}$ on $\Hom_{\Grp}(G,\Sigma_{n})$.
+    \end{itemize}
+\end{example}
+\begin{Proof}{Proof of \cref{the-trace-of-the-category-of-finite-g-sets-1}}%
+    First, note that:
+    \begin{enumerate}
+        \item\label{the-trace-of-the-category-of-finite-g-sets-1-1}An action of $G$ on $[n]$ is equivalently specified by a morphism of groups $\alpha\colon G\to\Sigma_{n}$.
+        \item\label{the-trace-of-the-category-of-finite-g-sets-1-2}Given two such actions $\alpha,\beta\colon G\to\Sigma_{n}$, an isomorphism of $G$-sets from $([n],\alpha)$ to $([n],\beta)$ is a bijection $\sigma\colon[n]\to[n]$ such that the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    G
+                    \arrow[r,"\beta"]
+                    \arrow[d,"\alpha"']
+                    \&
+                    \Sigma_{n}
+                    \arrow[d,"\sigma_{*}"]
+                    \\
+                    \Sigma_{n}
+                    \arrow[r,"\sigma^{*}"']
+                    \&
+                    \Sigma_{n}
+                \end{tikzcd}
+            \]%
+            commutes, i.e.\ such that $\alpha=\sigma^{-1}\beta\sigma$.
+    \end{enumerate}
+    In other words, the orbits for the conjugation action of $\Sigma_{n}$ on $\Hom_{\Grp}(G,\Sigma_{n})$ are precisely the isomorphism classes of objects of $\mathcal{G}_{n}$. In symbols:
+    \[
+        \K_{0}(\mathcal{G}_{n})%
+        =%
+        \Hom_{\Grp}(G,\Sigma_{n})/\Sigma_{n}.%
+    \]%
+    Similarly, given a $G$-set $([n],\alpha)$ in $\mathcal{G}_{n}$, its automorphism group consists of those bijections $\sigma$ of $[n]$ (i.e.\ elements of $\Sigma_{n}$) making the diagram
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {[n]}
+            \arrow[r,"\sigma"]
+            \arrow[d,"\alpha_{g}"']
+            \&
+            {[n]}
+            \arrow[d,"\alpha_{g}"]
+            \\
+            {[n]}
+            \arrow[r,"\sigma"']
+            \&
+            {[n]}
+        \end{tikzcd}
+    \]%
+    commute for each $g\in G$. In other words, we must have $\sigma^{-1}\alpha\sigma=\alpha$, and thus
+    \[
+        \Aut_{\mathcal{G}_{n}}([n],\alpha)%
+        =%
+        \Stab_{\Sigma_{n}}(\alpha).%
+    \]%
+    Since $\mathcal{G}_{n}$ is a groupoid, we may apply \cref{a} of \cref{a}, giving
+    \begin{align*}
+        \Tr(\mathcal{G}_{n}) &\cong \coprod_{\alpha\in\K_{0}(\mathcal{G}_{n})}\Aut_{\mathcal{G}_{n}}(\alpha)\\%
+                             &\cong \coprod_{\alpha\in\Hom_{\Grp}(G,\Sigma_{n})/\Sigma_{n}}\Stab_{\Sigma_{n}}(\alpha).%
+    \end{align*}
+    This finishes the proof.
+\end{Proof}
+\begin{example}{The Trace of the Category of Finite $G$-Sets \rmII}{the-trace-of-the-category-of-finite-g-sets-2}%
+    Let $\mathcal{G}_{n}$ be as in \cref{the-trace-of-the-category-of-finite-g-sets-1}. We have
+    \begin{align*}
+        \Tr(\FinSets_{G}) &\cong \Tr(\FinSets^{\simeq}_{G})\\%
+                          &\cong \coprod^{\infty}_{n=0}\Tr(\mathcal{G}_{n})\\
+                          &\cong \coprod_{([n],\alpha)\in\K_{0}(\FinSets^{\simeq}_{G})}\Stab_{\Sigma_{n}}(\alpha).%
+    \end{align*}
+\end{example}
+\begin{Proof}{Proof of \cref{the-trace-of-the-category-of-finite-g-sets-2}}%
+\end{Proof}
+% The example below applies only to transitive $G$-sets. I should use that FinSets_G is the free symmetric monoidal groupoid on the groupoid of finite transitive $G$-sets (https://qchu.wordpress.com/2015/11/04/the-categorical-exponential-formula/) to get a general result
+% Tr(Orb_G) is \coprod_{\substack{[H]\leq G\\ [G:H]\less\infty}}\rmN_{G}(H)/H,
+%\begin{example}{The Trace of the Category of Finite $G$-Sets \rmIII}{the-trace-of-the-category-of-finite-g-sets-3}%
+%    Let $\mathcal{G}_{n}$ be as in \cref{the-trace-of-the-category-of-finite-g-sets-1}. We have
+%    \[
+%        \Tr(\FinSets^{\simeq}_{G})%
+%        \cong%
+%        \coprod_{\substack{[H]\leq G\\ [G:H]\less\infty}}\rmN_{G}(H)/H,%
+%    \]%
+%    where $\rmN_{G}(H)$ is the normalizer of $G$ in $H$.
+%\end{example}
+%\begin{Proof}{Proof of \cref{the-trace-of-the-category-of-finite-g-sets-2}}%
+%    By \cref{the-trace-of-the-category-of-finite-g-sets-1}, we have
+%    \[
+%        \Tr(\mathcal{G}_{n})%
+%        \cong%
+%        \coprod_{\alpha\in\Hom_{\Grp}(G,\Sigma_{n})/\Sigma_{n}}\Stab_{\Sigma_{n}}(\alpha).%
+%    \]%
+%    Since every transitive $G$-set structure on $[n]$ is isomorphic to a coset space of the form $G/H$ for $H$ a subgroup of index $n$ in $G$ and in that case $\Aut(G/H)\cong\rmN_{G}(H)/H$, we may rewrite this isomorphism as
+%    \[
+%        \Tr(\mathcal{G}_{n})%
+%        \cong%
+%        \coprod_{\substack{[H]\leq G\\ [G:H]=n}}\rmN_{G}(H)/H.%
+%    \]%
+%    Summing over $n\in\N$ and applying \cref{TODO} of \cref{TODO} then gives the result.
+%\end{Proof}
+\begin{appendices}
+\input{ABSOLUTEPATH/chapters2.tex}
+\end{appendices}
+\end{document}

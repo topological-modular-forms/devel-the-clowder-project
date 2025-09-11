@@ -20,6 +20,7 @@ LIJST = introduction \
 		posets \
 		categories \
 		presheaves-and-the-yoneda-lemma \
+		centres-and-traces-of-categories \
 		monoidal-categories \
 		constructions-with-monoidal-categories \
 		types-of-morphisms-in-bicategories \
