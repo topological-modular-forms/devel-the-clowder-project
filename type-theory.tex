@@ -34,6 +34,7 @@ TODO:
     \item $\leq$ (6.3)
     \item maybe: absolute value
     \item maybe: distance
+    \item Homotopy linear type theory | Programming languages with homotopy types
 \end{enumerate}
 
 \section{Type Theory Basics}\label{section-type-theory-basics}
@@ -1672,9 +1673,9 @@ Let $A$, $B$, and $C$ be types.
             {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))\mrp{.}}
             \\[0.5\FourCm]
             \&[0.5\FourCm]
-            {\Eq_{\N}(\succ_{\N}(n),\succ_{\N}(m))}
+            {\sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))}
             \&[0.9\FourCm]
-            {\Eq_{\N}(n,m)}
+            {\sfEq_{\N}(n,m)}
             \&[0.5\FourCm]
             % 1-Arrows
             \arrow[from=1-1,to=1-4,dashed]%
@@ -1777,7 +1778,7 @@ Let $A$, $B$, and $C$ be types.
     The computation rules for induction then give
     \begin{align*}
         \sfEq_{\N}(0_{\N},m)        &\doteq E_{0}(m),\\%
-        \sfEq_{\N}(\succ_{\N}(n),m) &\doteq E_{S}(n,\Eq_{\N}(n),m).%
+        \sfEq_{\N}(\succ_{\N}(n),m) &\doteq E_{S}(n,\sfEq_{\N}(n),m).%
     \end{align*}
     This finishes the construction of $\sfEq_{\N}$.
 \end{Proof}
@@ -1832,23 +1833,23 @@ Let $A$, $B$, and $C$ be types.
     \begin{itemize}
         \item If $n=m=0_{\N}$, we have $\refl_{0_{\N}}\oftype0_{\N}\to0_{\N}$.
         \item If $n=0_{\N}$ and $m=\succ_{\N}(k)$ for some $k\oftype\N$ or the other way around, we have a function $\EmptyType\to(n\equals_{\N}m)$.
-        \item If $n$ and $m$ are successors and we assume we have a function $f\oftype\Eq_{\N}(n,m)\to(n\equals_{\N}m)$ for induction, then we define
+        \item If $n$ and $m$ are successors and we assume we have a function $f\oftype\sfEq_{\N}(n,m)\to(n\equals_{\N}m)$ for induction, then we define
             \[
-                \Eq_{\N}(\succ_{\N}(n),\succ_{\N}(m))%
+                \sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))%
                 \to%
                 (\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))%
             \]%
             as the composition
             \[
                 \begin{tikzcd}[row sep={0.0*\the\DL,between origins}, column sep={0.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-                    {\Eq_{\N}(\succ_{\N}(n),\succ_{\N}(m))}
+                    {\sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))}
                     \&[0.5\ThreeCm]
                     \&[0.9\ThreeCm]
                     \&[0.5\ThreeCm]
                     {(\succ_{\N}(n)\equals_{\N}\succ_{\N}(m))\mrp{,}}
                     \\[0.5\ThreeCm]
                     \&[0.5\ThreeCm]
-                    {\Eq_{\N}(n,m)}
+                    {\sfEq_{\N}(n,m)}
                     \&[0.9\ThreeCm]
                     {(n\equals_{\N}m)}
                     \&[0.5\ThreeCm]
@@ -3846,6 +3847,21 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
         \item\label{examples-of-decidable-types-the-unit-type}The unit type $\UnitType$ is decidable, as we may use $\point$ to construct a term $\iota^{\rmL}_{\UnitType+\neg\UnitType}(\point)$ of type $\isdecidable(\UnitType)$.
         \item\label{examples-of-decidable-types-the-natural-numbers}The type of natural numbers $\N$ is decidable, as we may use $0_{\N}$ to construct a term $\iota^{\rmL}_{\N+\neg\N}(0_{\N})$ of type $\isdecidable(\N)$.
         \item\label{examples-of-decidable-types-types-equipped-with-terms}More generally, any type that comes equipped with a term $a$ is decidable, as we may construct a term $\iota^{\rmL}_{A+\neg A}(a)$ of type $\isdecidable(A)$.
+        \item\label{examples-of-decidable-types-observational-equality-on-natural-numbers}The type $\sfEq_{\N}(n,m)$ is decidable for all $n,m\oftype\N$. This is proven via induction, noting that the types
+            \begin{gather*}
+                \sfEq_{\N}(0_{\N},0_{\N})\doteq\UnitType,\\%
+                \begin{aligned}
+                    \sfEq_{\N}(0_{\N},\succ_{\N}(m)) &\doteq \EmptyType,\\
+                    \sfEq_{\N}(\succ_{\N}(n),0_{\N}) &\doteq \EmptyType
+                \end{aligned}
+            \end{gather*}
+            are decidable, and that so is the type
+            \[
+                \sfEq_{\N}(\succ_{\N}(n),\succ_{\N}(m))%
+                \doteq%
+                \sfEq_{\N}(n,m)%
+            \]%
+            by the inductive hypothesis.
     \end{enumerate}
 \end{example}
 \begin{proposition}{Properties of Decidable Types}{properties-of-decidable-types}%
@@ -3855,6 +3871,11 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
         \item\label{properties-of-decidable-types-decidability-of-products}\SloganFont{Decidability of Products. }If $A$ and $B$ are decidable, then so is $A\times B$.
         \item\label{properties-of-decidable-types-decidability-of-function-types}\SloganFont{Decidability of Function Types. }If $A$ and $B$ are decidable, then so is $A\to B$.
         \item\label{properties-of-decidable-types-decidability-of-negations-of-types}\SloganFont{Decidability of Negations of Types. }If $A$ is decidable, then so is $\neg A$.
+        \item\label{properties-of-decidable-types-interaction-with-bi-implications}\SloganFont{Interaction With Bi-Implications. }If $A\biimplications B$ is inhabited, then the following conditions are equivalent:
+            \begin{enumerate}
+                \item\label{properties-of-decidable-types-interaction-with-bi-implications-a}The type $A$ is decidable.
+                \item\label{properties-of-decidable-types-interaction-with-bi-implications-b}The type $B$ is decidable.
+            \end{enumerate}
         %\item\label{properties-of-decidable-types-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
@@ -3909,6 +3930,17 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
 
     \ProofBox{\cref{properties-of-decidable-types-decidability-of-negations-of-types}: Decidability of Negations of Types}%
     This follows from \cref{properties-of-decidable-types-decidability-of-function-types} and the fact that $\EmptyType$ is decidable.
+
+    \ProofBox{\cref{properties-of-decidable-types-interaction-with-bi-implications}: Interaction With Bi-Implications}%
+    By \cref{properties-of-negations-of-types-contrapositive} of \cref{properties-of-negations-of-types}, we can assign to every pair of functions $f\oftype A\to B$ and $g\oftype B\to A$ functions
+    \begin{align*}
+        \widetilde{f} &\oftype\neg B\to\neg A,\\
+        \widetilde{g} &\oftype\neg A\to\neg B.
+    \end{align*}
+    We may then build functions
+    \begin{align*}
+        f+\widetilde{g}
+    \end{align*}
 \end{Proof}
 \subsection{Decidable Equality}\label{subsection-decidable-equality}
 \begin{definition}{Decidable Equality}{decidable-equality}%
@@ -3922,6 +3954,12 @@ Let $f\oftype\prod_{x\oftype A}B(x)$ be a dependent function.
         \prod_{x,y\oftype A}\isdecidable(x\equals_{A}y).%
     \]%
 \end{notation}
+\begin{example}{Types With Decidable Equality}{types-with-decidable-equality}%
+    Here are some examples of types with decidable equality.
+    \begin{enumerate}
+        \item\label{types-with-decidable-equality-the-natural-numbers}The type of natural numbers $\N$ has decidable equality via \cref{examples-of-decidable-types-observational-equality-on-natural-numbers} of \cref{examples-of-decidable-types} and \cref{properties-of-observational-equality-of-natural-numbers-relation-to-identity-types} of \cref{properties-of-observational-equality-of-natural-numbers}.
+    \end{enumerate}
+\end{example}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
