@@ -2661,6 +2661,36 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
     \ProofBox{\cref{properties-of-sequences-in-r-multiplication-2}: Multiplication \rmII}%
     Omitted.
 \end{Proof}
+\section{The Surreal Numbers}\label{section-the-surreal-numbers}
+\subsection{Foundations}\label{subsection-foundations}
+\begin{definition}{The $k$th Day Surreal Numbers}{the-kth-day-surreal-numbers}%
+    The set of \textbf{$k$th day surreal numbers} is defined recursively as follows.
+    \begin{enumerate}
+        \item\label{the-kth-day-surreal-numbers-the-minus-one-th-day-surreal-numbers}The set of \textbf{day -1 surreal numbers} is the set $S_{-1}$ defined by
+            \[
+                S_{-1}%
+                \defeq%
+                \emptyset.%
+            \]%
+        \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers}A \textbf{$k$th day surreal prenumber} is a pair $X\defeq(X_{L},X_{R})$ consisting of:
+            \begin{itemize}
+                \item A set $X_{L}$, called the \index[real-analysis]{surreal number!left set}\textbf{left set of $X$}, whose elements are $(k-1)$th day surreal numbers.
+                \item A set $X_{R}$, called the \index[real-analysis]{surreal number!right set}\textbf{right set of $X$}, whose elements are $(k-1)$th day surreal numbers.
+            \end{itemize}
+            satisfying the following conditions:
+            \begin{enumerate}
+                \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers-empty-intersection}\SloganFont{Empty Intersection. }We have $X_{L}\cap X_{R}=\emptyset$.
+                \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers-}\SloganFont{Empty Intersection. }We have $X_{L}\cap X_{R}=\emptyset$.
+            \end{enumerate}
+        \item\label{the-kth-day-surreal-numbers-the-kthth-day-surreal-numbers}The set of \textbf{$k$th day surreal numbers} for $k\geq0$ is the set $S_{k}$ defined by
+    \end{enumerate}
+\end{definition}
+\begin{definition}{The Recursive Definition of a Surreal Number}{the-recursive-definition-of-a-surreal-number}%
+    A \index[real-analysis]{surreal number}\textbf{surreal number} is a pair \index[notation]{XLXR@$\langle L|R\rangle$}$X=\langle X_{L}|X_{R}\rangle$ consisting of :
+    \begin{itemize}
+        \item A set $X_{L}$ whose elements are surreal numbers.
+    \end{itemize}
+\end{definition}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
