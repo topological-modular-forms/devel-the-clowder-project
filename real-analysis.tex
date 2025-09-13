@@ -2663,6 +2663,66 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
 \end{Proof}
 \section{The Surreal Numbers}\label{section-the-surreal-numbers}
 \subsection{Foundations}\label{subsection-foundations}
+\begin{construction}{The Class of Surreal Numbers}{the-class-of-surreal-numbers}%
+    We proceed by transfinite induction, as in \cref{TODO}, defining a function
+    \[
+        S%
+        \colon%
+        \Ord% Class of all ordinals
+        \to%
+        \CatFont{U}% Class of all sets
+    \]%
+    where $S(\alpha)$ will be the set of \textbf{surreal numbers \say{created on day $\alpha$}}.
+    \begin{enumerate}
+        \item\label{the-class-of-surreal-numbers-the-universe-of-prior-forms}\SloganFont{The Universe of Prior Forms. }Given $S_{<\alpha}\defeq S\upharpoonright_{\alpha}$, we define the \textbf{universe of forms \say{prior to day $\alpha$}} to be the set $U_{<\alpha}$ defined by
+            \[
+                U_{<\alpha}
+                \defeq%
+                \bigcup_{\beta<\alpha}S(\beta).%
+            \]%
+        \item\label{the-class-of-surreal-numbers-the-set-of-forms-for-day-alpha}\SloganFont{The Set of Forms for Day $\alpha$. }Given $\alpha\in\Ord$, we define $S(\alpha)$ to be the set
+            \[
+                S(\alpha)%
+                \defeq%
+                \{%
+                    \{X_{L}|X_{R}\}\in U_{<\alpha}\times U_{<\alpha}%
+                    \ \middle|\ %
+                    \begin{gathered}
+                        &(X_{L}\cup X_{R})\subset U_{<\alpha},\\
+                        &\forall x_{L}\in X_{L},\,\forall x_{R}\in X_{R}:\neg(x_{R}\leq x_{L})%
+                    \end{gathered}
+                \}.%
+            \]%
+            That is:
+            \begin{enumerate}
+                \item\label{the-class-of-surreal-numbers-the-set-of-forms-for-day-alpha-subset-condition}\SloganFont{Subset Condition. }The elements of $X_{L}$ and $X_{R}$ belong to the universe $U_{<\alpha}$ of forms prior to day $\alpha$.
+                \item\label{the-class-of-surreal-numbers-the-set-of-forms-for-day-alpha-ordering}\SloganFont{Ordering. }The elements of $X_{L}$ are smaller than the elements of $X_{R}$.
+            \end{enumerate}
+    \end{enumerate}
+    The \textbf{class of surreal number forms} is then the class $\Sur_{\forms}$ defined by
+    \[
+        \Sur_{\forms}%
+        \defeq%
+        \bigcup_{\alpha\in\Ord}S(\alpha).%
+    \]%
+    Next, we define an order
+    \[
+        \leq%
+        \colon%
+        \Sur_{\forms}%
+        \times%
+        \Sur_{\forms}%
+        \to%
+        \Sur_{\forms}%
+    \]%
+    by declaring $X\leq Y$ if the following conditions are satisfied:
+    \begin{enumerate}\setcounter{enumi}{2}
+        \item\label{the-class-of-surreal-numbers-ordering-1}There does not exist $x_{L}\in X_{L}$ such that $Y\leq x_{L}$.
+        \item\label{the-class-of-surreal-numbers-ordering-2}There does not exist $y_{R}\in Y_{R}$ such that $y_{R}\leq X$.
+    \end{enumerate}
+\end{construction}
+TODO: How do we do this replacing classes with Grothendieck universes?
+\subsection{Finite Day Surreal Numbers}\label{subsection-finite-day-surreal-numbers}
 \begin{definition}{The $k$th Day Surreal Numbers}{the-kth-day-surreal-numbers}%
     The set of \textbf{$k$th day surreal numbers} is defined recursively as follows.
     \begin{enumerate}
@@ -2672,7 +2732,7 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
                 \defeq%
                 \emptyset.%
             \]%
-        \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers}A \textbf{$k$th day surreal prenumber} is a pair $X\defeq(X_{L},X_{R})$ consisting of:
+        \item\label{the-kth-day-surreal-numbers-kth-day-surreal-prenumbers}A \textbf{$k$th day surreal prenumber} is a pair $X\defeq(X_{L},X_{R})$ consisting of:
             \begin{itemize}
                 \item A set $X_{L}$, called the \index[real-analysis]{surreal number!left set}\textbf{left set of $X$}, whose elements are $(k-1)$th day surreal numbers.
                 \item A set $X_{R}$, called the \index[real-analysis]{surreal number!right set}\textbf{right set of $X$}, whose elements are $(k-1)$th day surreal numbers.
@@ -2680,17 +2740,32 @@ In this section we follow \cite{weiss:the-reals-as-rational-cauchy-filters}.
             satisfying the following conditions:
             \begin{enumerate}
                 \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers-empty-intersection}\SloganFont{Empty Intersection. }We have $X_{L}\cap X_{R}=\emptyset$.
-                \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers-}\SloganFont{Empty Intersection. }We have $X_{L}\cap X_{R}=\emptyset$.
+                \item\label{the-kth-day-surreal-numbers-kth-day-surreal-numbers-ordering}\SloganFont{Ordering. }For each $x_{L}\in X_{L}$ and each $x_{R}\in X_{R}$, we have $x_{L}\leq x_{R}$, where $\leq$ is the order of \cref{the-kth-day-surreal-numbers-the-order-on-kth-day-surreal-pre-numbers}
             \end{enumerate}
-        \item\label{the-kth-day-surreal-numbers-the-kthth-day-surreal-numbers}The set of \textbf{$k$th day surreal numbers} for $k\geq0$ is the set $S_{k}$ defined by
+        \item\label{the-kth-day-surreal-numbers-the-order-on-kth-day-surreal-pre-numbers}The \textbf{order on surreal $k$th day pre-numbers} is the order
+            \[
+                \leq_{k}%
+                S^{\pre}_{k}%
+                \times%
+                S^{\pre}_{k}%
+                \to%
+                S^{\pre}_{k}%
+            \]%
+            on $S^{\pre}_{k}$ declaring $X\leq Y$ if the following conditions are satisfied:
+            \begin{enumerate}
+                \item\label{the-kth-day-surreal-numbers-the-order-on-kth-day-surreal-pre-numbers-a}There does not exist $x_{L}\in X_{L}$ such that $Y\leq x_{L}$.
+                \item\label{the-kth-day-surreal-numbers-the-order-on-kth-day-surreal-pre-numbers-b}There does not exist $y_{R}\in Y_{R}$ such that $y_{R}\leq X$.
+            \end{enumerate}
+        \item\label{the-kth-day-surreal-numbers-the-kth-day-surreal-numbers}The set of \textbf{$k$th day surreal numbers} for $k\geq0$ is the set $S_{k}$ defined by
+            \[
+                S_{k}%
+                \defeq%
+                S^{\pre}_{k}/\unsim,%
+            \]%
+            where $\unsim$ is the equivalence relation on $S^{\pre}_{K}$ obtained by declaring $X\sim Y$ \textiff $X\leq Y$ and $Y\leq X$.
     \end{enumerate}
 \end{definition}
-\begin{definition}{The Recursive Definition of a Surreal Number}{the-recursive-definition-of-a-surreal-number}%
-    A \index[real-analysis]{surreal number}\textbf{surreal number} is a pair \index[notation]{XLXR@$\langle L|R\rangle$}$X=\langle X_{L}|X_{R}\rangle$ consisting of :
-    \begin{itemize}
-        \item A set $X_{L}$ whose elements are surreal numbers.
-    \end{itemize}
-\end{definition}
+\subsection{Transfinite Day Surreal Numbers}\label{subsection-transfinite-day-surreal-numbers}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
