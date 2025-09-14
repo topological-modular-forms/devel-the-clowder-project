@@ -2129,7 +2129,7 @@ Let $A$, $B$, and $C$ be types.
                 \ap_{\succ_{\N}}(p)%
                 \oftype%
                 \succ_{\N}(\succ_{\N}(n)+m)%
-                \subequals_{\N}%
+                \subequals{\N}%
                 \succ_{\N}(\succ_{\N}(n+m)).%
             \]%
             This finishes the inductive step.
@@ -3555,19 +3555,19 @@ Let $A$ be a type and let $a\oftype A$.
     We need to show that, for each $y\oftype\sum_{x\oftype A}a\equals_{A}x$, the type
     \[
         (a,\refl_{a})%
-        \subequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        \subequals{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
         y%
     \]%
     is inhabited. By $\Sigma$-induction, it suffices to construct a term of type
     \[
         (a,\refl_{a})%
-        \subequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        \subequals{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
         (x,p)%
     \]%
     for each $x\oftype A$ and each $p\oftype a\equals_{A}x$. By path induction, it then suffices to construct a term of type
     \[
         (a,\refl_{a})%
-        \subequals_{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
+        \subequals{\scriptdisplaystyle{\sum_{x\oftype A}a\equals_{A}x}}%
         (a,\refl_{a}).%
     \]%
     For this, we use $\refl_{(a,\refl_{a})}$.

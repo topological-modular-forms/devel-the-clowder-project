@@ -478,9 +478,6 @@
 \DeclareMathOperator{\pair}{\operatorname{\textsf{pair}}}
 \DeclareMathOperator{\sfpr}{\operatorname{\textsf{pr}}}
 \newcommand{\indeq}[1]{\textsf{ind}^{\textsf{eq}}_{#1}}%\newcommand{\indeq}{\operatorname{\textsf{ind-eq}}}
-\newcommand{\equals}{\mathbin{=}}%
-\newcommand{\nequals}{\mathbin{\neq}}%
-\DeclareMathOperator*{\subequals}{\mathbin{=}}%
 \DeclareMathOperator{\concat}{\operatorname{\textsf{concat}}}
 \DeclareMathOperator{\Id}{\operatorname{\textsf{Id}}}
 \DeclareMathOperator{\inv}{\operatorname{\textsf{inv}}}
@@ -527,3 +524,13 @@
 \newcommand{\chigh}[1]{{\color{OIvermillion}#1}}
 \DeclareMathOperator{\isminimaltermfor}{\operatorname{\textsf{is-minimal-term-for}}}
 \DeclareMathOperator{\ismaximaltermfor}{\operatorname{\textsf{is-maximal-term-for}}}
+% Equality and Homotopy
+\newcommand{\equals}{\mathbin{=}}%
+\newcommand{\htpy}{\sim}%
+\newcommand{\subequals}[1]{\mathbin{\underset{#1}{\mathord{=}}}}%
+\newcommand{\subhtpy}[2]{\mathrel{\underset{[#1,#2]}{\sim}}}%
+% Operators derived from equality and homotopy
+\newcommand{\nequals}{\mathbin{\neq}}%
+\newcommand{\reflhtpy}{\operatorname{\textsf{refl-htpy}}}
+\newcommand{\invhtpy}{\operatorname{\textsf{inv-htpy}}}
+\newcommand{\concathtpy}{\operatorname{\textsf{concat-htpy}}}

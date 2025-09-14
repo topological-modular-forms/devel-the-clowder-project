@@ -22,6 +22,97 @@ TODO:
 \end{enumerate}
 
 \section{Equivalences}\label{section-hott-equivalences}
+\subsection{Homotopies}\label{subsection-hott-homotopies}
+Let $f,g\oftype\prod_{x\oftype A}B(x)$ be dependent functions.
+\begin{definition}{Homotopies}{hott-homotopies}%
+    The \index[type-theory]{type of homotopies}\textbf{type of homotopies} from $f$ to $g$ is the type \index[notation]{fAsimB@$f\htpy_{[A,B]}g$}$f\htpy_{[A,B]}g$ defined by%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Terminology: }A term of type $f\htpy_{[A,B]}g$ is called a \index[type-theory]{homotopy}\textbf{homotopy} from $f$ to $g$.
+    }%
+    %---  End Footnote  ---%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Further Notation: }We will sometimes simply write \index[notation]{fsimg@$f\sim g$}$f\sim g$ for $f\htpy_{[A,B]}g$.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        f\subhtpy{A}{B}g%
+        \defeq%
+        \prod_{\chigh{x\oftype A}}\chigh{f(x)\subequals{B(x)}g(x)}.%
+    \]%
+\end{definition}
+\begin{remark}{Commutativity of Diagrams}{hott-commutativity-of-diagrams}%
+    Homotopies are used to express commutativity for diagrams. For example:
+    \begin{itemize}
+        \item Saying that the triangle
+            \[
+                \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[rr,"h"]
+                    \arrow[rd,"f"']
+                    \&
+                    \&
+                    B
+                    \arrow[ld,"g"]
+                    \\
+                    \&
+                    X%
+                    \&
+                \end{tikzcd}
+            \]%
+            \textbf{commutes} means that there exists a homotopy $H\oftype f\htpy_{[A,X]}g\circ h$.%
+        \item Saying that the square
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \arrow[d,"\phi"']
+                    \&
+                    B
+                    \arrow[d,"\psi"]
+                    \\
+                    X
+                    \arrow[r,"g"']
+                    \&
+                    Y
+                \end{tikzcd}
+            \]%
+            commutes means that there exists a homotopy $H\oftype g\circ\phi\htpy_{[A,Y]}\psi\circ f$.
+    \end{itemize}
+\end{remark}
+\begin{remark}{Higher Homotopies}{hott-higher-homotopies}%
+    Given homotopies $H,K\oftype f\htpy_{[A,B]}g$, we may also consider the type
+    \[
+        H\htpy_{[f,g]}K%
+        \defeq%
+        \prod_{x\oftype A}H(x)\subequals{f(x)\subequals{B(x)}g(x)}K(x).%
+    \]%
+    of homotopies between $H$ and $K$.
+\end{remark}
+\begin{proposition}{The Groupoidal Structure of Homotopies}{the-groupoidal-structure-of-homotopies}%
+    Let $B$ be a type family over $A$.
+    \begin{enumerate}
+        \item\label{the-groupoidal-structure-of-homotopies-reflexivity}\SloganFont{Reflexivity. }There exists a homotopy
+            \[
+                \reflhtpy_{A,B}%
+                \oftype%
+                \prod_{\scriptdisplaystyle{f\oftype\prod_{x\oftype A}B(x)}}f\subhtpy{A}{B}f%
+            \]%
+            defined by
+            \[
+                \reflhtpy_{A,B}(f)%
+                \defeq%
+                \llbracket x\mapsto\refl_{f(x)}\rrbracket.%
+            \]%
+        %\item\label{the-groupoidal-structure-of-homotopies-}\SloganFont{. }
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}{Proof of \cref{the-groupoidal-structure-of-homotopies}}%
+    \FirstProofBox{\cref{the-groupoidal-structure-of-homotopies-reflexivity}: Reflexivity}%
+    There is nothing to prove.
+\end{Proof}
 \begin{appendices}
 \input{ABSOLUTEPATH/chapters2.tex}
 \end{appendices}
