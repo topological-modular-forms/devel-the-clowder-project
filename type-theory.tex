@@ -12,7 +12,7 @@
 \phantomsection
 \label{section-phantom}
 
-This chapter contains material on type theory.
+This chapter contains material on type theory. Note: the current material is heavily based on Egbert Rijke's book, as I'm writing this material as I go through it.
 
 \ChapterTableOfContents
 
@@ -36,6 +36,13 @@ TODO:
     \item maybe: distance
     \item Homotopy linear type theory | Programming languages with homotopy types
     \item some stuff on decidability i skipped
+        \begin{enumerate}
+            \item Construction of case analysis
+            \item With something abstraction
+            \item gcd
+            \item infinitude of primes
+            \item boolean reflection
+        \end{enumerate}
 \end{enumerate}
 
 \section{Type Theory Basics}\label{section-type-theory-basics}
@@ -2321,6 +2328,99 @@ Let $A$, $B$, and $C$ be types.
 
     \ProofBox{\cref{properties-of-exponentiation-commutativity}: Commutativity}%
     Omitted.
+\end{Proof}
+\subsection{The Well-Ordering Principle of the Natural Numbers}\label{subsection-the-well-ordering-principle-of-the-natural-numbers}
+\begin{definition}{Bounds For Type Families Over $\N$}{bounds-for-type-families-over-n}%
+    Let $P$ be a type family indexed over $n\oftype\N$.%
+    \begin{enumerate}
+        \item\label{bounds-for-type-families-over-n-lower-bounds}A natural number $n$ is a \index[type-theory]{natural numbers!lower bound for a type family over}\textbf{lower bound} for $P$ if there exists a term of type%
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Intuition: }A lower bound for $P$ is a natural number $n$ such that if $P(x)$ holds, then so does $n\leq_{\N}x$.
+            }%
+            %---  End Footnote  ---%
+            \[
+                \islowerbound_{P}(n)%
+                \defeq%
+                \prod_{\chigh{x\oftype\N}}\chigh{P(x)\to(n\leq_{\N}x)}.%
+            \]%
+        \item\label{bounds-for-type-families-over-n-upper-bounds}A natural number $n$ is a \index[type-theory]{natural numbers!upper bound for a type family over}\textbf{upper bound} for $P$ if there exists a term of type
+            \[
+                \isupperbound_{P}(n)%
+                \defeq%
+                \prod_{\chigh{x\oftype\N}}\chigh{P(x)\to(x\leq_{\N}n)}.%
+            \]%
+        \item\label{bounds-for-type-families-over-n-minimal-terms}A natural number $n$ is a \index[type-theory]{natural numbers!minimal term for a type family over}\textbf{minimal term} for $P$ if there exists a term of type
+            %--- Begin Footnote ---%
+            \footnote{%
+                \SloganFont{Intuition: }Informally, a minimal term for $P$ is, if it exists, the smallest natural number $n$ such that $P(n)$ holds.
+                \par\vspace*{\TCBBoxCorrection}
+            }%
+            %---  End Footnote  ---%
+            \[
+                \isminimaltermfor_{P}(n)%
+                \defeq%
+                P(n)\times\islowerbound_{P}(n).%
+            \]%
+        \item\label{bounds-for-type-families-over-n-maximal-terms}A natural number $n$ is a \index[type-theory]{natural numbers!maximal term for a type family over}\textbf{maximal term} for $P$ if there exists a term of type
+            \[
+                \ismaximaltermfor_{P}(n)%
+                \defeq%
+                P(n)\times\isupperbound_{P}(n).%
+            \]%
+    \end{enumerate}
+\end{definition}
+\begin{theorem}{The Well Ordering Principle of the Natural Numbers}{the-well-ordering-principle-of-the-natural-numbers}%
+    Let $P$ be a decidable type family indexed over $\N$, with $d$ a witness of $P$'s decidability. There exists a function%
+    %--- Begin Footnote ---%
+    \footnote{%
+        \SloganFont{Slogan: }If $P$ is decidable, then either $P=\EmptyType$ or $P$ has a minimal term.
+        \par\vspace*{\TCBBoxCorrection}
+    }%
+    %---  End Footnote  ---%
+    \[
+        \wop_{\N}(P,d)%
+        \oftype%
+        \left(\sum_{n\oftype\N}P(n)\right)%
+        \to%
+        \left(\sum_{m\oftype\N}\isminimaltermfor_{P}(m)\right).%
+    \]%
+\end{theorem}
+\begin{Proof}{Proof of \cref{the-well-ordering-principle-of-the-natural-numbers}}%
+    By the assumption of enough universes (\cref{assumption-of-enough-universes}), there exists some universe $\CatFont{U}$ containing $P$. Instead of proving the existence of $\wop_{\N}(P,d)$ directly, we will prove the following
+    \begin{itemize}
+        \itemstar For each $n\in\N$, there exists a function
+            \begin{equation}\label{equation-the-well-ordering-principle-of-the-natural-numbers}
+                Q(n)%
+                \to%
+                \left(\sum_{\chigh{m\oftype\N}}\chigh{Q(m)\times\islowerbound_{Q}(m)}\right)%
+            \end{equation}
+            for every decidable type family $Q\oftype\N\to\CatFont{U}$.
+    \end{itemize}
+    Since we are now quantifying over decidable families $Q\oftype\N\to\CatFont{U}$, our inductive hypothesis allows us to assume the existence of a function as in \cref{equation-the-well-ordering-principle-of-the-natural-numbers} for any type family $Q$ over $\N$, rather than just for $P$.
+
+    \indent To prove (\star), we proceed by induction on $n\oftype\N$. Since $0_{\N}$ is a lower bound for every type family over $\N$, the base case follows. For the inductive step, let $Q\oftype\N\to\CatFont{U}$ be a decidable type family with an element $q\oftype Q(\succ_{\N}(n))$. We have to construct a term of type
+    \[
+        \sum_{\chigh{m\oftype\N}}\chigh{Q(m)\times\islowerbound_{Q}(m)}.%
+    \]%
+    Since $Q(0_{\N})$ is decidable by assumption, it suffices to construct a function
+    \[
+        (Q(0_{\N})+\neg Q(0_{\N}))%
+        \to%
+        \sum_{\chigh{m\oftype\N}}\chigh{Q(m)\times\islowerbound_{Q}(m)}.%
+    \]%
+    Using the induction principle for dependent pair types and the fact that $Q$ is decidable, we proceed by case analysis.
+    \begin{itemize}
+        \item If $Q(0_{\N})$ is inhabited, it follows that $0_{\N}$ must be a minimal term for $Q$, so we are done.
+        \item If $\neg Q(0_{\N})$ is inhabited, define a type family $Q'$ over $\N$ by
+            \[
+                Q'(n)%
+                \defeq%
+                Q(\succ_{\N}(n)).%
+            \]%
+            Since $q\oftype Q'(n)$, our inductive hypothesis gives us a minimal term of type $Q'$. Since $\neg Q(0_{\N})$ is inhabited, it follows that $q$ is also a minimal term of type $Q$.
+    \end{itemize}
+    This finishes the proof.
 \end{Proof}
 \section{The Integers}\label{section-martin-löf-type-theory-the-integers}
 \subsection{Foundations}\label{subsection-martin-löf-type-theory-the-integers-foundations}

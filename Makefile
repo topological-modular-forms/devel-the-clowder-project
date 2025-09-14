@@ -9,6 +9,7 @@ LIJST = introduction \
         conventions \
         axiomatic-set-theory \
         type-theory \
+        homotopy-type-theory \
         sets \
 		constructions-with-sets \
 		monoidal-structures-on-the-category-of-sets \
