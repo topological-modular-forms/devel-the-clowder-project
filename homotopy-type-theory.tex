@@ -106,11 +106,26 @@ Let $f,g\oftype\prod_{x\oftype A}B(x)$ be dependent functions.
                 \defeq%
                 \llbracket x\mapsto\refl_{f(x)}\rrbracket.%
             \]%
+        \item\label{the-groupoidal-structure-of-homotopies-inversion}\SloganFont{Inversion. }There exists a homotopy
+            \[
+                \invhtpy_{A,B}%
+                \oftype%
+                \prod_{\chigh{\scriptdisplaystyle{f,g\oftype\prod_{x\oftype A}B(x)}}}\chigh{(f\subhtpy{A}{B}g)\to(g\subhtpy{A}{B}f)}%
+            \]%
+            defined by
+            \[
+                \invhtpy_{A,B}(H)%
+                \defeq%
+                \llbracket x\mapsto H(x)^{-1}\rrbracket.%
+            \]%
         %\item\label{the-groupoidal-structure-of-homotopies-}\SloganFont{. }
     \end{enumerate}
 \end{proposition}
 \begin{Proof}{Proof of \cref{the-groupoidal-structure-of-homotopies}}%
     \FirstProofBox{\cref{the-groupoidal-structure-of-homotopies-reflexivity}: Reflexivity}%
+    There is nothing to prove.
+
+    \ProofBox{\cref{the-groupoidal-structure-of-homotopies-inversion}: Inversion}%
     There is nothing to prove.
 \end{Proof}
 \begin{appendices}
