@@ -3199,17 +3199,17 @@ Let $A$ be a type and let $a\oftype A$.
     \end{enumerate}
 \end{remark}
 \begin{intuition}{Intuition for Path Induction}{intuition-for-path-induction}%
-    We may illustrate path induction using groupoids as follows, following \cite{MSE4386675}. Given a groupoid $\CatFont{G}$, we may form the arrow category $\Arr(\CatFont{G})$ of $\CatFont{G}$, whose objects may be thought of as \textit{paths in $\CatFont{G}$}. Namely, this is the category where:
+    We may illustrate path induction using groupoids as follows, following \cite{MSE4386675}. Given a groupoid $\CatFont{G}$, we may form the arrow category $\Arr{\CatFont{G}}$ of $\CatFont{G}$, whose objects may be thought of as \textit{paths in $\CatFont{G}$}. Namely, this is the category where:
     \begin{itemize}
-        \item The objects of $\Arr(\CatFont{G})$ are pairs $(A,B,\phi)$ with $\phi\colon A\to B$ a morphism of $\CatFont{G}$.
-        \item A morphism of $\Arr(\CatFont{G})$ from $(A,B,\phi)$ to $(X,Y,\psi)$ is a pair $(f,g)$ of morphisms
+        \item The objects of $\Arr{\CatFont{G}}$ are pairs $(A,B,\phi)$ with $\phi\colon A\to B$ a morphism of $\CatFont{G}$.
+        \item A morphism of $\Arr{\CatFont{G}}$ from $(A,B,\phi)$ to $(X,Y,\psi)$ is a pair $(f,g)$ of morphisms
             \begin{align*}
                 f &\colon A\to X,\\
                 g &\colon B\to Y
             \end{align*}
             of $\CatFont{G}$ making the diagram
             \[
-                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                \begin{tikzcd}[row sep={4.0*\the\DL,between origins}, column sep={4.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     A
                     \arrow[r,"f"]
                     \arrow[d,"\phi"']
@@ -3225,20 +3225,20 @@ Let $A$ be a type and let $a\oftype A$.
             \]%
             commute.
     \end{itemize}
-    There is then a functor
+    Now, rhe arrow category $\Arr{\CatFont{G}}$ comes equipped with a functor
     \[
         \Wasureru%
         \colon%%
-        \Arr(\CatFont{G})%
+        \Arr{\CatFont{G}}%
         \to%
         \CatFont{G}\times\CatFont{G}%
     \]%
-    given on objects by $(A,B,\phi)\mapsto(A,B)$ and on morphisms by $(f,g)\mapsto(f,g)$, as well as the composite functor
+    given on objects by $(A,B,\phi)\mapsto(A,B)$ and on morphisms by $(f,g)\mapsto(f,g)$, so we may consider the composite functor
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
-            \Arr(\CatFont{G})%
-            \arrow[r,"\Wasureru"]
-            \&
+            {\Arr{\CatFont{G}}}%
+            \arrow[r,"{\Wasureru}"]
+            \&[1.5*\the\DL]
             \CatFont{G}\times\CatFont{G}%
             \arrow[r,"\pr_{1}"]
             \&
@@ -3258,13 +3258,13 @@ Let $A$ be a type and let $a\oftype A$.
             \PunctualCategory
             \arrow[d,"{[X]}"]
             \\
-            {\Arr(\CatFont{G})}
+            {\Arr{\CatFont{G}}}
             \arrow[r,"\pr"']
             \&
             \CatFont{G}%
         \end{tikzcd}
     \]%
-    of $\pr$ over $X$ is then (up to isomorphism) the coslice category $\CatFont{G}_{X/}$ of $\CatFont{G}$ under $X$. Namely, this is the category where:
+    of $\pr$ over $X$ is then (isomorphic to) the coslice category $\CatFont{G}_{X/}$ of $\CatFont{G}$ under $X$. Namely, this is the category where:
     \begin{itemize}
         \item The objects are pairs $(A,\phi)$ with:
             \begin{itemize}
@@ -3276,8 +3276,8 @@ Let $A$ be a type and let $a\oftype A$.
                 \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
                     \&
                     X%
-                    \arrow[ld,"\phi"]
-                    \arrow[rd,"\psi"']
+                    \arrow[ld,"\phi"']
+                    \arrow[rd,"\psi"]
                     \&
                     \\
                     A
@@ -3294,8 +3294,8 @@ Let $A$ be a type and let $a\oftype A$.
         \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
             X%
-            \arrow[ld,"\id_{X}"]
-            \arrow[rd,"\phi"']
+            \arrow[ld,"\id_{X}"',Equals]
+            \arrow[rd,"\phi"]
             \&
             \\
             X
@@ -3305,14 +3305,14 @@ Let $A$ be a type and let $a\oftype A$.
             A\mrp{.}
         \end{tikzcd}
     \]%
-    Since $\CatFont{G}$ is a groupoid, this means $(X,\id_{X})$ is also terminal. Thus, there exists a unique path
+    Since $\CatFont{G}$ is a groupoid, this means that $(X,\id_{X})$ is also terminal. As a result, there exists a unique path
     \[
         \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             \&
             X
-            \arrow[ld,"\phi"]
-            \arrow[d, "\id_{X}"]
-            \arrow[rd,"\psi"']
+            \arrow[ld,"\phi"']
+            \arrow[d, "\id_{X}"description,Equals]
+            \arrow[rd,"\psi"]
             \&
             \\
             A
@@ -3324,7 +3324,7 @@ Let $A$ be a type and let $a\oftype A$.
             B
         \end{tikzcd}
     \]%
-    between any two objects $(A,\phi)$ and $(B,\psi)$ of $\CatFont{G}_{X/}$. As a result, $\CatFont{G}_{X/}$ is contractible, so given a functor
+    between any two objects $(A,\phi)$ and $(B,\psi)$ of $\CatFont{G}_{X/}$. Thus, $\CatFont{G}_{X/}$ is contractible, so given a functor
     \[
         F%
         \colon%
@@ -3332,7 +3332,7 @@ Let $A$ be a type and let $a\oftype A$.
         \to%
         \CatFont{H}%
     \]%
-    from $\CatFont{G}_{X/}$ to another groupoid $\CatFont{H}$, it suffices to specify the image of $(X,\id_{X})$, as we can then define
+    from $\CatFont{G}_{X/}$ to another groupoid $\CatFont{H}$, it suffices to specify only the image of $(X,\id_{X})$, as we can then define
     \begin{align*}
         F(A,\phi) &\defeq F(X,\id_{X}),\\
         F(f)      &\defeq \id_{F(X,\id_{X})}.
