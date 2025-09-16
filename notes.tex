@@ -2116,13 +2116,26 @@ Here we list things to be explored in or added to this work in the future. This 
     \end{enumerate}
     Group Theory:
     \begin{enumerate}
+        \item rising and falling factorials
+            \begin{align*}
+                \sum_{\sigma\in\Sigma_{n}}x^{c(\sigma)}             &= x(x+1)\cdots(x+n-1),\\
+                \sum_{\sigma\in\Sigma_{n}}\sgn(\sigma)x^{c(\sigma)} &= x(x-1)\cdots(x-n+1)
+            \end{align*}
+            where $c(\sigma)$ denotes the number of disjoint cycles of $\sigma$ in its cycle decomposition.
+        \item Generators: The transposition $\tau=(1,2)$ and the n-cycle $\rho=(1,2,\ldots,n)$. Relations: A set of relations for these generators is more complex than the Coxeter relations and can be given by:
+            \begin{gather*}
+                \tau^{2}                  = 1
+                \rho^{n}                  = 1
+                (\rho\tau)^{n−1}          = 1
+                \rho^{k}\tau\rho^{-k}\tau = 1
+            \end{gather*}
+            for $k=2,3,\ldots,n−2$.
         \item \url{https://mathoverflow.net/questions/45651/is-there-a-q-analog-to-the-braid-group}
         \item \url{https://johncarlosbaez.wordpress.com/2025/03/27/the-mcgee-group/}
         \item \url{https://bookstore.ams.org/memo-1-2/}
         \item \url{https://link.springer.com/book/10.1007/978-3-662-59144-4}
         \item \url{https://en.wikipedia.org/wiki/Tits_group}
-        \item \url{https://en.wikipedia.org/wiki/Group_of_Lie_type}
-        \item \url{https://mathoverflow.net/questions/251769/what-meanings-does-chevalley-group-have}
+        \item \url{https://en.wikipedia.org/wiki/Group_of_Lie_type} \item \url{https://mathoverflow.net/questions/251769/what-meanings-does-chevalley-group-have}
         \item \url{https://encyclopediaofmath.org/wiki/Chevalley\_group}
         \item \url{https://en.wikipedia.org/wiki/Group\_of\_Lie\_type}
         \item MO: cardinality of $\Cl(\Aut(\GL_{n}(\F_{q})))$

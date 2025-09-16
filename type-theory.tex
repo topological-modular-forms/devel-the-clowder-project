@@ -2951,7 +2951,7 @@ Let $A$ and $B$ be types.
                     \hypo{\context{\Gamma}{A\type}}%
                     \hypo{\context{\Gamma}{B\type}}%
                     \hypo{\context{\Gamma,\,z\oftype A\times B}{P(z)\type}}%
-                    \infer3[(×-ind)]{\context{\Gamma}{\displaystyle\ind_{\mathord{\times}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}P(x,y)\right)\to\left(\prod_{z\oftype A\times B}P(z)\right)}}%
+                    \infer3[(×-ind)]{\context{\Gamma}{\displaystyle\ind_{\mathord{\times}}\oftype\left(\prod_{x\oftype A}\prod_{y\oftype B}P(\pair(x,y))\right)\to\left(\prod_{z\oftype A\times B}P(z)\right)}}%
                 \end{prooftree}%
                 .%
             \end{webprooftree}%
@@ -3198,6 +3198,163 @@ Let $A$ be a type and let $a\oftype A$.
         %\item\label{explicit-inference-rules-for-identity-types-}\SloganFont{. }
     \end{enumerate}
 \end{remark}
+\begin{intuition}{Intuition for Path Induction}{intuition-for-path-induction}%
+    We may illustrate path induction using groupoids as follows, following \cite{MSE4386675}. Given a groupoid $\CatFont{G}$, we may form the arrow category $\Arr(\CatFont{G})$ of $\CatFont{G}$, whose objects may be thought of as \textit{paths in $\CatFont{G}$}. Namely, this is the category where:
+    \begin{itemize}
+        \item The objects of $\Arr(\CatFont{G})$ are pairs $(A,B,\phi)$ with $\phi\colon A\to B$ a morphism of $\CatFont{G}$.
+        \item A morphism of $\Arr(\CatFont{G})$ from $(A,B,\phi)$ to $(X,Y,\psi)$ is a pair $(f,g)$ of morphisms
+            \begin{align*}
+                f &\colon A\to X,\\
+                g &\colon B\to Y
+            \end{align*}
+            of $\CatFont{G}$ making the diagram
+            \[
+                \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    A
+                    \arrow[r,"f"]
+                    \arrow[d,"\phi"']
+                    \&
+                    X
+                    \arrow[d,"\psi"]
+                    \\
+                    B
+                    \arrow[r,"g"']
+                    \&
+                    Y
+                \end{tikzcd}
+            \]%
+            commute.
+    \end{itemize}
+    There is then a functor
+    \[
+        \Wasureru%
+        \colon%%
+        \Arr(\CatFont{G})%
+        \to%
+        \CatFont{G}\times\CatFont{G}%
+    \]%
+    given on objects by $(A,B,\phi)\mapsto(A,B)$ and on morphisms by $(f,g)\mapsto(f,g)$, as well as the composite functor
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \Arr(\CatFont{G})%
+            \arrow[r,"\Wasureru"]
+            \&
+            \CatFont{G}\times\CatFont{G}%
+            \arrow[r,"\pr_{1}"]
+            \&
+            \CatFont{G}%
+        \end{tikzcd}
+    \]%
+    obtained by composing $\Wasureru$ with the first projection map from $\CatFont{G}\times\CatFont{G}$ to $\CatFont{G}$. Calling this map $\pr$, we see that the fibre
+    \[
+        \pr^{-1}(X)%
+        \qquad%
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            {\pr^{-1}(X)}
+            \arrow[r]
+            \arrow[d]
+            \arrow[rd,very near start,phantom,"\lrcorner"]
+            \&
+            \PunctualCategory
+            \arrow[d,"{[X]}"]
+            \\
+            {\Arr(\CatFont{G})}
+            \arrow[r,"\pr"']
+            \&
+            \CatFont{G}%
+        \end{tikzcd}
+    \]%
+    of $\pr$ over $X$ is then (up to isomorphism) the coslice category $\CatFont{G}_{X/}$ of $\CatFont{G}$ under $X$. Namely, this is the category where:
+    \begin{itemize}
+        \item The objects are pairs $(A,\phi)$ with:
+            \begin{itemize}
+                \item $A$ an object of $\CatFont{G}$.
+                \item $\phi\colon X\to A$ a morphism of $\CatFont{G}$.
+            \end{itemize}
+        \item A morphism from $(A,\phi)$ to $(B,\psi)$ is a morphism $f\colon A\to B$ making the diagram
+            \[
+                \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+                    \&
+                    X%
+                    \arrow[ld,"\phi"]
+                    \arrow[rd,"\psi"']
+                    \&
+                    \\
+                    A
+                    \arrow[rr,"f"']
+                    \&
+                    \&
+                    B
+                \end{tikzcd}
+            \]%
+            commute.
+    \end{itemize}
+    As it turns out, the object $(X,\id_{X})$ is initial in $\CatFont{G}_{X/}$, as the only morphism from $(X,\id_{X})$ to $(A,\phi)$ is $\phi$ itself:
+    \[
+        \begin{tikzcd}[row sep={3.75*\the\DL,between origins}, column sep={2.5*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            X%
+            \arrow[ld,"\id_{X}"]
+            \arrow[rd,"\phi"']
+            \&
+            \\
+            X
+            \arrow[rr,"\phi"']
+            \&
+            \&
+            A\mrp{.}
+        \end{tikzcd}
+    \]%
+    Since $\CatFont{G}$ is a groupoid, this means $(X,\id_{X})$ is also terminal. Thus, there exists a unique path
+    \[
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+            \&
+            X
+            \arrow[ld,"\phi"]
+            \arrow[d, "\id_{X}"]
+            \arrow[rd,"\psi"']
+            \&
+            \\
+            A
+            \arrow[r,"\phi^{-1}"']
+            \&
+            X
+            \arrow[r,"\psi"']
+            \&
+            B
+        \end{tikzcd}
+    \]%
+    between any two objects $(A,\phi)$ and $(B,\psi)$ of $\CatFont{G}_{X/}$. As a result, $\CatFont{G}_{X/}$ is contractible, so given a functor
+    \[
+        F%
+        \colon%
+        \CatFont{G}_{X/}%
+        \to%
+        \CatFont{H}%
+    \]%
+    from $\CatFont{G}_{X/}$ to another groupoid $\CatFont{H}$, it suffices to specify the image of $(X,\id_{X})$, as we can then define
+    \begin{align*}
+        F(A,\phi) &\defeq F(X,\id_{X}),\\
+        F(f)      &\defeq \id_{F(X,\id_{X})}.
+    \end{align*}
+    This is exactly what path induction does --- it takes:
+    \begin{itemize}
+        \item An assignment $(A,\id_{X})\mapsto F(X,\id_{X})$ and outputs an assignment  $(A,\phi)\mapsto F(A,\phi)$.
+        \item A term of type $P(a,\refl_{a})$                 and outputs a term of type $P(x,p)$.
+    \end{itemize}
+    \begingroup%
+    \setlength\cellspacetoplimit{3pt}
+    \setlength\cellspacebottomlimit{3pt}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{center}
+        \begin{tabular}{|Sc|Sc|Sc|}\hline\rowcolor{darkRed}
+            \textcolor{white}{\textbf{Setting}}    & \textcolor{white}{\textbf{Input}} & \textcolor{white}{\textbf{Output}} \\\hline\rowcolor{backgroundColor}
+            Groupoids                              & $F(X,\id_{X})$                    & $F(A,\phi)$                        \\\rowcolor{black!05!backgroundColor}
+            Types                                  & $P(a,\refl_{a})$                  & $P(x,p)$                           \\\hline
+        \end{tabular}
+    \end{center}
+    \endgroup
+\end{intuition}
 \begin{notation}{\say{Inequality} Types}{inequality-types}%
     We write \index[notation]{xnotequalsAy@$x\nequals_{A}y$}$x\nequals_{A}y$ for the type defined by
     \[
