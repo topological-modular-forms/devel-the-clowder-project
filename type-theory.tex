@@ -18,6 +18,7 @@ This chapter contains material on type theory. Note: the current material is hea
 
 TODO:
 \begin{enumerate}
+    \item unbased path induction (using $P(x,x,\refl_{x})$), \url{https://planetmath.org/1121pathinduction}. Paths in path fibration are homotopic to constant loops
     \item \url{https://mathoverflow.net/questions/499517/models-of-hott-locally-ccc-vs-quillen}
     \item Multiplication
     \item Exponentiation
@@ -3199,7 +3200,9 @@ Let $A$ be a type and let $a\oftype A$.
     \end{enumerate}
 \end{remark}
 \begin{intuition}{Intuition for Path Induction}{intuition-for-path-induction}%
-    We may illustrate path induction using groupoids as follows, following \cite{MSE4386675}. Given a groupoid $\CatFont{G}$, we may form the arrow category $\Arr{\CatFont{G}}$ of $\CatFont{G}$, whose objects may be thought of as \textit{paths in $\CatFont{G}$}. Namely, this is the category where:
+    Given that groupoids form a categorical semantics for Martin-Löf type theory (\cite{the-groupoid-interpretation-of-type-theory}), we may wonder what path induction looks like in that setting. In this vein, we may illustrate path induction using groupoids as follows, following \cite{MSE4386675}. 
+
+    \indent Given a groupoid $\CatFont{G}$, we may form the arrow category $\Arr{\CatFont{G}}$ of $\CatFont{G}$, whose objects may be thought of as \textit{paths in $\CatFont{G}$}. Namely, this is the category where:
     \begin{itemize}
         \item The objects of $\Arr{\CatFont{G}}$ are pairs $(A,B,\phi)$ with $\phi\colon A\to B$ a morphism of $\CatFont{G}$.
         \item A morphism of $\Arr{\CatFont{G}}$ from $(A,B,\phi)$ to $(X,Y,\psi)$ is a pair $(f,g)$ of morphisms
@@ -3246,10 +3249,12 @@ Let $A$ be a type and let $a\oftype A$.
         \end{tikzcd}
     \]%
     obtained by composing $\Wasureru$ with the first projection map from $\CatFont{G}\times\CatFont{G}$ to $\CatFont{G}$. Calling this map $\pr$, we see that the fibre
-    \[
+    \begin{webcompile}
         \pr^{-1}(X)%
+        \defeq%
+        \Arr{\CatFont{G}}\ttimes_{\CatFont{G}}\PunctualCategory,%
         \qquad%
-        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={8.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
+        \begin{tikzcd}[row sep={5.0*\the\DL,between origins}, column sep={5.0*\the\DL,between origins}, background color=backgroundColor, ampersand replacement=\&]
             {\pr^{-1}(X)}
             \arrow[r]
             \arrow[d]
@@ -3263,7 +3268,7 @@ Let $A$ be a type and let $a\oftype A$.
             \&
             \CatFont{G}%
         \end{tikzcd}
-    \]%
+    \end{webcompile}
     of $\pr$ over $X$ is then (isomorphic to) the coslice category $\CatFont{G}_{X/}$ of $\CatFont{G}$ under $X$. Namely, this is the category where:
     \begin{itemize}
         \item The objects are pairs $(A,\phi)$ with:
@@ -3339,7 +3344,7 @@ Let $A$ be a type and let $a\oftype A$.
     \end{align*}
     This is exactly what path induction does --- it takes:
     \begin{itemize}
-        \item An assignment $(A,\id_{X})\mapsto F(X,\id_{X})$ and outputs an assignment  $(A,\phi)\mapsto F(A,\phi)$.
+        \item An assignment $(X,\id_{X})\mapsto F(X,\id_{X})$ and outputs an assignment  $(A,\phi)\mapsto F(A,\phi)$.
         \item A term of type $P(a,\refl_{a})$                 and outputs a term of type $P(x,p)$.
     \end{itemize}
     \begingroup%
